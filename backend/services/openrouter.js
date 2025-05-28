@@ -102,7 +102,7 @@ async function summarizeText(text, model = 'google/gemma-7b-it:free') { // Defau
   }
   
   const messages = [
-    { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 5-10 words, suitable for a chat title.' },
+    { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 3-5 words, suitable for a chat title.' },
     { role: 'user', content: text }
   ];
   
