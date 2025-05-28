@@ -223,7 +223,10 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }
 
   const sendMessage = async (content: string) => {
-    if (!currentSession) return
+    if (!currentSession) {
+      console.error("Cannot send message: No active session");
+      return;
+    }
 
     // Add user message immediately to UI
     const userMessage: Message = {
@@ -231,12 +234,18 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       content,
       role: "user",
       timestamp: new Date(),
-    }
-    setMessages(prev => [...prev, userMessage])
+    };
+    setMessages(prev => [...prev, userMessage]);
 
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      const response = await chatAPI.sendMessage(currentSession.id, content)
+      console.log(`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
+      const response = await chatAPI.sendMessage(
+        currentSession.id, 
+        content,
+        currentSession.model_id,
+        currentSession.topic_id
+      );
       
       // Convert backend messages to frontend format
       const convertedMessages = response.messages.map((msg: any) => ({
@@ -244,16 +253,30 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         content: msg.content,
         role: msg.role as "user" | "assistant",
         timestamp: new Date(msg.timestamp)
-      }))
+      }));
 
-      setMessages(convertedMessages)
+      console.log(`Received ${convertedMessages.length} messages in response`);
+      setMessages(convertedMessages);
+      
+      // Update the session title if it was a placeholder
+      if (response.title && response.title !== currentSession.title) {
+        console.log(`Updating session title to: ${response.title}`);
+        setCurrentSession(prev => prev ? { ...prev, title: response.title } : null);
+        setSessions(prev => 
+          prev.map(s => 
+            s.id === currentSession.id 
+              ? { ...s, title: response.title } 
+              : s
+          )
+        );
+      }
     } catch (error) {
-      console.error("Error sending message:", error)
+      console.error("Error sending message:", error);
       // Remove the temporary user message on error
-      setMessages(prev => prev.filter(msg => msg.id !== userMessage.id))
-      throw error
+      setMessages(prev => prev.filter(msg => msg.id !== userMessage.id));
+      throw error;
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 

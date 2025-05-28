@@ -93,7 +93,7 @@ async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
   }
 }
 
-async function summarizeText(text, model = 'google/gemma-7b-it:free') { // Default to gemma for summarization
+async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324:free') { // Default to gemma for summarization
   console.log('🔍 Starting summary generation for text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
   
   if (!text || text.trim() === '') {
@@ -102,7 +102,7 @@ async function summarizeText(text, model = 'google/gemma-7b-it:free') { // Defau
   }
   
   const messages = [
-    { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 3-5 words, suitable for a chat title.' },
+    { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 3 words, suitable for a chat title, and do not include any additional information.' },
     { role: 'user', content: text }
   ];
   

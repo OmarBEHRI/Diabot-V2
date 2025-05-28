@@ -85,8 +85,15 @@ export const chatAPI = {
     }
   },
 
-  sendMessage: async (sessionId: number, content: string) => {
-    const response = await api.post(`/api/chat/${sessionId}/message`, { content });
+  sendMessage: async (sessionId: number, content: string, modelId?: number, topicId?: number) => {
+    if (modelId === undefined || topicId === undefined) {
+      throw new Error('modelId and topicId are required for sending messages');
+    }
+    const response = await api.post(`/api/chat/${sessionId}/message`, { 
+      content,
+      model_id: modelId,
+      topic_id: topicId
+    });
     return response.data;
   },
 

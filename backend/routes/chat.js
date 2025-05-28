@@ -89,8 +89,33 @@ router.post('/new_session', async (req, res) => {
         'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
       ).run(session_id, 'assistant', assistantResponse);
 
+      // Generate a summary from the initial message
+      console.log('📝 [NEW SESSION] Generating summary from initial message...');
+      try {
+        const summary = await summarizeText(initial_message_content);
+        console.log(`✅ [NEW SESSION] Generated summary: "${summary}"`);
+        
+        // Update the session with the generated summary
+        db.prepare(
+          'UPDATE chat_sessions SET title = ? WHERE id = ?'
+        ).run(summary, session_id);
+        console.log(`✅ [NEW SESSION] Updated session ${session_id} with summary title`);
+        
+        // Update the title to be used in the response
+        title = summary;
+      } catch (summaryErr) {
+        console.error('❌ [NEW SESSION] Error generating summary:', summaryErr);
+        // Fallback to first few words of the message if summary fails
+        const fallbackTitle = initial_message_content.split(' ').slice(0, 5).join(' ');
+        db.prepare(
+          'UPDATE chat_sessions SET title = ? WHERE id = ?'
+        ).run(fallbackTitle, session_id);
+        console.log(`⚠️ [NEW SESSION] Using fallback title: "${fallbackTitle}"`);
+        title = fallbackTitle;
+      }
+
       // Get all messages for the session
-      console.log('📋 [NEW SESSION] Retrieving all messages for the session (after initial message processing if any)...');
+      console.log('📋 [NEW SESSION] Retrieving all messages for the session...');
       messages_db = db.prepare(
         'SELECT * FROM chat_messages WHERE session_id = ? ORDER BY timestamp ASC'
       ).all(session_id);
@@ -163,30 +188,54 @@ router.post('/:sessionId/message', async (req, res) => {
 
     // Check if summary needs to be generated (i.e., title is placeholder)
     let currentTitle = session.title;
-    if (session.title === 'Chat Summary Pending...') {
+    const isPlaceholderTitle = session.title === 'Chat Summary Pending...' || session.title === 'New Chat';
+    
+    if (isPlaceholderTitle) {
       console.log(`⏳ [MESSAGE] Session ${session_id} requires title generation. Current title: "${session.title}"`);
+      console.log(`📝 [MESSAGE] Generating title from message: "${content.substring(0, 100)}${content.length > 100 ? '...' : ''}"`);
+      
       try {
-        const summarizedTitle = await summarizeText(content); // Use current user message for summary
-        // Ensure summary is 3-5 words (this should ideally be handled in summarizeText prompt)
-        currentTitle = summarizedTitle.split(' ').slice(0, 5).join(' '); 
-        if (summarizedTitle.split(' ').length > 5) {
-            const words = summarizedTitle.split(' ');
-            if (words.length > 2) { // Only add ellipsis if there's something to truncate meaningfully
-                 currentTitle = words.slice(0, 5).join(' ') + '...';
-            } else {
-                 currentTitle = words.join(' '); // Keep short titles as is
-            }
-        } else {
-            currentTitle = summarizedTitle; // Use as is if already short enough
+        // Generate the summary using the summarizeText function
+        const summarizedTitle = await summarizeText(content);
+        console.log(`📌 [MESSAGE] Generated title: "${summarizedTitle}"`);
+        
+        // Clean up the title (remove any extra whitespace, newlines, etc.)
+        currentTitle = summarizedTitle
+          .replace(/[\n\r]+/g, ' ')  // Replace newlines with spaces
+          .trim()                     // Remove leading/trailing spaces
+          .replace(/\s+/g, ' ');      // Replace multiple spaces with single space
+          
+        // Ensure title is not too long (max 50 chars)
+        if (currentTitle.length > 50) {
+          currentTitle = currentTitle.substring(0, 47) + '...';
         }
-
-        db.prepare('UPDATE chat_sessions SET title = ? WHERE id = ?').run(currentTitle, session_id);
-        session.title = currentTitle; // Update session object in memory
-        console.log(`✅ [MESSAGE] Session ${session_id} title updated to: "${currentTitle}"`);
+        
+        console.log(`🔄 [MESSAGE] Updating session ${session_id} title to: "${currentTitle}"`);
+        
+        // Update the session title in the database
+        const updateStmt = db.prepare('UPDATE chat_sessions SET title = ? WHERE id = ?');
+        const updateResult = updateStmt.run(currentTitle, session_id);
+        
+        if (updateResult.changes > 0) {
+          console.log(`✅ [MESSAGE] Successfully updated session ${session_id} title to: "${currentTitle}"`);
+          session.title = currentTitle; // Update session object in memory
+        } else {
+          console.error(`❌ [MESSAGE] Failed to update session title in database. Changes: ${updateResult.changes}`);
+        }
       } catch (summaryErr) {
-        console.error(`❌ [MESSAGE] Error generating summary for session ${session_id}:`, summaryErr);
-        // Keep placeholder or a default error title if summarization fails
-        // currentTitle remains 'Chat Summary Pending...' or could be set to 'Summary Error'
+        console.error(`❌ [MESSAGE] Error generating/updating summary for session ${session_id}:`, summaryErr);
+        // Fallback to a default title based on the first few words
+        const fallbackTitle = content.split(' ').slice(0, 5).join(' ');
+        currentTitle = fallbackTitle.length > 0 ? fallbackTitle : 'New Chat';
+        console.log(`⚠️ [MESSAGE] Using fallback title: "${currentTitle}"`);
+        
+        // Still try to update the database with the fallback title
+        try {
+          db.prepare('UPDATE chat_sessions SET title = ? WHERE id = ?').run(currentTitle, session_id);
+          session.title = currentTitle;
+        } catch (dbErr) {
+          console.error(`❌ [MESSAGE] Failed to update session title with fallback:`, dbErr);
+        }
       }
     }
 
@@ -218,8 +267,7 @@ router.post('/:sessionId/message', async (req, res) => {
     ];
 
     // Add conversation history
-    for (const msg of history) {
-      console.log(`➕ [MESSAGE] Adding ${history.length} historical messages to prompt for session ${session_id}`);
+    console.log(`➕ [MESSAGE] Adding ${history.length} historical messages to prompt for session ${session_id}`);
     for (const msg of history) {
       messages.push({
         role: msg.role,
