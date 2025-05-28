@@ -8,9 +8,9 @@ import { ChatProvider } from "@/context/ChatContext"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MedChat AI - Medical Assistant",
-  description: "AI-powered medical consultation platform",
-    generator: 'v0.dev'
+  title: "Diabot - Medical AI Assistant",
+  description: "AI-powered medical consultation platform for diabetes management",
+  generator: 'Next.js'
 }
 
 export default function RootLayout({

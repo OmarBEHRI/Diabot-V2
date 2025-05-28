@@ -7,7 +7,8 @@ import ChatWindow from "./ChatWindow"
 import MessageInput from "./MessageInput"
 import ModelTopicSelector from "./ModelTopicSelector"
 import { Button } from "@/components/ui/button"
-import { LogOut, Menu, Settings, User, X } from "lucide-react"
+import { LogOut, Menu, User, X } from "lucide-react"
+import Settings from "./Settings"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
 
@@ -77,7 +78,7 @@ export default function ChatPage() {
         {/* Header - Fixed at the top */}
         <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
           <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-semibold text-gray-900">MedChat AI</h1>
+            <h1 className="text-xl font-semibold text-gray-900">Diabot</h1>
             {selectedModel && selectedTopic && (
               <div className="text-sm text-gray-500">
                 {selectedModel.display_name} • {selectedTopic.name}
@@ -95,10 +96,20 @@ export default function ChatPage() {
                   <span>{user?.username}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>
-                  <Settings className="h-4 w-4 mr-2" />
-                  Settings
+              <DropdownMenuContent 
+                align="end"
+                onInteractOutside={(e) => {
+                  // Prevent the dropdown from closing when interacting with the Settings dialog
+                  const target = e.target as HTMLElement;
+                  if (target.closest('[role="dialog"]')) {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                <DropdownMenuItem asChild onSelect={(e) => e.preventDefault()}>
+                  <div className="w-full">
+                    <Settings />
+                  </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={logout}>
                   <LogOut className="h-4 w-4 mr-2" />
