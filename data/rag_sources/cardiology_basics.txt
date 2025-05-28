@@ -1,0 +1,128 @@
+# Cardiology Basics
+
+## The Cardiovascular System
+
+The cardiovascular system consists of the heart, blood vessels, and blood. It is responsible for transporting oxygen, nutrients, hormones, and cellular waste products throughout the body. The heart acts as a pump that drives blood through the circulatory system.
+
+## Heart Anatomy
+
+The heart is a muscular organ about the size of a closed fist. It is located in the chest cavity between the lungs, slightly to the left of the center of the chest. The heart is divided into four chambers:
+
+1. Right Atrium: Receives deoxygenated blood from the body
+2. Right Ventricle: Pumps deoxygenated blood to the lungs
+3. Left Atrium: Receives oxygenated blood from the lungs
+4. Left Ventricle: Pumps oxygenated blood to the body
+
+The heart also contains four valves that ensure blood flows in the correct direction:
+- Tricuspid valve: Between right atrium and right ventricle
+- Pulmonary valve: Between right ventricle and pulmonary artery
+- Mitral valve: Between left atrium and left ventricle
+- Aortic valve: Between left ventricle and aorta
+
+## The Cardiac Cycle
+
+The cardiac cycle refers to the sequence of events that occur during one heartbeat. It consists of:
+
+1. Diastole: The relaxation phase where the heart chambers fill with blood
+2. Systole: The contraction phase where blood is pumped out of the heart
+
+A normal resting heart rate ranges from 60 to 100 beats per minute.
+
+## Common Cardiovascular Conditions
+
+### Coronary Artery Disease (CAD)
+CAD occurs when the coronary arteries, which supply blood to the heart muscle, become narrowed or blocked due to atherosclerosis (buildup of plaque). This can lead to chest pain (angina) or heart attack.
+
+Symptoms:
+- Chest pain or discomfort (angina)
+- Shortness of breath
+- Pain in the neck, jaw, throat, upper abdomen, or back
+- Nausea, fatigue, lightheadedness
+
+### Heart Attack (Myocardial Infarction)
+A heart attack occurs when blood flow to a part of the heart is blocked, causing damage to the heart muscle. It is a medical emergency requiring immediate attention.
+
+Symptoms:
+- Chest pain or pressure that may radiate to the arm, shoulder, back, neck, or jaw
+- Shortness of breath
+- Cold sweat
+- Fatigue
+- Lightheadedness or dizziness
+- Nausea or vomiting
+
+### Heart Failure
+Heart failure occurs when the heart cannot pump blood effectively to meet the body's needs. It doesn't mean the heart has stopped working, but that it's not working as efficiently as it should.
+
+Symptoms:
+- Shortness of breath during activity or when lying down
+- Fatigue and weakness
+- Swelling in the legs, ankles, and feet
+- Rapid or irregular heartbeat
+- Persistent cough or wheezing
+- Reduced ability to exercise
+
+### Arrhythmias
+Arrhythmias are abnormal heart rhythms that occur when the electrical signals that coordinate heartbeats don't work properly.
+
+Types include:
+- Tachycardia: Fast heartbeat
+- Bradycardia: Slow heartbeat
+- Atrial fibrillation: Irregular heartbeat
+- Premature contractions: Early heartbeats
+
+Symptoms:
+- Palpitations (feeling of skipped heartbeats or fluttering)
+- Racing heartbeat
+- Slow heartbeat
+- Chest pain
+- Shortness of breath
+- Lightheadedness or dizziness
+- Fainting
+
+## Cardiovascular Disease Prevention
+
+Key strategies for preventing cardiovascular disease include:
+
+1. Healthy Diet
+   - Eat plenty of fruits, vegetables, and whole grains
+   - Choose lean proteins and low-fat dairy
+   - Limit saturated fats, trans fats, sodium, and added sugars
+   - Consider Mediterranean or DASH diet approaches
+
+2. Regular Physical Activity
+   - Aim for at least 150 minutes of moderate-intensity exercise per week
+   - Include both aerobic exercise and strength training
+
+3. Maintain a Healthy Weight
+   - Achieve and maintain a BMI between 18.5 and 24.9
+   - Focus on waist circumference (less than 40 inches for men, less than 35 inches for women)
+
+4. Don't Smoke
+   - Avoid tobacco in all forms
+   - Avoid secondhand smoke
+
+5. Limit Alcohol
+   - If you drink, do so in moderation (up to one drink per day for women, up to two for men)
+
+6. Manage Stress
+   - Practice relaxation techniques
+   - Get adequate sleep
+   - Maintain social connections
+
+7. Regular Health Screenings
+   - Blood pressure
+   - Cholesterol levels
+   - Blood glucose
+   - Body weight
+
+## When to See a Doctor
+
+Seek immediate medical attention if you experience:
+- Chest pain or discomfort
+- Shortness of breath
+- Pain in the arms, back, neck, jaw, or stomach
+- Breaking out in a cold sweat
+- Nausea
+- Lightheadedness
+
+Regular check-ups are important for early detection and management of cardiovascular conditions.

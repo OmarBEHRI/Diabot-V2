@@ -1,0 +1,58 @@
+# Diabetes Information
+
+## Overview
+Diabetes is a chronic health condition that affects how your body turns food into energy. Most of the food you eat is broken down into sugar (glucose) and released into your bloodstream. When your blood sugar goes up, it signals your pancreas to release insulin. Insulin acts like a key to let the blood sugar into your body's cells for use as energy.
+
+If you have diabetes, your body either doesn't make enough insulin or can't use the insulin it makes as well as it should. When there isn't enough insulin or cells stop responding to insulin, too much blood sugar stays in your bloodstream. Over time, that can cause serious health problems, such as heart disease, vision loss, and kidney disease.
+
+## Types of Diabetes
+
+### Type 1 Diabetes
+Type 1 diabetes is thought to be caused by an autoimmune reaction (the body attacks itself by mistake) that stops your body from making insulin. Approximately 5-10% of people with diabetes have type 1. Symptoms of type 1 diabetes often develop quickly. It's usually diagnosed in children, teens, and young adults. If you have type 1 diabetes, you'll need to take insulin every day to survive. Currently, no one knows how to prevent type 1 diabetes.
+
+### Type 2 Diabetes
+With type 2 diabetes, your body doesn't use insulin well and can't keep blood sugar at normal levels. About 90-95% of people with diabetes have type 2. It develops over many years and is usually diagnosed in adults (but is increasingly being diagnosed in children, teens, and young adults). You may not notice any symptoms, so it's important to get your blood sugar tested if you're at risk. Type 2 diabetes can be prevented or delayed with healthy lifestyle changes, such as losing weight, eating healthy food, and being active.
+
+### Gestational Diabetes
+Gestational diabetes develops in pregnant women who have never had diabetes. If you have gestational diabetes, your baby could be at higher risk for health problems. Gestational diabetes usually goes away after your baby is born but increases your risk for type 2 diabetes later in life. Your baby is more likely to have obesity as a child or teen, and more likely to develop type 2 diabetes later in life too.
+
+## Symptoms of Diabetes
+Symptoms of diabetes include:
+- Urinating often
+- Feeling very thirsty
+- Feeling very hungry—even though you are eating
+- Extreme fatigue
+- Blurry vision
+- Cuts/bruises that are slow to heal
+- Weight loss—even though you are eating more (type 1)
+- Tingling, pain, or numbness in the hands/feet (type 2)
+
+## Diabetes Management
+Diabetes management includes:
+- Taking insulin or other diabetes medications as prescribed
+- Monitoring blood sugar levels regularly
+- Eating a healthy diet
+- Regular physical activity
+- Maintaining a healthy weight
+- Regular medical check-ups
+
+## Complications
+Uncontrolled diabetes can lead to serious complications including:
+- Heart disease and stroke
+- Kidney disease
+- Vision problems and blindness
+- Nerve damage (neuropathy)
+- Foot problems, sometimes requiring amputation
+- Dental disease
+- Pregnancy complications
+
+## Prevention of Type 2 Diabetes
+You can prevent or delay type 2 diabetes through:
+- Losing weight if you're overweight
+- Being physically active for at least 150 minutes per week
+- Eating a balanced diet with reduced calories, saturated fat, and processed foods
+- Not smoking
+- Limiting alcohol consumption
+
+## When to See a Doctor
+If you experience symptoms of diabetes or are concerned about your risk, consult a healthcare provider. Early diagnosis and treatment can prevent complications and improve quality of life.

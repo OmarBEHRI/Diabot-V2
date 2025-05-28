@@ -1,0 +1,297 @@
+Okay, this is an ambitious and exciting project! Given your $5 budget, we need to be extremely strategic, especially with API calls for benchmarking and RAG. OpenRouter is a great choice for accessing various models affordably.
+Here's a detailed plan of action:
+Overall Philosophy:
+Lean & Iterative: Build core features first, then enhance.
+Budget-Conscious: Every API call counts. Prioritize free/cheap models for benchmarking. Design the RAG to be efficient.
+Local First (for some parts): Develop and test RAG components locally as much as possible before integrating with cloud/API elements.
+Phase 0: Project Setup & Foundation (Est. Time: 1-2 Days)
+Tech Stack Selection (Finalized):
+Backend: Node.js with Express.js (simple, fast to set up).
+Frontend: React (Vite for fast setup) or Svelte/SvelteKit. Let's go with React + Vite for broader familiarity and component libraries.
+Database: SQLite (file-based, perfect for simplicity and small scale, easily managed by the backend).
+Styling: Tailwind CSS (utility-first, rapid UI development, easy to customize for a medical theme).
+Vector Store (for RAG): ChromaDB or FAISS (run locally/embedded in backend for simplicity and cost). Let's aim for ChromaDB due to its ease of use.
+API Access: OpenRouter.
+Version Control: Git (GitHub/GitLab).
+Environment Setup:
+Install Node.js, npm/yarn.
+Set up your OpenRouter account and get your API key.
+Initialize Git repository.
+Create project structure:
+/project-root
+  /backend
+  /frontend
+  /data (for RAG source documents, MedQA dataset)
+  /scripts (for benchmarking)
+  README.md
+Use code with caution.
+Basic Backend Setup (Node.js/Express.js):
+npm init -y in /backend.
+Install express, cors, dotenv, sqlite3, better-sqlite3 (often preferred).
+Basic server file (index.js or server.js).
+.env file for OPENROUTER_API_KEY.
+Basic Frontend Setup (React + Vite):
+npm create vite@latest frontend -- --template react-ts (for TypeScript).
+Install axios (for API calls), tailwindcss.
+Configure Tailwind CSS.
+Phase 1: RAG System Development (Est. Time: 3-5 Days)
+Goal: Create a system that can take a query, find relevant medical text snippets, and prepare them for an LLM.
+Data Sourcing & Preparation (Crucial for RAG quality & cost):
+Source:
+MedQA Dataset: You'll use this for benchmarking, but could parts be used as RAG context? Probably not directly, as it's Q&A.
+Medical Books/Resources: THIS IS TRICKY. Copyright is a major concern.
+Option 1 (Safest): Find publicly available, permissively licensed medical texts, guidelines (e.g., from NIH, CDC, WHO, open-access medical journals, or Creative Commons licensed materials).
+Option 2 (If you have legitimate access): Use snippets from books you own for personal development and non-distribution, but be aware this doesn't scale for a public app.
+Focus on a NARROW domain initially to keep data manageable. E.g., "Common Cold Symptoms and Treatments" from reputable sources.
+Format: Aim for plain text (.txt) or Markdown (.md) files. If PDFs, you'll need a PDF-to-text converter (e.g., pdf-parse npm package).
+Store these in /data/rag_sources.
+Document Loading & Chunking:
+In your backend or a separate script:
+Write functions to read files from /data/rag_sources.
+Implement text chunking: Split documents into smaller, manageable pieces (e.g., by paragraphs, or fixed size with overlap).
+Libraries: langchain (JavaScript version) has text splitters, or implement a simple one.
+Target chunk size: ~200-500 words.
+Embedding Generation:
+Model Choice: OpenRouter offers embedding models. Check for free/cheap ones (e.g., some smaller SentenceTransformer models might be available or models like mixedbread-ai/mxbai-embed-large-v1). This is where your $5 budget can be hit if not careful.
+Implementation:
+Write a script (can be in /scripts) that takes text chunks, calls the OpenRouter embedding API, and gets back vectors.
+Cost Saving: Embed your initial small RAG dataset once and save the embeddings.
+Vector Store Setup (ChromaDB):
+Install chromadb-default-impl (JS client for ChromaDB) in your backend.
+Initialize ChromaDB:
+// backend/services/vectorStore.js
+import { ChromaClient } from 'chromadb';
+const client = new ChromaClient(); // Uses in-memory by default, good for starting
+// For persistence: const client = new ChromaClient({ path: "/path/to/data" });
+// You'll store this path within your backend's data directory.
+
+let collection;
+async function getCollection(collectionName = "medical_docs") {
+    if (collection) return collection;
+    try {
+        collection = await client.getOrCreateCollection({ name: collectionName });
+        // Potentially load embeddings here if not already loaded
+    } catch (e) {
+        console.error("Error getting/creating collection:", e);
+        // Fallback or re-throw
+    }
+    return collection;
+}
+// Add functions to add documents/embeddings and query
+Use code with caution.
+JavaScript
+Populate the vector store with your chunked documents and their embeddings. Store metadata (e.g., source document, chunk ID) with each embedding.
+Retrieval Logic:
+In your backend, create a function: retrieveRelevantContext(queryText, topN = 3)
+Takes a user query.
+Generates an embedding for the query (using the same OpenRouter embedding model).
+Queries ChromaDB using this embedding to find the topN most similar chunks.
+Returns the text of these chunks.
+Phase 2: Benchmarking LLMs (Est. Time: 2-4 Days)
+Goal: Get accuracy scores for selected models on MedQA, with and without RAG.
+MedQA Dataset Preparation:
+Download the MedQA dataset. It's often in JSON format.
+Sample Selection (CRITICAL FOR BUDGET):
+You cannot run the whole dataset. Select a small, representative random sample.
+Given $5: If an average API call (question + short answer) costs $0.0005 (optimistic for cheap models), $5 gives you 10,000 calls.
+If you test 5 models, that's 2000 calls per model.
+If you test with AND without RAG, that's 1000 unique questions per model.
+Target: 50-100 questions from MedQA for the entire benchmark. This means 5-10 questions per model if testing 5-10 models with and without RAG. This is very small but necessary for budget. Focus on the process and relative performance.
+Parse the selected questions into a simple format: [{ question: "...", options: {A:"...", B:"..."}, answer: "A" }, ...]. Store in /data/medqa_sample.json.
+Model Selection (OpenRouter):
+Log into OpenRouter, check their models page for pricing and free tiers.
+Select 5-10 models. Prioritize:
+Free Tier Models: (e.g., mistralai/mistral-7b-instruct, nousresearch/nous-hermes-2-mixtral-8x7b-dpo if they have free introductory usage or are very cheap).
+Known Good Performers (if budget allows for a few calls): A cheap OpenAI model like openai/gpt-3.5-turbo-instruct (if available and cheap on OpenRouter).
+List them with their OpenRouter model IDs.
+Benchmarking Script (/scripts/benchmark.js or .ts):
+Use Node.js for this script to leverage your OpenRouter API call knowledge.
+Function to call OpenRouter:
+// scripts/openrouterClient.ts
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY; // from .env
+const YOUR_SITE_URL = 'http://localhost:3000'; // Or your actual site
+const YOUR_SITE_NAME = 'Medical LLM Benchmarker';
+
+async function callOpenRouter(model: string, prompt: string): Promise<string> {
+    try {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                'HTTP-Referer': YOUR_SITE_URL,
+                'X-Title': YOUR_SITE_NAME,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: model, // e.g., "openai/gpt-3.5-turbo"
+                messages: [{ role: 'user', content: prompt }],
+                temperature: 0.1, // For factual consistency
+                max_tokens: 50, // Just enough for A, B, C, D, E
+            }),
+        });
+        if (!response.ok) {
+            console.error(`API Error for ${model}: ${response.status} ${await response.text()}`);
+            return "API_ERROR";
+        }
+        const data = await response.json();
+        return data.choices[0].message.content.trim();
+    } catch (error) {
+        console.error(`Fetch Error for ${model}:`, error);
+        return "FETCH_ERROR";
+    }
+}
+Use code with caution.
+TypeScript
+Prompt Engineering (for MCQs):
+You are a medical expert. Please answer the following multiple-choice question.
+Respond with ONLY the letter of the correct option (e.g., A, B, C, D).
+
+Question: {question_text}
+Options:
+A) {option_a_text}
+B) {option_b_text}
+C) {option_c_text}
+D) {option_d_text}
+E) {option_e_text} (if applicable)
+
+Answer:
+Use code with caution.
+Benchmarking Loop:
+Load medqa_sample.json.
+For each model in your selected list:
+Initialize counters for correct answers.
+For each question in the sample:
+Scenario 1: No RAG
+Format prompt.
+Call OpenRouter.
+Parse response (extract just 'A', 'B', 'C', 'D', or 'E'). Be robust with parsing.
+Compare with ground truth. Increment correct counter.
+Log question, model, prompt, response, parsed answer, correct/incorrect.
+await new Promise(resolve => setTimeout(resolve, 1000)); // Rate limit
+Scenario 2: With RAG
+Use the RAG system's retrieveRelevantContext(question_text) to get context.
+Prepend context to the prompt:
+You are a medical expert. Use the following context if helpful, then answer the multiple-choice question.
+Respond with ONLY the letter of the correct option (e.g., A, B, C, D).
+
+Context:
+{retrieved_rag_context}
+
+Question: {question_text}
+Options: ...
+Answer:
+Use code with caution.
+Call OpenRouter, parse, compare, log.
+await new Promise(resolve => setTimeout(resolve, 1000)); // Rate limit
+Calculate accuracy for the model (with and without RAG).
+Output: Save results to a CSV or JSON file (e.g., benchmark_results.json).
+[{ model_id: "...", accuracy_no_rag: 0.X, accuracy_rag: 0.Y, ... }]
+Analysis:
+Review the benchmark_results.json.
+Identify best-performing models within your budget.
+Note the effect of RAG.
+Phase 3: Web Application Backend (Node.js/Express.js) (Est. Time: 4-7 Days)
+Goal: API endpoints for user auth, chat, model/topic selection, and history.
+Database Schema (SQLite):
+Use better-sqlite3 for synchronous operations which can be simpler in Express.
+db.js to initialize and export the database connection.
+Tables:
+users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password_hash TEXT)
+models (id INTEGER PRIMARY KEY AUTOINCREMENT, openrouter_id TEXT UNIQUE, display_name TEXT, accuracy_no_rag REAL, accuracy_rag REAL, description TEXT)
+Populate this table manually or with a script from benchmark_results.json.
+topics (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE, rag_filter_keywords TEXT)
+Define a few topics (e.g., "General Medicine", "Cardiology", "Pediatrics"). The rag_filter_keywords could be used to refine RAG retrieval if your RAG data is tagged or extensive (advanced). For now, it might just be for display.
+chat_sessions (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, model_id INTEGER, topic_id INTEGER, title TEXT, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (user_id) REFERENCES users(id), FOREIGN KEY (model_id) REFERENCES models(id), FOREIGN KEY (topic_id) REFERENCES topics(id))
+chat_messages (id INTEGER PRIMARY KEY AUTOINCREMENT, session_id INTEGER, role TEXT CHECK(role IN ('user', 'assistant')), content TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (session_id) REFERENCES chat_sessions(id))
+User Authentication (Simple JWT):
+Install jsonwebtoken, bcryptjs.
+Endpoints:
+POST /api/auth/register (username, password) -> hash password, store user, return JWT.
+POST /api/auth/login (username, password) -> verify credentials, return JWT.
+Middleware to protect routes: verify JWT from Authorization: Bearer <token> header.
+API Endpoints:
+GET /api/models: Return list of models with their benchmarked accuracies from models table.
+GET /api/topics: Return list of topics from topics table.
+Chat Endpoints (Protected by Auth Middleware):
+POST /api/chat/new_session: (model_id, topic_id, initial_message_content)
+Create new chat_sessions record.
+Store initial user message in chat_messages.
+Perform RAG retrieval: retrieveRelevantContext(initial_message_content).
+Construct prompt (RAG context + initial message).
+Call OpenRouter API (using the selected model_id).
+Store assistant's response in chat_messages.
+Return session ID and initial messages.
+POST /api/chat/:sessionId/message: (content)
+Verify user owns the session.
+Store new user message.
+Retrieve last N messages from this session to build context for LLM (optional, for conversational memory beyond simple RAG).
+Perform RAG retrieval based on current user message: retrieveRelevantContext(content).
+Construct prompt (RAG context + (conversation history) + new user message).
+Call OpenRouter.
+Store assistant's response.
+Return new messages (or stream response for better UX - more complex).
+GET /api/chat/sessions: Get all chat sessions for the logged-in user.
+GET /api/chat/:sessionId/messages: Get all messages for a specific chat session.
+RAG Integration in Chat Endpoint:
+The chat endpoints will use the retrieveRelevantContext function from Phase 1.
+Decide if RAG is always on, or configurable per model/topic.
+Phase 4: Web Application Frontend (React + Tailwind CSS) (Est. Time: 5-8 Days)
+Goal: User interface for interaction.
+Core Layout & Routing:
+Use react-router-dom.
+Main layout (sidebar for sessions, header, main chat area).
+Routes: /login, /register, /chat (or / for main app), /chat/:sessionId.
+Component Design:
+AuthPage.tsx (for login/register forms).
+ChatPage.tsx (main page orchestrating chat components).
+Sidebar.tsx (lists chat sessions, button for new chat).
+ModelTopicSelector.tsx (dropdowns for selecting LLM model and topic before starting a new chat; display model accuracy here).
+ChatWindow.tsx (displays messages).
+Message.tsx (individual user/assistant message bubble).
+MessageInput.tsx (textarea and send button).
+State Management (React Context API or Zustand/Jotai for simplicity):
+User authentication state (token, user info).
+List of models, topics.
+Current selected model, topic.
+List of user's chat sessions.
+Messages for the current active session.
+Loading states for API calls.
+API Integration:
+Use axios to call backend endpoints.
+Implement functions in a services/api.ts file.
+Handle JWT token for authenticated requests.
+Styling (Tailwind CSS):
+Focus on a clean, professional, somewhat "medical" or "tech-health" theme.
+Use blues, greens, grays. Clear typography.
+Ensure responsiveness.
+User Experience Details:
+Loading indicators during API calls.
+Error handling and display.
+Clear indication of which model/topic is active.
+Ability to start a new chat.
+Automatically scroll to the latest message.
+Phase 5: Integration, Testing, Deployment (Est. Time: 2-4 Days)
+End-to-End Testing:
+Test user registration, login.
+Test starting new chats with different models/topics.
+Verify RAG context is being used (you might need to log this on the backend during testing).
+Check chat history persistence.
+Test on different browsers (Chrome, Firefox).
+Refinement & Bug Fixing.
+Deployment (Budget-Friendly Options):
+Frontend (React App): Vercel or Netlify (generous free tiers for static sites).
+Backend (Node.js/Express.js + SQLite + ChromaDB):
+Railway.app: Has a free starter plan, might support Node.js + persistent volume for SQLite/ChromaDB.
+Fly.io: Also has a free tier, good for full-stack apps.
+Heroku (if free dynos still viable): Might work, but SQLite on ephemeral filesystems is tricky; you'd need an add-on for persistent storage.
+ChromaDB persistence: If using Chroma's file-based persistence, ensure your deployment platform supports persistent disk storage for your backend service. Otherwise, the vector index will be lost on restarts. A small persistent disk might have a minor cost.
+Domain: Optional, can use the platform's subdomain.
+Key Considerations & Budget Management:
+OpenRouter Costs:
+Benchmarking: This is your biggest upfront cost. Be extremely selective with the number of questions and models. Run the script once, save results.
+RAG Embeddings: Choose a free/cheap embedding model on OpenRouter. Embed your RAG dataset once.
+User Chat: Each user message to the app that hits an LLM will incur cost. The $5 will not last long with active users. This app, with a $5 total budget, is more of a proof-of-concept and personal tool.
+RAG Data Size: Keep your initial RAG dataset small to manage embedding costs and retrieval speed.
+Error Handling: Robust error handling for API calls (rate limits, errors from OpenRouter) is vital.
+Simplicity: Given the budget and scope, always opt for the simplest viable solution.
+This plan is very ambitious for a single developer on a tight budget, but by breaking it down and being strategic, you can build a very impressive proof-of-concept. Focus on getting the core loop (RAG -> Benchmark -> Chat App) working, even if with minimal data and features initially. Good luck!
