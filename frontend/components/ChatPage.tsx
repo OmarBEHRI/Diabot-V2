@@ -15,16 +15,16 @@ export default function ChatPage() {
   const { currentSession, selectedModel, selectedTopic, createNewSession } = useChat()
 
   return (
-    <div className="h-screen flex bg-gray-50">
+    <div className="h-screen flex overflow-hidden bg-gray-50"> {/* Added overflow-hidden to prevent whole page scrolling */}
       {/* Sidebar */}
-      <div className="w-80 bg-white border-r border-gray-200 flex flex-col">
+      <div className="w-80 bg-white border-r border-gray-200 flex flex-col overflow-hidden"> {/* Added overflow-hidden */}
         <Sidebar />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col relative"> {/* Added relative for absolute positioning */}
-        {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+      <div className="flex-1 flex flex-col overflow-hidden"> {/* Changed to overflow-hidden */}
+        {/* Header - Fixed at the top */}
+        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
           <div className="flex items-center space-x-4">
             <h1 className="text-xl font-semibold text-gray-900">MedChat AI</h1>
             {selectedModel && selectedTopic && (
@@ -58,16 +58,16 @@ export default function ChatPage() {
           </div>
         </header>
 
-        {/* Chat Area */}
-        <div className="flex-1 flex flex-col pb-[120px]"> {/* Added padding bottom to make space for fixed input */}
-          {/* ChatWindow takes remaining space and scrolls */}
-          <div className="flex-1 overflow-y-auto min-h-0"> {/* Added min-h-0 */}
+        {/* Chat Area - Only this should scroll */}
+        <div className="flex-1 overflow-hidden"> {/* Container with no scroll */}
+          {/* ChatWindow takes remaining space and is the only scrollable element */}
+          <div className="h-full overflow-y-auto pb-[120px]"> {/* Added height: 100% and moved padding here */}
             <ChatWindow />
           </div>
         </div>
         
-        {/* MessageInput is fixed at the bottom */}
-        <div className="border-t border-gray-200 bg-white absolute bottom-0 left-0 right-0 z-10 shadow-md">
+        {/* MessageInput is fixed at the bottom of the viewport */}
+        <div className="border-t border-gray-200 bg-white fixed bottom-0 left-80 right-0 z-20 shadow-md"> {/* Changed to fixed positioning */}
           <MessageInput />
         </div>
       </div>
