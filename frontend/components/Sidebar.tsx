@@ -87,25 +87,29 @@ export default function Sidebar() {
               {filteredSessions.map((session) => (
                 <div
                   key={session.id}
-                  onClick={() => selectSession(session.id)}
-                  className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center justify-between group ${
+                  className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center justify-between ${
                     currentSession?.id === session.id
                       ? "bg-blue-50 border border-blue-200"
                       : "hover:bg-gray-50 border border-transparent"
                   }`}
                 >
-                  <div className="flex-1 min-w-0">
+                  {/* Make the text area clickable for selecting the session */}
+                  <div 
+                    className="flex-1 min-w-0 mr-2" 
+                    onClick={() => selectSession(session.id)}
+                  >
                     <h4 className="text-sm font-medium text-gray-900 truncate">{session.title}</h4>
                     <div className="flex items-center mt-2 text-xs text-gray-400">
                       <Clock className="h-3 w-3 mr-1" />
                       {formatDistanceToNow(new Date(session.created_at), { addSuffix: true })}
                     </div>
                   </div>
+                  {/* Separate delete button that doesn't get hidden */}
                   <Button
-                    variant="ghost"
+                    variant="outline"
                     size="sm"
                     onClick={(e) => handleDelete(e, session.id)}
-                    className="ml-2 flex-shrink-0 bg-white/80 hover:bg-red-50 hover:text-red-500 transition-colors"
+                    className="flex-shrink-0 h-8 w-8 p-0 rounded-full border-gray-300 hover:bg-red-100 hover:text-red-600 hover:border-red-300"
                     aria-label="Delete chat"
                   >
                     <Trash2 className="h-4 w-4" />
