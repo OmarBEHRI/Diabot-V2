@@ -37,15 +37,15 @@ export default function Sidebar() {
   )
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+      <div className="p-4 border-b border-gray-200 flex items-center justify-between flex-shrink-0">
         <h2 className="text-lg font-semibold text-gray-900">Chat History</h2>
         <Button 
           variant="ghost" 
           size="sm" 
           onClick={() => createNewSession()} 
-          className="flex items-center space-x-1 hover:bg-blue-50 transition-colors"
+          className="flex items-center space-x-1 hover:bg-blue-50 transition-colors flex-shrink-0"
         >
           <PlusCircle className="h-4 w-4" />
           <span className="sr-only">New Chat</span>
@@ -53,8 +53,8 @@ export default function Sidebar() {
       </div>
 
       {/* Search Bar */}
-      <div className="p-4 border-b border-gray-200">
-        <div className="relative">
+      <div className="p-4 border-b border-gray-200 flex-shrink-0">
+        <div className="relative flex-shrink-0">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
             type="text"
@@ -67,57 +67,68 @@ export default function Sidebar() {
       </div>
 
       {/* Chat Sessions */}
-      <div className="flex-1 flex flex-col"> {/* Changed from overflow-hidden to flex-col */}
-        <div className="p-4 flex-shrink-0"> {/* Added flex-shrink-0 to prevent shrinking */}
+      <div className="flex flex-col flex-1 min-h-0">
+        <div className="p-4 pb-2 flex-shrink-0">
           <h3 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
-            <MessageCircle className="h-4 w-4 mr-2" />
+            <MessageCircle className="h-4 w-4 mr-2 flex-shrink-0" />
             Recent Chats
           </h3>
         </div>
 
-        <ScrollArea className="flex-1 px-4 h-full"> {/* Added h-full for better scrolling */}
-          {filteredSessions.length === 0 ? (
-            <div className="text-center py-8">
-              <MessageCircle className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-500">No chats found</p>
-              {searchTerm && <p className="text-xs text-gray-400">Try a different search term</p>}
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {filteredSessions.map((session) => (
-                <div
-                  key={session.id}
-                  className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center justify-between ${
-                    currentSession?.id === session.id
-                      ? "bg-blue-50 border border-blue-200"
-                      : "hover:bg-gray-50 border border-transparent"
-                  }`}
-                >
-                  {/* Make the text area clickable for selecting the session */}
-                  <div 
-                    className="flex-1 min-w-0 mr-2" 
-                    onClick={() => selectSession(session.id)}
-                  >
-                    <h4 className="text-sm font-medium text-gray-900 truncate">{session.title}</h4>
-                    <div className="flex items-center mt-2 text-xs text-gray-400">
-                      <Clock className="h-3 w-3 mr-1" />
-                      {formatDistanceToNow(new Date(session.created_at), { addSuffix: true })}
+        <ScrollArea className="flex-1 px-4 overflow-y-auto">
+          <div className="pr-2 pb-4">
+            {filteredSessions.length === 0 ? (
+              <div className="text-center py-8">
+                <MessageCircle className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                <p className="text-sm text-gray-500">No chats found</p>
+                {searchTerm && <p className="text-xs text-gray-400">Try a different search term</p>}
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {filteredSessions.map((session) => {
+                  // Truncate title to first 30 characters
+                  const truncatedTitle = (session.title || 'Untitled Chat').length > 30 
+                    ? `${(session.title || 'Untitled Chat').substring(0, 27)}...`
+                    : (session.title || 'Untitled Chat');
+                    
+                  return (
+                    <div
+                      key={session.id}
+                      className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center justify-between w-full ${
+                        currentSession?.id === session.id
+                          ? "bg-blue-50 border border-blue-200"
+                          : "hover:bg-gray-50 border border-transparent"
+                      }`}
+                    >
+                      <div 
+                        className="flex-1 min-w-0 pr-2 overflow-hidden"
+                        onClick={() => selectSession(session.id)}
+                      >
+                        <h4 className="text-sm font-medium text-gray-900 truncate" title={session.title || 'Untitled Chat'}>
+                          {truncatedTitle}
+                        </h4>
+                        <div className="flex items-center mt-1 text-xs text-gray-400">
+                          <Clock className="h-3 w-3 mr-1 flex-shrink-0" />
+                          <span className="truncate">
+                            {formatDistanceToNow(new Date(session.created_at), { addSuffix: true })}
+                          </span>
+                        </div>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={(e) => handleDelete(e, session.id)}
+                        className="h-6 w-6 p-0 flex-shrink-0 text-gray-400 hover:text-red-500 transition-colors"
+                        aria-label="Delete chat"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </Button>
                     </div>
-                  </div>
-                  {/* Separate delete button that doesn't get hidden */}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={(e) => handleDelete(e, session.id)}
-                    className="flex-shrink-0 h-8 w-8 p-0 rounded-full border-gray-300 hover:bg-red-100 hover:text-red-600 hover:border-red-300"
-                    aria-label="Delete chat"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              ))}
-            </div>
-          )}
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </ScrollArea>
       </div>
     </div>
