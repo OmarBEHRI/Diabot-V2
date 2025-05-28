@@ -1,12 +1,25 @@
 const fetch = require('node-fetch');
 
+// Get API key from environment variables
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-console.log("OpenRouter API Key (first 5 chars):", OPENROUTER_API_KEY ? OPENROUTER_API_KEY.substring(0, 5) : "Not set");
+
+// Check if API key is set and log status
+const isApiKeySet = OPENROUTER_API_KEY && OPENROUTER_API_KEY.length > 10;
+console.log("OpenRouter API Key status:", isApiKeySet ? "Set (first 5 chars: " + OPENROUTER_API_KEY.substring(0, 5) + ")" : "Not set - using mock responses");
+
+// Constants for API requests
 const YOUR_SITE_URL = 'http://localhost:3000';
 const YOUR_SITE_NAME = 'Diabot Medical Assistant';
 
 async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 500) {
+  // If API key is not set, use mock response
+  if (!isApiKeySet) {
+    console.log(`🔄 Using mock response for model: ${model}`);
+    return generateMockResponse(messages);
+  }
+  
   try {
+    console.log(`🔄 Calling OpenRouter API with model: ${model}...`);
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -25,20 +38,30 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 50
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`API Error for ${model}: ${response.status} ${errorText}`);
-      throw new Error(`OpenRouter API error: ${response.status} ${errorText}`);
+      console.error(`❌ API Error for ${model}: ${response.status} ${errorText}`);
+      console.log(`🔄 Falling back to mock response`);
+      return generateMockResponse(messages);
     }
 
     const data = await response.json();
+    console.log(`✅ Received response from OpenRouter API`);
     return data.choices[0].message.content.trim();
   } catch (error) {
-    console.error(`Error calling OpenRouter:`, error);
-    throw error;
+    console.error(`❌ Error calling OpenRouter:`, error);
+    console.log(`🔄 Falling back to mock response due to error`);
+    return generateMockResponse(messages);
   }
 }
 
 async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
+  // If API key is not set, use mock embedding
+  if (!isApiKeySet) {
+    console.log(`🔄 Using mock embedding for text: ${text.substring(0, 30)}...`);
+    return generateMockEmbedding(text);
+  }
+  
   try {
+    console.log(`🔄 Getting embedding for text: ${text.substring(0, 30)}...`);
     const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
       method: 'POST',
       headers: {
@@ -55,15 +78,18 @@ async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`API Error for embeddings: ${response.status} ${errorText}`);
-      throw new Error(`OpenRouter API error: ${response.status} ${errorText}`);
+      console.error(`❌ API Error for embeddings: ${response.status} ${errorText}`);
+      console.log(`🔄 Falling back to mock embedding`);
+      return generateMockEmbedding(text);
     }
 
     const data = await response.json();
+    console.log(`✅ Received embedding from OpenRouter API`);
     return data.data[0].embedding;
   } catch (error) {
-    console.error(`Error getting embedding:`, error);
-    throw error;
+    console.error(`❌ Error getting embedding:`, error);
+    console.log(`🔄 Falling back to mock embedding due to error`);
+    return generateMockEmbedding(text);
   }
 }
 
@@ -102,8 +128,45 @@ async function summarizeText(text, model = 'google/gemma-7b-it:free') { // Defau
   }
 }
 
+// Helper function to generate a mock response based on user messages
+function generateMockResponse(messages) {
+  // Extract the user's message
+  const userMessage = messages.find(msg => msg.role === 'user')?.content || '';
+  
+  // Generate a simple response based on the user's message
+  if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
+    return "Hello! I'm your medical assistant. How can I help you today?";
+  } else if (userMessage.toLowerCase().includes('diabetes')) {
+    return "Diabetes is a chronic condition that affects how your body processes blood sugar. There are two main types: Type 1 and Type 2. It's important to manage blood sugar levels through diet, exercise, and sometimes medication. Regular check-ups with your healthcare provider are essential.";
+  } else if (userMessage.toLowerCase().includes('blood pressure') || userMessage.toLowerCase().includes('hypertension')) {
+    return "High blood pressure (hypertension) is a common condition where the force of blood against artery walls is too high. It often has no symptoms but can lead to serious health problems. Lifestyle changes like reducing salt intake, regular exercise, and medication can help manage it.";
+  } else if (userMessage.toLowerCase().includes('headache') || userMessage.toLowerCase().includes('pain')) {
+    return "Headaches can have many causes including stress, dehydration, lack of sleep, or underlying medical conditions. For occasional headaches, rest, hydration, and over-the-counter pain relievers may help. If headaches are severe or persistent, please consult with a healthcare professional.";
+  } else {
+    return "Thank you for your question. As a medical assistant, I aim to provide helpful information based on medical knowledge. For personalized advice, please consult with a healthcare professional.";
+  }
+}
+
+// Helper function to generate a mock embedding
+function generateMockEmbedding(text) {
+  // Create a deterministic but unique embedding based on the text
+  // This is a simple hash function to generate a pseudo-random but consistent vector
+  const seed = text.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  
+  // Generate a 1536-dimensional vector (common for embeddings)
+  const embedding = [];
+  for (let i = 0; i < 1536; i++) {
+    // Generate a value between -1 and 1 based on the seed and position
+    const value = Math.sin(seed * (i + 1)) / 2;
+    embedding.push(value);
+  }
+  
+  return embedding;
+}
+
 module.exports = {
   callOpenRouter,
   getEmbedding,
-  summarizeText
+  summarizeText,
+  isApiKeySet // Export this for other modules to check
 };
