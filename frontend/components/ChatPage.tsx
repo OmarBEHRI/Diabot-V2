@@ -17,7 +17,7 @@ export default function ChatPage() {
   return (
     <div className="h-screen flex overflow-hidden bg-gray-50"> {/* Added overflow-hidden to prevent whole page scrolling */}
       {/* Sidebar */}
-      <div className="w-80 bg-white border-r border-gray-200 flex flex-col overflow-hidden"> {/* Added overflow-hidden */}
+      <div className="w-80 bg-white border-r border-gray-200 flex flex-col"> {/* Removed overflow-hidden to allow scrolling */}
         <Sidebar />
       </div>
 
