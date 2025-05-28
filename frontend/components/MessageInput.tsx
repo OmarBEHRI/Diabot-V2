@@ -36,7 +36,7 @@ export default function MessageInput() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-full">
       <div className="max-w-4xl mx-auto">
         <form onSubmit={handleSubmit} className="flex items-end space-x-4">
           <div className="flex-1">
@@ -45,14 +45,14 @@ export default function MessageInput() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask a medical question..."
-              className="min-h-[60px] max-h-32 resize-none"
-              disabled={isLoading || !currentSession}
+              className="min-h-[60px] max-h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              disabled={isLoading}
             />
           </div>
 
           <Button
             type="submit"
-            disabled={!input.trim() || isLoading || !currentSession}
+            disabled={!input.trim() || isLoading}
             className="medical-gradient h-[60px] px-6"
           >
             {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}

@@ -9,7 +9,7 @@ import { useToast } from "@/components/ui/use-toast" // Import useToast
 import { useState } from "react" // Import useState for search
 
 export default function Sidebar() {
-  const { sessions, currentSession, selectSession, startNewChat, deleteSession } = useChat() // Get deleteSession
+  const { sessions, currentSession, selectSession, startNewChat, deleteSession, createNewSession } = useChat() // Added createNewSession
   const { toast } = useToast() // Initialize useToast
   const [searchTerm, setSearchTerm] = useState("") // State for search term
 
@@ -41,7 +41,12 @@ export default function Sidebar() {
       {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-gray-900">Chat History</h2>
-        <Button variant="ghost" size="sm" onClick={startNewChat} className="flex items-center space-x-1">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={() => createNewSession()} 
+          className="flex items-center space-x-1 hover:bg-blue-50 transition-colors"
+        >
           <PlusCircle className="h-4 w-4" />
           <span className="sr-only">New Chat</span>
         </Button>

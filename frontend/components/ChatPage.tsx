@@ -22,7 +22,7 @@ export default function ChatPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col relative"> {/* Added relative for absolute positioning */}
         {/* Header */}
         <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -36,10 +36,7 @@ export default function ChatPage() {
 
           <div className="flex items-center space-x-4">
             <ModelTopicSelector /> {/* Always show ModelTopicSelector */}
-            <Button onClick={() => createNewSession()} disabled={!selectedModel || !selectedTopic} className="medical-gradient">
-              Start New Chat
-            </Button>
-
+            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="flex items-center space-x-2">
@@ -62,15 +59,16 @@ export default function ChatPage() {
         </header>
 
         {/* Chat Area */}
-        <div className="flex-1 flex flex-col"> {/* Removed relative */}
+        <div className="flex-1 flex flex-col pb-[120px]"> {/* Added padding bottom to make space for fixed input */}
           {/* ChatWindow takes remaining space and scrolls */}
           <div className="flex-1 overflow-y-auto min-h-0"> {/* Added min-h-0 */}
             <ChatWindow />
           </div>
-          {/* MessageInput is fixed at the bottom */}
-          <div className="border-t border-gray-200 bg-white flex-shrink-0">
-            <MessageInput />
-          </div>
+        </div>
+        
+        {/* MessageInput is fixed at the bottom */}
+        <div className="border-t border-gray-200 bg-white absolute bottom-0 left-0 right-0 z-10 shadow-md">
+          <MessageInput />
         </div>
       </div>
     </div>
