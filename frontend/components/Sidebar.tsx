@@ -67,15 +67,15 @@ export default function Sidebar() {
       </div>
 
       {/* Chat Sessions */}
-      <div className="flex-1 overflow-hidden">
-        <div className="p-4">
+      <div className="flex-1 flex flex-col"> {/* Changed from overflow-hidden to flex-col */}
+        <div className="p-4 flex-shrink-0"> {/* Added flex-shrink-0 to prevent shrinking */}
           <h3 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
             <MessageCircle className="h-4 w-4 mr-2" />
             Recent Chats
           </h3>
         </div>
 
-        <ScrollArea className="flex-1 px-4">
+        <ScrollArea className="flex-1 px-4 h-full"> {/* Added h-full for better scrolling */}
           {filteredSessions.length === 0 ? (
             <div className="text-center py-8">
               <MessageCircle className="h-8 w-8 text-gray-400 mx-auto mb-2" />
@@ -105,9 +105,10 @@ export default function Sidebar() {
                     variant="ghost"
                     size="sm"
                     onClick={(e) => handleDelete(e, session.id)}
-                    className="ml-2" // Removed opacity-0 and group-hover:opacity-100
+                    className="ml-2 flex-shrink-0 bg-white/80 hover:bg-red-50 hover:text-red-500 transition-colors"
+                    aria-label="Delete chat"
                   >
-                    <Trash2 className="h-4 w-4 text-gray-500" />
+                    <Trash2 className="h-4 w-4" />
                   </Button>
                 </div>
               ))}
