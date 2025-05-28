@@ -149,18 +149,26 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }, [models, topics, selectedModel, selectedTopic]); // Depend on models, topics, and selected states
 
   const createNewSession = async (initialMessage?: string) => { // Make initialMessage optional
+    console.log('🔄 Starting createNewSession with initialMessage:', initialMessage ? `"${initialMessage.substring(0, 30)}${initialMessage.length > 30 ? '...' : ''}"` : 'undefined');
+    
     if (!selectedModel || !selectedTopic) {
-      console.error("Cannot create session: Model or Topic not selected.");
+      console.error("❌ Cannot create session: Model or Topic not selected.");
       return;
     }
-
+    
+    console.log(`📋 Using model: ${selectedModel.display_name}, topic: ${selectedTopic.name}`);
     setIsLoading(true)
+    
     try {
+      console.log('🌐 Calling API to create new session...');
       const response = await chatAPI.createSession(
         selectedModel.id,
         selectedTopic.id,
         initialMessage || "" // Pass empty string if initialMessage is undefined
       )
+      
+      console.log('✅ Session created successfully with response:', response);
+      console.log(`📝 Generated title: "${response.title}"`);
       
       // Convert backend messages to frontend format
       const convertedMessages = response.messages.map((msg: any) => ({
@@ -169,6 +177,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         role: msg.role as "user" | "assistant",
         timestamp: new Date(msg.timestamp)
       }))
+      
+      console.log(`📨 Converted ${convertedMessages.length} messages from the response`);
 
       const newSession: ChatSession = {
         id: response.session_id, // Use session_id from response
@@ -179,11 +189,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         created_at: new Date().toISOString() // Use current time for created_at
       }
 
+      console.log('📊 Created new session object:', newSession);
       setSessions(prev => [newSession, ...prev])
       setCurrentSession(newSession)
       setMessages(convertedMessages)
+      console.log('✅ State updated with new session');
     } catch (error) {
-      console.error("Error creating session:", error)
+      console.error("❌ Error creating session:", error)
       throw error
     } finally {
       setIsLoading(false)

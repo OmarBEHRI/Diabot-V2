@@ -10,10 +10,12 @@ router.use(authMiddleware);
 
 // Create a new chat session
 router.post('/new_session', async (req, res) => {
+  console.log('📝 Creating new chat session with request body:', JSON.stringify(req.body, null, 2));
   const { model_id, topic_id, initial_message_content } = req.body;
   const user_id = req.user.id;
 
   if (!model_id || !topic_id) { // initial_message_content is now optional
+    console.log('❌ Missing required fields in new session request');
     return res.status(400).json({ error: 'Missing required fields: model_id or topic_id' });
   }
 
@@ -23,39 +25,51 @@ router.post('/new_session', async (req, res) => {
     // Get model information
     const model = db.prepare('SELECT * FROM models WHERE id = ?').get(model_id);
     if (!model) {
+      console.log(`❌ Model with ID ${model_id} not found`);
       return res.status(404).json({ error: 'Model not found' });
     }
+    console.log(`✅ Using model: ${model.display_name}`);
 
     // Get topic information
     const topic = db.prepare('SELECT * FROM topics WHERE id = ?').get(topic_id);
     if (!topic) {
+      console.log(`❌ Topic with ID ${topic_id} not found`);
       return res.status(404).json({ error: 'Topic not found' });
     }
+    console.log(`✅ Using topic: ${topic.name}`);
 
     // Determine session title
     let title;
-    if (initial_message_content) {
+    if (initial_message_content && initial_message_content.trim() !== '') {
+      console.log('🔍 Generating summary for initial message...');
       title = await summarizeText(initial_message_content); // Summarize the initial message
+      console.log(`✅ Generated title: "${title}"`);
     } else {
       title = `${topic.name} - ${new Date().toLocaleString()}`; // Default title
+      console.log(`ℹ️ Using default title: "${title}"`);
     }
 
     // Create a new chat session
+    console.log('💾 Creating new session in database with title:', title);
     const sessionResult = db.prepare(
       'INSERT INTO chat_sessions (user_id, model_id, topic_id, title) VALUES (?, ?, ?, ?)'
     ).run(user_id, model_id, topic_id, title);
 
     const session_id = sessionResult.lastInsertRowid;
+    console.log(`✅ Created new session with ID: ${session_id}`);
     let messages_db = []; // Initialize messages_db
 
-    if (initial_message_content) {
+    if (initial_message_content && initial_message_content.trim() !== '') {
+      console.log('💬 Processing initial message from user...');
       // Store the initial user message
       db.prepare(
         'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
       ).run(session_id, 'user', initial_message_content);
 
       // Retrieve relevant context using RAG
+      console.log('🔍 Retrieving relevant context using RAG...');
       const ragContext = await retrieveRelevantContext(initial_message_content);
+      console.log('✅ Retrieved RAG context');
 
       // Construct prompt with RAG context
       const messages = [
@@ -71,17 +85,22 @@ router.post('/new_session', async (req, res) => {
       ];
 
       // Call OpenRouter API
+      console.log(`🤖 Calling OpenRouter API with model: ${model.openrouter_id}...`);
       const assistantResponse = await callOpenRouter(model.openrouter_id, messages);
+      console.log('✅ Received response from OpenRouter');
 
       // Store the assistant's response
+      console.log('💾 Storing assistant response in database...');
       db.prepare(
         'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
       ).run(session_id, 'assistant', assistantResponse);
 
       // Get all messages for the session
+      console.log('📋 Retrieving all messages for the session...');
       messages_db = db.prepare(
         'SELECT * FROM chat_messages WHERE session_id = ? ORDER BY timestamp ASC'
       ).all(session_id);
+      console.log(`✅ Retrieved ${messages_db.length} messages`);
     }
 
     res.json({

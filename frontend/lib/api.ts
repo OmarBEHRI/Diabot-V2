@@ -70,12 +70,19 @@ export const topicsAPI = {
 // Chat API calls
 export const chatAPI = {
   createSession: async (modelId: number, topicId: number, initialMessage: string) => {
-    const response = await api.post('/api/chat/new_session', {
-      model_id: modelId,
-      topic_id: topicId,
-      initial_message_content: initialMessage,
-    });
-    return response.data;
+    console.log('💬 Frontend: Creating new chat session with params:', { modelId, topicId, initialMessageLength: initialMessage?.length || 0 });
+    try {
+      const response = await api.post('/api/chat/new_session', {
+        model_id: modelId,
+        topic_id: topicId,
+        initial_message_content: initialMessage,
+      });
+      console.log('✅ Frontend: Chat session created successfully with title:', response.data.title);
+      return response.data;
+    } catch (error) {
+      console.error('❌ Frontend: Error creating chat session:', error);
+      throw error;
+    }
   },
 
   sendMessage: async (sessionId: number, content: string) => {
