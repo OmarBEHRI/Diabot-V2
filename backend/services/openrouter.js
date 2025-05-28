@@ -68,16 +68,37 @@ async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
 }
 
 async function summarizeText(text, model = 'google/gemma-7b-it:free') { // Default to gemma for summarization
+  console.log('🔍 Starting summary generation for text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
+  
+  if (!text || text.trim() === '') {
+    console.log('⚠️ Empty text provided for summarization, returning default title');
+    return 'New Chat';
+  }
+  
   const messages = [
     { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 5-10 words, suitable for a chat title.' },
     { role: 'user', content: text }
   ];
+  
   try {
+    console.log(`🤖 Calling OpenRouter API with model: ${model} for summarization`);
     const summary = await callOpenRouter(model, messages, 0.5, 50); // Lower temperature, max_tokens for concise summary
+    console.log('✅ Successfully generated summary:', summary);
+    
+    // If summary is empty or too short, fallback to truncated text
+    if (!summary || summary.trim().length < 3) {
+      console.log('⚠️ Generated summary too short, falling back to truncated text');
+      return text.substring(0, 30) + '...';
+    }
+    
     return summary;
   } catch (error) {
-    console.error("Error summarizing text:", error);
-    return text.substring(0, 30) + "..."; // Fallback to truncated text
+    console.error("❌ Error summarizing text:", error);
+    // More robust fallback - extract first few words if possible
+    const words = text.split(' ').slice(0, 5).join(' ');
+    const fallbackTitle = words + (words.length < text.length ? '...' : '');
+    console.log('⚠️ Using fallback title:', fallbackTitle);
+    return fallbackTitle;
   }
 }
 
