@@ -1,21 +1,54 @@
-const fs = require('fs');
-const path = require('path');
-const { ChromaClient } = require('chromadb');
-const { getEmbedding, isApiKeySet } = require('./openrouter');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { ChromaClient } from 'chromadb';
+import { LocalEmbedder } from './localEmbeddings.js';
 
-// Initialize ChromaDB
-let client;
-let collection;
+// ES module equivalents for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Initialize ChromaDB and Embeddings
+let isChromaInitialized = false;
+let isEmbedderInitialized = false;
+
+let client = null;
+let collection = null;
 let isChromaAvailable = false;
 let documents = [];
+let chromaInitPromise = null;
 
-// Try to initialize ChromaDB client
-try {
-  client = new ChromaClient();
-  console.log('ChromaDB client initialized');
-} catch (error) {
-  console.warn('Failed to initialize ChromaDB client, will use fallback mode:', error.message);
+// Function to initialize ChromaDB client
+async function initializeChromaDB() {
+  if (chromaInitPromise) {
+    return chromaInitPromise;
+  }
+
+  chromaInitPromise = (async () => {
+    try {
+      console.log('🔌 Connecting to ChromaDB server...');
+      const chromaClient = new ChromaClient({
+        path: 'http://localhost:8000',
+        auth: {
+          provider: 'token',
+          credentials: 'test-token'
+        }
+      });
+      
+      await chromaClient.heartbeat();
+      console.log('✅ ChromaDB client connected successfully');
+      return { client: chromaClient, isInitialized: true };
+    } catch (error) {
+      console.warn('⚠️ Failed to initialize ChromaDB client, will use fallback mode:', error.message);
+      return { client: null, isInitialized: false };
+    }
+  })();
+
+  return chromaInitPromise;
 }
+
+// Initialize ChromaDB on first use
+initializeChromaDB().catch(console.error);
 
 // Function to load documents from the rag_sources directory
 async function loadDocuments() {
@@ -59,21 +92,25 @@ async function initRag() {
     console.log(`Loaded ${documents.length} documents from files`);
     
     // Try to connect to ChromaDB and initialize collection
-    if (client) {
+    const { client: chromaClient, isInitialized } = await initializeChromaDB();
+    
+    if (chromaClient && isInitialized) {
       try {
         console.log('Attempting to connect to ChromaDB...');
         // Set a timeout for the ChromaDB connection attempt
-        const connectPromise = new Promise(async (resolve, reject) => {
+        const connectPromise = (async () => {
           try {
-            // Create or get the collection
-            collection = await client.getOrCreateCollection({
-              name: "medical_docs",
+            // Create or get the collection - must match the collection name used in process_textbook.py
+            const col = await chromaClient.getOrCreateCollection({
+              name: "diabetes_textbook",
             });
-            resolve(collection);
+            console.log('Using ChromaDB collection: diabetes_textbook');
+            return col;
           } catch (err) {
-            reject(err);
+            console.error('Error getting collection:', err);
+            throw err;
           }
-        });
+        })();
         
         // Set a timeout of 5 seconds for the connection attempt
         const timeoutPromise = new Promise((_, reject) => {
@@ -82,6 +119,7 @@ async function initRag() {
         
         // Race the connection promise against the timeout
         collection = await Promise.race([connectPromise, timeoutPromise]);
+        client = chromaClient; // Set the client for backward compatibility
         
         // Check if collection is empty
         const count = await collection.count();
@@ -103,7 +141,8 @@ async function initRag() {
             const embeddings = [];
             for (const text of texts) {
               try {
-                const embedding = await getEmbedding(text);
+                const embedding = await LocalEmbedder.getEmbedding(text);
+                console.log(`🔄 Using local embedding for text: ${text.substring(0, 30)}...`);
                 embeddings.push(embedding);
               } catch (error) {
                 console.error(`Error getting embedding for text: ${text.substring(0, 50)}...`);
@@ -151,25 +190,66 @@ async function retrieveRelevantContext(queryText, topN = 3) {
   try {
     console.log(`Retrieving context for query: ${queryText.substring(0, 50)}...`);
     
+    // Get ChromaDB client status
+    const { client: chromaClient, isInitialized } = await initializeChromaDB();
+    const isChromaReady = isInitialized && chromaClient && collection;
+    
     // If ChromaDB is available, use it for semantic search
-    if (isChromaAvailable && collection) {
-      console.log('Using ChromaDB for semantic search');
+    if (isChromaReady) {
+      console.log('Using ChromaDB for semantic search with collection: diabetes_textbook');
       try {
-        // Get embedding for the query
-        const queryEmbedding = await getEmbedding(queryText);
+        // Initialize the embedder if not already done
+        if (!isEmbedderInitialized) {
+          console.log('🔄 Initializing embedding model...');
+          try {
+            await LocalEmbedder.initialize();
+            isEmbedderInitialized = true;
+            console.log('✅ Embedding model initialized successfully');
+          } catch (error) {
+            console.error('❌ Failed to initialize embedding model:', error);
+            throw new Error('Failed to initialize embedding model');
+          }
+        }
+
+        // Get embedding for the query using the local model
+        console.log('🔄 Generating local embedding for query...');
+        const queryEmbedding = await LocalEmbedder.getEmbedding(queryText);
+        if (!queryEmbedding || !Array.isArray(queryEmbedding)) {
+          throw new Error('Failed to generate query embedding');
+        }
         
         // Query the collection
         const results = await collection.query({
           queryEmbeddings: [queryEmbedding],
           nResults: topN,
+          include: ['documents', 'metadatas', 'distances']
         });
         
         // Format the results
-        let context = "";
         if (results && results.documents && results.documents[0]) {
-          context = results.documents[0].join("\n\n");
+          const context = results.documents[0].join("\n\n");
+          const sources = [];
+          
+          // Extract metadata for each result
+          if (results.metadatas && results.metadatas[0]) {
+            results.metadatas[0].forEach((metadata, index) => {
+              if (metadata && metadata.source) {
+                sources.push({
+                  text: results.documents[0][index],
+                  source: metadata.source,
+                  page: metadata.page || 'N/A',
+                  score: results.distances && results.distances[0] ? 
+                         (1 - results.distances[0][index]).toFixed(2) : 'N/A'
+                });
+              }
+            });
+          }
+          
           console.log(`Retrieved ${results.documents[0].length} relevant documents from ChromaDB`);
-          return context;
+          return {
+            context,
+            sources
+          };
         }
       } catch (error) {
         console.warn('ChromaDB query failed, falling back to keyword search:', error.message);
@@ -179,23 +259,36 @@ async function retrieveRelevantContext(queryText, topN = 3) {
     
     // Fallback: Use simple keyword matching if ChromaDB is not available
     console.log('Using fallback keyword search');
-    const relevantDocs = simpleKeywordSearch(queryText, documents, topN);
-    
-    if (relevantDocs.length > 0) {
-      const context = relevantDocs.map(doc => doc.text).join("\n\n");
-      console.log(`Retrieved ${relevantDocs.length} relevant documents using keyword search`);
-      return context;
+    try {
+      const relevantDocs = simpleKeywordSearch(queryText, documents, topN);
+      if (relevantDocs.length > 0) {
+        const context = relevantDocs.map(doc => doc.text).join("\n\n");
+        const sources = relevantDocs.map(doc => ({
+          text: doc.text,
+          source: doc.metadata?.source || 'Unknown Source',
+          page: doc.metadata?.page || 'N/A',
+          score: 'N/A'
+        }));
+        
+        console.log(`Retrieved ${relevantDocs.length} relevant documents using keyword search`);
+        return { context, sources };
+      }
+    } catch (error) {
+      console.error('Error in fallback keyword search:', error);
     }
     
     console.log('No relevant context found');
-    return "";
+    return { context: "", sources: [] };
   } catch (error) {
     console.error("Error retrieving context:", error);
-    return "";
+    return { context: "", sources: [] };
   }
 }
 
-// Simple keyword-based search function as a fallback
+/**
+ * Simple keyword-based search function as a fallback when ChromaDB is not available
+ * This is less accurate than semantic search and should only be used as a fallback
+ */
 function simpleKeywordSearch(query, docs, topN = 3) {
   // Extract keywords from the query (remove common words)
   const commonWords = ['a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'with', 'by', 'about', 'as'];
@@ -234,7 +327,4 @@ function simpleKeywordSearch(query, docs, topN = 3) {
   return result;
 }
 
-module.exports = {
-  initRag,
-  retrieveRelevantContext
-};
+export { initRag, retrieveRelevantContext };

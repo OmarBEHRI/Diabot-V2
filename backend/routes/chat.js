@@ -1,8 +1,9 @@
-const express = require('express');
-const { getDb } = require('../db');
-const authMiddleware = require('../middleware/auth');
-const { callOpenRouter, summarizeText } = require('../services/openrouter'); // Import summarizeText
-const { retrieveRelevantContext } = require('../services/rag');
+import express from 'express';
+import { getDb } from '../db.js';
+import authMiddleware from '../middleware/auth.js';
+import { callOpenRouter, summarizeText } from '../services/openrouter.js';
+import { retrieveRelevantContext } from '../services/rag.js';
+
 const router = express.Router();
 
 // Protect all chat routes with authentication
@@ -91,6 +92,7 @@ router.post('/new_session', async (req, res) => {
 
       // Generate a summary from the initial message
       console.log('📝 [NEW SESSION] Generating summary from initial message...');
+      let title; // Declare title with let to allow reassignment
       try {
         const summary = await summarizeText(initial_message_content);
         console.log(`✅ [NEW SESSION] Generated summary: "${summary}"`);
@@ -251,8 +253,8 @@ router.post('/:sessionId/message', async (req, res) => {
 
     // Retrieve relevant context using RAG
     console.log(`🔍 [MESSAGE] Retrieving RAG context for user message in session ${session_id}`);
-    const ragContext = await retrieveRelevantContext(content);
-    console.log(`✅ [MESSAGE] RAG context retrieved for session ${session_id}`);
+    const { context: ragContext, sources } = await retrieveRelevantContext(content);
+    console.log(`✅ [MESSAGE] RAG context retrieved for session ${session_id} with ${sources.length} sources`);
 
     // Construct messages array with system message, conversation history, and new message
     const messages = [
@@ -295,13 +297,24 @@ router.post('/:sessionId/message', async (req, res) => {
     console.log(`✅ [MESSAGE] Retrieved ${updated_messages.length} total messages for session ${session_id}`);
 
     console.log(`✅ [MESSAGE] Responding for session ${session_id}. Title: ${currentTitle}, Model: ${model.display_name}, Topic: ${topic.name}`);
-    res.json({
+    
+    // Prepare the response with sources
+    const response = {
       session_id,
       title: currentTitle, // Use the potentially updated title
       model: model.display_name,
       topic: topic.name,
-      messages: updated_messages
-    });
+      messages: updated_messages.map(msg => ({
+        ...msg,
+        // Add sources to the assistant's response
+        sources: msg.role === 'assistant' && msg.id === updated_messages[updated_messages.length - 1].id 
+          ? sources 
+          : []
+      }))
+    };
+    
+    console.log(`📤 [MESSAGE] Sending response with ${sources.length} sources for session ${session_id}`);
+    res.json(response);
   } catch (err) {
     console.error(`❌ [MESSAGE] Error processing message for session ${session_id}:`, err);
     res.status(500).json({ error: 'Server error' });
@@ -387,4 +400,4 @@ router.delete('/sessions/:sessionId', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

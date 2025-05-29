@@ -1,5 +1,6 @@
-const express = require('express');
-const { getDb } = require('../db');
+import express from 'express';
+import { getDb } from '../db.js';
+
 const router = express.Router();
 
 // Get all topics
@@ -29,4 +30,4 @@ router.get('/:id', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
