@@ -50,6 +50,7 @@ function initDb() {
       topic_id INTEGER NOT NULL,
       title TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users(id),
       FOREIGN KEY (model_id) REFERENCES models(id),
       FOREIGN KEY (topic_id) REFERENCES topics(id)
@@ -60,10 +61,41 @@ function initDb() {
       session_id INTEGER NOT NULL,
       role TEXT CHECK(role IN ('user', 'assistant')) NOT NULL,
       content TEXT NOT NULL,
+      sources TEXT,
       timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (session_id) REFERENCES chat_sessions(id)
     );
+    
+    CREATE INDEX IF NOT EXISTS idx_chat_messages_session_id ON chat_messages(session_id);
+    CREATE INDEX IF NOT EXISTS idx_chat_messages_timestamp ON chat_messages(timestamp);
   `);
+
+  // Handle the updated_at column addition with a more robust check
+  try {
+    // Check if the column exists
+    const columnCheck = db.prepare(`
+      SELECT COUNT(*) as exists 
+      FROM pragma_table_info('chat_sessions') 
+      WHERE name = 'updated_at'
+    `).get();
+    
+    if (!columnCheck.exists) {
+      // Add the column if it doesn't exist
+      db.prepare('ALTER TABLE chat_sessions ADD COLUMN updated_at DATETIME DEFAULT CURRENT_TIMESTAMP').run();
+      console.log('✅ Added updated_at column to chat_sessions');
+    } else {
+      console.log('ℹ️ updated_at column already exists in chat_sessions');
+    }
+  } catch (e) {
+    console.error('Error checking/adding updated_at column:', e.message);
+  }
+  
+  // Update existing rows to have a default updated_at
+  try {
+    db.prepare('UPDATE chat_sessions SET updated_at = CURRENT_TIMESTAMP WHERE updated_at IS NULL').run();
+  } catch (e) {
+    console.error('Error updating chat_sessions:', e.message);
+  }
 
   // Insert some default models
   const modelsCount = db.prepare('SELECT COUNT(*) as count FROM models').get();

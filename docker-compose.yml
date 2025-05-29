@@ -7,13 +7,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - CHROMA_SERVER_AUTH_CREDENTIALS=admin:admin  # Basic auth credentials
-      - CHROMA_SERVER_AUTH_CREDENTIALS_PROVIDER=chromadb.auth.basic_auth.BasicAuthServerProvider
-      - CHROMA_SERVER_AUTH_PROVIDER=chromadb.auth.basic_auth.BasicAuthServerProvider
-      - CHROMA_SERVER_AUTH_CREDENTIALS_FILE=/chroma/chroma_auth.txt
-      - CHROMA_SERVER_AUTH_PROVIDER=chromadb.auth.token_authn.TokenAuthenticationServerProvider
       - CHROMA_SERVER_AUTH_CREDENTIALS=test-token
-      - CHROMA_SERVER_AUTH_CREDENTIALS_PROVIDER=chromadb.auth.token_authn.TokenConfigServerProvider
+      - CHROMA_SERVER_AUTH_PROVIDER=token
+      - CHROME_SERVER_HTTP_ALLOWED_ORIGINS=*
+      - CHROMA_SERVER_NO_TLS=true
     volumes:
       - chroma_data:/chroma/chroma
     restart: unless-stopped

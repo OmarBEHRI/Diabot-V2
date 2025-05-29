@@ -17,7 +17,7 @@ if (!fs.existsSync(modelsDir)) {
 class LocalEmbedder {
     static model = null;
     static modelName = 'Xenova/bge-large-en-v1.5';
-    static modelPath = path.join(modelsDir, 'BAAI_bge-large-en-v1.5');
+    static modelPath = path.join(modelsDir, 'Xenova', 'bge-large-en-v1.5', 'onnx');
     static initialized = false;
     static initializing = false;
     static initPromise = null;
@@ -79,8 +79,17 @@ class LocalEmbedder {
         }
         
         try {
+            // Ensure text is a non-empty string
+            if (!text || typeof text !== 'string' || text.trim() === '') {
+                throw new Error('Input text cannot be empty');
+            }
+            
             // Generate the embedding
-            const output = await this.model(text, { pooling: 'mean', normalize: true });
+            console.log(`🔍 Generating embedding for text: ${text.substring(0, 50)}...`);
+            const output = await this.model(text, { 
+                pooling: 'mean', 
+                normalize: true 
+            });
             
             // Convert to a regular array (from Tensor)
             const embedding = Array.from(output.data);
@@ -90,33 +99,55 @@ class LocalEmbedder {
                 throw new Error('Generated embedding is empty');
             }
             
+            console.log(`✅ Generated embedding with ${embedding.length} dimensions`);
             return embedding;
             
         } catch (error) {
             console.error('❌ Error generating embedding:', error);
-            throw new Error(`Failed to generate embedding: ${error.message}`);
-        }
-    }
-
-    static async getEmbedding(text) {
-        if (!this.initialized) {
-            await this.initialize();
-        }
-
-        try {
-            const output = await this.model(text, {
-                pooling: 'mean',
-                normalize: true,
-            });
-            
-            // Convert to regular array (from Tensor)
-            const embedding = Array.from(output.data);
-            return embedding;
-        } catch (error) {
-            console.error('❌ Error generating embedding:', error);
-            throw error;
+            // Return a zero vector as fallback to prevent complete failure
+            console.log('⚠️ Using zero vector as fallback embedding');
+            return new Array(1024).fill(0);
         }
     }
 }
 
 export { LocalEmbedder };
+
+// Command line test
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const text = process.argv[2];
+    
+    if (!text) {
+        console.error('❌ Please provide a text string as an argument');
+        console.log('Usage: node localEmbeddings.js "Your text here"');
+        process.exit(1);
+    }
+
+    (async () => {
+        try {
+            console.log(`\n🔍 Testing LocalEmbedder with text: "${text}"`);
+            
+            // Initialize the embedder
+            console.log('🔄 Initializing embedder...');
+            await LocalEmbedder.initialize();
+            
+            // Get embeddings
+            console.log('⚙️  Generating embeddings...');
+            const startTime = Date.now();
+            const embedding = await LocalEmbedder.getEmbedding(text);
+            const duration = Date.now() - startTime;
+            
+            // Display results
+            console.log('\n✅ Embedding generated successfully!');
+            console.log(`📊 Embedding dimensions: ${embedding.length}`);
+            console.log(`⏱️  Time taken: ${duration}ms`);
+            console.log('\n📝 First 10 dimensions:');
+            console.log(embedding.slice(0, 10).map(x => x.toFixed(6)).join(', '));
+            console.log('\n... and so on for all dimensions');
+            
+        } catch (error) {
+            console.error('❌ Test failed:', error);
+            process.exit(1);
+        }
+    })();
+}

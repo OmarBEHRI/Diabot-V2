@@ -1,11 +1,11 @@
 "use client"
 
+import React, { useState, useEffect } from "react"
 import { format } from "date-fns"
 import { User, Bot, ChevronDown, ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 import { SourceDocument, SourceDocuments } from "./SourceDocuments"
-import { useState } from "react"
 
 export interface MessageProps {
   message: {
@@ -22,6 +22,21 @@ export default function Message({ message, className }: MessageProps) {
   const isUser = message.role === "user"
   const [showSources, setShowSources] = useState(false)
   const hasSources = message.sources && message.sources.length > 0
+  
+  // Log message props for debugging
+  React.useEffect(() => {
+    console.log('💬 Message props:', {
+      id: message.id,
+      role: message.role,
+      hasSources,
+      sources: message.sources,
+      contentPreview: message.content.substring(0, 50) + '...'
+    });
+    
+    if (hasSources) {
+      console.log('📚 Sources in message:', JSON.stringify(message.sources, null, 2));
+    }
+  }, [message, hasSources]);
 
   return (
     <div className={cn("group w-full", className)}>

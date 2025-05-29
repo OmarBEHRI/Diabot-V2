@@ -61,34 +61,80 @@ router.post('/new_session', async (req, res) => {
         'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
       ).run(session_id, 'user', initial_message_content);
 
-      // Retrieve relevant context using RAG
+      // Retrieve relevant context using RAG with metadata and adjacent chunks
       console.log('🔍 [NEW SESSION] Retrieving relevant context using RAG for initial message...');
-      const ragContext = await retrieveRelevantContext(initial_message_content);
+      const { context: ragContext, sources } = await retrieveRelevantContext(initial_message_content, 3, true);
       console.log('✅ [NEW SESSION] Retrieved RAG context for initial message');
+      
+      // Log the received sources
+      console.log('📦 Received sources from RAG:', JSON.stringify(sources, null, 2));
+      
+      // Format sources for the system message
+      const sourcesText = sources.map(s => 
+        `- Source: ${s.source}, Page: ${s.page}, Chapter: ${s.chapter || 'N/A'}`
+      ).join('\n');
 
-      // Construct prompt with RAG context
+      // Log the sources text that will be included in the prompt
+      console.log('📋 Formatted sources text:', sourcesText);
+
+      // Construct prompt with RAG context and metadata
+      const systemMessage = `You are a medical assistant specialized in ${topic.name}. 
+                           Provide accurate, helpful information based on medical knowledge.
+                           If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
+                           
+                           Here is some relevant medical information that may help with the query:
+                           ${ragContext}
+                           
+                           Sources used (cite these in your response when appropriate):
+                           ${sourcesText}`;
+
+      console.log('📝 System message length:', systemMessage.length, 'characters');
+      
       const messages = [
         {
           role: 'system',
-          content: `You are a medical assistant specialized in ${topic.name}. 
-                   Provide accurate, helpful information based on medical knowledge.
-                   If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
-                   Here is some relevant medical information that may help with the query:
-                   ${ragContext}`
+          content: systemMessage
         },
         { role: 'user', content: initial_message_content }
       ];
+      
+      console.log('📤 Sending messages to OpenRouter:', JSON.stringify(messages, null, 2));
 
       // Call OpenRouter API
       console.log(`🤖 [NEW SESSION] Calling OpenRouter API with model: ${model.openrouter_id} for initial message...`);
       const assistantResponse = await callOpenRouter(model.openrouter_id, messages);
       console.log('✅ [NEW SESSION] Received response from OpenRouter for initial message');
 
-      // Store the assistant's response
-      console.log('💾 [NEW SESSION] Storing assistant response in database for initial message...');
+      // Log the sources before saving
+      console.log('💾 Saving assistant response with sources:', {
+        session_id,
+        contentLength: assistantResponse.length,
+        sourcesCount: sources.length,
+        sourcesSample: sources.length > 0 ? sources[0] : 'No sources'
+      });
+
+      // Store the assistant's response with sources and metadata
+      try {
+        const sourcesJson = JSON.stringify(sources);
+        console.log('📄 Sources JSON length:', sourcesJson.length);
+        
+        db.prepare(
+          'INSERT INTO chat_messages (session_id, role, content, sources) VALUES (?, ?, ?, ?)'
+        ).run(session_id, 'assistant', assistantResponse, sourcesJson);
+        
+        console.log('✅ Successfully saved message with sources');
+      } catch (error) {
+        console.error('❌ Error saving message with sources:', error);
+        // Fallback to save without sources if there's an error
+        db.prepare(
+          'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
+        ).run(session_id, 'assistant', assistantResponse);
+      }
+      
+      // Update the session with the latest message timestamp
       db.prepare(
-        'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
-      ).run(session_id, 'assistant', assistantResponse);
+        'UPDATE chat_sessions SET updated_at = CURRENT_TIMESTAMP WHERE id = ?'
+      ).run(session_id);
 
       // Generate a summary from the initial message
       console.log('📝 [NEW SESSION] Generating summary from initial message...');
@@ -251,10 +297,18 @@ router.post('/:sessionId/message', async (req, res) => {
     // Reverse to get chronological order
     history.reverse();
 
-    // Retrieve relevant context using RAG
+    // Retrieve relevant context using RAG with metadata and adjacent chunks
     console.log(`🔍 [MESSAGE] Retrieving RAG context for user message in session ${session_id}`);
-    const { context: ragContext, sources } = await retrieveRelevantContext(content);
+    const { context: ragContext, sources } = await retrieveRelevantContext(content, 3, true);
     console.log(`✅ [MESSAGE] RAG context retrieved for session ${session_id} with ${sources.length} sources`);
+    
+    // Format sources for display in the UI
+    const formattedSources = sources.map(source => ({
+      page: source.page,
+      chapter: source.chapter,
+      relevance: source.score,
+      preview: source.text.substring(0, 150) + (source.text.length > 150 ? '...' : '')
+    }));
 
     // Construct messages array with system message, conversation history, and new message
     const messages = [
@@ -282,12 +336,56 @@ router.post('/:sessionId/message', async (req, res) => {
     const assistantResponse = await callOpenRouter(model.openrouter_id, messages);
     console.log(`✅ [MESSAGE] Received response from OpenRouter for session ${session_id}`);
 
-    // Store the assistant's response
-    console.log(`💾 [MESSAGE] Storing assistant response for session ${session_id}`);
-    db.prepare(
-      'INSERT INTO chat_messages (session_id, role, content) VALUES (?, ?, ?)'
-    ).run(session_id, 'assistant', assistantResponse);
-    console.log(`✅ [MESSAGE] Assistant response stored for session ${session_id}`);
+    try {
+      // Store the assistant's response with sources
+      console.log(`💾 [MESSAGE] Storing assistant response with ${sources.length} sources for session ${session_id}`);
+      
+      // Log the structure of the sources we're trying to store
+      console.log('Sources structure:', JSON.stringify(sources, null, 2));
+      
+      const insertStmt = db.prepare(
+        'INSERT INTO chat_messages (session_id, role, content, sources) VALUES (?, ?, ?, ?)'
+      );
+      
+      // Execute the insert with error handling
+      insertStmt.run(
+        session_id, 
+        'assistant', 
+        assistantResponse, 
+        JSON.stringify(sources)
+      );
+      
+      console.log('✅ [MESSAGE] Successfully inserted assistant response');
+      
+      // Update the session with the latest message timestamp
+      try {
+        const updateStmt = db.prepare(
+          'UPDATE chat_sessions SET updated_at = CURRENT_TIMESTAMP WHERE id = ?'
+        );
+        updateStmt.run(session_id);
+        console.log('✅ [MESSAGE] Successfully updated session timestamp');
+      } catch (updateError) {
+        console.error('❌ [MESSAGE] Error updating session timestamp:', updateError);
+        // Continue even if timestamp update fails
+      }
+      
+    } catch (dbError) {
+      console.error('❌ [MESSAGE] Database error when storing message:', {
+        error: dbError.message,
+        code: dbError.code,
+        stack: dbError.stack
+      });
+      
+      // Try to get table info for debugging
+      try {
+        const tableInfo = db.prepare("PRAGMA table_info(chat_messages)").all();
+        console.log('Table structure:', tableInfo);
+      } catch (pragmaError) {
+        console.error('❌ [MESSAGE] Could not get table info:', pragmaError);
+      }
+      
+      throw dbError; // Re-throw to be caught by the outer catch
+    }
 
     // Get updated messages
     console.log(`🔄 [MESSAGE] Retrieving all updated messages for session ${session_id}`);
@@ -298,26 +396,57 @@ router.post('/:sessionId/message', async (req, res) => {
 
     console.log(`✅ [MESSAGE] Responding for session ${session_id}. Title: ${currentTitle}, Model: ${model.display_name}, Topic: ${topic.name}`);
     
-    // Prepare the response with sources
+    // Prepare the response with sources and metadata
     const response = {
       session_id,
       title: currentTitle, // Use the potentially updated title
       model: model.display_name,
       topic: topic.name,
-      messages: updated_messages.map(msg => ({
-        ...msg,
-        // Add sources to the assistant's response
-        sources: msg.role === 'assistant' && msg.id === updated_messages[updated_messages.length - 1].id 
-          ? sources 
-          : []
-      }))
+      messages: updated_messages.map(msg => {
+        // Parse sources if they exist
+        const msgSources = msg.sources ? (typeof msg.sources === 'string' ? JSON.parse(msg.sources) : msg.sources) : [];
+        
+        // Format sources for the UI
+        const formattedSources = msgSources.map(source => ({
+          source: source.source || 'Unknown',
+          page: source.page || 'N/A',
+          chapter: source.chapter || 'N/A',
+          relevance: source.score || 'N/A',
+          preview: source.text ? (source.text.substring(0, 150) + (source.text.length > 150 ? '...' : '')) : ''
+        }));
+        
+        return {
+          ...msg,
+          // Only include sources for assistant messages
+          sources: msg.role === 'assistant' ? formattedSources : []
+        };
+      })
     };
     
     console.log(`📤 [MESSAGE] Sending response with ${sources.length} sources for session ${session_id}`);
     res.json(response);
   } catch (err) {
-    console.error(`❌ [MESSAGE] Error processing message for session ${session_id}:`, err);
-    res.status(500).json({ error: 'Server error' });
+    console.error(`❌ [MESSAGE] Error processing message for session ${session_id}:`, {
+      message: err.message,
+      code: err.code,
+      stack: err.stack,
+      ...(err.response?.data && { responseData: err.response.data })
+    });
+    
+    // Provide more detailed error information in development
+    const errorResponse = {
+      error: 'Server error',
+      ...(process.env.NODE_ENV !== 'production' && {
+        details: {
+          message: err.message,
+          code: err.code,
+          ...(err.sql && { sql: err.sql }),
+          ...(err.stack && { stack: err.stack.split('\n') })
+        }
+      })
+    };
+    
+    res.status(500).json(errorResponse);
   }
 });
 
@@ -359,10 +488,22 @@ router.get('/:sessionId/messages', (req, res) => {
       return res.status(404).json({ error: 'Chat session not found or unauthorized' });
     }
 
-    // Get all messages for the session
+    // Get all messages for the session with proper source parsing
     const messages = db.prepare(
-      'SELECT * FROM chat_messages WHERE session_id = ? ORDER BY timestamp ASC'
-    ).all(session_id);
+      `SELECT 
+        id,
+        session_id,
+        role,
+        content,
+        sources,
+        strftime('%Y-%m-%dT%H:%M:%SZ', timestamp) as timestamp
+      FROM chat_messages 
+      WHERE session_id = ? 
+      ORDER BY timestamp ASC`
+    ).all(session_id).map(msg => ({
+      ...msg,
+      sources: msg.sources ? JSON.parse(msg.sources) : []
+    }));
 
     res.json(messages);
   } catch (err) {

@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "chromadb": "^2.4.6"
+  }
+}
