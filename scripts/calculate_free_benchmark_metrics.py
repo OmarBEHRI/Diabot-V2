@@ -58,8 +58,26 @@ def main():
     # Sort files by modification time (newest first)
     benchmark_files.sort(key=os.path.getmtime, reverse=True)
     
-    # Take the two most recent files if they exist
-    files_to_process = benchmark_files[:2] if len(benchmark_files) >= 2 else benchmark_files
+    # Include specific files we want to process
+    specific_files = [
+        "benchmark_free_openai_gpt-4.1-mini_20250529_033144.json",
+        "benchmark_free_google_gemini-2.5-flash-preview-05-20_20250529_035917.json",
+        "benchmark_free_meta-llama_llama-3.1-8b-instruct_20250529_042930.json",
+        "benchmark_free_google_gemma-3-4b-it_20250529_021205.json",
+        "benchmark_free_mistralai_mistral-nemo_20250529_024739.json"
+    ]
+    
+    # Get full paths for specific files that exist
+    files_to_process = []
+    for filename in specific_files:
+        file_path = base_dir / "Benchmark_Results" / filename
+        if file_path.exists():
+            files_to_process.append(file_path)
+    
+    # Add any other benchmark files that weren't in our specific list
+    for file_path in benchmark_files:
+        if file_path not in files_to_process:
+            files_to_process.append(file_path)
     
     if not files_to_process:
         print("No benchmark result files found in the Benchmark_Results directory.")

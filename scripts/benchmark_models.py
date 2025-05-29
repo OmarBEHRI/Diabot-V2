@@ -214,6 +214,19 @@ def benchmark_model(model_name):
     except Exception as e:
         print(f"Error during benchmarking: {e}")
 
+def update_benchmark_results():
+    """Update the benchmark results markdown file with all available results."""
+    try:
+        print("\nUpdating benchmark results...")
+        # Get the directory of the current script
+        script_dir = Path(__file__).parent
+        # Run the metrics script to update the results
+        import subprocess
+        subprocess.run(["python", str(script_dir / "calculate_free_benchmark_metrics.py")], check=True)
+        print("Benchmark results have been updated in free_form_benchmark_results.md")
+    except Exception as e:
+        print(f"Error updating benchmark results: {e}")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Benchmark an OpenRouter model on the diabetes QA dataset.')
     parser.add_argument('model_name', help='The name of the model to benchmark (e.g., "google/gemini-2.5-flash-preview")')
@@ -226,3 +239,6 @@ if __name__ == "__main__":
     else:
         print(f"Starting benchmarking with model: {args.model_name}")
         benchmark_model(args.model_name)
+        
+        # Update the benchmark results after a successful run
+        update_benchmark_results()
