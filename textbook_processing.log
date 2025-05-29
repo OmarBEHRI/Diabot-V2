@@ -1,0 +1,6 @@
+2025-05-28 23:48:02,417 - __main__ - ERROR - PDF file not found at: C:\Users\Asus\Desktop\data\rag_sources\Textbook-of-Diabetes.pdf
+2025-05-28 23:48:02,418 - __main__ - CRITICAL - Fatal error in main process
+Traceback (most recent call last):
+  File "C:\Users\Asus\Desktop\Diabot-PFA-Project\scripts\process_textbook.py", line 273, in <module>
+    raise FileNotFoundError(f"PDF file not found at: {pdf_path}")
+FileNotFoundError: PDF file not found at: ..\data\rag_sources\Textbook-of-Diabetes.pdf

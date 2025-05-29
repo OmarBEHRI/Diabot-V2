@@ -1,0 +1,2115 @@
+
+--- Page 1 ---
+Textbook of
+Diabetes
+EDITED BY
+RICHARD I.G. HOLT
+MA, MB BChir, PhD, FRCP, FHEA
+Professor in Diabetes & Endocrinology
+Developmental Origins of Health and Disease Division
+University of Southampton School of Medicine
+Southampton, UK
+CLIVE S. COCKRAM
+MB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)
+Emeritus Professor of Medicine
+Chinese University of Hong Kong
+Hong Kong SAR
+People’s Republic of China
+ALLAN FLYVBJERG
+MD, DMSc
+Professor of Clinical Endocrinology and
+Chair, Department of Endocrinology and Internal Medicine
+The Medical Research Laboratories
+Aarhus University Hospital – Aarhus University
+Aarhus, Denmark
+BARRY J. GOLDSTEIN
+MD, PhD, FACP, FACE
+Therapeutic Area Head, Diabetes and Obesity
+Vice President, Clinical Research, Metabolism
+Merck Research Laboratories
+Rahway, NJ, USA
+FOURTH EDITION
+A John Wiley & Sons, Ltd., Publication
+--- Page 2 ---
+
+--- Page 3 ---
+Textbook of Diabetes
+COMPANION WEBSITE
+Purchasing this book entitles you to access to the companion website:
+textbookofdiabetes.com
+The website includes:
+(cid:129) Interactive Multiple-Choice Questions for each chapter
+(cid:129) Reference lists with external links
+(cid:129) Figures from the book for downloading
+(cid:129) All chapters online
+How to access the site:
+(cid:129) Scratch off the label below to see your unique PIN number
+(cid:129) Go to the website textbookofdiabetes.com and follow the registration instructions
+SCRATCH CODE HERE
+Please note that the book cannot be returned once the label is scratched off, and the unique (personal)
+PIN cannot be shared. The site is for individual use by purchasers only and cannot be networked.
+--- Page 4 ---
+W e dedicate this book to all people living with diabetes and the healthcare
+professionals who look after them. We would also like to dedicate this book to our
+families without whose support and encouragement the book would never have
+been fi nished.
+--- Page 5 ---
+Textbook of
+Diabetes
+EDITED BY
+RICHARD I.G. HOLT
+MA, MB BChir, PhD, FRCP, FHEA
+Professor in Diabetes & Endocrinology
+Developmental Origins of Health and Disease Division
+University of Southampton School of Medicine
+Southampton, UK
+CLIVE S. COCKRAM
+MB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)
+Emeritus Professor of Medicine
+Chinese University of Hong Kong
+Hong Kong SAR
+People’s Republic of China
+ALLAN FLYVBJERG
+MD, DMSc
+Professor of Clinical Endocrinology and
+Chair, Department of Endocrinology and Internal Medicine
+The Medical Research Laboratories
+Aarhus University Hospital – Aarhus University
+Aarhus, Denmark
+BARRY J. GOLDSTEIN
+MD, PhD, FACP, FACE
+Therapeutic Area Head, Diabetes and Obesity
+Vice President, Clinical Research, Metabolism
+Merck Research Laboratories
+Rahway, NJ, USA
+FOURTH EDITION
+A John Wiley & Sons, Ltd., Publication
+--- Page 6 ---
+This edition fi rst published 2010. © 1991, 1997, 2003, 2010 by Blackwell Publishing Ltd
+Blackwell Publishing was acquired by John Wiley & Sons in February 2007. Blackwell’s publishing program
+has been merged with Wiley’s global Scientifi c, Technical and Medical business to form Wiley-Blackwell.
+Registered offi ce: John Wiley & Sons Ltd, The Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ,
+UK
+Editorial offi ces: 9600 Garsington Road, Oxford, OX4 2DQ, UK
+111 River Street, Hoboken, NJ 07030-5774, USA
+The Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ, UK
+For details of our global editorial offi ces, for customer services and for information about how to apply for
+permission to reuse the copyright material in this book please see our website at www.wiley.com/
+wiley-blackwell.
+The right of the author to be identifi ed as the author of this work has been asserted in accordance with the
+Copyright, Designs and Patents Act 1988.
+All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted,
+in any form or by any means, electronic, mechanical, photocopying, recording or otherwise, except as
+permitted by the UK Copyright, Designs and Patents Act 1988, without the prior permission of the publisher.
+Wiley also publishes its books in a variety of electronic formats. Some content that appears in print may not
+be available in electronic books.
+Designations used by companies to distinguish their products are often claimed as trademarks. All brand
+names and product names used in this book are trade names, service marks, trademarks or registered
+trademarks of their respective owners. The publisher is not associated with any product or vendor mentioned
+in this book. This publication is designed to provide accurate and authoritative information in regard to the
+subject matter covered. It is sold on the understanding that the publisher is not engaged in rendering
+professional services. If professional advice or other expert assistance is required, the services of a competent
+professional should be sought.
+The contents of this work are intended to further general scientifi c research, understanding, and discussion
+only and are not intended and should not be relied upon as recommending or promoting a specifi c method,
+diagnosis, or treatment by physicians for any particular patient. The publisher and the author make no
+representations or warranties with respect to the accuracy or completeness of the contents of this work and
+specifi cally disclaim all warranties, including without limitation any implied warranties of fi tness for a
+particular purpose. In view of ongoing research, equipment modifi cations, changes in governmental
+regulations, and the constant fl ow of information relating to the use of medicines, equipment, and devices, the
+reader is urged to review and evaluate the information provided in the package insert or instructions for each
+medicine, equipment, or device for, among other things, any changes in the instructions or indication of
+usage and for added warnings and precautions. Readers should consult with a specialist where appropriate.
+The fact that an organization or Website is referred to in this work as a citation and/or a potential source of
+further information does not mean that the author or the publisher endorses the information the organization
+or Website may provide or recommendations it may make. Further, readers should be aware that Internet
+Websites listed in this work may have changed or disappeared between when this work was written and when
+it is read. No warranty may be created or extended by any promotional statements for this work. Neither the
+publisher nor the author shall be liable for any damages arising herefrom.
+ISBN: 9781405191814
+A catalogue record for this book is available from the British Library.
+Library of Congress Cataloging-in-Publication Data
+Textbook of diabetes. – 4th ed. / edited by Richard I.G. Holt ... [et al.].
+p. ; cm.
+Includes bibliographical references and index.
+ISBN 978-1-4051-9181-4 (hardback : alk. paper)
+1. Diabetes. I. Holt, Richard I.G.
+[DNLM: 1. Diabetes Mellitus. WK 810 T355 2010]
+RC660.T467 2010
+616.4'62–dc22
+2010013907
+Set in 9.25/12 pt Minion by Toppan Best-set Premedia Limited
+Printed in Singapore
+1 2010
+--- Page 7 ---
+Contents
+List of Contributors, ix Part 3 Pathogenesis of Diabetes
+Preface to the Fourth Edition, xiii
+9 Type 1 Diabetes, 141
+Foreword, xv Autoimmune Type 1 Diabetes, 141
+Ahmed J. Delli, Helena Elding Larsson, Sten-A. Ivarsson
+List of Abbreviations, xvi
+& Åke Lernmark
+Other Disorders with Type 1 Phenotype, 152
+Part 1 Diabetes in its Historical and Alice P.S. Kong & Juliana C.N. Chan
+Social Context
+10 Abnormalities of Insulin Secretion and β-Cell Defects in
+Type 2 Diabetes, 160
+1 The History of Diabetes Mellitus, 3
+Mazen Alsahli & John E. Gerich
+Robert B. Tattersall
+11 Insulin Resistance in Type 2 Diabetes, 174
+2 The Classifi cation and Diagnosis of Diabetes, 24
+Hannele Yki-Järvinen
+K. George M.M. Alberti
+12 The Genetics of Type 2 Diabetes: From Candidate Gene
+3 Epidemiology of Type 1 Diabetes, 31
+Biology to Genome-Wide Studies, 191
+Lars C. Stene, Valma Harjutsalo, Elena Moltchanova
+Martine Vaxillaire & Philippe Froguel
+& Jaakko Tuomilehto
+13 Metabolic Disturbances in Diabetes, 215
+4 Epidemiology of Type 2 Diabetes, 45
+Adrian Vella & Robert A. Rizza
+Ronald C.W. Ma & Peter C.Y. Tong
+14 Obesity and Diabetes, 227
+5 The Global Burden of Diabetes, 69
+Hans Hauner
+Mohammed K. Ali, Mary Beth Weber & K.M. Venkat
+Narayan
+Part 4 Other Types of Diabetes
+Part 2 Normal Physiology
+15 Monogenic Causes of Diabetes, 245
+Angus Jones & Andrew T. Hattersley
+6 Islet Function and Insulin Secretion, 87
+Peter M. Jones & Shanta J. Persaud 16 Drug-Induced Diabetes, 265
+Neil J.L. Gittoes, John Ayuk & Robin E. Ferner
+7 Insulin Action, 104
+Xuxia Wu & W. Timothy Garvey 17 Endocrine Disorders that Cause Diabetes, 279
+Neil A. Hanley
+8 Control of Weight: How Do We Get Fat? 126
+George A. Bray 18 Pancreatic Diseases and Diabetes, 298
+Ranjit Unnikrishnan & Viswanathan Mohan
+v
+--- Page 8 ---
+Contents
+Part 5 Managing the Patient with Part 7 Microvascular Complications
+Diabetes in Diabetes
+19 Clinical Presentations of Diabetes, 313 35 Pathogenesis of Microvascular Complications, 555
+Ee Lin Lim & Roy Taylor Ferdinando Giacco & Michael Brownlee
+20 The Aims of Diabetes Care, 323 36 Diabetic Retinopathy, 575
+Richard I.G. Holt & Barry J. Goldstein Peter H. Scanlon
+21 Educating the Patient with Diabetes, 334 37 Diabetic Nephropathy, 599
+Carolé Mensing & Barbara Eichorst Sally M. Marshall & Allan Flyvbjerg
+22 Lifestyle Issues: Diet, 346 38 Diabetic Peripheral Neuropathy, 615
+Monika Toeller Dan Ziegler
+23 Lifestyle Issues: Exercise, 358
+Jane E. Yardley, Angela Alberga, Glen P. Kenny
+& Ronald J. Sigal Part 8 Macrovascular Complications
+in Diabetes
+24 Social Aspects of Diabetes, 380
+Brian M. Frier & Mark W.J. Strachan
+39 The Pathogenesis of Macrovascular Complications
+25 Monitoring Diabetes, 399 Including Atherosclerosis in Diabetes, 637
+Andrew J. Farmer Riccardo Candido, Mark E. Cooper & Karin A.M.
+Jandeleit-Dahm
+26 Drug Therapy: Special Considerations
+in Diabetes, 410 40 Cardiovascular Risk Factors, 657
+Bernard M.Y. Cheung & Robin E. Ferner Hypertension, 657
+Peter M. Nilsson
+Dyslipidemia: Diabetes Lipid Therapies, 672
+Part 6 Treatment of Diabetes
+Adie Viljoen & Anthony S. Wierzbicki
+27 Insulin and Insulin Treatment, 427 41 Congestive Heart Failure, 684
+Stephen Gough & Parth Narendran Inga S. Thrainsdottir & Lars Rydén
+28 New Technologies for Insulin Administration and Glucose 42 Cerebrovascular Disease, 698
+Monitoring, 440 Colum F. Amory & Jesse Weinberger
+Howard Wolpert & Judy Shih
+43 Peripheral Vascular Disease, 710
+29 Oral Antidiabetic Agents, 452 Henrik H. Sillesen
+Clifford J. Bailey & Andrew J. Krentz
+30 Non-Insulin Parenteral Therapies, 478
+Part 9 Other Complications of Diabetes
+Jens Juul Holst, Sten Madsbad & Ole Schmitz
+31 How to Use Type 2 Diabetes Treatments in Clinical 44 Foot Problems in Patients with Diabetes, 727
+Practice: Combination Therapies, 494 Andrew J.M. Boulton
+Joseph A. Aloi & Anthony L. McCall
+45 Sexual Function in Men and Woman with Diabetes, 743
+32 In-Hospital Treatment and Surgery in Patients with David Price
+Diabetes, 514
+46 Gastrointestinal Manifestations of Diabetes, 760
+Maggie Sinclair Hammersley & June James
+Adil E. Bharucha & Michael Camilleri
+33 Hypoglycemia in Diabetes, 528
+47 The Skin in Diabetes, 774
+Philip E. Cryer
+Graham R. Sharpe & Paul D. Yesudian
+34 Acute Metabolic Complications of Diabetes: Diabetic
+48 Bone and Rheumatic Disorders in Diabetes, 789
+Ketoacidosis and Hyperosmolar Hyperglycemia, 546
+Andrew Grey & Nicola Dalbeth
+Troels Krarup Hansen & Niels Møller
+vi
+--- Page 9 ---
+Contents
+49 Psychologic Factors and Diabetes, 807 Part 12 Future Directions
+Christopher M. Ryan
+59 Future Drug Treatment for Type 1 Diabetes, 1001
+50 Diabetes and Infections, 835
+Helena Elding Larsson, Ahmed J. Delli, Sten-A. Ivarsson
+Clive S. Cockram & Nelson Lee
+& Åke Lernmark
+60 Future Drug Treatments for Type 2 Diabetes, 1017
+Part 10 Diabetes in Special Groups Clifford J. Bailey
+61 Other Future Directions, 1045
+51 Diabetes in Childhood, 859
+Stem Cell Therapy in Diabetes, 1045
+Christine Chan & Marian Rewers
+Shuibing Chen, Jayaraj Rajagopal, Qiao Zhou &
+52 Diabetes in Adolescence and Transitional Care, 875 Douglas A. Melton
+Debbie Kralik & Maria Kambourakis
+Islet Transplantation, 1050
+53 Diabetes in Pregnancy, 888 Angela Koh, Peter Senior & A.M. James Shapiro
+Anne Dornhorst & Anita Banerjee
+Gene Therapy, 1064
+54 Diabetes in Old Age, 922 Andreea R. Barbu & Nils Welsh
+Alan J. Sinclair
+62 Future Models of Diabetes Care, 1070
+55 Psychiatric Disorders and Diabetes, 940 Robert A. Gabbay & Alan M. Adelman
+Robert C. Peveler & Richard I.G. Holt
+Index, 1081
+Part 11 Delivery and Organization
+of Diabetes Care
+56 The Role of Community and Specialist Services, 959
+Jane Overland, Margaret McGill & Dennis K. Yue
+57 The Role of the Multidisciplinary Team, 969
+Wing-Yee So & Juliana C.N. Chan
+58 Models of Diabetes Care Across Different
+Resource Settings, 984
+A companion website for this book is available at:
+Naomi S. Levitt, Bob Mash, Nigel Unwin, Jean Claude
+textbookofdiabetes.com
+Mbanya, Jae-Hyoung Cho & Kun-Ho Yoon
+vii
+--- Page 10 ---
+
+--- Page 11 ---
+List of Contributors
+Alan M. Adelman MS, MD Clifford J. Bailey PhD, FRCP(Edin), Michael Camilleri MD
+Professor of Family and Community Medicine, Vice FRCPath Atherton and Winifred W. Bean Professor, Professor
+Chair for Academic Affairs and Research, Penn State Professor in Clinical Science and Head of Diabetes of Medicine and Physiology, College of Medicine,
+Milton S. Hershey Medical Center, Penn State Research, School of Life and Health Sciences, Aston Mayo Clinic and Clinical Enteric Neuroscience
+College of Medicine, Hershey, PA, USA University, Birmingham, UK Translational and Epidemiological Research
+Program, Division of Gastroenterology and
+Angela Alberga MSc Anita Banerjee BSc, MBBS, MRCP Hepatology, Mayo Clinic, Rochester, MN, USA
+F aculty of Health Sciences, University of Ottawa and Obstetric Physician, Diabetes and Endocrinology,
+Ottawa Hospital Research Institute, Ottawa, Princess Royal University Hospital, London, Riccardo Candido MD, PhD
+Ontario, Canada England UK Diabetic Centre, Trieste, Italy
+K. George M.M. Alberti DPhil, FRCP Andreea R. Barbu PhD Christine M. Chan MD
+Senior Research Fellow, Imperial College, London; Department of Medical Cell Biology and Barbara Davis Center for Childhood Diabetes,
+Emeritus Professor of Medicine, University of Department of Medical Sciences, Uppsala University of Colorado Denver, School of Medicine,
+Newcastle, Newcastle, UK University, Uppsala, Sweden Aurora, CO, USA
+Mohammed K. Ali MBChB, MSc Adil E. Bharucha MD Juliana C.N. Chan MBChB MD FRCP
+Assistant Professor, Hubert Department of Global Professor of Medicine, Division of Gastroenterology Professor of Medicine and Therapeutics, Director,
+Health, Rollins School of Public Health, Global and Hepatology, Clinical Enteric Neuroscience Hong Kong Institute of Diabetes and Obesity, The
+Diabetes Research Center, Emory University, Translational and Epidemiological Research Chinese University of Hong Kong, The Prince of
+Atlanta, GA, USA Program, Mayo Clinic, Rochester, MN, USA Wales Hospital, Hong Kong SAR, China
+Joseph A. Aloi MD Andrew J.M. Boulton MD, DSc (Hon), Shuibing Chen PhD
+Associate Professor of Internal Medicine, The
+FRCP
+Postdoctoral Fellow, Department of Stem Cell and
+Strelitz Diabetes Center for Endocrine and Regenerative Biology, Harvard University,
+Professor of Medicine, University of Manchester
+Metabolic Disorders, Eastern Virginia Medical Cambridge, MA, USA
+and Manchester Royal Infi rmary, Manchester, UK;
+School , Norfolk, VA, USA
+Miller School of Medicine, University of Miami,
+Miami, FL, USA Bernard M.Y. Cheung MD, PhD
+Mazen Alsahli MD Chair of Clinical Pharmacology and Therapeutics,
+Professor of Medicine, University of Rochester George A. Bray MD, MACP Department of Clinical Pharmacology, University of
+School of Medicine, Rochester, NY, USA Birmingham, Birmingham, UK
+Boyd Professor, Pennington Biomedical Research
+Center, Louisiana State University, Baton Rouge,
+Colum F. Amory MD, MPH LA, USA Jae - Hyoung Cho MD
+Mount Sinai School of Medicine, New York, NY, Assistant Professor, Department of Endocrinology,
+USA Michael Brownlee MD Seoul St. Mary ’ s Hospital, College of Medicine, The
+Catholic University of Korea, Seoul, Korea
+Anita and Jack Saltz Professor of Diabetes Research,
+John Ayuk MD Albert Einstein College of Medicine, New York, NY,
+Centre for Endocrinology, Diabetes and USA Mark E. Cooper MD, PhD
+Metabolism, University of Birmingham and Queen Director, Danielle Alberti JDRF Centre for Diabetes
+Elizabeth Hospital Birmingham, Birmingham, UK Complications, Head, Vascular Division – Baker IDI
+Heart Research Institute, Melbourne, Australia
+ix
+--- Page 12 ---
+List of Contributors
+Philip E. Cryer MD Ferdinando Giacco PhD Sten – A. Ivarsson MD, PhD
+I rene E. and Michael M. Karl Professor of Postdoctoral Fellow, Diabetes Research and Training Clinical Research Center (CRC), Lund University
+Endocrinology and Metabolism in Medicine, Center, Departments of Medicine and and Department of Clinical Sciences/Paediatric
+Washington University School of Medicine, St. Endocrinology, Albert Einstein College of Medicine, Endocrinology, University Hospital MAS, Malm ö ,
+Louis, MO, USA New York, NY, USA Sweden
+Nicola Dalbeth MD, FRACP Neil J.L. Gittoes MD June James MSc, BA (Hons) Dip Nursing,
+Department of Medicine, University of Auckland, Senior Lecturer in Medicine, Centre for NP RGN
+Auckland, New Zealand Endocrinology, Diabetes and Metabolism, Consultant Nurse in Diabetes, University Hospitals
+University of Birmingham and Queen Elizabeth of Leicester, Leicester, UK
+Ahmed J. Delli MD, MPH Hospital Birmingham, Birmingham, UK
+Clinical Research Center (CRC), Lund University, Karin A.M. Jandeleit- Dahm MD, PhD,
+Department of Clinical Sciences/Diabetes and Celiac Steve Gough
+FRACP
+Disease, University Hospital MAS, Malmö , Sweden Professor of Diabetes, Oxford Centre for Diabetes
+B aker IDI Heart and Diabetes Institute, Co- h ead,
+Endocrinology and Metabolism, University of
+Diabetes Division; Professor of Medicine (Adjunct),
+Anne Dornhorst BSc, DM, FRCP, FRCPath Oxford; Consultant Physician, Churchill Hospital, Monash University, Melbourne, Australia
+Oxford, UK
+C onsultant Physician, Honorary Senior Lecturer,
+Department of Medicine, Imperial College Peter Jones PhD
+Healthcare NHS Trust, Hammersmith Hospital, Andrew Grey MD
+Professor of Endocrine Biology, King ’ s College
+London, UK Department of Medicine, University of Auckland,
+London, London, UK
+Auckland, New Zealand
+Barbara Eichorst MS,RD,CDE Angus Jones MBBS, MRCP
+Healthy Interactions Global Conversation Map ™ Maggie Sinclair Hammersley MB,
+Diabetes and Vascular Medicine, Peninsula Medical
+Facilitator, Chicago, IL, USA FRCP School, Exeter, UK
+Consultant Physician and Senior Lecturer, Nuffi eld
+Andrew J. Farmer DM, FRCGP Department of Medicine, University of Oxford, Maria Kambourakis BSc(Hons)
+U niversity Lecturer, Department of Primary Health Oxford, UK
+Research Offi cer/Type 1 Diabetes Program Offi cer,
+Care, University of Oxford, Oxford, UK
+Type 1 Diabetes Program, Diabetes Australia,
+Neil A. Hanley MBChB, PhD Victoria, Australia
+Robin E. Ferner MSc, MD, FRCP Professor of Medicine, Endocrinology and Diabetes
+Professor, West Midlands Centre for Adverse Drug Group, University of Manchester, Manchester, UK Glen P. Kenny MD
+Reactions, City Hospital, Birmingham, UK
+Ottawa Hospital Research Institute and Laboratory
+Troels Krarup Hansen MD, PhD of Human Bioenergetics and Environmental
+Brian M. Frier BSc(Hons), MD, FRCPE, A ssociate Professor, Department of Endocrinology Physiology, School of Human Kinetics, Faculty of
+FRCPG and Internal Medicine, Aarhus University Hospital, Health Sciences, University of Ottawa, Ottawa,
+Professor, Department of Diabetes, Royal Infi rmary Aarhus, Denmark Ontario, Canada
+of Edinburgh, Edinburgh, UK
+Valma Harjutsalo PhD Angela Koh MBBS (Singapore), MRCP (UK)
+Philippe Froguel MD, PhD Folkh ä lsan Institute of Genetics, Folkh ä lsan Assistant Professor, Department of Medicine
+Institut de Biologie de Lille, Institut Pasteur de Lille, Research Center, Biomedicum Helsinki; Diabetes (Endocrinology), Attending Physician, Clinical Islet
+Lille, France; Section of Genomic Medicine, Prevention Unit, National Institute of Health and Transplant Program, University of Alberta,
+Imperial College London, London, UK Welfare, Helsinki, Finland; Division of Nephrology, Edmonton, Canada
+Department of Medicine, Helsinki University
+Central Hospital, Helsinki, Finland
+Robert A. Gabbay MD, PhD Alice P.S. Kong MBChB, MRCP (UK),
+Director, Penn State Institute for Diabetes and FRCP (Glasg)
+Andrew T. Hattersley MD
+Obesity; Professor of Medicine and Molecular A ssociate Professor, Department of Medicine and
+Diabetes and Vascular Medicine, Peninsula Medical
+Medicine, Penn State College of Medicine; Director, Therapeutics, The Chinese University of Hong
+School, Exeter, UK
+Diabetes Program, Penn State Milton S. Hershey Kong, Hong Kong SAR, China
+Medical Center, Hershey, PA , USA
+Hans Hauner MD Debbie Kralik PhD, RN
+W. Timothy Garvey MD Director, Else Kr ö ner - Fresenius - Center for General Manager, Research and Strategy, Royal
+Nutritional Medicine, Klinikum rechts der Isar,
+Butterworth Professor and Chair, Department of District Nursing Service, South Australia; Associate
+Technical University of Munich, Munich, Germany
+Nutrition Sciences; Director, UAB Diabetes Professor, University of South Australia and
+Research and Training Center, University of University of Adelaide, Glenside, Australia
+Alabama at Birmingham; Birmingham Veterans Jens Juul Holst MD, DMSc
+Affairs Medical Center, Birmingham, AL, USA Professor of Medical Physiology, Department of Andrew J. Krentz MD, FRCP
+Biomedical Sciences, The Panum Institute,
+Formerly Southampton University Hospitals NHS
+John E. Gerich MD University of Copenhagen, Denmark Trust, Southampton, UK
+Professor of Medicine, University of Rochester
+School of Medicine, Rochester, NY, USA
+x
+--- Page 13 ---
+List of Contributors
+Helena Elding Larsson MD, PhD Margaret McGill RN, MSc(med) Shanta J. Persaud PhD
+Clinical Research Center (CRC), Lund University; Diabetes Centre, Royal Prince Alfred Hospital, Professor of Diabetes and Endocrinology, King ’ s
+Department of Clinical Sciences/Paediatric Camperdown, Sydney, New South Wales, Australia College London, London, UK
+Endocrinology, University Hospital MAS, Malm ö ,
+Sweden Douglas A. Melton Robert C. Peveler MA, DPhil, BM, BCh,
+Thomas Dudley Cabot Professor in the Natural FRCPsych
+Nelson Lee MD,FRCP(Edin) Sciences, Department of Stem Cell and Regenerative Clinical Neurosciences Division, School of
+Associate Professor, Head, Division of Infectious Biology; Harvard Stem Cell Institute; Investigator, Medicine, University of Southampton and Royal
+Diseases, Department of Medicine and Therapeutics, Howard Hughes Medical Institute, Harvard South Hants Hospital, Southampton, UK
+Faculty of Medicine, The Chinese University of University, Cambridge, MA, USA
+Hong Kong, Hong Kong SAR, China
+David Price MD, FRCP
+Carol é R. Mensing RN, MA, CDE Department of Diabetes and Endocrinology,
+Å ke Lernmark PhD Joslin Diabetes Center, Boston, MA, USA Morriston Hospital, Swansea, UK
+Professor of Experimental Diabetes, Lund
+University/CRC, Department of Clinical Sciences, Viswanathan Mohan MD, FRCP(UK), Jayaraj Rajagopal
+University Hospital MAS, Malm ö , Sweden
+FRCP(Glasg), PhD, DSc, FNASc C enter for Regenerative Medicine, Massachusetts
+Chairman and Chief Diabetologist, Dr. Mohan ’ s General Hospital; Principal Investigator, Harvard
+Naomi S. Levitt MBChB, MD, FCP(SA) Diabetes Specialities Centre, WHO Collaborating Stem Cell Institute, Boston, MA, USA
+Professor and Head of Division of Diabetic Centre for Non Communicable Diseases Prevention
+Medicine and Endocrinology, Department of and Control, IDF Centre of Education; President Marian Rewers MD, PhD
+Medicine, University of Cape Town and Groote and Chief of Diabetes Research, Madras Diabetes
+Professor, Pediatrics and Preventive Medicine;
+Schuur Hospital, Cape Town, South Africa Research Foundation, ICMR Advanced Centre for
+Clinical Director, Barbara Davis Center for
+Genomics of Diabetes, Gopalapuram, Chennai,
+Childhood Diabetes, University of Colorado Denver,
+Ee Lin Lim MRCP India School of Medicine, Aurora, CO, USA
+Diabetes Research Group, Institute of Cellular
+Medicine, University of Newcastle, Newcastle upon Niels M ø ller MD, DMSc Robert A. Rizza MD
+Tyne, UK Professor, Department of Endocrinology and
+Professor of Medicine, Division of Endocrinology,
+Internal Medicine, The Medical Research
+Diabetes, Metabolism and Nutrition, Mayo Clinic,
+Ronald C.W. Ma MB BChir, MRCP Laboratories, Arhus University Hospital, Arhus, Rochester, MN, USA
+Associate Professor, Division of Endocrinology and Denmark
+Diabetes, Department of Medicine and
+Christopher M. Ryan PhD
+Therapeutics, The Chinese University of Hong Elena Moltchanova PhD
+Professor of Psychiatry, University of Pittsburgh
+Kong, Prince Of Wales Hospital, Hong Kong SAR, Diabetes Unit, Department of Health Promotion
+School of Medicine, Pittsburgh, Pennsylvania, USA
+China and Chronic Disease Prevention, National Institute
+for Health and Welfare, Helsinki, Finland
+Sten Madsbad MD, DMSc Lars Rydé n MD, FRCP, FESC, FACC, FAHA
+Professor Emeritus, Cardiology Unit, Department of
+Professor of Diabetology, Department of K. M. Venkat Narayan MD, MSc, MBA,
+Medicine, Karolinska Institute, Stockholm, Sweden
+Endocrinology, Hvidovre Hospital, Hvidovre,
+FRCP
+Denmark
+Ruth and O.C. Hubert Professor of Global Health,
+Peter H. Scanlon MD, MRCOphth, DCH,
+Professor of Epidemiology and Medicine, Rollins
+Sally M. Marshall MD School of Public Health, Emory University, Atlanta, FRCP
+P rofessor of Diabetes, Diabetes Research Group, GA, USA Consultant Ophthalmologist, Gloucestershire and
+Institute of Cellular Medicine, Newcastle University, Oxford Eye Units; Lecturer, Harris Manchester
+Newcastle upon Tyne, UK Parth Narendran College, University of Oxford, Oxford, UK
+Institute of Biomedical Research, The Medical
+Bob Mash MBChB, MRCGP, PhD School, University of Birmingham, Birmingham, Ole Schmitz MD, DMSc
+P rofessor, Division of Family Medicine and Primary UK Professor of Clinical Pharmacology, Department of
+Care, Stellenbosch University, Tygerberg, South Clinical Pharmacology, Aarhus University Hospital,
+Africa Peter M. Nilsson MD Denmark
+Professor of Clinical Cardiovascular Research,
+Jean - Claude Mbanya MD, PhD, FRCP Department of Clinical Sciences, Lund University, Peter A. Senior BMedSci, MBBS, PhD,
+P rofessor of Medicine and Endocrinology, Faculty University Hospital, Malmö , Sweden MRCP(UK)
+of Medicine and Biomedical Sciences, University of Clinical Islet Transplant Program, University of
+Yaounde I, Yaounde, Cameroon Jane Overland MPH, PhD Alberta, Edmonton, Alberta, Canada
+Nurse Practitioner, Diabetes Centre, Royal Prince
+Anthony L. McCall MD, PhD Alfred Hospital, Campderdown, New South Wales, A.M. James Shapiro MD PhD DSc (Hon)
+James M. Moss Professor of Diabetes in Internal Australia; Clinical Associate Professor, The Faculty FRCS(Eng) FRCSC MSM
+Medicine, Diabetes and Hormone Center of of Nursing and Midwifery, The University of P rofessor of Surgery, Director, Clinical Islet
+Excellence, University of Virginia School of Sydney, Sydney, Australia Transplant Program, AHFMR Scholar, University of
+Medicine, Charlottesville, VA, USA Alberta, Edmonton, Canada
+xi
+--- Page 14 ---
+List of Contributors
+Graham R. Sharpe MBChB, BA, PhD, FRCP Peter C.Y. Tong MBBS, PhD, BPharm, FRCP Anthony S. Wierzbicki DM, DPhil,
+C onsultant Dermatologist, Department of Professor, Division of Endocrinology and Diabetes, FRCPath, FAHA
+Dermatology, Broadgreen Hospital, Liverpool, UK Department of Medicine and Therapeutics, The Consultant Metabolic Physician and Chemical
+Chinese University of Hong Kong and Prince Of Pathologist, Guy ’ s and St Thomas Hospitals,
+Judy Shih MD, PhD Wales Hospital, Hong Kong SAR, China London, UK
+Joslin Diabetes Center, Boston, MA, USA
+Jaakko Tuomilehto MD, MA, PhD Howard Wolpert MD
+Ronald J. Sigal MD, MPH, FRCPC Hjelt Institute, University of Helsinki and Diabetes Joslin Diabetes Center, Boston, MA, USA
+Prevention Unit, Department of Health Promotion,
+Professor of Medicine, Cardiac Sciences, and
+National Institute for Health and Welfare, Helsinki,
+Community Health Sciences, Faculties of Medicine Xuxia Wu MD, PhD
+Finland, and South Ostrobothnia Central Hospital,
+and Kinesiology, The University of Calgary, Canada Department of Nutrition Sciences, University of
+Sein ä joki, Finland
+Alabama at Birmingham, Birmingham, AL, USA
+Henrik H. Sillesen MD, DMSc
+Ranjit Unnikrishnan MD
+Head, Department of Vascular Surgery, Jane E. Yardley MSc
+Director and Consultant Diabetologist, Dr. Mohan ’ s
+Rigshospitalet, University of Copenhagen, F aculty of Health Sciences, University of Ottawa and
+Diabetes Specialities Centre, WHO Collaborating
+Copenhagen, Denmark Ottawa Hospital Research Institute, Ottawa,
+Centre for Non Communicable Diseases Prevention
+Ontario, Canada
+and Control and IDF Centre of Education, Madras
+Alan J. Sinclair MSc, MD, FRCP Diabetes Research Foundation, ICMR Advanced
+Deputy Dean and Professor of Medicine, Centre for Genomics of Diabetes, Chennai, India Paul D. Yesudian MB, MD, MRCP
+Bedfordshire and Hertfordshire Postgraduate C onsultant Dermatologist, Department of
+Medical School; Geriatric and Diabetes Research Nigel Unwin BA, MSc, DM, FRCP, FFPH Dermatology, University of Liverpool and
+Centre, University of Bedfordshire, Luton, UK Broadgreen Hospital, Liverpool, UK
+Professor of Public Health and Epidemiology,
+Faculty of Medicine, University of the West Indies,
+Wing - Yee So MBChB, MD, FRCP Barbados Hannele Yki- J är vinen MD, FRCP
+Associate Consultant, Prince of Wales Hospital, Professor of Medicine, Department of Medicine,
+Hong Kong SAR, China Martine Vaxillaire PharmD, PhD Division of Diabetes, University of Helsinki,
+Helsinki, Finland
+Research Director at Pasteur Institute, CNRS 8090
+Lars C. Stene PhD and Pasteur Institute, Lille, France
+Division of Epidemiology, Norwegian Institute of Kun - Ho Yoon MD, PhD
+Public Health, Oslo, Norway; Oslo Diabetes Adrian Vella MD, FRCP(Edin) Professor, Department of Endocrinology and
+Research Centre, Oslo University Hospital, Oslo, Metabolism, Seoul St. Mary ’ s Hospital, College of
+A ssociate Professor of Medicine, Division of
+Norway Medicine, The Catholic University of Korea, Seoul,
+Endocrinology, Diabetes, Metabolism and Nutrition,
+Korea
+Mayo Clinic, Rochester, MN, USA
+Mark W. J. Strachan MD, FRCP (Edin)
+C onsultant in Diabetes and Endocrinology, Adie Viljoen MBChB, MMed, FCPath (SA), Dennis K. Yue MBBS, FRACP, PhD
+Metabolic Unit, Western General Hospital, Diabetes Centre, Royal Prince Alfred Hospital;
+Edinburgh, UK FRCPath, MBA University of Sydney, Sydney, New South Wales,
+Consultant Chemical Pathologist, Department of
+Australia
+Chemical Pathology, Lister Hospital, Stevenage, UK
+Robert B. Tattersall MB, ChB, MD, FRCP
+Emeritus Professor of Clinical Diabetes, University Qiao Zhou
+of Nottingham, Nottinghamshire, UK Mary Beth Weber MPH Assistant Professor, Department of Stem Cell and
+Nutrition and Health Sciences Program, Graduate
+Regenerative Biology, Principle Investigator,
+Division of Biological and Biomedical Sciences,
+Roy Taylor MD, FRCP Harvard Stem Cell Institute, Havard University,
+Global Diabetes Research Center, Emory University,
+P rofessor of Medicine and Metabolism, and Cambridge, MA, USA
+Atlanta, GA, USA
+Director, Newcastle Magnetic Resonance Centre,
+Newcastle University, Newcastle upon Tyne, UK Dan Ziegler MD, FRCPE
+Jesse Weinberger MD
+Professor of Internal Medicine, Institute for Clinical
+Department of Neurology, Mount Sinai School of
+Inga S. Thrainsdottir MD, PhD Diabetology, German Diabetes Center at the
+Medicine, New York, NY, USA
+Department of Cardiology, Landspitali University Heinrich Heine University, Leibniz Center for
+Hospital, Reykjavik, Iceland Diabetes Research; Department of Metabolic
+Nils Welsh MD, PhD Diseases, University Hospital, D ü sseldorf, Germany
+P rofessor in Molecular Infl ammation Research,
+Monika Toeller MD
+Department of Medical Cell Biology, Uppsala
+German Diabetes Center, Heinrich Heine University
+University, Uppsala, Sweden
+D ü sseldorf and Leibniz Center for Diabetes
+Research, D ü sseldorf, Germany
+xii
+--- Page 15 ---
+Preface to the Fourth Edition
+T he management of diabetes is a major health challenge, and its Alongside the developments in the pathophysiology of
+prevalence is increasing at an alarming rate, especially in the diabetes have come major advances in the treatment of diabetes.
+developing world. According to the International Diabetes Some of these therapeutic innovations have been withdrawn,
+Federation, diabetes currently affects more than 285 million such as inhaled insulin, but many have been adopted in
+people worldwide, a fi gure that is expected to rise to 435 million clinical practice. The development of new oral agents to treat type
+by 2030. During the writing of this book over the last 18 months, 2 diabetes has diversifi ed choices for clinicians and people
+approximately 15 million people will have developed diabetes. with diabetes. Drugs affecting glucagon - like peptide 1 (GLP - 1)
+Although treatments continue to improve, many people die as a and the incretin axis that were mentioned briefl y as future treat-
+result of their diabetes. Between 6 – 16% of all deaths are attribut- ments in the last edition are now fi rmly established as effective
+able to diabetes and around 900 will have died in the 2 hours treatments of type 2 diabetes. Many studies have highlighted
+taken to write this preface. Diabetes accounts for about 6% of the advantages and disadvantages of the newer agents making the
+total global mortality, on a par with that seen in HIV/AIDS. Many choice of treatment more complicated than ever. Beyond the
+of these deaths will result from cardiovascular disease which gluco - centric view of diabetes, major cardiovascular trials con-
+occurs at least twice as often in diabetes as in people without tinue to show the benefi ts of statin therapy in people with
+diabetes. Diabetes continues to cause suffering through its com- diabetes.
+plications. It is the commonest cause of kidney failure in devel- The publication of this new edition is timely given the rapid
+oped countries where it is also the leading cause of blindness in advances in knowledge. This edition has a new editorial team
+adults of working age. Diabetes is also a major cause of non - drawn from the UK, Europe, USA and Asia to refl ect the global
+traumatic lower limb amputation. As well as the personal cost, nature of the diabetes epidemic. The new team has experienced
+diabetes places a huge burden on health economies. In 2010, it is a big learning curve and we are profoundly grateful that we could
+estimated that worldwide, at least US$ 376 billion will be used to stand on the shoulders of John Pickup and Gareth Williams, the
+treat and prevent diabetes and its complications. Never have the editors of the previous three editions. The new book has retained
+challenges in providing diabetes healthcare been larger. many of the excellent author team brought together by John and
+During the eight years since the publication of the previous Gareth and the structure is similar to the previous editions.
+edition of this textbook, there have been great strides in the man- Nevertheless like any new teams we have tried to improve the
+agement and understanding of diabetes. International collabora- book while keeping the sound ideas from the previous book. The
+tions using large and varied cohorts with increasingly sophisticated book has been shortened into one volume to make it easier to
+technologies have allowed a greater appreciation of the genetic use. We have emphasized the clinical aspects of diabetes to a
+factors that predispose to diabetes. Our molecular understanding greater extent than previous editions and refl ecting the diverse
+of insulin resistance and the regulation of insulin secretion has locations of the editors, the chapter authors are also dispersed
+increased as has our appreciation of the mechanisms underlying throughout the globe making this a truly international textbook
+complications. which crosses continents and highlights both developed and
+The diagnostic criteria look set to be changed again and may developing health systems.
+incorporate hemoglobin A1c (HbA ) while the units of the latter As editors we are only too aware of the work that many people
+1c
+have also recently changed to refl ect the development of more have contributed to the book, without which our endeavors
+reliable and traceable assays. As HbA remains the currency of would have been much harder, if not impossible. The chapter
+1c
+everyday diabetes practice, these changes will provide major edu- authors are at the top of our list for our gratitude. Their willing-
+cational challenges for patients and professionals alike. ness to devote their time and effort into compiling scholarly and
+xiii
+--- Page 16 ---
+Preface to the Fourth Edition
+relevant chapters, while tolerating nagging e - mails from us, has Our thanks also go to Rob Blundell (Production Editor) and
+been humbling. In an age where book writing often comes fourth Helen Harvey (Project Manager) in the production team.
+behind grant and paper writing and clinical work, we are grateful We hope you enjoy reading the book and fi nd it useful whether
+for the way that the authors met the deadlines set by us. We this is helping people with diabetes or teaching physicians and
+are also grateful for the immense help we have received from other health professionals how best to manage this disease and
+our publisher, Wiley - Blackwell. Our Commissioning Editor its complications.
+Oliver Walter, who took over from Alison Brown shortly into the
+book ’ s development, has provided encouragement, support and Richard I.G. Holt
+guidance as has Jennifer Seward, the Development Editor. Often Clive S. Cockram
+just at the time when things appeared to be insurmountable, Allan Flyvbjerg
+Oliver or Jennifer took steps to get the project moving again. Barry J. Goldstein
+xiv
+--- Page 17 ---
+Foreword
+The face of diabetes is forever changing. Scientific knowledge able routinely a century ago. The world pandemic of diabetes is
+increases exponentially and our understanding slowly improves described with few populations spared and then each type of
+although there are still massive gaps in many fundamental aspects diabetes is described together with what is known of their patho-
+of the diabetes story, such as the mechanisms underlying the physiology. Particularly valuable are the essays on non - classical
+development of type 2 diabetes. Trying to keep up with all the type 1 and type 2 diabetes.
+advances is an ever increasing burden, but with a large array of The management and treatment of diabetes from education
+means to achieve this. Many people use the web, both specific through lifestyle modifi cation and the use of oral agents and
+websites and more general search engines, but there are still a insulin is dealt with exhaustively with useful chapters on the oft
+large number of people who prefer the printed word and the col- ignored psychological and social aspects of the disorder. Different
+lection together of an accessible compendium where you can models of care are also well discussed. Complications are dealt
+expect to obtain answers to your questions. This volume provides with comprehensively and again the book is of particular value
+exactly that; namely a series of up - to - date, well referenced, in going beyond the classical complications and dealing with a
+learned articles covering the manifold manifestations of diabetes range of less well defi ned problems found in people with diabetes.
+together with the basic underlying science. It is truly comprehen- The book fi nishes with crystal ball gazing: a look at future drugs
+sive and I would challenge any reader to find missing aspects for both type 1 and type 2 diabetes, as well as the potential for
+of the pathophysiology, treatment and care of people with stem cell therapy, islet cell transplantation and gene therapy, all
+diabetes. of which are thought provoking and informative.
+T he book begins with a fascinating historical essay which Overall I feel that this volume fulfi ls a major need for anyone
+should be read by anybody who picks up the book. It reminds us with an interest in diabetes; it should be available in every setting
+that much valuable information is forgotten and many lessons where people with diabetes receive their care and will serve as an
+can be learned by going back to pre - internet days! The possibility excellent vade mecum.
+of using HbA for the diagnosis of diabetes is discussed refl ecting
+1c
+a potentially seismic shift in our diagnostic armamentarium that K. George M.M. Alberti
+has relied on the measurement of glucose since that became avail- I mperial College London
+xv
+--- Page 18 ---
+List of Abbreviations
+AA arachidonic acid BUN blood urea nitrogen
+AAA abdominal aortic aneurysm CABG coronary artery bypass grafting
+AACE American Association of Clinical CAD coronary artery disease
+Endocrinologists CaMK calcium/calmodulin - dependent kinase
+AADE American Association of Diabetes Educators cAMP cyclic adenosine monophosphate
+ABI ankle brachial index C A- M RSA c ommunity- a ssociated methicillin- r esistant
+A CA a cetyl co- e nzyme A Staphylococcus aureus
+ACC acetyl - CoA carboxylase CAP Cbl associated protein
+ACCORD Action to Control Cardiovascular Risk in CAPD continuous ambulatory peritoneal dialysis
+Diabetes CART cocaine and amfetamine - related transcript
+ACE American College of Endocrinology CBF cerebral blood fl ow
+ACE angiotensin - converting enzyme CBT cognitive – behavioral therapy
+ACEi angiotensin - converting enzyme inhibitor CCA calcium - channel antagonist
+ACR albumin : creatinine ratio CCK cholecystokinin
+ACS acute coronary syndromes CCM Chronic Care Model
+ACTH adrenocorticotropic hormone CD celiac disease
+A DA A merican Diabetes Association CDC Centers for Disease Control and Prevention
+ADASP autoimmune diabetes in adults with slowly CDFC comprehensive diabetic foot examination
+progressive β - cell failure CDK cyclin - dependent kinase
+ADI acceptable daily intake C EL c arboxyl ester lipase
+AGE advanced glycation end - product CETP cholesterol ester transfer protein
+AGRP agouti - related peptide CFTR cystic fi brosis transmembrane conductance
+ALT alanine aminotransferase regulator
+AMI acute myocardial infarction CGM continuous glucose monitoring
+AMPK adenosine 5′ - monophosphate - activated protein cGMP cyclic guanosine monophosphate
+kinase CGMS continuous glucose monitoring systems
+APC antigen - presenting cell CGRP calcitonin gene - related peptide
+ARB angiotensin receptor blocker CHD coronary heart disease
+AST aspartate aminotransferase CHF congestive heart failure
+AT angiotensin CHO Chinese hamster ovary
+ATG antithymocyte globulin CI confi dence interval
+BB bio - breeding cIMT carotid intima - media thickness
+BCG bacille Calmette – Gu é rin CKD chronic kidney disease
+BIPSS bilateral inferior petrosal sinus sampling C ML c arboxymethyl lysine
+BMD bone mineral density CN Charcot neuroarthropathy
+BMI body mass index CNV copy number variant
+B NP B - t ype natriuretic peptide CoA coenzyme A
+BP blood pressure COX cyclo - oxygenase
+xxvvii
+--- Page 19 ---
+List of Abbreviations
+cPLA cytosolic PLA eNOS endothelial nitric oxide synthase
+2 2
+CPT carnitine palmitoyltransferase EPA eicosapentaenoic acid
+CRH corticotropin releasing hormone EPAC exchange protein activated by cyclic AMP
+C RP C - r eactive protein EPC endothelial progenitor cell
+CRS congenital rubella syndrome ER endoplasmic reticulum
+CSII continuous subcutaneous insulin infusion ERCP endoscopic retrograde
+CsA cyclosporine A cholangiopancreatography
+C T c omputed tomography ERK extracellular signal - regulated kinase
+CTGF connective tissue growth factor E RM e zrin- r adixin- m oesin
+CVD cardiovascular disease ESCS electrical spinal cord stimulation
+DAG diacylglycerol ESRD end - stage renal disease
+DASP Diabetes Antibody Standardization Program ESRF end - stage renal failure
+D AWN D iabetes Attitudes, Wishes, and Needs study ET endothelin
+D CCT D iabetes Control and Complications Trial ETDRS Early Treatment Diabetic Retinopathy Study
+DD disc diameter EVAR endovascular aneurysm repair
+DEND developmental delay, epilepsy and neonatal FADH fl avine adenine dinucleotide
+2
+diabetes FAS fatty acid synthase
+DEXA dual - energy X - ray absorptiometry FCPD fi brocalculous pancreatic diabetes
+DHA docosahexanoic acid FDA Food and Drug Administration
+DHEA dehydroepiandrosterone FDG [ 18 F] - 2 - deoxy - 2 - fl uoro - D - glucose
+DIDMOAD diabetes insipidus, diabetes mellitus, optic FDGF fi broblast - derived growth factor
+atrophy and deafness FDR fi rst- d egree relative
+DIGAMI Diabetes mellitus, Insulin Glucose infusion in FFA free fatty acid
+Acute Myocardial Infarction FHWA Federal Highways Administration
+DISH diffuse idiopathic skeletal hyperostosis FPD fi brous proliferation at the disc
+D KA d iabetic ketoacidosis FPE fi brous proliferation elsewhere
+D M d iabetic maculopathy FPG fasting plasma glucose
+DNSG EASD Diabetes and Nutrition Study Group of the FPIR fi rst - phase insulin release
+European Association for the Study of Diabetes FSGS focal segmental glomerular sclerosis
+DPN distal symmetrical sensory or sensorimotor FSH follicle stimulating hormone
+polyneuropathy GABA γ - aminobutyric acid
+DPP Diabetes Prevention Program G AD g lutamine acid decarboxylase
+D PP- 4 d ipeptidyl peptidase 4 GAG glycosaminoglycan
+DQOL Diabetes Quality of Life GAPDH glyceraldehyde - 3 phosphate dehydrogenase
+DR diabetic retinopathy GAS group A streptococcus
+D RS D iabetic Retinopathy Study GDM gestational diabetes mellitus
+DSA digital subtraction angiography GFA glutamine : fructose - 6 - amidotransferase
+DSME diabetes self - management education GFR glomerular fi ltration rate
+DVLA Driver and Vehicle Licensing Agency GH growth hormone
+DVT deep venous thrombosis GHb glycated hemoglobin
+DZ dizygotic GHBP growth hormone - binding protein
+eAG estimated average glucose measurement GHD growth hormone defi ciency
+EASD European Association for the Study of Diabetes GHRH growth hormone - releasing hormone
+ECG electrocardiography/electrocardiogram GI glycemic index
+ED erectile dysfunction GIP glucose - dependent insulinotropic peptide
+EDHF endothelium - derived hyperpolarizing factor GK glucokinase
+EDIC Epidemiology of Diabetes Interventions and GLP glucagon - like peptide
+Complications GLUT glucose transporter
+EDNOS eating disorder not otherwise specifi ed GMP good manufacturing practice
+EEG electroencephalography/electroencephalogram GNSO S - nitrosoglutathione
+eGFR estimated glomerular fi ltration rate GP general practitioner
+ELISA enzyme - linked immunosorbent assay GRP gastrin - releasing polypeptide
+ELISPOT enzyme - linked immunospot assay G stimulatory G - protein
+s
+EMEA European Medicines Agency GSH glutathione
+xvii
+--- Page 20 ---
+List of Abbreviations
+GSK glycogen synthesis kinase IKK β inhibitor κ - B kinase - β
+GSSG glutathione disulfi de IL interleukin
+GWA genome - wide association INR International Normalized Ratio
+GWL genome - wide familial linkage I OB i nsulin- o n- b oard
+HAAF hypoglycemia - associated autonomic failure IP inositol 1,4,5 - trisphosphate
+3
+HAART highly active antiretroviral therapy IPAN intrinsic primary afferent neuron
+HBO hyperbaric oxygen IPF insulin promoter factor
+H BV h epatitis B virus iPS induced pluripotent cell
+H CV h epatitis C virus IR insulin resistance
+HDL high density lipoprotein IRE inositol - requiring kinase
+HETES hydroxyeicosatetrenoic acids IRE insulin response element
+HFCS high - fructose corn syrup IRMA intraretinal microvascular abnormality
+HGF hepatocyte growth factor IRS insulin receptor substrate
+hGH human recombinant growth hormone ISH International Society of Hypertension
+HH hyperosmolar non - ketotic hyperglycemia IUD intrauterine contraceptive device
+HIC high income country IVGTT intravenous glucose tolerance test
+HIF hypoxia - inducible factor JaK Janus kinase
+HLA human leukocyte antigen JDRF Juvenile Diabetes Research Foundation
+HMa small hemorrhage or microaneurysm JNK c - Jun N - terminal kinase
+HMG high mobility group K m M ichaelis constant
+H NF h epatic nuclear factor KO knockout
+HOMA homeostasis model assessment LADA latent autoimmune diabetes of adults
+HONK hyperosmolar non - ketotic coma LADC latent autoimmune diabetes in children
+HPA hypothalamic - pituitary - adrenal LADY latent autoimmune diabetes in the young
+HPETES hydroperoxyeicosatetrenoic acids LAR leukocyte antigen - related phosphatase
+HR hazard ratio LD linkage disequilibrium
+hrIFN human recombinant interferon LDL low density lipoprotein
+HRT hormone replacement therapy LEAD Liraglutide Effect and Action in Diabetes
+HSL hormone sensitive lipase LGV large goods vehicle
+HSS hyperosmolar hyperglycemic syndrome LH lactic hydrogenase
+IA - 2 insulinoma - associated antigen 2 LI lability index
+I AA i nsulin autoantibody LMIC low and middle income countries
+IAPP islet amyloid polypeptide LOX lipoxygenase
+IBGMS Internet - based glucose monitoring system LPL lipoprotein lipase
+I BMIR i mmediate blood mediated infl ammatory LVH left ventricular hypertrophy
+reaction MACE major adverse cardiovascular event
+ICA islet cell antibody MAPK mitogen activated protein kinase
+ICAM intercellular adhesion molecule MBL mannose - binding lectin
+ICC interstitial cells of Cajal MCH melanin - concentrating hormone
+ICCC Innovative Care for Chronic Conditions MCP metacarpophalangeal
+ICSA islet surface antibody MCP monocyte chemotactic protein
+IDDM insulin - dependent diabetes mellitus M DI m ultiple daily injection
+IDF International Diabetes Federation MELAS mitochondrial encephalomyopathy, lactic
+IDMPS International Diabetes Management Practice acidosis and stroke -l ike episodes
+Study MEN multiple endocrine neoplasia
+IENF intra - epidermal nerve fi ber MHC major histocompatibility complex
+IFCC International Federation of Clinical Chemistry M I m yocardial infarction
+IFG impaired fasting glucose MIBI methyloxybutylisonitrile
+Ig immunoglobulin MIDD maternal inherited diabetes and deafness
+IGF insulin - like growth factor MMP matrix metalloproteinase
+IGFBP insulin - like growth factor binding protein MnSOD manganese superoxide dismutase
+IGF1R insulin - like growth factor 1 receptor MODY maturity - onset diabetes of the young
+IGT impaired glucose tolerance MR modifi ed release
+IHD ischemic heart disease MRA magnetic resonance angiography
+xviii
+--- Page 21 ---
+List of Abbreviations
+M RDM m alnutrition- r elated diabetes mellitus OPG osteoprotegerin
+MRI magnetic resonance imaging OR odds ratio
+MRSA methacillin - resistant Staphylococcus aureus ORP oxygen - regulated protein
+MSH melanocyte stimulating hormone PACAP pituitary adenylate cyclase - activating
+MSU monosodium urate polypeptide
+mTOR mammalian target of rapamycin PAD peripheral arterial disease
+MTP microsomal triglyceride transfer protein PAI plasminogen activator inhibitor
+MUFA monounsaturated fatty acid PARP poly(ADP - ribose) polymerase
+MZ monozygotic PCOS polycystic ovary syndrome
+N AA N - a cetyl aspartate PCV passenger - carrying vehicle
+NAC N - acetylcysteine PDE phosphodiesterase
+NADPH nicotinic acid adenine dinucleotide phosphate PDGF platelet - derived growth factor
+NAFLD non - alcoholic fatty liver disease PDK 3 - phosphoinositide - dependent protein kinase
+NAION non - arteritic anterior ischemic optic neuropathy PDR proliferative diabetic retinopathy
+NASH non - alcoholic steatohepatitis PDX pancreatic duodenal homeobox
+NCD non- communicable disease PEG percutaneous endoscopic gastrostomy
+NDDG National Diabetes Data Group PEPCK phosphoenolpyruvate carboxykinase
+NEFA non - esterifi ed fatty acid PET positron emission tomography
+NFG normal fasting glucose P FC p erfl urodecalin
+NF κB n uclear factor κ B PFC prefrontal cortex
+NGF nerve growth factor PGE prostaglandin
+NGT nasogastric tube PH pleckstrin homology
+NGT normal glucose tolerance PHHI persistent hyperinsulinemic hypoglycemia of
+NHANES National Health and Nutrition Examination infancy
+Survey PI protease inhibitor
+NICE National Institute for Health and Clinical PI phosphoinositide 3′
+3
+Excellence P ID p elvic infl ammatory disease
+NIDDM non - insulin - dependent diabetes mellitus PIP proximal interphalangeal
+NIH National Institutes of Health PIP phosphoinositol 4,5 - bisphosphate
+2
+NIMGU non - insulin - mediated glucose uptake PIP3 phosphatidylinositol 3,4,5 - trisphosphate
+NINDS National Institute of Neurologic Disorders PK protein kinase
+NK natural killer P LC p hospholipase C
+NLD necrobiosis lipoidica diabeticorum PLP periodate - lysine - paraformaldehyde
+NNH number needed to harm P NDM p ermanent neonatal diabetes mellitus
+NNRTI non - nucleoside reverse - transcriptase inhibitor PNMT phenylethanolamine - N - methyltransferase
+NNT number needed to treat POMC pro - opiomelanocortin
+NO nitric oxide POP progesterone - only pill
+N OD n on- o bese diabetic PP pancreatic polypeptide
+NOS nitric oxide synthase PPAR peroxisome proliferator - activated receptor
+NPDR non - proliferative diabetic retinopathy PPG post - prandial plasma glucose
+NPH neutral protamine Hagedorn PPRE peroxisome proliferator response element
+NPWT negative pressure wound therapy PRA panel reactive antibody
+NPY neuropeptide Y PRH preretinal hemorrhage
+NRTI nucleoside reverse - transcriptase inhibitor PTA percutaneous transluminal angioplasty
+NSAID non - steroidal anti - infl ammatory drug PTB phosphotyrosine binding
+NTD neural tube defect PTDM post - transplantation diabetes mellitus
+NVD new vessels on and/or within 1 disc diameter of PTEN phosphatase and tensin homolog
+the disc PTSD post - traumatic stress disorder
+NVE new vessels elsewhere PTH parathyroid hormone
+NYHA New York Heart Association PTP protein tyrosine phosphatase
+OCP oral contraceptive pill PVD peripheral vascular disease
+OCT optical coherence topography PVN paraventricular nucleus
+OGT O- l inked N - acetylglucosamine transferase QALY quality - adjusted life year
+OGTT oral glucose tolerance test(ing) QST quantitative sensory testing
+xix
+--- Page 22 ---
+List of Abbreviations
+RAGE receptor for advanced glycation end - product T1DM type 1 diabetes mellitus
+R AI r apid acting analog T2DM type 2 diabetes mellitus
+R ANKL r eceptor activator of nuclear factor κ B ligand TCA tricarboxylic acid
+RAS renin angiotensin system TCA tricyclic antidepressant
+RBP retinol - binding protein TCC total contact cast
+RCAD renal cysts and diabetes syndrome TCC transition case coordinator
+RCW removable cast walker T CF t ranscription factor
+rhIGF recombinant human insulin - like growth factor TCR T - cell receptor
+RMR resting metabolic rate TDI tissue Doppler imaging
+ROC receiver operator characteristic TENS transcutaneous electrical nerve stimulation
+ROS reactive oxygen species TG triglyceride
+RRT renal replacement therapy TGF transforming growth factor
+RT - CGM real - time continuous glucose monitoring TIA transient ischemic attack
+SADS seasonal affective depressive syndrome T KA t yrosine kinase activity
+SARS severe acute respiratory syndrome TLR toll - like receptor
+SCID severe combined immunodefi ciency TNDM transient neonatal diabetes mellitus
+S D s tandard deviation TNF tumor necrosis factor
+S DF s tromal cell- d erived factor t - PA tissue plasminogen activator
+SDH sorbitol dehydrogenase TRAIL tumor necrosis factor related apoptosis inducing
+SGLT sodium - glucose co - transporter ligand
+SH2 Src homology 2 TSC tuberous sclerosis complex
+SHBG sex hormone - binding globulin TSH thyroid stimulating hormone
+SHIP SH2 - containing inositol phosphatase TZD thiazolidinedione
+SHORT short atature, hyperextensibility of joints, ocular UAE urinary albumin excretion
+depression, Reiger anamoly, teething delay UCP uncoupling protein
+(syndrome) UDP uridine diphosphate
+SHP2 SH2 - domain - containing tyrosine phosphatase 2 UKPDS UK Prospective Diabetes Study
+SMBG self - monitoring of blood glucose USDA US Department of Agriculture
+SMI serious mental illness UT urotensin
+SMR standardized mortality ratio UTI urinary tract infection
+SNARE soluble N - ethylmaleimide - sensitive factor UW University of Wisconsin solution
+attachment protein receptor VADT Veterans Affairs Diabetes Trial
+SNP single nucleotide polymorphism VB venous beading
+SNRI serotonin noradrenaline reuptake inhibitor VCAM vascular cell adhesion molecule
+SOCS suppressor of cytokine signaling V EGF v ascular endothelial growth factor
+SoHo sorbin homology VH vitreous hemorrhage
+SPECT single photon emission computed tomography VIP vasoactive intestinal polypeptide
+s RAGE s oluble receptor for advanced glycation VLCD very low calorie diet
+end- p roduct VLDL very low density lipoprotein
+SREBP sterol regulatory element - binding protein VNTR variable number tandem repeat
+SSRI selective serotonin reuptake inhibitor V˙ O maximal oxygen consumption
+2max
+SST somatostatin VPT vibration perception threshold
+SSTR somatostatin receptor VSMC vascular smooth muscle cell
+STAT signal transducer and activator of transcription WHI Women ’ s Health Initiative
+SUR sulfonylurea receptor W HO W orld Health Organization
+t half - life
+1/2
+xx
+--- Page 23 ---
+1
+Diabetes in its Historical and
+Social Context
+--- Page 24 ---
+
+--- Page 25 ---
+1
+The History of Diabetes Mellitus
+Robert B. Tattersall
+University of Nottingham, Nottingham, UK
+Keypoints
+(cid:129) Polyuric diseases have been described for over 3500 years. The name (cid:129) The primary sequence of insulin was reported in 1955 by Sanger and
+“ diabetes” comes from the Greek word for a syphon; the sweet taste the three- dimensional structure by Hodgkin in 1969. Proinsulin was
+of diabetic urine was recognized at the beginning of the fi rst discovered by Steiner in 1967, and the sequence of the human insulin
+millennium, but the adjective “ mellitus ” (honeyed) was only added by gene by Bell in 1980. Yalow and Berson invented the
+Rollo in the late 18th century. radioimmunoassay for insulin in 1956. The presence of insulin receptors
+(cid:129) The sugar in diabetic urine was identifi ed as glucose by Chevreul in was deduced in 1971 by Freychet, and the receptor protein was
+1815. In the 1840s, Bernard showed that glucose was normally present isolated in 1972 by Cuatrecasas.
+in blood, and showed that it was stored in the liver (as glycogen) for (cid:129) The various types of diabetic retinopathy were described in the second
+secretion into the bloodstream during fasting. half of the 19th century as were the symptoms of neuropathy.
+(cid:129) In 1889, Minkowski and von Mering reported that pancreatectomy Albuminuria was noted as a common abnormality in patients with
+caused severe diabetes in the dog. In 1893, Laguesse suggested that diabetes in the 19th century and a unique type of kidney disease was
+the pancreatic “ islets ” described by Langerhans in 1869 produced an described in 1936 by Kimmelstiel and Wilson. The concept of a specifi c
+internal secretion that regulated glucose metabolism. diabetic angiopathy was developed by Lundbaek in the early 1950s.
+(cid:129) Insulin was discovered in 1921 by Banting, Best, Macleod and Collip in (cid:129) Milestones in insulin pharmacology have included the invention of
+acid- ethanol extracts of pancreas. It was fi rst used for treatment in delayed- action preparations in the 1930s and 1940s; synthetic human
+January 1922. insulin in 1979; and in the 1990s novel insulin analogs by recombinant
+(cid:129) Diabetes was subdivided on clinical grounds into diab è te maigre (lean DNA technology.
+subjects) and diab è te gras (obese) by Lancereaux in 1880, and during (cid:129) The fi rst sulfonylurea carbutamide was introduced in 1955, followed by
+the 1930s by Falta and Himsworth into insulin- s ensitive and insulin- tolbutamide in 1957 and chlorpropamide in 1960. The biguanide
+insensitive types. These classifi cations were the forerunners of the phenformin became available in 1959 and metformin in 1960.
+etiological classifi cation into type 1 (insulin- d ependent) and type 2 (cid:129) That improved glucose control in both type 1 and type 2 diabetes was
+(non - insulin - dependent) diabetes. benefi cial was proved by the Diabetes Control and Complications Trial
+(cid:129) Insulin resistance and β - cell failure, the fundamental defects of type 2 (1993) and the UK Prospective Diabetes Study (1998).
+diabetes, have been investigated by many researchers. The “ i nsulin (cid:129) Landmarks in the treatment of complications include photocoagulation
+clamp” method devised by Andres and DeFronzo was the fi rst accurate for retinopathy fi rst described by Meyer - Schwickerath; the importance
+technique for measuring insulin action. Maturity- o nset diabetes of the of blood pressure to slow the progression of nephropathy
+young was described as a distinct variant of type 2 diabetes by (demonstrated by Mogensen and Parving); the introduction of low - dose
+Tattersall in 1974. insulin in the treatment of diabetic ketoacidosis in the 1970s; and
+(cid:129) Lymphocytic infi ltration of the islets (insulitis) was described as early as improvements in the care of pregnant women with diabetes pioneered
+1901 and highlighted in 1965 by Gepts who suggested that it might by White and Pedersen.
+be a marker of autoimmunity. Islet cell antibodies were discovered by
+Doniach and Bottazzo in 1979.
+in an Egyptian papyrus dating from c. 1550 bc , discovered by
+Ancient t imes Georg Ebers (Figure 1.1 ), and a clearly recognizable description
+of what would now be called type 1 diabetes was given by Aretaeus
+Diseases with the cardinal features of diabetes mellitus were rec- of Cappadocia in the 2nd century a d (Figure 1.2 a). Aretaeus was
+ognized in antiquity (Table 1.1 ). A polyuric state was described the fi rst to use the term “ diabetes, ” from the Greek word for a
+syphon, “ because the fl uid does not remain in the body, but uses
+Textbook of Diabetes, 4th edition. Edited by R. Holt, C. Cockram, the man ’ s body as a channel whereby to leave it. ” His graphic
+A. Flyvbjerg and B. Goldstein. © 2010 Blackwell Publishing. account of the disease highlighted the incessant fl ow of urine,
+3
+--- Page 26 ---
+Table 1.1 Milestones in the clinical descriptions of diabetes and its
+complications.
+Clinical features of diabetes
+Ebers papyrus (Egypt, 1500 B C ) Polyuric state
+Sushrut and Charak (India, 5th Sugary urine; thin and obese
+century BC ) patients distinguished
+Aretaeus (Cappadocia, 2nd Polyuric state named “ diabetes ”
+century A D )
+Chen Chuan (China, 7th century) Sugary urine
+Avicenna (Arabia, 10th century A D ) Sugary urine; gangrene and
+impotence as complications
+Diabetic ketoacidosis
+William Prout (England, Diabetic coma
+1810 – 1820)
+Adolf Kussmaul (Germany, 1874) Acidotic breathing
+Hyperlipidemia
+Albert Heyl (Philadelphia, 1880) Lipemia retinalis
+Retinopathy
+Eduard von Jaeger (Germany, 1855) General features
+Stephen Mackenzie and Edward Microaneurysms
+Nettleship (England, 1879)
+Edward Nettleship (England, 1888) New vessels, beading of retinal veins
+Figure 1.1 The Ebers papyrus. Courtesy of the Wellcome Library, London.
+Julius Hirschberg (Germany, 1890) Classifi cation of lesions; specifi c to
+diabetes
+Neuropathy and foot disease
+John Rollo (England, 1797) Neuropathic symptoms
+Marchal de Calvi (France, 1864) Neuropathy is a complication of (b)
+diabetes
+William Ogle (England, 1866) Ocular nerve palsies in diabetes
+Frederick Pavy (England, 1885) Peripheral neuropathy
+Julius Althaus (Germany, 1890) Mononeuropathy
+Thomas Davies Pryce (England, Perforating foot ulcers
+1887)
+Nephropathy
+Wilhelm Griesinger (Germany, Renal disease in patients with
+1859) diabetes
+Paul Kimmelstiel and Clifford Wilson Glomerulosclerosis associated with
+(USA, 1936) heavy proteinuria
+(a)
+Diabetes is a dreadful affliction, not very frequent among
+men, being a melting down of the flesh and limbs into
+urine. The patients never stop making water and the flow is
+incessant, like the opening of aqueducts. Life is short,
+unpleasant and painful, thirst unquenchable, drinking
+excessive, and disproportionate to the large quantity of
+urine, for yet more urine is passed. One cannot stop them
+either from drinking or making water. If for a while they
+abstain from drinking, their mouths become parched and
+their bodies dry; the viscera seem scorched up, the patients
+are affected by nausea, restlessness and a burning thirst, and
+within a short time, they expire.
+Figure 1.2 (a) Clinical description of diabetes by Aretaeus of Cappadocia (2nd century A D ). Adapted from Papaspyros NS (1952) T he History of Diabetes Mellitus .
+(b) Sushrut (Susrata), an Indian physician who wrote medical texts with Charak (Charuka) between 500 B C and 400 BC .
+4
+--- Page 27 ---
+History of Diabetes Mellitus Chapter 1
+unquenchable thirst, the “ melting down of the fl esh and limbs “ diabetes was a disease so rare among the ancients that many
+into urine ” and short survival. famous physicians made no mention of it … but in our age, given
+The Hindu physicians, Charak and Sushrut, who wrote between to good fellowship and guzzling down of unallayed wine, we meet
+400 and 500 b c , were probably the fi rst to recognize the sweetness with examples and instances enough, I may say daily, of this
+of diabetic urine (Figure 1.2 b). Indeed, the diagnosis was made disease. ” He described the urine as being “ wonderfully sweet like
+by tasting the urine or noting that ants congregated round it. sugar or honey ” but did not consider that this might be because
+Charak and Sushrut noted that the disease was most prevalent in it contained sugar.
+those who were indolent, overweight and gluttonous, and who The fi rst description of hyperglycemia was in a paper published
+indulged in sweet and fatty foods. Physical exercise and liberal in 1776 by Matthew Dobson (1735 – 1784) of Liverpool (Figure
+quantities of vegetables were the mainstays of treatment in the 1.3 ) [2] . He found that the serum as well as the urine of his patient
+obese, while lean people, in whom the disease was regarded as Peter Dickonson (who passed 28 pints of urine a day) tasted
+more serious, were given a nourishing diet. The crucial fact that sweet. Moreover, he evaporated the urine to “ a white cake [which]
+diabetic urine tasted sweet was also emphasized by Arabic medical smelled sweet like brown sugar, neither could it by the taste be
+texts from the 9 – 11th centuries a d , notably in the medical ency- distinguished from sugar. ” Dobson concluded that the kidneys
+clopedia written by Avicenna (980 – 1037). excreted sugar and that it was not “ formed in the secretory organ
+but previously existed in the serum of the blood.”
+The Edinburgh - trained surgeon, John Rollo (d . 1809) was the
+The 17th and 18th c enturies fi rst to apply the adjective “ mellitus ” (from the Latin word
+meaning “ honey ” ). He also achieved fame with his “ animal diet, ”
+In Europe, diabetes was neglected until Thomas Willis (1621 – which became the standard treatment for most of the 19th
+1675) wrote Diabetes, or the Pissing Evil [1] . According to him, century. Rollo thought that sugar was formed in the stomach
+Figure 1.3 F rontispiece and opening page of the paper by Matthew Dobson (1776), in which he described the sweet taste of both urine and serum from a patient with
+diabetes [2] .
+5
+--- Page 28 ---
+Part 1 Diabetes in its Historical and Social Context
+Figure 1.5 C laude Bernard (1813 – 1878). Courtesy of the Wellcome Institute
+Library, London.
+Figure 1.4 Extract from John Rollo ’ s account of two cases of diabetes (1797).
+Rollo was well aware of the problem of non- c ompliance. Note that “t he patient
+introduced by Trommer in 1841, Moore in 1844 and – the best
+was strongly remonstrated with, and told of the consequences of repeated
+known – Fehling in 1848. Measurement of blood glucose could
+deviations. ” Courtesy of the Wellcome Library, London.
+only be done by skilled chemists but needed so much blood that
+it was rarely used in either clinical care or research. It only became
+from vegetables, and concluded that the obvious solution was a practicable with the introduction in 1913 of a micromethod by
+diet of animal food. Thus, the regimen described in his 1797 the Norwegian - born physician Ivar Christian Bang (1869 – 1918)
+book, An Account of Two Cases of the Diabetes Mellitus [3] , and it was the ability to measure glucose repeatedly which led to
+allowed his patient Captain Meredith to have for dinner “ Game development of the glucose tolerance test between 1913 and 1915.
+or old meats which have been long kept; and as far as the stomach Glucose metabolism was clarifi ed by the work of Claude
+may bear, fat and rancid old meats, as pork. ” Rollo was probably Bernard (1813 – 1878) [5] , the Frenchman whose numerous dis-
+the fi rst to note the diffi culty that some patients fi nd in adhering coveries have given him a special place in the history of physiol-
+to treatment – a diffi culty he blamed for the death of his second ogy (Figure 1.5 ). When Bernard began work in 1843, the prevailing
+patient (Figure 1.4 ). theory was that sugar could only be synthesized by plants, and
+that animal metabolism broke down substances originally made
+in plants. It was also thought that the blood only contained sugar
+The 19th c entury after meals, or in pathologic states such as diabetes. Between 1846
+and 1848, Bernard reported that glucose was present in the blood
+In 1815, the French chemist Michel Chevreul (1786 – 1889) proved of normal animals, even when starved. He also found higher
+that the sugar in diabetic urine was glucose [4] . In the middle of concentrations of glucose in the hepatic than in the portal vein,
+the century, tasting the urine to make the diagnosis was super- and “ enormous quantities ” of a starch - like substance in the liver
+seded by chemical tests for reducing agents such as glucose as which could be readily converted into sugar. He called this “ gly-
+6
+--- Page 29 ---
+History of Diabetes Mellitus Chapter 1
+Figure 1.7 Paul Langerhans (1847 – 1888). Courtesy of the Wellcome Institute
+Library, London.
+that the dog, previously house - trained, was now incontinent of
+urine. Minkowski realized the signifi cance of the polyuria, and
+tested the dog ’ s urine.
+Possible explanations for the role of the pancreas were that it
+removed a diabetogenic toxin, or produced an internal secretion
+Figure 1.6 Oskar Minkowski (1858 – 1931).
+that controlled carbohydrate metabolism. The concept of
+“ internal secretions ” had been publicized in June 1889, by the
+cogen ” (i.e. sugar - forming) and regarded it as analogous to starch well - known physiologist Charles - É douard Brown - S é quard
+in plants. His hypothesis – the “ glycogenic ” theory – was that (1817– 1894), who claimed to have rejuvenated himself by injec-
+sugar absorbed from the intestine was converted in the liver into tions of testicular extract [9] . It was given further credence in
+glycogen and then constantly released into the blood during 1891, when Murray reported that myxoedema could be cured by
+fasting. sheep thyroid extract by injection or orally.
+A nother discovery by Bernard made a great impression in an In 1893, Gustave Laguesse suggested that the putative internal
+era when the nervous control of bodily functions was a scientifi - secretion of the pancreas was produced by the “ islands ” of cells
+cally fashionable concept. He found that a lesion in the fl oor of scattered through the gland’ s parenchyma [ 10], which had been
+the fourth ventricle produced temporary hyperglycemia ( piq û re discovered in 1869 by the 22 - year - old Paul Langerhans (1847 –
+diabetes) [ 6]. This fi nding spawned a long period in which 1888) (Figure 1.7 ). Langerhans had described these clusters of
+nervous infl uences were thought to be important causes of dia- cells, having teased them out from the general pancreatic tissue,
+betes; indeed, one piece of “ evidence ” – cited by J.J.R. Macleod but had not speculated about their possible function [11] ; it was
+as late as 1914 – was that diabetes was more common among Laguesse who named them the “ islets of Langerhans. ” At this
+engine drivers than other railway workers because of the mental time, the glucose - lowering internal secretion of the islets was still
+strain involved [7] . hypothetical, but in 1909 the Belgian Jean de Meyer named it
+In the fi rst part of the 19th century the cause of diabetes was a insuline (from the Latin for “ island ” ) [12] .
+mystery, because autopsy usually did not show any specifi c It would be wrong to give the impression that Minkowski ’ s
+lesions. A breakthrough came in 1889 when Oskar Minkowski experiments immediately established the pancreatic origin of dia-
+(Figure 1.6 ) and Josef von Mering (1849 – 1908) reported that betes. In fact, during the next two decades, it was widely agreed
+pancreatectomy in the dog caused severe diabetes [ 8]. This was that diabetes was a heterogeneous disorder with various subtypes,
+serendipitous, because they were investigating fat metabolism; it and that its pathogenesis involved at least three organs: the brain,
+is said that the laboratory technician mentioned to Minkowski pancreas and liver [13] . The discovery by Blum in 1901 that injec-
+7
+--- Page 30 ---
+Part 1 Diabetes in its Historical and Social Context
+Figure 1.8 P ictures from J aeger ’ s Atlas of the
+Optic Fundus , 1869 [14] . Top left: Bright ’ s disease.
+Top right: Jaeger ’ s retinitis hemorrhagica is now
+recognized as central retinal vein occlusion. Bottom
+left: A 22 -y ear - old man with suspected diabetes.
+Bottom right: Central retinal artery occlusion.
+Courtesy of W.B. Saunders.
+tion of an adrenal extract caused glycosuria implicated other more like hypertensive retinopathy. In 1879, Stephen Mackenzie
+glands, and led to the “ polyglandular theory ” of Carl von Noorden (1844– 1909) and Sir Edward Nettleship (1845 – 1913) found
+(Vienna), who proposed that the thyroid, pancreas, adrenals and microaneurysms in fl at preparations of the retina and, in 1888,
+parathyroids controlled carbohydrate metabolism. Nettleship described new vessels and the beaded appearance of
+retinal veins [15] . The full picture of diabetic retinopathy was
+Clinical d iabetes in the 19th c entury described in 1890 by Julius Hirschberg (1843 – 1925) who was the
+Doctors in the 19th century were therapeutically impotent; their fi rst to claim that it was specifi c to diabetes [ 16].
+main role was as taxonomists who described symptom complexes Neuropathic symptoms in patients with diabetes had been
+and the natural history of disease. As a result, most of the major mentioned by Rollo at the end of the 18th century, and in 1864
+complications of diabetes were well described before 1900. Charles Marchal de Calvi (1815 – 1873) concluded that nerve
+Eduard von Jaeger (1818 – 1884) is credited with the fi rst damage was a specifi c complication of diabetes. In 1885, the
+description of diabetic retinopathy, in his beautiful Atlas of Guy ’ s Hospital physician, Frederick Pavy (1829 – 1911), gave a
+Diseases of the Ocular Fundus , published in 1869 [14] . In fact, the description of neuropathic symptoms which would grace any
+features illustrated (Figure 1.8 ), from a 22 - year - old patient, look modern textbook [ 17]:
+8
+--- Page 31 ---
+History of Diabetes Mellitus Chapter 1
+“ The usual account given by these patients of their condition is that features of diabetic kidney disease and the importance of renal
+they cannot feel properly in their legs, that their feet are numb, that complications were not reported until the 1930s.
+their legs seem too heavy – as one patient expressed it, “ as if he had In the latter part of the 19th century it was becoming apparent
+20 l b weights on his legs and a feeling as if his boots were great deal that there were at least two clinically distinct forms of diabetes.
+too large for his feet. ” Darting or “ lightning ” pains are often com- In 1880, the French physician Etienne Lancereaux (1829 – 1910)
+plained of. Or there may be hyperaesthesia, so that a mere pinching identifi ed lean and obese patients as having diab è te maigre and
+of the skin gives rise to great pain; or it may be the patient is unable diab è te gras [20] , and this observation laid the foundations for
+to bear the contact of the seam of the dress against the skin on account subsequent etiologic classifi cations of the disease.
+of the suffering it causes. Not infrequently there is deep- s eated pain
+located, as the patient describes it, in the marrow of the bones which
+are tender on being grasped, and I have noticed that these pains are The 20th c entury
+generally worse at night. ”
+Murray ’ s cure of myxoedema in 1891 led to a belief that pancre-
+Pavy also recorded unusual presentations, including a 67 - year - atic extract would soon result in a cure for diabetes, but, in the
+old who complained of “ lightning pains on the right side of the face of repeated failures over the next 30 years, even believers in
+waist ” and cases in which the third nerve was affected with an antidiabetic internal secretion were depressed about the likeli-
+“ dropped lid and external squint ” [18] . hood of isolating it, and diverted their attention to diet as a treat-
+Kidney disease was known to be relatively common in diabetes. ment for the disease.
+In 1859, Wilhelm Griesinger (1817 – 1868) reported 64 autopsies Best known was the starvation regimen of Frederick Madison
+in adults, half of whom had renal changes which he attributed to Allen (1876 – 1964), which Joslin (Figure 1.9 ) described in 1915 as
+hypertension and atherosclerosis [19] ; however, the histologic the greatest advance since Rollo ’ s time [21] . This approach was
+(a) (b)
+Figure 1.9 E lliott P. Joslin (1869 – 1962), arguably the most famous diabetes specialist of the 20th century and the frontispiece to his 1916 textbook [22] . Courtesy of
+the Wellcome Library, London.
+9
+--- Page 32 ---
+Part 1 Diabetes in its Historical and Social Context
+an extreme application of one that had been proposed as early as Thompson, who had been on the Allen starvation regimen since
+1875 by Apollinaire Bouchardat (1806 – 1886), who advocated 1919 and weighed only 30 kg (Figure 1.12 ). After the fi rst injec-
+intensive exercise and “ manger le moins possible . ” Starvation tion, his blood glucose level fell slightly, but his symptoms were
+treatment did work in a limited sense, in that some patients could unchanged and he developed a sterile abscess. On January 23, he
+survive for many months or even years, instead of a few weeks or was given another extract prepared by Collip, and this normalized
+months with untreated type 1 diabetes. The quality of life, his blood glucose by the next morning; further injections over the
+however, was very poor, and some patients died of malnutrition next 10 days led to marked clinical improvement and complete
+rather than diabetes. In 1921, Carl von Noorden (1858 – 1944) – elimination of glycosuria and ketonuria. Initial clinical results in
+proponent of the “ oatmeal cure ” – turned away in disapproval seven cases were published in the March 1922 issue of the
+when he saw Joslin ’ s prize patient, 17 - year - old Ruth A, who at Canadian Medical Association Journal [27] , which concluded
+just over 1.52 m in height weighed only 24.5 kg (a body mass dramatically that:
+index of 10.6 kg/m 2 ). 1 Blood sugar can be markedly reduced, even to normal
+values;
+Discovery of i nsulin 2 Glycosuria can be abolished;
+Many attempts were made between 1889 and 1921 to isolate the 3 T he acetone bodies can be made to disappear from the
+elusive internal secretion of the pancreas. These largely failed urine;
+because the extracts were inactive or had unacceptable side 4 The respiratory quotient shows evidence of increased utiliza-
+effects; some preparations may have had limited biologic activity, tion of carbohydrates;
+but this was not recognized, either because hypoglycemia was 5 A defi nite improvement is observed in the general condition
+misinterpreted as a toxic reaction or because blood glucose was of these patients and, in addition, the patients themselves report
+not measured. Those who came closest were the Berlin physician, a subjective sense of well - being and increased vigor for a period
+Georg Zuelzer (1840 – 1949) in 1907 [23] , Ernest Scott (1877 – following the administration of these preparations.
+1966) in Chicago in 1911 [24] and Nicolas Paulesco (1869 – 1931) The term “ insulin ” was coined by Macleod, who was unaware
+in Romania in 1920 – 1921 [25] (Figure 1.10 ). of de Meyer ’ s earlier suggestion of insuline . News of its miracu-
+The story of how insulin was discovered in Toronto in 1921 is lous effects spread astonishingly rapidly [28] . In 1922, there were
+well known, at least superfi cially (Figure 1.11 ). A young ortho- only 19 references in the world literature to “ insulin ” or equiva-
+pedic surgeon, Frederick Banting, inspired after reading an article lent terms such as “ pancreatic extract ” ; by the end of 1923, there
+by the pathologist Moses Barron (1884 – 1975), wondered whether were 320 new reports, and a further 317 were published during
+the antidiabetic pancreatic principle was digested by trypsin the fi rst 6 months of 1924.
+during extraction, and decided to prevent this loss by ligating By October 1923, insulin was available widely throughout
+the pancreatic duct, thus causing the exocrine tissue to dege- North America and Europe. International recognition followed
+nerate. He approached the Professor of Physiology in Toronto, rapidly for its discoverers, and the 1923 Nobel Prize for Physiology
+J.J.R. Macleod, an authority on carbohydrate metabolism, who or Medicine was awarded jointly to Banting and Macleod. Banting
+poured scorn on the idea and suggested that the only likely was angered by the decision, and announced publicly that he
+outcome would be “ a negative result of great physiological would share his prize with Best, whereupon Macleod decided to
+importance. ” do the same with Collip.
+Eventually, Macleod relented and installed Banting in a
+rundown laboratory, later leaving for Scotland and a fi shing The p ostinsulin e ra
+holiday. A student, Charles Best, was chosen by the toss of a coin It was confi dently anticipated that insulin would do for diabetes
+to help Banting. Within 6 months of this unpromising start, in the young what thyroid extract had done for myxoedema, but
+Banting and Best (referred to in Toronto academic circles as B 2 ) it soon became obvious that insulin was a very different type of
+had discovered the most important new therapy since the treatment. Thyroid was given once a day by mouth and at a fi xed
+antisyphilitic agent Salvarsan. These events are described in detail dosage. Insulin had to be injected in measured amounts which
+in the excellent book by Michael Bliss [ 26]. varied from day to day, and carried the ever - present danger of
+T heir approach began with the injection of extracts of atro- hypoglycemia. One often reads that insulin “ revolutionized ” the
+phied pancreas (prepared according to Macleod ’ s suggestions) treatment of diabetes; it did so in the sense that it saved the lives
+into dogs rendered diabetic by pancreatectomy). Subsequently, of many who would otherwise have died, but its unforeseen effect
+they discovered that active extracts could be obtained from beef was to transform an acute, rapidly fatal illness into a chronic
+pancreas which Best obtained from the abbatoir. The extraction disease with serious long - term complications. For example, only
+procedure (using ice - cold acid - ethanol) was greatly refi ned by 2% of deaths among Joslin’ s young patients with diabetes before
+James B. (Bert) Collip, a biochemist who was visiting Toronto on 1937 were caused by kidney disease, while over 50% dying
+sabbatical leave. between 1944 and 1950 had advanced renal failure. Strategies to
+The fi rst clinical trial of insulin (using an extract made by avoid and prevent the chronic complications of diabetes remain
+Best) took place on January 11, 1922, on 14 - year - old Leonard important scientifi c and clinical priorities today.
+10
+--- Page 33 ---
+History of Diabetes Mellitus Chapter 1
+(a) (b)
+(c)
+Figure 1.10 (a) Georg Zuelzer (1840 – 1949) and (b) the title page from his paper (1907) reporting that a pancreatic extract reduced glycosuria in pancreatectomized
+dogs [23] (top). (c) Nicolas Paulesco (1869– 1 931).
+The rest of this chapter highlights some developments Causes and n atural h istory of d iabetes
+that can be regarded as landmarks in the understanding The recognition that diabetes was not a single disease was impor-
+and management of the disease: to some extent, this is a tant in initiating research that has helped to unravel the causes of
+personal choice, and it is obvious from the other chapters in hyperglycemia.
+this book that the “ history ” of diabetes is being rewritten all The broad etiologic subdivision into type 1 (juvenile - onset, or
+the time. insulin - dependent) and type 2 diabetes (maturity - onset, or
+11
+--- Page 34 ---
+Part 1 Diabetes in its Historical and Social Context
+Figure 1.11 The discoverers of insulin. Clockwise
+from top left: Frederick G. Banting (1891 – 1941);
+James B. Collip (1892 – 1965); J.J.R. Macleod
+(1876 – 1935); and Charles H. Best (1899 – 1978).
+Courtesy of the Fisher Rare Book Library, University
+of Toronto.
+non - insulin - dependent) stemmed ultimately from Lancereaux ’ s
+diab è te maigre and d iab è te gras distinction, as well as observations
+soon after the discovery of insulin that some patients did not react
+“ normally ” to insulin. In the 1930s, Wilhelm Falta (1875 – 1950)
+in Vienna [29] and Harold Himsworth (1905 – 93) in London [30]
+proposed that some individuals with diabetes were more sensitive
+to the glucose - lowering effects of insulin, whereas others were
+insulin - insensitive, or insulin - resistant. The former were usually
+thin and required insulin to prevent ketoacidosis, while the latter
+were older, obese and ketosis - resistant.
+The “ insulin clamp ” technique developed in the 1970s by
+Ralph DeFronzo e t al . [31] in the USA was the fi rst to measure
+rigorously the hypoglycemic action of insulin, and has led to
+countless studies of insulin resistance and its relationship to type
+2 diabetes and vascular disease. Various groups, including
+DeFronzo ’ s, have helped to clarify the role of β- c ell failure in type
+2 diabetes, and how it relates to insulin resistance. Maturity - onset
+diabetes of the young (MODY) was recognized in 1974 by Robert
+Tattersall ( b. 1943) as a distinct, dominantly inherited subset of
+Figure 1.12 Leonard Thompson, the fi rst patient to receive insulin, in January type 2 diabetes [32] ; since 1993, fi ve different molecular defects
+1922. Courtesy of the Fisher Rare Book Library, University of Toronto. have been identifi ed in this condition.
+12
+--- Page 35 ---
+History of Diabetes Mellitus Chapter 1
+The causes of the profound β- c ell loss that led to the severe
+Table 1.2 Milestones in the scientifi c understanding of diabetes and its
+insulin defi ciency of type 1 diabetes remained a mystery for a long
+complications.
+time. “ Insulitis ” , predominantly lymphocytic infi ltration of the
+islets, was noted as early as 1901 by Eugene L. Opie (1873 – 1971) Matthew Dobson (England, 1776) Diabetic serum contains sugar
+and colleagues [33] , but because it was apparently very rare, Michel Chevreul (France, 1815) The sugar in diabetic urine is glucose
+found in only six of 189 cases studied by Anton Weichselbaum Claude Bernard (France, 1850s) Glucose stored in liver glycogen and
+(1845 –1 920) in 1910, its importance was not appreciated. The secreted during fasting
+possible role of insulitis in β - cell destruction was not suggested Wilhelm Petters (Germany, 1857) Diabetic urine contains acetone
+until 1965, by the Belgian Willy Gepts (1922 – 1991) [34] . The Paul Langerhans (Germany, 1869) Pancreatic islets described
+Adolf Kussmaul (Germany, 1874) Describes ketoacidosis
+theory that type 1 diabetes results from autoimmune destruction
+of the β cells was fi rst made in 1979 by Deborah Doniach (1912 – Oskar Minkowski and Josef von Pancreatectomy causes diabetes in the
+Mering (Germany, 1889) dog
+2004) and GianFranco Bottazzo ( b. 1946) [35] . Unlike other
+Gustave Edouard Laguesse (France, Glucose - lowering pancreatic secretion
+autoimmune endocrine diseases where the autoantibody persists,
+1893) produced by islets
+islet cell antibodies (ICA) turned out to be transient and disap-
+M.A. Lane (USA, 1907) Distinguished A and B islet cells
+peared within a year of the onset of diabetes. An unexpected Jean de Meyer (Belgium, 1909) Hypothetical islet secretion named
+fi nding from the Barts – Windsor prospective study of the epide- “i nsuline ”
+miology of diabetes in childhood started by Andrew Cudworth Frederick Banting, Charles Best, Isolation of insulin
+(1939 – 1982) was that ICA could be detected in siblings of young J.J.R. Macleod, James Collip
+people with diabetes up to 10 years before they developed appar- (Canada, 1922)
+ently acute - onset diabetes. This long lead - in period raised the Richard Murlin (USA, 1923) Discovered and named glucagon
+possibilty of an intervention to prevent continuing β - cell destruc- Bernado Houssay (Argentina, 1924) Hypophysectomy enhances insulin
+sensitivity
+tion. Cyclosporine in people with newly diagnosed type 1 diabetes
+Frederick Sanger (England, 1955) Determined primary sequence of
+prolongs the honeymoon period but without permanent benefi t
+insulin
+once the drug is stopped [36] . Nicotinamide and small doses of
+W.W. Bromer (USA, 1956) Determined primary sequence of
+insulin (together with many other interventions) prevent diabetes
+glucagon
+in the non - obese diabetic (NOD) mouse but were without effect Rosalyn Yalow and Solomon Berson Discovered radioimmunoassay for
+in relatives of people with type 1 diabetes with high titers of ICA (USA, 1959) insulin
+[37,38] . Donald Steiner (USA, 1967) Discovered proinsulin
+From 1967, when Paul Lacy (1924 – 2005) showed that it was Dorothy Hodgkin (England, 1969) Determined three - dimensional
+possible to “ c ure” diabetes in inbred rats with an islet cell trans- structure of insulin
+plant, it always seemed that the problem of islet cell transplanta- Pierre Freychet (USA, 1971) Characterized insulin receptors
+Pedro Cuatrecasas (USA, 1972) Isolated insulin receptor protein
+tion in humans was about to be solved. Hope was rekindled in
+Axel Ullrich (USA, 1977) Reported sequence of rat insulin
+2000 by a team in Edmonton, Canada. After 5 years 80% of their
+Ralph DeFronzo and Reuben Andres Invented insulin clamp technique
+transplanted patients were producing some endogenous insulin
+(USA, 1979)
+but only 10% could manage without any injected insulin [39] .
+Graham Bell (USA, 1980) Reported sequence of human
+insulin gene
+Chronic d iabetic c omplications
+It had been assumed that arteriosclerosis caused chronic diabetic
+complications, but this notion was challenged by two papers pub-
+lished in the mid - 1930s, which pointed to specifi c associations of tures of hypertension, heavy albuminuria with “ oedema of the
+diabetes with retinal and renal disease (Table 1.2 ). In 1934, Henry nephrotic type,” and renal failure. In fact, this paper led to con-
+Wagener (1890 – 1961) and Russell Wilder (1885 – 1959) from the siderable confusion during the next 15 years: according to one
+Mayo Clinic reported patients who had retinal hemorrhages but writer, the “ Kimmelstiel – Wilson syndrome ” came to mean all
+no other clinical evidence of vascular disease [40] , and concluded things to all men [42] . Nonetheless, it was signifi cant because it
+that “ The very existence of retinitis in cases in which patients have drew attention to a specifi c diabetic renal disease.
+no other signs of vascular disease must mean that diabetes alone Acceptance of the concept that diabetic angiopathy was specifi c
+does something to injure the fi ner arterioles or venules of the to the disease owed much to the work of Knud Lundb æ k of
+retina, probably the latter. ” Aarhus in Denmark (Figure 1.14 ), who published his fi ndings in
+In 1936, Paul Kimmelstiel (1900 – 1970) and Clifford Wilson a book in 1953 – 1954 and a paper in the Lancet in 1954 [43,44] .
+(1906 – 1997) described the striking histologic fi nding of “ inter- His key arguments were that long - standing diabetic vascular
+capillary glomerulosclerosis ” – large hyaline nodules in the disease differed fundamentally from atherosclerosis, in that both
+glomeruli – in the kidneys of eight subjects at autopsy (Figure sexes were equally affected and that microaneurysms, ocular
+1.13 ) [41] . Seven of the eight patients had a known history of phlebopathy and Kimmelstiel – Wilson nodules were unique to
+diabetes, and Kimmelstiel and Wilson noted the common fea- diabetes and usually occurred together.
+13
+--- Page 36 ---
+Part 1 Diabetes in its Historical and Social Context
+Figure 1.13 Nodular glomerulosclerosis. Figure from the paper by Kimmelstiel
+Figure 1.14 Knud Lundb æ k (1912 – 1995). Courtesy of Dr Carl Erik Mogensen.
+and Wilson, 1936 [41] . Courtesy of the British Medical Association Library.
+T he molecular and cellular mechanisms underlying diabetic
+Table 1.3 Milestones in the understanding of the causes of diabetes.
+tissue damage remain controversial after decades of intensive
+research. One of the early landmarks in this fi eld was the work of
+Thomas Willis (England, 17th Overindulgence in food and drink
+J.H. Kinoshita (b . 1922) during the early 1970s, which pointed to
+century)
+the involvement of the polyol pathway in the formation of dia- Thomas Cawley (England, 1788) Pancreatic stones cause diabetes
+betic cataracts [45] . Oskar Minkowski and Josef von Pancreatectomy causes diabetes in
+Mering (Germany, 1889) the dog
+Physiology Etienne Lancereaux (France, 1880) Lean and obese diabetic subtypes
+In 1907, M.A. Lane, a student of Robert Bensley (1867 – 1956), distinguished
+Professor of Antatomy in Chicago, used conventional histologic Eugene Opie (USA, 1900) Hyaline degeneration (amyloidosis) of
+islets (type 2 diabetes)
+techniques to distinguish two different cell types in the islet of
+Eugene Opie (USA, 1910) Lymphocytic infi ltration of islets
+Langerhans, which he termed A and B [46] . The hormones
+( “ insulitis ” ; type 1 diabetes)
+secreted by these respective cell types were not identifi ed until
+Wilhelm Falta (Vienna) and Harold Distinguished insulin - resistant and
+much later (Table 1.2 ). Frank Young (1908 – 1988) and colleagues
+Himsworth (England; early 1930s) insulin - sensitive forms of diabetes
+reported in 1938 that injections of anterior pituitary extract could Willy Gepts (Belgium, 1965) Suggested that insulitis caused β - cell
+induce permanent diabetes in the dog, and that this was accom-
+destruction (type 1 diabetes)
+panied by selective degranulation and loss of the β - cells [47] ; it Deborah Doniach and GianFranco Suggested that insulin - dependent
+was surmised that these cells produced insulin, and this was Bottazzo (England, 1979) diabetes is an autoimmune disease
+fi nally confi rmed using immuno - histochemistry by Paul Lacy in Andrew Cudworth and John Insulin - dependent diabetes associated
+1959 [48] . Glucagon was similarly localized to the α - cells in 1962 Woodrow (England, 1975) with specifi c HLA antigens
+by John Baum and colleagues [49] .
+14
+--- Page 37 ---
+History of Diabetes Mellitus Chapter 1
+(a) (b)
+Figure 1.15 Frederick Sanger (b . 1918) and Dorothy Hodgkin, n é e Crowfoot (1910 – 1994). Courtesy of Godfrey Argent Studio, London.
+The amino acid sequence of insulin was reported in 1955 by
+Frederick Sanger in Cambridge, UK [50] , and the three - dimen-
+sional structure of the molecule in 1969 by Dorothy Hodgkin, in
+Oxford [51] ; both discoveries were recognized by the award of
+Nobel Prizes (Figure 1.15 ). The complete insulin molecule was
+synthesized from amino acids by Wang Ying - lai (1908 – 2001) and
+colleagues in Shanghai in 1965 [52] . The insulin precursor, proin-
+sulin, was described in 1967 by Donald Steiner (b . 1930) in
+Chicago [53] . The fi rst bioassay for insulin, based on the hor-
+mone ’ s ability to lower blood glucose in the alloxan - diabetic rat,
+was reported in 1950 by the Australian Joseph Bornstein (1918 –
+1994), working in London with Robin D. Lawrence (see Fig. 1.20 )
+[54] . This method was superseded in 1956 by Rosalyn Yalow and
+Solomon Berson in the USA, who discovered that insulin was
+Figure 1.16 Solomon Berson and Rosalyn Yalow.
+antigenic; they exploited the binding of the hormone to anti -
+insulin antibodies to develop the fi rst radio - immunoassay [55] .
+This assay method revolutionized endocrinology – and indeed,
+many areas of physiology and medicine – and was also rewarded glucose transporter (GLUT) proteins by Mueckler and colleagues
+with a Nobel Prize (Figure 1.16 ). in the USA [62] .
+The sequence of rat insulin genes was described in 1977 by Axel
+Ullrich ( b. 1945) and colleagues [56] , and the human sequence Management of d iabetes
+by Graham Bell ( b. 1948) and his group in 1980 [57] . The exist- An objective observer surveying clinical diabetes during the half -
+ence of insulin receptors was inferred from the insulin - binding century after the discovery of insulin and the “ resurrection ” (a
+characteristics of liver - cell membranes by Pierre Freychet ( b. word used by Joslin) of young people with diabetes would have
+1935) and colleagues in 1971 [58] , and the receptor protein was been dismayed by what he saw (Table 1.4 ). In particular, young
+isolated by Pedro Cuatrecasas ( b. 1936) in the following year [59] . people were dying of complications that had previously been
+The gene encoding the insulin receptor was cloned and sequenced assumed to be the preserve of the elderly. Two particularly
+in 1985 by two groups [60,61] . In recent years, numerous depressing papers were published in 1947 and 1950. First, Henry
+advances have helped to clarify how insulin exerts its biologic Dolger (1909 – 1997) in New York described 20 patients who ful-
+actions. Among these was the discovery in 1985 of the fi rst of the fi lled the then - accepted criteria for excellent diabetic control, but
+15
+--- Page 38 ---
+Part 1 Diabetes in its Historical and Social Context
+Table 1.4 Selected milestones in the management of diabetes.
+Lifestyle modifi cation
+Li Hsuan (China, 7th century) A void wine, sex and salty cereals
+Thomas Willis (England, 17th century) Food restriction
+John Rollo (England, 1797) Animal diet
+Apollinaire Bouchardat (France, 1875) Food restriction and increased exercise
+Carl von Noorden (Germany, 1903) “ Oatmeal ” cure
+Frederick Allen (USA, 1913) Starvation diet for early - onset diabetes
+Karl Petr é n (Sweden, 1915) High - fat, low - carbohydrate diet
+Insulin treatment
+Georg Zuelzer (Germany, 1907) and Nicolas Paulesco (Romania, 1921) Isolated pancreatic extracts with hypoglycemic activity
+Frederick Banting, Charles Best, J.J.R. Macleod, and James Collip Isolation and fi rst clinical use of insulin
+(Canada, 1922 – 1923)
+Hans Christian Hagedorn (Denmark, 1936) Protamine insulin, the fi rst long - acting insulin
+David Goeddel (USA, 1979) Synthetic human - sequence insulin produced by recombinant DNA technology
+John Pickup (London, 1978) D escribed continuous subcutaneous insulin infusion
+John Ireland (Scotland, 1981) Invented pen injection device
+Oral hypoglycemic agents
+Avicenna (Arabia, 10th century) Recommended lupin, fenugreek and zedoary seeds
+Willhelm Ebstein (Germany, 1876) Recommended sodium salicylate
+E. Frank (Germany, 1926) B iguanide derivative (Synthalin) introduced, but withdrawn because of toxicity
+Celestino Ruiz (Argentina, 1930) Noted hypoglycemic action of some sulfonamides
+Auguste Loubati è res (France, 1942) Discovered hypoglycemic action of prototype sulfonylurea
+H. Franke and J. Fuchs (Germany, 1955) Carbutamide introduced
+G. Ungar (USA, 1957) Phenformin introduced
+Diabetic monitoring and treatment targets
+University Group Diabetes Program (USA, 1969) F irst randomized trial in diabetes
+Peter S ö nksen and Robert Tattersall (1978) I ntroduction of home blood glucose monitoring
+R. Fl ü ckiger and K.H. Winterhalter (Germany, 1975) Showed that HbA was glycated hemoglobin
+1c
+World Health Organization (1991) S t Vincent Declaration identifi ed targets for diabetes care
+Diabetes Control and Complications Trial (USA, 1993) P roved that improved glycemic control prevents and slows progression of
+microvascular complication in type 1 diabetes
+UK Prospective Diabetes Study (UK, 1998) P roved that improved glycemic and blood - pressure control improve microvascular and
+macrovascular outcomes in type 2 diabetes
+Management of complications
+Gerd Meyer - Schwickerath (Germany, 1964) U se of xenon arc lamp to treat diabetic retinopathy
+University of Minnesota Team (USA, 1966) First combined kidney – pancreas transplants
+Carl - Erik Mogensen and Hans - Henrik Parving (Denmark, 1980s) S trict blood pressure controls slows progression of diabetic neuropathy
+who all developed severe retinopathy after 6 – 22 years [63] ; These and other studies raised questions about whether lower-
+among these was the fi rst patient ever to receive insulin at Mount ing blood glucose levels to normal could prevent diabetic com-
+Sinai Hospital, New York, who also had heavy albuminuria and plications or reverse them once they had appeared. The hypothesis
+hypertension by the age of 32. Second, Ruth Reuting reported a remained untestable for four more decades, until the means to
+cohort of 50 young patients originally identifi ed in 1929 [64] . By achieve tight glycemic control and measure it had been devised.
+1949, one - third had died (mostly from cardiovascular and renal
+disease) at an average age of 25 years, after only 18 years of dia- Insulin
+betes, and the survivors showed “ ominous signs of hypertension, For the fi rst decade after its discovery, insulin was available only
+azotemia and proteinuria in signifi cant numbers. ” This had in its soluble (regular) formulation, whose short - action profi le
+occurred despite the introduction of more versatile insulin prepa- required multiple daily injections. The fi rst delayed - action prepa-
+rations (see below); the situation was so hopeless that it inaugu- ration, protamine insulinate, was introduced in 1936 by Hans
+rated 20 years of treatment with “ heroic ” measures such as Christian Hagedorn in Denmark (Figure 1.17 ) [65] . This was
+adrenalectomy and hypophysectomy. followed by protamine zinc insulin later the same year, then
+16
+--- Page 39 ---
+History of Diabetes Mellitus Chapter 1
+insulin that can be given without injection. The fi rst inhaled
+insulin was marketed in 2006 but withdrawn a year later because
+of lack of demand and concerns about safety [69] .
+Oral h ypoglycemic a gents
+The fi rst orally active glucose - lowering drug, synthalin, a guani-
+dine derivative, was developed by Frank and colleagues in Breslau
+in 1926 [70] , but had to be withdrawn because of toxicity (a recur-
+rent problem for oral hypoglycemic drugs). The sulfonylureas
+originated from the work of Auguste Loubati è res (1912 – 1977) in
+France during the early 1940s on the glucose - lowering action of a
+sulfonamide derivative, 2254RP. Loubati è res made the crucial
+observations that proved that these drugs act as insulin secretago-
+gues and that they were effective in intact, but not in pancreatec-
+tomized, animals [71] . In 1955 carbutamide was the fi rst
+sulfonylurea to enter clinical practice and tolbutamide followed
+in 1957. Phenformin, the fi rst biguanide, was introduced in 1959
+following research into the metabolic effects of guanidine deriva-
+Figure 1.17 Hans Christian Hagedorn (1888 – 1971) from the Hagedorn Medal.
+tives which had built on Frank ’ s initial studies [72] . Metformin
+Courtesy of C. Binder, Steno Institute, Hvidovre, Denmark.
+appeared on the European market in 1960 but was not marketed
+in the USA until 1994. Troglitazone, the fi rst of a new class of
+globin insulin in 1939, NPH (neutral protamine Hagedorn, or antidiabetic drugs, the glitazones, was also marketed in 1994 but
+isophane) in 1946, and the lente series in 1952. Long - acting insu- withdrawn because of liver damage. It was followed by rosiglita-
+lins were welcomed by diabetes specialists and patients, but their zone and pioglitazone. Another new class of drugs, acting on the
+use as a single daily injection probably produced worse glycemic incretin system, were introduced in 2005. These are either gluca-
+control than three or four injections of soluble insulin. Indeed, gon - like peptide 1 (GLP - 1) agonists (such as exenatide) or inhibi-
+delayed - action preparations were initially condemned by some tors of the enzyme dipeptidylpeptidase - 4 (DPP - 4) which breaks
+diabetes specialists, such as Russell Wilder of the Mayo Clinic, down GLP - 1 (gliptins).
+because the patient could slip without apparent warning into Tolbutamide, phenformin and insulin were compared in the
+hypoglycemia. treatment of maturity - onset diabetes in the fi rst randomized con-
+The number and variety of insulin preparations proliferated, trolled trial, the University Group Diabetes Program [ 73– 7 5].
+but the main advances were in methods to produce highly puri- This much - criticized study concluded that the death rate was
+fi ed preparations from porcine or bovine pancreas, which higher for both oral agents than for placebo, and that insulin
+remained the source for therapeutic insulin until the early 1980s. (whether given in a fi xed or variable dose) was no better than
+Insulin was the fi rst therapeutic protein to be produced by placebo [75] . These fi ndings were interpreted by some as suggest-
+recombinant DNA technology, initially by David Goeddel ( b. ing that treatment of maturity - onset diabetes was a waste of time
+1951), who expressed synthetic genes encoding the A - and – a myth that was only laid fi nally to rest by the UK Prospective
+B - chains separately in E scherichia coli and then combined these Diabetes Study.
+chemically to produce human - sequence insulin [66] . From there,
+genetic engineering has been used to produce “ designer ” insulins Glucose c ontrol and t reatment t argets
+such as the fast - acting insulin analogs lispro and aspart and the D uring the 1920s, opinion leaders advocated normalizing blood
+“ peakless ” basal insulins such as glargine and detemir. How much glucose in young patients with diabetes, the rationale being to
+these will improve glycemic control in the generality of people “ rest ” the pancreas, in the hope that it might regenerate. The only
+with diabetes is debatable; weekend golfers do not become cham- way of monitoring diabetic control was by testing the urine for
+pions when given expensive clubs! glucose, and attempts to keep the urine free from sugar inevitably
+M ost people with diabetes still inject insulin subcutaneously. resulted in severe hypoglycemia and often psychologic damage.
+From the patient ’ s viewpoint, major milestones were the replace- This led to the so- c alled “ f ree diet” movement – linked particu-
+ment of glass and steel syringes by disposable plastic syringes with larly with Adolf Lichtenstein (Stockholm) and Edward Tolstoi
+fi ne - gauge needles, and then by “ pen ” injection devices invented (New York) – which encouraged patients to eat whatever they
+by John Ireland (1933 – 1988) in Glasgow, Scotland, in 1981 [67] . liked and not to worry about glycosuria, however heavy. Tolstoi ’ s
+Portable insulin infusion pumps were developed by John Pickup view [76] was that a life saved by insulin should be worth living,
+( b. 1947) and colleagues in London during the late 1970s [68] , and that patients should be able to forget that they had diabetes
+and have become progressively smaller and more sophisticated. after each morning ’ s injection; it seems likely that many physi-
+Patients and manufacturers hope that there will eventually be an cians followed this policy for the next 40 years.
+17
+--- Page 40 ---
+Part 1 Diabetes in its Historical and Social Context
+Adult physicians were similarly ambivalent about the impor-
+tance of good glycemic control. Only one - third of diabetes physi-
+cians questioned in England in 1953 thought that normoglycemia
+would prevent diabetic complications, and only one - half advised
+urine testing at home [77] .
+Practical monitoring of diabetic control became feasible in the
+late 1970s with the introduction into clinical practice of test strips
+for measuring blood glucose in a fi ngerprick sample and the
+demonstration that ordinary patients could use them at home
+[78,79] . The discovery of hemoglobin A by Samuel Rahbar ( b .
+1c
+1929) paved the way for glycated hemoglobin (HbA ) assays
+1c
+which gave an objective measure of overall glucose control [ 80].
+These methods in turn made possible the North American
+Diabetes Control and Complications Trial, which in 1993 fi nally
+established that good control prevents and delays the progression
+of microvascular complications in type 1 diabetes [ 81]. For type
+2 diabetes, the importance of good glycemic control was defi ni-
+tively proved by another landmark study, the UK Prospective
+Diabetes Study (UKPDS), masterminded in Oxford, UK, by
+Robert Turner (Figure 1.18 ). The UKPDS reported in 1998, and
+not only showed a benefi cial effect of improved glycemic control
+on microvascular complications [82] , but also established the
+importance of treating hypertension [83] . By the late 1990s it was
+clear that reducing glucose levels, high blood pressure or choles-
+terol separately would reduce the frequency of heart disease and
+death and it was natural to wonder whether tackling them simul-
+taneously (multiple risk factor intervention) would be even
+better. The Steno 2 study, which began in Denmark in 1992,
+enrolled patients with type 2 diabetes with microalbuminuria and
+after 13 years of follow - up showed that multiple risk factor inter-
+vention reduced the risk of death by 20% and the risk of develop-
+ing nephropathy, retinopathy and neuropathy by 50% [84] . Figure 1.18 Robert Turner (1939 – 1999), instigator of the UKPDS, the fi rst
+study to show that good control of blood glucose and blood pressure was
+benefi cial in type 2 diabetes. Courtesy of the British Diabetic Association.
+Diabetic c omplications
+Apart from the general benefi ts of controlling blood glucose,
+some specifi c treatments have emerged for certain chronic com-
+plications. Well - conducted clinical trials during the late 1970s Diabetic k etoacidosis
+showed the effectiveness of laser photocoagulation in preventing The introduction of insulin was only one aspect of the manage-
+visual loss from both maculopathy and proliferative retinopathy ment of this acute and previously fatal complication of diabetes.
+[85] . This technique was derived from the xenon arc lamp origi- Of the fi rst 33 cases treated by Joslin and his colleagues between
+nally described in the late 1950s by Gerd Meyer - Schwickerath January 1, 1923 and April 1, 1925, 31 survived – an excellent
+(1921– 9 2) of Essen, Germany [ 86]. outcome, even by modern standards, which Joslin [89] attributed
+T he importance of blood pressure control in preventing the to: “ Promptly applied medical care, rest in bed, special nursing
+progression of nephropathy is now fully recognized, and angi- attendance, warmth, evacuation of the bowels by enema, the
+otensin - converting enzyme inhibitors may be particularly introduction of liquids into the body, lavage of the stomach,
+benefi cial; that blood pressure control slowed the progression of cardiac stimulants, and above all the exclusion of alkalis. ”
+nephropathy was shown in studies by Carl - Erik Mogensen Sadly, other centers did not pay so much attention to detail. In
+( b. 1938) and Hans - Henrik Parving (b . 1943) published in the 1933, the death rate from ketoacidosis in Boston was only 5%,
+early 1980s [87] . The measurement of low albumin concentra- but elsewhere in North America and Europe it averaged 30% and
+tions in urine (microalbuminuria), now used throughout the could be as high as 75%. An important advance in management
+world to screen for and monitor the course of diabetic neph- was the acceptance of relatively low - dose insulin replacement,
+ropathy, is derived from a radioimmunoassay developed in 1969 following the example of Ruth Menzel and colleagues in
+by Harry Keen and Costas Chlouverakis, at Guy ’ s Hospital in Karlsburg, Germany [90] . This broke with the tradition of high -
+London [88] . dose regimens such as that proposed by Howard Root in the USA,
+18
+--- Page 41 ---
+History of Diabetes Mellitus Chapter 1
+which had recommended an average of 1200 U insulin during the provided by an experienced and dedicated team consisting of a
+fi rst 24 hours of treatment [91] . Another step forward was the physician, obstetrician and pediatrician [94] . Pedersen ’ s target of
+recognition by Jacob Holler in 1946 of the danger of hypokalemia a fetal mortality rate of 6% was not achieved in most European
+[92] . Holler ’ s observation helped to establish the need for moni- or US units until the 1980s.
+toring plasma potassium levels, which became feasible with the
+introduction of the fl ame photometer, and replacing potassium Delivery of c are for p eople with d iabetes
+accordingly. From the earliest days of insulin injection and urine testing, it
+was apparent that people with diabetes needed knowledge and
+D iabetic p r egnancy practical skills to manage their disease effectively. Lip- s ervice was
+As late as 1950, the outcome of pregnancy in women with diabe- often paid to the importance of diabetes education, but most
+tes was still very poor in most units, with perinatal fetal losses of patients were badly informed. In 1952, Samuel Beaser (1910 –
+45 – 65%, some 10 times higher than in the general population. 2005) questioned 128 patients attending the Boston Diabetes
+Exceptions to this depressing rule were the units run by Priscilla Fair, and found that “ all were distinctly defi cient in knowledge of
+White at the Joslin Clinic in Boston, who had published excellent their disease ” [95] ; he felt that responsibility lay with both doctors
+results as early as 1935 [93] , and by J ø rgen Pedersen in and administrators. Further studies during the 1960s by Donnell
+Copenhagen (Figure 1.19 ). Pedersen identifi ed the common Etzwiler (1927 – 2003) in Minneapolis showed that many doctors
+features underpinning success as good diabetic control and care and nurses were also ignorant about managing diabetes. Since the
+(a) (b)
+Figure 1.19 J ø rgen Pedersen (1914 – 1978) and Ivo Drury (1905– 1 988), pioneers, with Priscilla White (1900 – 1989), in the management of pregnancy in women with
+type 1 diabetes. Courtesy of Dr. Carl Erik Mogensen and the Royal College of Physicians of Ireland.
+19
+--- Page 42 ---
+Part 1 Diabetes in its Historical and Social Context
+(a) (b)
+Figure 1.20 Ernesto Roma (1887 – 1978) and (right) Robin D. Lawrence (1892– 1968). Photograph of Dr. Roma by courtesy of Manuel Machado S á Marques and the
+Associa ç ã o Protectura das Diab é ticos de Portugal.
+1980s, diabetes specialist nurses and nurse educators have been jointly in 1990 by the EASD and the World Health Organization
+appointed in increasingly large numbers – thus fulfi lling a sug- [96] .
+gestion originally made by Joslin in 1916.
+National and international diabetes associations have also
+References
+played an important part by supporting scientifi c and clinical
+research, providing practical and moral help for patients, and
+1 Willis T . Pharmaceutice Rationalis; sive, Diatriba de Medicamentorum
+lobbying governments on patients ’ behalf. The fi rst of these
+Operationibus in Humano Corpore [2 parts in 1 vol]. Oxford :
+organizations was the Portuguese Association for the Protection
+Sheldonian Theatre , 1674 .
+of Poor Diabetics, founded in 1926 by Ernesto Roma of Lisbon
+2 Dobson M . Experiments and observations on the urine in diabetes .
+after an inspiring visit to Joslin ’ s clinic in Boston (Figure 1.20 ).
+Med Obs Inq 1776 ; 5 : 298 – 316 .
+The Association ’ s aim was to provide free insulin and education
+3 Rollo J . A n Account of Two Cases of the Diabetes Mellitus, With
+for people with diabetes and their families. In the UK, the Diabetic Remarks as They Arose During the Progress of the Cure . London : C.
+Association (later the British Diabetic Association, and now Dilly , 1797 . [A 2nd edition with more cases was published in 1798
+Diabetes UK) was established in 1934 by Robin Lawrence of and a 3rd edition in 1806.]
+King ’ s College Hospital, London, helped by the novelist H.G. 4 Chevreul ME . Note sur le sucre du diab è te . A nn Chim (Paris) 1815 ;
+Wells (Figure 1.20 ). Similar organizations were later founded in 95 : 319 – 320 .
+France (1938), the USA (1940) and Belgium (1942), and now 5 Olmsted JMD . Claude Bernard, 1813 – 79 . D iabetes 1953 ; 2 : 162 – 164 .
+6 Bernard C . Chiens rendus diab é tiques . C R Seances Soc Biol (Paris)
+exist in most countries.
+1850 ; 1 : 60 .
+On a wider scale, the International Diabetes Foundation
+7 Macleod JJR . Recent work on the pathologic physiology of glycosuria .
+was established in 1950 and the European Association for the
+JAMA 1914 ; 1 13 : 1226 – 1235 .
+Study of Diabetes (EASD) in 1964. These organizations are
+8 Von Mering J , Minkowski O . Diabetes mellitus nach Pank rea-
+devoted to the practice of diabetes care as well as the basic and
+sextirpation . Arch Exp Pathol Pharmacol Leipzig 1890 ; 2 6 : 371 – 387 .
+clinical science of the disease, and have been valuable in coordi- 9 Tattersall RB . Charles - É douard Brown - S é quard: double hyphenated
+nating treatment targets and strategies at international level; neurologist and forgotten father of endocrinology . D iabet Med 1994 ;
+an important example was the St. Vincent Declaration, issued 11 : 728 – 731 .
+20
+--- Page 43 ---
+History of Diabetes Mellitus Chapter 1
+10 Laguesse GE . Sur la formation des î lots de Langerhans dans le pan- 36 Feutren G , Papoz L , Assan R , Vialettes B , Karsenty G , Vexiau P , e t al .
+cr é as . C R S é ances Mem Soc Biol 1893 ; 4 5 : 819 – 820 . Cyclosporin increases the rate and length of remissions in insulin -
+11 Langerhans P . Beitr ä ge zur mikroskopischen Anatomie der dependent diabetes of recent onset: results of a multicentre double -
+Bauchspeicheldr ü se [dissertation]. Berlin : Gustave Lange , 1869 . blind trial . L ancet 1986 ; 2 : 119 – 124 .
+12 De Meyer J . Sur la signifi cation physiologique de la s é cr é tion interne 37 Gale EA , Bingley PJ , Emmett CL , Collier T , European Nicotinamide
+du pancr é as . Z entralbl Physiol 1904 ; 18 :S 826 . Diabetes Intervention Trial (ENDIT) Group. E uropean Nicotinamide
+13 Saundby R . The Bradshaw Lecture on the morbid anatomy of diabetes Diabetes Intervention Trial (ENDIT): a randomised controlled trial
+mellitus . Lancet 1890 ; i i : 381 – 386 . of intervention before the onset of type 1 diabetes . Lancet 2004 ;
+14 Jaeger E . Jaeger ’ s Atlas of Diseases of the Ocular Fundus: with New 363 : 925 – 931 .
+Descriptions, Revisions, and Additions , tr. and ed. Albert DM. 38 Diabetes Prevention Trial – Type 1 Diabetes Study Group . Effects of
+[Translation of Ophthalmoskopischer Hand- A tlas, rev. ed. Salzmann insulin in relatives of patients with type 1 diabetes mellitus . N Engl J
+M., Leipzig, 1890; 1st edn. 1869.] Philadelphia : Saunders , 1972 . Med 2002 ; 346 : 1685 – 1691 .
+15 Nettleship E . Haemorrhagic retinitis in a patient with diabetes, vari- 39 Ryan EA , Paty BW , Senior PA , Bigam D , Alfadhli E , Kneteman NM ,
+cose swellings on a retinal vein in the right eye. Trans Opthalmol Soc et al . Five - year follow - up after clinical islet transplantation . Diabetes
+UK 1888 ; 8 : 161 . 2005 ; 5 4 : 2060 – 2069 .
+16 Hirschberg J . Ü ber diabetische Netzhautentz ü ndung . Dtsch Med 40 Wagener HF , Dry TJS , Wilder RM . Retinitis in diabetes . N Engl J Med
+Wochenschr 1890 ; 1 6 : 1181 . 1934 ; 2 11 : 1131 – 1137 .
+17 Pavy FW . Introductory address to the discussion on the clinical aspect 41 Kimmelstiel P , Wilson C . Intercapillary lesions in the glomeruli of the
+of glycosuria . L ancet 1885 ; i i : 1085 – 1087 . kidney . Am J Pathol 1936 ; 12 : 83 – 97 .
+18 Pavy FW . On diabetic neuritis . Lancet 1904 ; i i : 17 – 19 . 42 Bloodworth JMB . A re - evaluation of diabetic glomerulosclerosis 50
+19 Griesinger W . Studien ü ber Diabetes . A rch Physiol Heilkd 1859 ; years after the discovery of insulin . Hum Pathol 1978 ; 9 : 439 – 453 .
+3 : 1 – 75 . 43 Lundb æ k K . Long - Term Diabetes: the Clinical Picture in Diabetes
+20 Lanceraux E . Le diab è te maigre: ses symptomes, son é volution, son Mellitus of 15 – 25 Years ’ Duration with a Follow Up of a Regional Series
+pronostic et son traitement . Union M é d Paris 1880 ; 2 0 : 205 – 211 . of Cases . London : Lange, Maxwell and Springer , 1953 .
+21 Joslin EP . Present - day treatment and prognosis in diabetes . A m J Med 44 Lundb æ k K . Diabetic angiopathy: a specifi c vascular disease . L ancet
+Sci 1915 ; 150 : 485 – 496 . 1954 ; i : 377 – 379 .
+22 Joslin EP . T he Treatment of Diabetes Mellitus: with Observations Based 45 Kinoshita JH . Mechanisms initiating cataract formation . Invest
+upon One Thousand Cases . Philadelphia : Lea & Febiger , 1916 . Ophthalmol 1974 ; 1 3 : 713 – 724 .
+23 Zuelzer GL . Experimentelle Untersuchungen ü ber den Diabetes . 46 Lane MA . The cytological characters of the areas of Langerhans . Am
+Berlin Klin Wochenschr 1907 ; 4 4 : 474 – 475 . J Anat 1907 ; 7 : 409 – 421 .
+24 Richards DW . The effect of pancreas extract on depancreatized 47 Young FG . Permanent experimental diabetes produced by pituitary
+dogs: Ernest L. Scott ’ s thesis of 1911 . Perspect Biol Med 1966 ; 10 : (anterior lobe) injections . Lancet 1937 ; i i : 372 – 374 .
+84 – 95 . 4 8 L acy P E. E lectron microscopic and fl uorescent antibody studies on
+25 Paulesco NC . Recherche sur le r ô le du pancr é as dans l ’ assimilation islets of Langerhans . Exp Cell Res 1959 ; 7 : 296 – 308 .
+nutritive . Arch Int Physiol 1921 ; 17 : 85 – 109 . 49 Baum J , Simmons BE , Unger RH , Madison LL . Localization of glu-
+26 Bliss M . T he Discovery of Insulin . Chicago : University of Chicago cagon in the A - cells in the pancreatic islet by immunofl uorescence .
+Press , 1982 . Diabetes 1962 ; 1 1 : 371 – 378 .
+27 Banting FG , Best CH , Collip JB , Campbell WR , Fletcher AA . 50 Brown H , Sanger F , Kitai R . The structure of pig and sheep insulin .
+Pancreatic extracts in the treatment of diabetes mellitus: preliminary Biochem J 1955 ; 6 0 : 556 – 565 .
+report . C an Med Assoc J 1922 ; 1 2 : 141 – 146 . 51 Adams MJ , Blundell TL , Dodson EJ , Hodgkin DC . Structure of 2 zinc
+28 Hetenyi G . The day after: how insulin was received by the medical insulin crystals. Nature 1969 ; 224 : 491 – 495 .
+profession . Perspect Biol Med 1995 ; 3 8 : 396 – 405 . 52 Kung K , Huang W , et al. Total synthesis of crystalline insulin . Sci
+29 Falta W . D ie Zuckerkrankheit . Berlin : Urban und Schwarzenberg , Sinica 1966 ; 1 5 : 544 – 561 .
+1936 . 53 Steiner DF , Oyer PE . The biosynthesis of insulin and probable precur-
+30 Himsworth HP . Diabetes mellitus: its differentiation into insulinsen- sor of insulin by a human islet cell adenoma . Proc Natl Acad Sci U S
+sitive and insulin - insensitive types . L ancet 1936 ; i : 127 – 30 . A 1967 ; 57 : 473 – 480 .
+31 DeFronzo RA , Tobin JD , Andres R . Glucose clamp technique: a 54 Bornstein J , Lawrence RD . Two types of diabetes, with and without
+method for quantifying insulin secretion and resistance . Am J Physiol available plasma insulin . B r Med J 1951 ; i : 732 – 735 .
+1979 ; 2 37 :E 214 – E 223 . 55 Yalow RS , Berson SA . Assay of plasma insulin in human subjects by
+32 Tattersall RB . Mild familial diabetes with dominant inheritance . Q J immunological methods . Nature 1958 ; 184 : 1648 – 1649 .
+Med 1974 ; 4 3 : 339 – 357 . 56 Ullrich A , Shrine J , Chirgwin J , Pictet R , Tischer E , Rutter WJ , e t al.
+33 Opie EL . On the relation of chronic interstitial pancreatitis to the Rat insulin genes: construction of plasmids containing the coding
+islands of Langerhans and to diabetes mellitus . J Exp Med 1901 ; sequences . S cience 1977 ; 196 : 1313 – 1319 .
+5 : 393 – 397 . 57 Bell GI , Pictet RL , Rutter WJ , Cordell B , Tischer E , Goodman HM .
+34 Gepts W . Pathologic anatomy of the pancreas in juvenile diabetes . Sequence of the human insulin gene . N ature 1980 ; 284 : 26 – 32 .
+Diabetes 1965 ; 1 4 : 619 – 633 . 58 Freychet P , Roth J , Neville DM Jr . Insulin receptors in the liver: spe-
+35 Bottazzo GF , Florin - Christensen A , Doniach D . Islet - cell antibodies cifi c binding of [ 125 I] insulin of the plasma membrane and its relation
+in diabetes mellitus with autoimmune polyendocrine defi ciencies . to insulin bioactivity. Proc Natl Acad Sci U S A 1971 ; 6 8 : 1833 –
+Lancet 1974 ; i i : 1279 – 1283 . 1837 .
+21
+--- Page 44 ---
+Part 1 Diabetes in its Historical and Social Context
+59 Cuatrecasas P . Affi nity chromatography and purifi cation of the 82 UK Prospective Diabetes Study (UKPDS) Group . Intensive blood -
+insulin receptor of liver cell membrane . P roc Natl Acad Sci U S A 1972 ; glucose control with sulphonylureas or insulin compared with con-
+62 : 1277 – 1281 . ventional treatment and risk of complications in patients with type 2
+60 Ullrich A , Bell JR , Chen EY , Herrera R , Petruzzelli LM , Dull TJ , e t al. diabetes (UKPDS 33) . L ancet 1998 ; 3 52 : 837 – 853 .
+Human insulin receptor and its relationship to the tyrosine kinase 83 UK Prospective Diabetes Study (UKPDS) Group . Tight blood pres-
+family of oncogenes . N ature 1985 ; 3 13 : 756 – 761 . sure control and risk of macrovascular and microvascular complica-
+61 Ebina Y , Ellis L , Jarnagin K , Edery M , Graf L , Clauser E , et al. The tions in type 2 diabetes: UKPDS 38 . B r Med J 1998 ; 3 17 : 703 – 713 .
+human insulin receptor cDNA: the structural basis for hormone - 84 Gaede P , Vedel P , Larsen N , Jensen GV , Parving HH , Pedersen O .
+activated transmembrane signalling . Cell 1985 ; 40 : 747 – 758 . Multifactorial intervention and cardiovascular disease in type 2 dia-
+62 Mueckler M , Caruso C , Baldwin SA , Panico M , Blench I , Morris HR , betes . N Engl J Med 2003 ; 3 48 : 383 – 393 .
+et al. Sequence and structure of a human glucose transporter . Science 85 Diabetic Retinopathy Research Group . Photocoagulation treatment
+1985 ; 229 : 941 – 945 . of proliferative diabetic retinopathy. The second report of Diabetic
+63 Dolger H . Clinical evaluation of vascular damage in diabetes mellitus . Retinopathy Study Findings . O phthalmology 1978 ; 8 5 : 82 – 106 .
+JAMA 1947 ; 134 : 1289 – 1291 . 86 Meyer - Schwickerath G . L ight Coagulation (Drance SM, trans). St
+64 Reuting RE . Progress notes on fi fty diabetic patients followed 25 or Louis : Mosby , 1960 .
+more years . A rch Intern Med 1950 ; 8 6 : 891 – 897 . 87 Mogensen CE . Long - term antihypertensive treatment inhibiting pro-
+65 Deckert T . H.C. Hagedorn and Danish Insulin . Herning, Denmark : gression of diabetic nephropathy . Br Med J 1982 ; 2 85 : 685 – 688 .
+Kristensen , 2000 . 88 Keen H , Chlouverakis C . An immunoassay for urinary albumin at low
+66 Goeddel DV , Kleid DG , Bolivar F . E xpression in Escherichia coli of concentrations . L ancet 1963 ; i i : 913 – 916 .
+chemically synthesized genes from human insulin . P roc Natl Acad Sci 89 Joslin EP , Root HF , White P . Diabetic coma and its treatment . Med
+U S A 1979 ; 76 : 106 – 110 . Clin North Am 1925 ; 8 : 1873 – 1919 .
+67 Paton JS , Wilson M , Ireland JT , Reith SBM . Convenient pocket 90 Menzel R , Zander E , Jutzi E . Treatment of diabetic coma with low -
+insulin syringe . L ancet 1981 ; i : 189 – 190 . dose injections of insulin . Endokrinologie 1976 ; 6 7 : 230 – 239 .
+68 Pickup JC , Keen H , Parsons JA , Alberti KGMM . Continuous subcu- 91 Root HF . The use of insulin and the abuse of glucose in treatment of
+taneous insulin infusion: an approach to achieving normoglycaemia . diabetic coma . JAMA 1945 ; 1 27 : 557 – 563 .
+Br Med J 1978 ; i : 204 – 207 . 92 Holler JW . Potassium defi ciency occurring during the treatment of
+69 Mathieu C , Gale EAM . Inhaled insulin: gone with the wind? diabetic acidosis. JAMA 1946 ; 1 31 : 1186 – 1188 .
+Diabetologia 2008 ; 5 1 : 1 – 5 . 9 3 W hite P . P regnancy complicating diabetes. S urg Gynecol Obstet 1935 ;
+70 Frank E , Nothmann M , Wagner A . Ü ber synthetisch dargestellte 61 : 324 – 332 .
+K ö rper mit insulinartiger Wirkung auf den normalen und den dia- 9 4 P edersen J , B randstrup E . F oetal mortality in pregnant diabetics: strict
+betischen Organismus . Klin Wochenschr 1926 ; 2100 – 2107 . control of diabetes with conservative obstetric management . L ancet
+71 Loubati è res A . Th è se Doctorat Sciences Naturelles , no. 86. Montpellier, 1956 ; i : 607 – 610 .
+1946. M ontpellier: C ausse, Graille et Castelnau, 1 956. 9 5 B easer S B. T eaching the diabetic patient. Diabetes 1956 ; 5 : 146 – 149 .
+72 Tyberghein JM , Williams RH . Metabolic effects of phenylethyldigua- 9 6 A non. D iabetes care and research in Europe: the Saint Vincent
+nide, a new hypoglycemic compound (23386) . Proc Soc Exp Med Biol Declaration . D iabet Med 1990 ; 7 : 360 .
+1957 ; 96 : 29 – 32 .
+73 Tattersall RB . The quest for normoglycaemia: a historical perspective .
+Further r eading
+Diabet Med 1994 ; 1 1 : 618 – 635 .
+74 Marks HM . The Progress of Experiment: Science and Therapeutic
+Reform in the United States . New York : Cambridge University Press , Bliss M . T he Discovery of Insulin . Toronto : McClelland and Stewart , 1982;
+1997 : 197 – 228 . and Edinburgh: Paul Harris Publishing, 1983 .
+75 University Group Diabetes Program . A study of the effects of hypogly- Deckert , T . H C Hagedorn and Danish Insulin . Copenhagen : Poul
+cemic agents on vascular complications in patients with adult onset Kristensen , 2000 .
+diabetes . D iabetes 1970 ; 1 9 (Suppl.): 789 – 830 . Feudtner C . B itter Sweet, Diabetes, Insulin and the Transformation of
+76 Tolstoi E . The objective of modern diabetic care . Psychosom Med Illness . Chapel Hill and London : University of North Carolina Press ,
+1948 ; 10 : 291 – 294 . 2003 .
+77 Walker GF . Refl ections on diabetes mellitus: answers to a question- Feudtner C , Gabbe S . Diabetes and pregnancy: four motifs of modern
+naire . L ancet 1953 ; i i : 1329 – 1332 . medical history . Clin Obstet Gynecol 2000 ; 43 : 4 – 16 .
+78 Sonksen P , Judd S , Lowy C . Home monitoring of blood glucose: Goldner MG . Historical review of oral substitutes for insulin . Diabetes
+method for improving diabetic control . Lancet 1978 ; 1 : 729 – 732 . 1957 ; 6 : 259 – 262 .
+79 Walford S , Gale EAM , Allison SP , Tattersall RB . Self - monitoring of Ionescu - Tirgoviste C . T he Rediscovery of Insulin . Bucharest : Geneze , 1996 .
+blood glucose: improvement of diabetic control . Lancet 1978 ; Loubati è res A . The hypoglycaemic sulphonamides: history and develop-
+1 : 732 – 735 . ment of the problem from 1942 to 1955 . A nn N Y Acad Sci 1957 ;
+80 Rahbar S . An abnormal hemoglobin in the red cells of diabetics . Clin 71 : 4 – 28 .
+Chim Acta 1968 ; 22 : 296 – 298 . Medvei VC . A History of Endocrinology. L ancaster: M TP Press, 1 982.
+8 1 D iabetes Control and Complications Trial Research Group. T he effect Tattersall R . Diabetes: t he biography , Oxford : Oxford University Press ,
+of intensive treatment of diabetes on the development and progres- 2009 .
+sion of long - term complications in insulin - dependent diabetes mel- von Engelhardt , D . D iabetes: its Medical and Cultural History. B erlin:
+litus . N Engl J Med 1993 ; 3 29 : 977 – 986 . Springer , 1989 .
+22
+--- Page 45 ---
+History of Diabetes Mellitus Chapter 1
+Websites Archives
+General h istory of d iabetes The notebooks and personal papers of the discoverers of insulin are
+http://pr15.mphy.lu.se/Diahistory1.html preserved at the Thomas Fisher Rare Book Library, University of
+http://www.diabetes/living.com/basics/histdev.htm Toronto, Canada.
+Discovery of i nsulin
+Discovery of Insulin website: http://web.idirect.com/ ∼ discover
+Banting Digital Library: http://www.Newtecumseth.library.on.ca.
+banting/main.html
+Nobel Prize Website: http://www.nobel.se/medicine/laureates/1923
+23
+--- Page 46 ---
+2
+The Classifi cation and Diagnosis of
+Diabetes Mellitus
+K. George M.M. Alberti
+E ndocrinology and Metabolism, Imperial College St Mary ’ s Campus, London, UK
+Key points
+(cid:129) The classifi cation of diabetes mellitus is based on four main categories: individuals two abnormal values are required and an oral glucose
+Type 1, Type 2, other specifi c types, and gestational diabetes mellitus tolerance test may be needed
+(cid:129) Impaired glucose tolerance and impaired fasting glycemia are high- r isk (cid:129) The diagnosis of diabetes can not be excluded by measuring fasting
+states collectively termed “ intermediate hyperglycemia ” plasma glucose alone
+(cid:129) Type 2 diabetes is a diagnosis by exclusion and as more specifi c causes (cid:129) HbA has major advantages over glucose testing in terms of
+1c
+are found these will move out of the type two category into other convenience and lack of variability, although it is not adequately quality
+specifi c types assured or standardized in many places, and is costly. Nonetheless, it is
+(cid:129) Measurement of glucose continues to be the mainstay of diagnosis. In already recommended in some countries as an alternative diagnostic
+the symptomatic person a single abnormal value, either casual or test. This is likely to become more widespread
+fasting, is often enough to confi rm the diagnosis. In asymptomatic
+was generally stated that the latter was just a milder form of the
+Introduction disease. Diagnosis now depended on glucose measurement with
+some using glucose tolerance tests. There were no standard cri-
+Diabetes mellitus is a disease of antiquity (see Chapter 1 ). A treat- teria for these initially, although glucose levels were clearly above
+ment was described in the Ebers papyrus and as long ago as 600 b c normal. Diagnosis usually occurred after clinical development of
+two main types were distinguished. Perhaps the most famous the disease with the combination of symptoms with raised glucose
+description was by Arateus the Cappadocian who talked of the in the blood or glycosuria being diagnostic, together with ketonu-
+melting down of fl esh into urine and of the end being speedy. ria in the juvenile - onset form.
+Over the ensuing centuries sporadic descriptions were noted, with A further breakthrough occurred with the work of Himsworth
+Maimonides in Egypt pointing out its relative rarity. It was attrib- in 1936. Himsworth ’ s work showed that people with diabetes
+uted to a salt - losing state although the sweetness of the urine had could be divided into insulin - resistant and insulin - sensitive types,
+long been known. Undoubtedly, virtually all of these accounts with the former much more common in those with the maturity -
+referred to type 1 (T1DM) or late type 2 diabetes (T2DM). o nset variety [ 1]. The next milestone was the development of the
+Diabetes was better recognized in the 17th and 18th centuries, radioimmunoassay for insulin which allowed the unequivocal
+with the association with obesity noted in some cases. The demonstration of insulin defi ciency, or indeed absence, in those
+obvious breakthrough came in the 17th century with the demon- with juvenile - onset diabetes while levels were apparently normal
+stration of excess glucose in the urine and later also in blood. or raised in those with maturity - onset diabetes.
+The presence of excess ketones was shown in the 19th century. At that time, diabetes was still considered to be a relatively
+A clear description of the two main types of diabetes appeared at uncommon disorder occurring predominantly in Europids. The
+the end of the 19th century, with the distinction being made World Health Organization (WHO) began to take note and held
+between that occurring in young people with a short time course its fi rst Expert Committee meeting in 1964 [2] . The real break-
+before ketoacidosis supervened, and that found in older people through, however, in terms of diagnosis and classifi cation came
+who were obese. Over the next decades these became known as in 1980 with the publication of the second Expert Committee
+juvenile - onset diabetes and maturity - onset diabetes, although it report [3] shortly after the report from the National Diabetes Data
+Group (NDDG) in the USA in 1979 [4] . These events form the
+starting point for the diagnostic criteria and classifi cation used
+Textbook of Diabetes, 4th edition. Edited by R. Holt, C. Cockram,
+A. Flyvbjerg and B. Goldstein. © 2010 Blackwell Publishing. today.
+24
+--- Page 47 ---
+Classifi cation and Diagnosis of Diabetes Mellitus Chapter 2
+Table 2.1 Etiologic classifi cation of disorders of glycemia. Adapted from
+Defi nitions
+World Health Organization [6] .
+D iabetes mellitus is a metabolic disorder of multiple etiologies. It Type 1 diabetes (β - cell destruction)
+is characterized by chronic hyperglycemia together with distur- (cid:129) Autoimmune
+bances of carbohydrate, fat and protein metabolism resulting (cid:129) Idiopathic
+from defects of insulin secretion, insulin action or both [6] . The Type 2 diabetes (insulin resistance with insulin hyposecretion)
+relative contribution of these varies between different types of Other specifi c types (Table 2.2 )
+diabetes. These are associated with the development of the spe- Gestational diabetes (includes former categories of gestational IGT and
+cifi c microvascular complications of retinopathy, which can lead gestational diabetes)
+to blindness, nephropathy with potential renal failure, and neu-
+IGT, impaired glucose tolerance.
+ropathy. The latter carries the risk of foot ulcers and amputation
+and also autonomic nerve dysfunction. Diabetes is also associated
+with an increased risk of macrovascular disease. diabetes mellitus was also introduced in recognition of a different
+The characteristic clinical presentation is with thirst, polyuria, phenotype found particularly in Asia and sub - Saharan Africa.
+blurring of vision and weight loss. This can lead to ketoacidosis Impaired glucose tolerance (IGT) was also introduced as a high
+or hyperosmolar non - ketotic coma (see Chapter 19 ). Often, risk class.
+symptoms are mild or absent and mild hyperglycemia can persist Based on increasing knowledge, WHO revisited the classifi ca-
+for years with tissue damage developing, although the person tion in 1999 [6] as did the American Diabetes Association (ADA)
+may be totally asymptomatic. [7] . It was recognized that the terms IDDM and NIDDM, although
+superfi cially appealing, were often confusing and unhelpful – as
+in patients with insulin - treated T2DM. The new classifi cation
+Classifi cation attempted to encompass both etiology and clinical stages of the
+disease as well as being useful clinically. This was based on the
+There was awareness of different grades of severity of diabetes for suggestion of Kuzuya and Matsuda [8] . This acknowledges that
+many centuries; however, the possibility that there were two diabetes may progress through several clinical stages (e.g. from
+distinct types only emerged at the beginning of the 20th century. normoglycemia to ketoacidosis) while having a single etiologic
+Even then there was no real clue to distinct etiologies. In the process such as autoimmune attack on the β - cells. Similarly, it is
+1930s, Himsworth suggested that there were two phenotypes. The possible that someone with T2DM can move from insulin require-
+fi rst real attempt to classify diabetes came with the fi rst WHO ment to no pharmaceutical intervention through modifi cation of
+Expert Committee on Diabetes Mellitus which felt that the only lifestyle. The main classes are T1DM, T2DM, other specifi c types
+reliable classifi cation was by age of onset and divided diabetes into and gestational diabetes (Table 2.1 ). It should be noted that
+juvenile - onset and maturity - onset disease [2] . There were many T2DM is largely categorization by exclusion. As new causes are
+other phenotypes in vogue at that time including brittle, gesta- discovered so they will be included under “ other specifi c types ”
+tional, pancreatic, endocrine, insulin -r esistant and iatrogenic as has occurred for maturity - onset diabetes of the young (MODY).
+diabetes, but for most cases there was no clear indication of etiol- The classifi cation was revisited by WHO in 2006, but no
+ogy. Clarity began to emerge in the 1970s with the discovery of further modifi cation was introduced, and it will be examined
+the human leukocyte antigen (HLA) genotypes common in juve- again in 2010 when at most minor amendments will be made.
+nile - onset diabetes and the discovery of islet call antibodies. This IGT was removed from the formal classifi cation of types of dia-
+gave a clear indication that younger patients with diabetes, all of betes – logically, as it is not diabetes – but was retained as a risk
+whom required insulin therapy, had an autoimmune disorder. state. Impaired fasting glycemia (IFG) was introduced as another
+The beginning of the modern era came with the second WHO risk state. This was particularly important in many countries
+Expert Committee [3] which reviewed and modifi ed the revised where glucose tolerance tests are rarely performed in practice
+classifi cation published by the National Diabetes Data Group [4] . outside of pregnancy so that IGT was not diagnosed and IFG,
+This proposed two main classes of diabetes: insulin - dependent although not strictly equivalent, has been used as an easily
+diabetes mellitus (IDDM; type 1) and non - insulin - dependent obtained risk marker.
+diabetes (NIDDM; type 2) together with “ o ther types” and ges-
+tational diabetes. There were also two risk classes: previous Type 1 d iabetes
+abnormality of glucose intolerance (PrevAGT) and potential T1DM is primarily caused by β - cell destruction although some
+abnormality of glucose tolerance (PotAGT) which replaced previ- insulin resistance is also present (see Chapter 9 ). After the initial
+ous types known as pre - diabetes or potential diabetes. stages, insulin is required for survival. In Europids > 90% show
+The 1980 classifi cation was revised further in 1985 [5] and evidence of autoimmunity with anti - glutamine acid decarboxy-
+reverted to clinical descriptions with retention of IDDM and lase (anti- G AD), anti- i nsulin and/or islet cell antibodies detect-
+NIDDM but omission of type 1 and type 2. Malnutrition - related able. It shows strong association with specifi c alleles at the DQ - A
+25
+--- Page 48 ---
+Part 1 Diabetes in its Historical and Social Context
+and DQ - B loci of the HLA complex [9] . Not all subjects with the
+Table 2.2 Other specifi c types of diabetes. Adapted from World Health
+clinical characteristics of T1DM show these associations with
+Organization [6] .
+autoimmunity although they are ketosis - prone, non - obese and
+generally under the age of 30 years. In non - Europid populations, Genetic defects of β - cell function
+up to 80% may show no measurable autoantibodies [10] ; these Chromosome 20, HNF4α (MODY 1)
+are referred to as having idiopathic T1DM. As with autoimmune Chromosome 7, glucokinase (MODY 2)
+diabetes, however, there is clear loss of β - cell function as meas- Chromosome 12, HNF1α (MODY 3)
+ured by low or absent C - peptide secretion. Diabetes occurring Chromosome 13, IPF - 1 (MODY 4)
+before the age of 6 months is most likely to be monogenic neonatal Mitochondrial DNA 3243 mutation
+diabetes rather than autoimmune T1DM (see Chapter 15 ) [11] . Others
+In addition to the typically young people with acute - onset Genetic defects in insulin action
+T1DM, there is an older group with slower onset disease. They Type A insulin resistance
+may present in middle age with apparent T2DM but have evi- Leprechaunism
+dence of autoimmunity as assessed by GAD antibody measure- Rabson – Mendenhall syndrome
+ments and ultimately become insulin - dependent. This is referred Lipoatrophic diabetes
+Others
+to as latent autoimmune diabetes of adults (LADA) [12] .
+Disease of the endocrine pancreas
+Type 2 di abetes
+Fibrocalculous pancreatopathy
+By far the majority of people with diabetes worldwide have
+Pancreatitis (particularly chronic)
+T2DM. This is characterized by insulin resistance with relative
+Trauma/pancreatectomy
+insulin defi ciency (i.e. patients secrete insulin, but not enough to
+Neoplasia
+overcome the insulin resistance) (see Chapters 10 and 11 ). Cystic fi brosis
+Typically, they do not require insulin to survive but often will Hemachromatosis
+eventually need insulin to maintain reasonable glycemia control, Others
+often after many years.
+Endocrinopathies
+The precise molecular mechanisms underlying T2DM are not
+Cushing syndrome
+known. Major efforts have been made to discover underlying Acromegaly
+genetic abnormalities but with only modest success (see Chapter Pheochromocytoma
+12 ). The most promising to be date has been TCF7L2 [13] which Glucagonoma
+may have a role in insulin secretion but this does not explain Somatostatinoma
+diabetes susceptibility in the majority of subjects. What is clear is Others
+that T2DM is closely associated with obesity and physical inactiv-
+Drug - or chemical- induced
+ity, and the westernization of lifestyles. The dramatic increase in Nicotinic acid
+T2DM over the past two decades has been closely paralleled by Glucocorticoids
+the rise in obesity worldwide. Both obesity, particularly visceral Thyroxine/triiodothyronine
+adiposity, and physical inactivity cause insulin resistance which α - Adrenergic agonists
+will result in diabetes in those with only a small capacity to Thiazides
+increase insulin secretion. The incidence of T2DM also increases Pentamidine
+Vacor
+with age, which may be related to decrease in exercise and muscle
+Others
+mass; however, as the incidence increases so T2DM is being
+found at younger ages and it is now not uncommon in adoles- Infections
+cence in many ethnic groups. Congenital rubella
+T2DM occurs in families so that those with a fi rst - degree rela- Cytomegalovirus
+tive with diabetes have an almost 50% life - time risk. There is also Mumps
+Others
+marked variation between different ethnic groups. Thus, those of
+Polynesian, Micronesian, South Asian, sub - Saharan African, Uncommon forms of immune- mediated disease
+Arabian and Native American origin are much more prone to Insulin autoimmune syndrome
+develop diabetes than Europids. Anti - insulin receptor antibodies
+T2DM is a diagnosis by exclusion and the prevalence may fall “ Stiff man ” syndrome
+Others
+as causes are identifi ed, but this is likely to be a slow process.
+Other genetic syndromes
+Other sp ecifi c ty pes of d iabetes
+(see Table 2.3 )
+Diabetes occurs both as a result of specifi c genetic defects in
+insulin secretion and action and in a range of other conditions
+(Table 2.2 ).
+26
+--- Page 49 ---
+Classifi cation and Diagnosis of Diabetes Mellitus Chapter 2
+The best known of the defects in insulin secretion are the diagnostic criteria). There is signifi cant morbidity associated with
+MODY family, which are a group of autosomal - dominant inher- GDM including intrauterine fetal death, congenital malforma-
+ited disorders where there is hyperglycemia at an early age, gener- tions, neonatal hypoglycemia, jaundice, prematurity and macro-
+ally of a mild nature. The most common concerns a mutation in somia. Risk factors for GDM include certain ethnic groups, those
+the HNF - 1 α gene on chromosome 12 (MODY 3) while another with previous GDM or abnormalities of glucose tolerance, age,
+is caused by mutations in the glucokinase gene on chromosome obesity and previous large babies.
+7p. These account for a small number of people with diabetes but
+are important in determining therapeutic approaches. Risk s tates
+The association of diabetes with defects in insulin action has Prior to the 1979 and 1980 reports, the state of “ borderline ”
+long been known, particularly in type A insulin resistance, lepre- diabetes had been recognized for cases where there was uncer-
+chaunism and lipoatrophic diabetes. Not surprisingly, diseases of tainty about the diagnosis of diabetes but where plasma glucose
+the exocrine pancreas often cause diabetes through destruction was above accepted normal levels. This was formalized by the
+of the islets. Pancreatitis secondary to alcohol is probably the NDDG and WHO [3,4] as IGT, a higher than normal plasma
+most common of these (see Chapter 18 ). Hemochromatosis and
+cystic fi brosis also commonly result in diabetes.
+Fibrocalculous pancreatitis is also included in this category. Table 2.3 Other genetic syndromes associated with diabetes. Adapted from
+Originally, this was part of malnutrition - related diabetes mellitus World Health Organization [6] .
+where there were two proposed variants: one associated with
+cassava consumption in malnourished people but without Down syndrome
+evidence of calculi, while the other was found after tropical Friedreich ataxia
+pancreatitis and presented with fi brocalculous disease. The latter Huntington chorea
+Klinefelter syndrome
+is akin to the diabetes found with other forms of chronic pan-
+Lawrence – Moon – Biedl syndrome
+creatitis. In 1999 it was felt that this latter form would fi t into
+Myotonic dystrophy
+the category of “ other specifi c types ” and that more evidence
+Porphyria
+was needed before a specifi c malnutrition - related diabetes cate-
+Prader – Willi syndrome
+gory could be included.
+Turner syndrome
+Several endocrinopathies are associated with diabetes: Cushing Wolfram syndrome
+syndrome, acromegaly, pheochromocytoma, glucagonoma and Others
+hyperthyroidism (see Chapter 17 ). In general, the diabetes will
+disappear if the endocrinopathy is treated. Many drugs and
+chemicals cause diabetes (Table 2.2 , Chapter 16). Some of these
+cause β - cell destruction but others will cause diabetes by increas-
+Table 2.4 World Health Organization (WHO) recommended criteria for the
+ing insulin resistance in susceptible individuals. diagnosis of diabetes and intermediate hyperglycemia.
+Infections are also associated with the development of diabetes;
+classically, mumps, congenital rubella, coxsackie B and cytome- Diabetes
+galovirus are the main ones implicated. Many genetic syndromes Fasting plasma glucose ≥ 7.0 mmol/L (126 mg/dL)
+are also associated with diabetes (Table 2 .4) . and/or
+There are other types of diabetes that do not fi t conveniently 2 - hour post - glucose load ≥ 11.1 mmol/L (200 mg/dL)
+into any of the current classes. These include “ Flatbush ” diabetes plasma glucose
+found in Afro - Americans [14] and so - called ketosis - prone T2DM Impaired glucose tolerance
+found in Africans in sub - Saharan Africa [15] . These are both Fasting plasma glucose < 7.0 mmol/L (126 mg/dL)
+characterized by periods of ketosis with absolute insulin depend- and
+ence and other times when the diabetes can be controlled by diet 2 - hour post - glucose load
+alone. plasma glucose ≥ 7.8 and < 11.1 mmol/L (140 and 200 mg/dL)
+Impaired fasting glycemia
+Gestational d iabetes m ellitus Fasting plasma glucose 6.1 – 6.9 mmol/L (110 – 125 mg/dL)
+Gestational diabetes mellitus (GDM) is hyperglycemia fi rst and (if measured)
+detected during pregnancy (see Chapter 5 3) . This is distinct from 2 - hour post - glucose load < 7.8 mmol/L (140 mg/dL)
+women with diabetes undergoing pregnancy, who have diabetes plasma glucose
+in pregnancy rather than gestational diabetes. Plasma glucose
+NB. All values refer to venous plasma glucose. Capillary plasma glucose
+levels, both fasting and post - prandial, are lower than normal in
+values would be the same fasting but 1 mmol/L (18 mg/dL) higher than
+early pregnancy so that raised levels at this stage are almost cer-
+venous levels after the glucose load. The glucose load is 75 g anhydrous
+tainly caused by previously undetected T2DM. Screening for
+glucose.
+GDM is generally undertaken at around 28 weeks (see below for
+27
+--- Page 50 ---
+Part 1 Diabetes in its Historical and Social Context
+glucose 2 hours after a glucose load but below the diagnostic indicated the probability of diabetes. This was for whole blood so
+cutoff for diabetes. Later, both the ADA and WHO introduced that in terms of plasma this would equate to about 150 mg/dL
+the concept of IFG as a fasting plasma glucose above normal but (8.3 mmol/L); however, at that time, most blood glucose
+below the diabetes diagnostic level [ 6,7]. Both IFG and IGT are chemical tests in use overestimated true glucose by at least
+associated with a two - to threefold increased risk of developing 20 mg/dL (1.1 mmol/L). They placed most reliance on the OGTT.
+diabetes, while IGT is also a cardiovascular risk marker. IFG was They examined both values at 1 and at 2 hours after the glucose
+welcomed as it could indicate an at - risk individual without the load but decided that the 2 - hour value on its own was adequate
+need to perform a glucose tolerance test. Collectively, IFG and – and this was the key diagnostic test suggested. The value
+IGT became known as “ pre - diabetes ” – a misleading term as not selected was 130 mg/dL (7.2 mmol/L) for venous whole blood
+everyone with pre - diabetes develops diabetes, and it diminishes and that was to be applied regardless of whether the 50 - g or the
+the importance of other risk markers such as family history. The 100 - g glucose load was given. They also introduced the important
+term “ intermediate hyperglycemia ” is preferred by WHO [16] . concept of “ borderline ” diabetes – the forerunner of IGT – where
+IGT and IFG are more likely in older people, those who are obese, values were to be above normal but less than those diagnostic for
+people from particular high risk ethnic groups and those with diabetes: 110 mg/dL (6.1 mmol/L) to 129 mg/dL (7.2 mmol/L) for
+cardiovascular disease or other features of the metabolic syn- venous whole blood 2 hours after the glucose load.
+drome, such as dyslipidemia, hypertension or visceral adiposity. O ne further important comment is the need for people to be
+prepared for the OGTT with at least 250 g carbohydrate con-
+sumed for 3 days before the test. This still applies and is rarely
+Diagnostic c riteria adhered to, which may explain the large number of older people
+with normal fasting glucose but elevated 2 - hour values. Many of
+The diagnosis of diabetes mellitus has lifelong implications for these could well have “ starvation ” diabetes rather than genuine
+the individual. Thus, both the clinician, and person tested, must diabetes.
+have full confi dence in the diagnosis. In the symptomatic indi-
+vidual this is easier but in asymptomatic people once an abnor- The m odern e ra
+mal test has been found it must be confi rmed by a further test. The big change and rationalization came in 1979 and 1980 with
+This is increasingly important as screening programs spread and the work of NDDG and WHO [3,4] . They reviewed all available
+also because 30 – 50% of people with T2DM are asymptomatic data and concluded that a 75 - g load would be appropriate and
+and unaware that they have the disorder. that this should be consumed in 300 mL water over 5 minutes.
+They based the diagnostic levels for fasting and 2 - hour values
+Clinical d iagnosis of d iabetes in largely on bimodality observations in high prevalence groups
+s ymptomatic i ndividuals such as the Pima Indians and on some observations of risk for
+The search for diabetes in an individual is often driven by the retinopathy. Fasting and 2 - hour venous plasma levels of 140 mg/
+presence of characteristic symptoms such as thirst, polyuria, dL (7.8 mmol/L) and 200 mg/dL (11.1 mmol/L) were recom-
+weight loss, recurrent infections and, in more severe cases, pre - mended by NDDG and these were – somewhat unfortunately –
+coma. In such individuals, a single elevated casual plasma glucose rounded up to 8 mmol/L and 11 mmol/L by the WHO Committee.
+value is suffi cient to confi rm the diagnosis. A defi nite diagnosis IGT was defi ned as a fasting venous plasma value < 8 mmol/L with
+can be assumed if the venous plasma glucose level is greater than a 2 - hour value of 8 – 11 mmol/L. Confusion was rife and a further
+11.1 mmol/L (200 mg/dL) or 12.2 mmol/L (220 mg/dL) in capil- evaluation took place in 1985 [5] when the WHO group adjusted
+lary plasma [5] . WHO describes values of 5.0 – 11.0 mmol/L as their values to match the NDDG values precisely.
+uncertain. Further testing is then required as described below. The next big change occurred in 1997 and 1999 with the pub-
+lication of the ADA and the new WHO report. This time a con-
+Diagnostic t e sts for d iabetes siderable amount of data were available to look at risk of
+A raised blood glucose has been the hallmark of diabetes mellitus retinopathy at different glucose levels. The data were cross -
+for over 100 years. The oral glucose tolerance test (OGTT) was sectional but reasonable agreement was shown between studies
+developed in the early years of the 19th century but only came of Egyptians, US citizens from NHANES III and Pima Indians
+into common use as methods for measuring blood glucose (for review see Expert Committee on the Diagnosis and
+became easier. When the fi rst WHO Expert Committee on Classifi cation of Diabetes Mellitus [7] ). Although there was some
+Diabetes reviewed diagnostic tests [2] they fi rst of all stated that tolerance on the precise values, the existing 2 - hour cut point of
+glycosuria was an unsatisfactory test and that neither the presence 11.1 mmol/L (200 mg/dL) seemed reasonable but the fasting
+of glycosuria nor its absence could rule in or rule out diabetes. value was lowered to 7.0 mmol/L (126 mg/dL; Table 2.4 ). At the
+They also commented on the wide range of glucose tolerance tests same time, the concept of IFG was introduced. This was equiva-
+available at the time and recommended strongly that only the lent to IGT but for the fasting state and was meant to indicate a
+50 - g or the 100 - g OGTT should be used. They suggested that a risk state for diabetes. The values chosen were 6.1 – 6.9 mmol/L
+fasting venous blood glucose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL).
+28

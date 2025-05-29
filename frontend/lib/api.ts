@@ -75,10 +75,21 @@ export const chatAPI = {
       const response = await api.post('/api/chat/new_session', {
         model_id: modelId,
         topic_id: topicId,
-        initial_message_content: initialMessage,
+        initial_message: initialMessage
       });
-      console.log('✅ Frontend: Chat session created successfully with title:', response.data.title);
-      return response.data;
+      
+      const data = response.data;
+      
+      // Ensure messages have the correct format with sources
+      if (data.messages && Array.isArray(data.messages)) {
+        data.messages = data.messages.map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp),
+          sources: msg.sources || []
+        }));
+      }
+      
+      return data;
     } catch (error) {
       console.error('❌ Frontend: Error creating chat session:', error);
       throw error;
@@ -89,12 +100,37 @@ export const chatAPI = {
     if (modelId === undefined || topicId === undefined) {
       throw new Error('modelId and topicId are required for sending messages');
     }
+    
     const response = await api.post(`/api/chat/${sessionId}/message`, { 
       content,
       model_id: modelId,
       topic_id: topicId
     });
-    return response.data;
+    
+    // Transform the response to match our frontend format
+    const data = response.data;
+    
+    // If the response includes messages, make sure they have the correct format
+    if (data.messages && Array.isArray(data.messages)) {
+      data.messages = data.messages.map((msg: any) => ({
+        ...msg,
+        timestamp: new Date(msg.timestamp),
+        sources: msg.sources || []
+      }));
+    }
+    
+    // If the response is just a single message (legacy format), wrap it in a messages array
+    if (data.content && !data.messages) {
+      data.messages = [{
+        id: `msg-${Date.now()}`,
+        content: data.content,
+        role: 'assistant',
+        timestamp: new Date(),
+        sources: data.sources || []
+      }];
+    }
+    
+    return data;
   },
 
   getSessions: async () => {
@@ -104,7 +140,17 @@ export const chatAPI = {
 
   getMessages: async (sessionId: number) => {
     const response = await api.get(`/api/chat/${sessionId}/messages`);
-    return response.data;
+    
+    // Ensure messages have the correct format with sources
+    if (Array.isArray(response.data)) {
+      return response.data.map((msg: any) => ({
+        ...msg,
+        timestamp: new Date(msg.timestamp),
+        sources: msg.sources || []
+      }));
+    }
+    
+    return [];
   },
   deleteSession: async (sessionId: number) => {
     await api.delete(`/api/chat/sessions/${sessionId}`);

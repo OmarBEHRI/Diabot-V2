@@ -1,0 +1,298 @@
+{
+  "paragraph": {
+    "strategy": "Paragraph-based",
+    "total_chunks": 167,
+    "total_chars": 158575,
+    "avg_length": 949.5508982035929,
+    "min_length": 150,
+    "max_length": 16555,
+    "chunks": [
+      {
+        "text": "--- Page 1 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      },
+      {
+        "text": "--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website:\ntextbookofdiabetes.com\nThe website includes:\n(cid:129) Interactive Multiple-Choice Questions for each chapter\n(cid:129) Reference lists with external links\n(cid:129) Figures from the book for downloading\n(cid:129) All chapters online\nHow to access the site:\n(cid:129) Scratch off the label below to see your unique PIN number\n(cid:129) Go to the website textbookofdiabetes.com and follow the registration instructions\nSCRATCH CODE HERE\nPlease note that the book cannot be returned once the label is scratched off, and the unique (personal)\nPIN cannot be shared. The site is for individual use by purchasers only and cannot be networked. --- Page 4 ---\nW e dedicate this book to all people living with diabetes and the healthcare\nprofessionals who look after them.",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      },
+      {
+        "text": "We would also like to dedicate this book to our\nfamilies without whose support and encouragement the book would never have\nbeen fi nished. --- Page 5 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J.",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      },
+      {
+        "text": "GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 6 ---\nThis edition fi rst published 2010. © 1991, 1997, 2003, 2010 by Blackwell Publishing Ltd\nBlackwell Publishing was acquired by John Wiley & Sons in February 2007. Blackwell’s publishing program\nhas been merged with Wiley’s global Scientifi c, Technical and Medical business to form Wiley-Blackwell.",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      },
+      {
+        "text": "Registered offi ce: John Wiley & Sons Ltd, The Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ,\nUK\nEditorial offi ces: 9600 Garsington Road, Oxford, OX4 2DQ, UK\n111 River Street, Hoboken, NJ 07030-5774, USA\nThe Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ, UK\nFor details of our global editorial offi ces, for customer services and for information about how to apply for\npermission to reuse the copyright material in this book please see our website at www.wiley.com/\nwiley-blackwell. The right of the author to be identifi ed as the author of this work has been asserted in accordance with the\nCopyright, Designs and Patents Act 1988. All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted,\nin any form or by any means, electronic, mechanical, photocopying, recording or otherwise, except as\npermitted by the UK Copyright, Designs and Patents Act 1988, without the prior permission of the publisher.",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      },
+      {
+        "text": "...",
+        "metadata": {
+          "truncated": true
+        }
+      },
+      {
+        "text": "This was equiva-\navailable at the time and recommended strongly that only the lent to IGT but for the fasting state and was meant to indicate a\n50 - g or the 100 - g OGTT should be used. They suggested that a risk state for diabetes. The values chosen were 6.1 – 6.9 mmol/L\nfasting venous blood glucose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL). 28",
+        "metadata": {
+          "type": "paragraph_chunk"
+        }
+      }
+    ]
+  },
+  "sentence": {
+    "strategy": "Sentence-based",
+    "total_chunks": 351,
+    "total_chars": 157866,
+    "avg_length": 449.7606837606838,
+    "min_length": 61,
+    "max_length": 5944,
+    "chunks": [
+      {
+        "text": "--- Page 1 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S.",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      },
+      {
+        "text": "COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD PhD FACP FACE\nTherapeutic Area Head Diabetes and Obesity\nVice President Clinical Research",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      },
+      {
+        "text": "Metabolism\nMerck Research Laboratories\nRahway NJ USA\nFOURTH EDITION\nA John Wiley & Sons Ltd. Publication\n--- Page 2 ---\n\n--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website textbookofdiabetes.com\nThe website includes",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      },
+      {
+        "text": "(cid:129) Interactive Multiple-Choice Questions for each chapter\n(cid:129) Reference lists with external links\n(cid:129) Figures from the book for downloading\n(cid:129) All chapters online\nHow to access the site (cid:129) Scratch off the label below to see your unique PIN number\n(cid:129) Go to the website textbookofdiabetes.com and follow the registration instructions\nSCRATCH CODE HERE\nPlease note that the book cannot be returned once the label is scratched off",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      },
+      {
+        "text": "and the unique (personal)\nPIN cannot be shared. The site is for individual use by purchasers only and cannot be networked. --- Page 4 ---\nW e dedicate this book to all people living with diabetes and the healthcare\nprofessionals who look after them. We would also like to dedicate this book to our\nfamilies without whose support and encouragement the book would never have\nbeen fi nished. --- Page 5 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G.",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      },
+      {
+        "text": "...",
+        "metadata": {
+          "truncated": true
+        }
+      },
+      {
+        "text": "At the\nThey also commented on the wide range of glucose tolerance tests same time, the concept of IFG was introduced. This was equiva-\navailable at the time and recommended strongly that only the lent to IGT but for the fasting state and was meant to indicate a\n50 - g or the 100 - g OGTT should be used. They suggested that a risk state for diabetes. The values chosen were 6.1 – 6.9 mmol/L\nfasting venous blood glucose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL). 28",
+        "metadata": {
+          "type": "sentence_chunk"
+        }
+      }
+    ]
+  },
+  "fixed_300": {
+    "strategy": "Fixed-size (300 chars)",
+    "total_chunks": 686,
+    "total_chars": 199404,
+    "avg_length": 290.67638483965015,
+    "min_length": 60,
+    "max_length": 350,
+    "chunks": [
+      {
+        "text": "--- Page 1 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      },
+      {
+        "text": "y of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      },
+      {
+        "text": "FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      },
+      {
+        "text": "sity\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      },
+      {
+        "text": "ITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---\n\n--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website:\ntextbookofdiabetes.com\nThe website includes:\n(cid:129) Interactive Multiple-Choice Questions for each chapter",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      },
+      {
+        "text": "...",
+        "metadata": {
+          "truncated": true
+        }
+      },
+      {
+        "text": "cose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL).\n28",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 300,
+          "overlap": 60
+        }
+      }
+    ]
+  },
+  "fixed_500": {
+    "strategy": "Fixed-size (500 chars)",
+    "total_chunks": 405,
+    "total_chars": 198912,
+    "avg_length": 491.14074074074074,
+    "min_length": 100,
+    "max_length": 550,
+    "chunks": [
+      {
+        "text": "--- Page 1 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      },
+      {
+        "text": "ong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      },
+      {
+        "text": "rch, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---\n\n--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website:\ntextbookofdiabetes.com\nThe website includes:\n(cid:129) Interactive Multiple-Choice Questions for each chapter\n(cid:129) Reference lists with external links\n(cid:129) Figures from the book for downloading",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      },
+      {
+        "text": "apter\n(cid:129) Reference lists with external links\n(cid:129) Figures from the book for downloading\n(cid:129) All chapters online\nHow to access the site:\n(cid:129) Scratch off the label below to see your unique PIN number\n(cid:129) Go to the website textbookofdiabetes.com and follow the registration instructions\nSCRATCH CODE HERE\nPlease note that the book cannot be returned once the label is scratched off, and the unique (personal)\nPIN cannot be shared.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      },
+      {
+        "text": "cannot be returned once the label is scratched off, and the unique (personal)\nPIN cannot be shared. The site is for individual use by purchasers only and cannot be networked.\n--- Page 4 ---\nW e dedicate this book to all people living with diabetes and the healthcare\nprofessionals who look after them. We would also like to dedicate this book to our\nfamilies without whose support and encouragement the book would never have\nbeen fi nished.\n--- Page 5 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      },
+      {
+        "text": "...",
+        "metadata": {
+          "truncated": true
+        }
+      },
+      {
+        "text": ".1 – 6.9 mmol/L\nfasting venous blood glucose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL).\n28",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 500,
+          "overlap": 100
+        }
+      }
+    ]
+  },
+  "fixed_1000": {
+    "strategy": "Fixed-size (1000 chars)",
+    "total_chunks": 202,
+    "total_chars": 198825,
+    "avg_length": 984.2821782178218,
+    "min_length": 200,
+    "max_length": 1049,
+    "chunks": [
+      {
+        "text": "--- Page 1 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---\n\n--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website:\ntextbookofdiabetes.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      },
+      {
+        "text": "N\nA John Wiley & Sons, Ltd., Publication\n--- Page 2 ---\n\n--- Page 3 ---\nTextbook of Diabetes\nCOMPANION WEBSITE\nPurchasing this book entitles you to access to the companion website:\ntextbookofdiabetes.com\nThe website includes:\n(cid:129) Interactive Multiple-Choice Questions for each chapter\n(cid:129) Reference lists with external links\n(cid:129) Figures from the book for downloading\n(cid:129) All chapters online\nHow to access the site:\n(cid:129) Scratch off the label below to see your unique PIN number\n(cid:129) Go to the website textbookofdiabetes.com and follow the registration instructions\nSCRATCH CODE HERE\nPlease note that the book cannot be returned once the label is scratched off, and the unique (personal)\nPIN cannot be shared. The site is for individual use by purchasers only and cannot be networked.\n--- Page 4 ---\nW e dedicate this book to all people living with diabetes and the healthcare\nprofessionals who look after them. We would also like to dedicate this book to our",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      },
+      {
+        "text": "and cannot be networked.\n--- Page 4 ---\nW e dedicate this book to all people living with diabetes and the healthcare\nprofessionals who look after them. We would also like to dedicate this book to our\nfamilies without whose support and encouragement the book would never have\nbeen fi nished.\n--- Page 5 ---\nTextbook of\nDiabetes\nEDITED BY\nRICHARD I.G. HOLT\nMA, MB BChir, PhD, FRCP, FHEA\nProfessor in Diabetes & Endocrinology\nDevelopmental Origins of Health and Disease Division\nUniversity of Southampton School of Medicine\nSouthampton, UK\nCLIVE S. COCKRAM\nMB BS, BSc, MD (Lond), FRCP, FRACP, FHKAM (Med)\nEmeritus Professor of Medicine\nChinese University of Hong Kong\nHong Kong SAR\nPeople’s Republic of China\nALLAN FLYVBJERG\nMD, DMSc\nProfessor of Clinical Endocrinology and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      },
+      {
+        "text": "gy and\nChair, Department of Endocrinology and Internal Medicine\nThe Medical Research Laboratories\nAarhus University Hospital – Aarhus University\nAarhus, Denmark\nBARRY J. GOLDSTEIN\nMD, PhD, FACP, FACE\nTherapeutic Area Head, Diabetes and Obesity\nVice President, Clinical Research, Metabolism\nMerck Research Laboratories\nRahway, NJ, USA\nFOURTH EDITION\nA John Wiley & Sons, Ltd., Publication\n--- Page 6 ---\nThis edition fi rst published 2010. © 1991, 1997, 2003, 2010 by Blackwell Publishing Ltd\nBlackwell Publishing was acquired by John Wiley & Sons in February 2007. Blackwell’s publishing program\nhas been merged with Wiley’s global Scientifi c, Technical and Medical business to form Wiley-Blackwell.\nRegistered offi ce: John Wiley & Sons Ltd, The Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ,\nUK\nEditorial offi ces: 9600 Garsington Road, Oxford, OX4 2DQ, UK\n111 River Street, Hoboken, NJ 07030-5774, USA\nThe Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ, UK",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      },
+      {
+        "text": "West Sussex, PO19 8SQ,\nUK\nEditorial offi ces: 9600 Garsington Road, Oxford, OX4 2DQ, UK\n111 River Street, Hoboken, NJ 07030-5774, USA\nThe Atrium, Southern Gate, Chichester, West Sussex, PO19 8SQ, UK\nFor details of our global editorial offi ces, for customer services and for information about how to apply for\npermission to reuse the copyright material in this book please see our website at www.wiley.com/\nwiley-blackwell.\nThe right of the author to be identifi ed as the author of this work has been asserted in accordance with the\nCopyright, Designs and Patents Act 1988.\nAll rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted,\nin any form or by any means, electronic, mechanical, photocopying, recording or otherwise, except as\npermitted by the UK Copyright, Designs and Patents Act 1988, without the prior permission of the publisher.\nWiley also publishes its books in a variety of electronic formats.",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      },
+      {
+        "text": "...",
+        "metadata": {
+          "truncated": true
+        }
+      },
+      {
+        "text": "100 - g OGTT should be used. They suggested that a risk state for diabetes. The values chosen were 6.1 – 6.9 mmol/L\nfasting venous blood glucose level over 130 mg/dL (7.2 mmol/L) (110 – 125 mg/dL).\n28",
+        "metadata": {
+          "type": "fixed_size_chunk",
+          "chunk_size": 1000,
+          "overlap": 200
+        }
+      }
+    ]
+  }
+}

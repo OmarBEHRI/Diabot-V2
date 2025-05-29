@@ -5,11 +5,19 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { chatAPI, modelsAPI, topicsAPI } from "../lib/api"
 import { useAuth } from "./AuthContext" // Import useAuth
 
+interface SourceDocument {
+  text: string
+  source: string
+  page: string | number
+  score?: string | number
+}
+
 interface Message {
   id: string
   content: string
   role: "user" | "assistant"
   timestamp: Date
+  sources?: SourceDocument[]
 }
 
 interface ChatSession {
@@ -213,7 +221,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           id: msg.id.toString(),
           content: msg.content,
           role: msg.role as "user" | "assistant",
-          timestamp: new Date(msg.timestamp)
+          timestamp: new Date(msg.timestamp),
+          sources: msg.sources || []
         }))
         setMessages(convertedMessages)
       }
@@ -228,17 +237,20 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // Add user message immediately to UI
-    const userMessage: Message = {
-      id: `temp-${Date.now()}`,
-      content,
-      role: "user",
-      timestamp: new Date(),
-    };
-    setMessages(prev => [...prev, userMessage]);
-
     setIsLoading(true);
+    let userMessage: Message | null = null;
+
     try {
+      // Add user message to UI immediately
+      userMessage = {
+        id: `temp-${Date.now()}`,
+        content,
+        role: "user" as const,
+        timestamp: new Date(),
+        sources: []
+      };
+      setMessages(prev => [...prev, userMessage].filter(Boolean) as Message[]);
+
       console.log(`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
       const response = await chatAPI.sendMessage(
         currentSession.id, 
@@ -247,15 +259,26 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         currentSession.topic_id
       );
       
+      console.log('API Response:', response); // Debug log
+      
       // Convert backend messages to frontend format
-      const convertedMessages = response.messages.map((msg: any) => ({
-        id: msg.id.toString(),
-        content: msg.content,
-        role: msg.role as "user" | "assistant",
-        timestamp: new Date(msg.timestamp)
-      }));
+      const convertedMessages = response.messages.map((msg: any) => {
+        // Find the assistant's response in the messages
+        const isAssistantResponse = msg.role === 'assistant' && 
+                                 msg.id === response.messages[response.messages.length - 1]?.id;
+        
+        return {
+          id: msg.id.toString(),
+          content: msg.content,
+          role: msg.role as "user" | "assistant",
+          timestamp: new Date(msg.timestamp),
+          // Only include sources for the most recent assistant message
+          sources: isAssistantResponse ? (msg.sources || []) : []
+        };
+      });
 
-      console.log(`Received ${convertedMessages.length} messages in response`);
+      console.log(`Processed ${convertedMessages.length} messages with sources:`, 
+        convertedMessages.find((m: Message) => m.role === 'assistant')?.sources || 'none');
       setMessages(convertedMessages);
       
       // Update the session title if it was a placeholder
@@ -273,7 +296,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       console.error("Error sending message:", error);
       // Remove the temporary user message on error
-      setMessages(prev => prev.filter(msg => msg.id !== userMessage.id));
+      if (userMessage) {
+        setMessages(prev => prev.filter(msg => msg.id !== userMessage!.id));
+      }
       throw error;
     } finally {
       setIsLoading(false);

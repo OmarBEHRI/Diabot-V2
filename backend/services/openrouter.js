@@ -1,7 +1,14 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
+import { LocalEmbedder } from './localEmbeddings.js';
 
-// Get API key from environment variables
+// Configuration
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const EMBEDDING_MODEL = 'BAAI/bge-large-en-v1.5'; // Using the same model as in process_textbook.py
+const EMBEDDING_DIMENSION = 1024; // Dimension for BAAI/bge-large-en-v1.5
+
+if (!OPENROUTER_API_KEY) {
+  console.warn('OpenRouter API key not found. Some features may be limited.');
+}
 
 // Check if API key is set and log status
 const isApiKeySet = OPENROUTER_API_KEY && OPENROUTER_API_KEY.length > 10;
@@ -12,13 +19,13 @@ const YOUR_SITE_URL = 'http://localhost:3000';
 const YOUR_SITE_NAME = 'Diabot Medical Assistant';
 
 async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 500) {
-  // If API key is not set, use mock response
-  if (!isApiKeySet) {
-    console.log(`🔄 Using mock response for model: ${model}`);
-    return generateMockResponse(messages);
-  }
-  
   try {
+    // If API key is not set, use mock response
+    if (!isApiKeySet) {
+      console.log(`🔄 Using mock response for model: ${model}`);
+      return generateMockResponse(messages);
+    }
+
     console.log(`🔄 Calling OpenRouter API with model: ${model}...`);
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -53,13 +60,14 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 50
   }
 }
 
-async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
+// Use the same embedding model as used during storage (BAAI/bge-large-en-v1.5)
+async function getEmbedding(text, model = EMBEDDING_MODEL) {
   // If API key is not set, use mock embedding
   if (!isApiKeySet) {
     console.log(`🔄 Using mock embedding for text: ${text.substring(0, 30)}...`);
     return generateMockEmbedding(text);
   }
-  
+
   try {
     console.log(`🔄 Getting embedding for text: ${text.substring(0, 30)}...`);
     const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
@@ -93,30 +101,30 @@ async function getEmbedding(text, model = 'openai/text-embedding-ada-002') {
   }
 }
 
-async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324:free') { // Default to gemma for summarization
+async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324') { // Default to gemma for summarization
   console.log('🔍 Starting summary generation for text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
-  
+
   if (!text || text.trim() === '') {
     console.log('⚠️ Empty text provided for summarization, returning default title');
     return 'New Chat';
   }
-  
+
   const messages = [
     { role: 'system', content: 'You are a helpful assistant. Summarize the following text concisely, in 3 words, suitable for a chat title, and do not include any additional information.' },
     { role: 'user', content: text }
   ];
-  
+
   try {
     console.log(`🤖 Calling OpenRouter API with model: ${model} for summarization`);
     const summary = await callOpenRouter(model, messages, 0.5, 50); // Lower temperature, max_tokens for concise summary
     console.log('✅ Successfully generated summary:', summary);
-    
+
     // If summary is empty or too short, fallback to truncated text
     if (!summary || summary.trim().length < 3) {
       console.log('⚠️ Generated summary too short, falling back to truncated text');
       return text.substring(0, 30) + '...';
     }
-    
+
     return summary;
   } catch (error) {
     console.error("❌ Error summarizing text:", error);
@@ -132,7 +140,7 @@ async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324:free'
 function generateMockResponse(messages) {
   // Extract the user's message
   const userMessage = messages.find(msg => msg.role === 'user')?.content || '';
-  
+
   // Generate a simple response based on the user's message
   if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
     return "Hello! I'm your medical assistant. How can I help you today?";
@@ -152,7 +160,7 @@ function generateMockEmbedding(text) {
   // Create a deterministic but unique embedding based on the text
   // This is a simple hash function to generate a pseudo-random but consistent vector
   const seed = text.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  
+
   // Generate a 1536-dimensional vector (common for embeddings)
   const embedding = [];
   for (let i = 0; i < 1536; i++) {
@@ -160,13 +168,8 @@ function generateMockEmbedding(text) {
     const value = Math.sin(seed * (i + 1)) / 2;
     embedding.push(value);
   }
-  
+
   return embedding;
 }
 
-module.exports = {
-  callOpenRouter,
-  getEmbedding,
-  summarizeText,
-  isApiKeySet // Export this for other modules to check
-};
+export { callOpenRouter, getEmbedding, summarizeText, isApiKeySet };
