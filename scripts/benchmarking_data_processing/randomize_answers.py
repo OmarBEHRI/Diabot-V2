@@ -79,14 +79,26 @@ def randomize_answers(input_csv_path):
             json.dump(correct_answers, f, indent=4, ensure_ascii=False)
         
         print(f"Randomized CSV file created at: {output_csv}")
-        print(f"Correct answers JSON file created at: {output_json}")
         
     except Exception as e:
         print(f"Error processing the file: {e}")
 
 if __name__ == "__main__":
-    # Path to the input CSV file
-    input_csv = r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Diabetes_QA_With_Summarized_A.csv"
+    import os
+    from pathlib import Path
     
-    # Randomize answers
-    randomize_answers(input_csv)
+    # Get the project root directory (two levels up from this script)
+    project_root = Path(__file__).parent.parent.parent
+    
+    # Path to the input CSV file
+    input_csv = project_root / "Benchmarking" / "Datasets" / "processed" / "Diabetes_QA_With_Summarized_A.csv"
+    
+    # Create output directory if it doesn't exist
+    output_dir = project_root / "Benchmarking" / "Datasets" / "processed"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Call the function to randomize answers
+    output_csv, output_json = randomize_answers(input_csv)
+    
+    print(f"Randomized answers saved to: {output_csv}")
+    print(f"Correct answers mapping saved to: {output_json}")

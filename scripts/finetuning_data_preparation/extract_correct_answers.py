@@ -62,10 +62,18 @@ def extract_correct_answers(benchmark_dir, output_file):
     print(f"Total correct answers: {total_correct}")
 
 if __name__ == "__main__":
+    import os
+    from pathlib import Path
+    
+    # Get the project root directory (two levels up from this script)
+    project_root = Path(__file__).parent.parent.parent
+    
     # Directory containing benchmark JSON files
-    benchmark_dir = r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Benchmark_Results"
+    benchmark_dir = project_root / "Benchmarking" / "First-Method-Results"
     
     # Output file path
-    output_file = r"c:\Users\Usuario\OneDrive\Desktop\PFA\correct_answers.json"
+    output_dir = project_root / "Benchmarking" / "Datasets" / "refference-answers"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_file = output_dir / "correct_answers.json"
     
     extract_correct_answers(benchmark_dir, output_file)

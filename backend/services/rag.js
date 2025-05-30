@@ -110,12 +110,12 @@ export async function initRag() {
             // Create or get the collection
             let col;
             try {
-              col = await chromaClient.getCollection({ name: "diabetes_textbook" });
-              console.log('Using existing ChromaDB collection: diabetes_textbook');
+              col = await chromaClient.getCollection({ name: "summaries_collection" });
+              console.log('Using existing ChromaDB collection: summaries_collection');
             } catch (e) {
-              console.log('Creating new ChromaDB collection: diabetes_textbook');
+              console.log('Creating new ChromaDB collection: summaries_collection');
               col = await chromaClient.createCollection({ 
-                name: "diabetes_textbook",
+                name: "summaries_collection",
                 metadata: { "hnsw:space": "cosine" }
               });
             }

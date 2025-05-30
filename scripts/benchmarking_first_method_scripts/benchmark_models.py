@@ -14,9 +14,12 @@ load_dotenv()
 
 # Configuration
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
-INPUT_CSV = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Diabetes_QA_Randomized_Answers.csv")
-OUTPUT_DIR = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Results")
-CORRECT_ANSWERS_JSON = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Diabetes_QA_Correct_Answers.json")
+
+# Get the project root directory (two levels up from this script)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+INPUT_CSV = PROJECT_ROOT / "Benchmarking" / "Datasets" / "processed" / "Diabetes_QA_Randomized_Answers.csv"
+OUTPUT_DIR = PROJECT_ROOT / "Benchmarking" / "First-Method-Results"
+CORRECT_ANSWERS_JSON = PROJECT_ROOT / "Benchmarking" / "Datasets" / "refference-answers" / "Diabetes_QA_Correct_Answers.json"
 
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
