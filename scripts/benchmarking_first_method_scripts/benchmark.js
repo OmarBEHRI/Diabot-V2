@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
-const { callOpenRouter } = require('../backend/services/openrouter');
-const { retrieveRelevantContext } = require('../backend/services/rag');
+const { callOpenRouter } = require('../../backend/services/openrouter');
+const { retrieveRelevantContext } = require('../../backend/services/rag');
 
 // Load environment variables
 dotenv.config({ path: path.join(__dirname, '..', 'backend', '.env') });
