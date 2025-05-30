@@ -79,11 +79,6 @@ export default function ChatPage() {
         <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
           <div className="flex items-center space-x-4">
             <h1 className="text-xl font-semibold text-gray-900">Diabot</h1>
-            {selectedModel && selectedTopic && (
-              <div className="text-sm text-gray-500">
-                {selectedModel.display_name} • {selectedTopic.name}
-              </div>
-            )}
           </div>
 
           <div className="flex items-center space-x-4">

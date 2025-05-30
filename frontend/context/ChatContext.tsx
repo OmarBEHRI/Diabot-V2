@@ -10,6 +10,7 @@ interface SourceDocument {
   source: string
   page: string | number
   score?: string | number
+  chapter?: string;
 }
 
 interface Message {
@@ -146,11 +147,28 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     }
   }, [user, isAuthLoading]) // Depend on user and isAuthLoading
 
-  // Set default model and topic if not already set after loading
+  // Set default model (Llama 3.1 8B) and topic if not already set after loading
   useEffect(() => {
     if (models.length > 0 && !selectedModel) {
-      setSelectedModel(models[0]);
+      // Find Llama 3.1 8B model or use the first model that's not Mistral 7B or Claude Instant
+      const llama31Model = models.find(m => 
+        m.display_name.includes("Llama 3.1 8B") || 
+        m.openrouter_id === "meta-llama/llama-3.1-8b-instruct"
+      );
+      
+      if (llama31Model) {
+        setSelectedModel(llama31Model);
+      } else {
+        // Find a model that's not Mistral 7B or Claude Instant
+        const defaultModel = models.find(m => 
+          !m.display_name.toLowerCase().includes("mistral 7b") && 
+          !m.display_name.toLowerCase().includes("claude instant")
+        ) || models[0];
+        
+        setSelectedModel(defaultModel);
+      }
     }
+    
     if (topics.length > 0 && !selectedTopic) {
       setSelectedTopic(topics[0]);
     }
@@ -183,7 +201,14 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         id: msg.id.toString(),
         content: msg.content,
         role: msg.role as "user" | "assistant",
-        timestamp: new Date(msg.timestamp)
+        timestamp: new Date(msg.timestamp),
+        sources: msg.sources ? msg.sources.map((s: any) => ({
+          text: s.text,
+          source: s.source,
+          page: s.page,
+          chapter: s.chapter,
+          score: typeof s.score === 'string' ? parseFloat(s.score) : s.score
+        })) : undefined
       }))
       
       console.log(`📨 Converted ${convertedMessages.length} messages from the response`);
@@ -222,7 +247,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           content: msg.content,
           role: msg.role as "user" | "assistant",
           timestamp: new Date(msg.timestamp),
-          sources: msg.sources || []
+          sources: msg.sources ? msg.sources.map((s: any) => ({ text: s.text, source: s.source, page: s.page, chapter: s.chapter, score: typeof s.score === 'string' ? parseFloat(s.score) : s.score })) : undefined
         }))
         setMessages(convertedMessages)
       }
@@ -232,9 +257,16 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }
 
   const sendMessage = async (content: string) => {
+    // If no active session, create a new one first
     if (!currentSession) {
-      console.error("Cannot send message: No active session");
-      return;
+      console.log("No active session, creating a new one before sending message");
+      try {
+        await createNewSession(content);
+        return; // createNewSession will handle sending the initial message
+      } catch (error) {
+        console.error("Error creating session:", error);
+        return;
+      }
     }
 
     setIsLoading(true);
@@ -267,19 +299,67 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         const isAssistantResponse = msg.role === 'assistant' && 
                                  msg.id === response.messages[response.messages.length - 1]?.id;
         
+        // Ensure sources are properly formatted and processed
+        let processedSources = undefined;
+        
+        if (isAssistantResponse && msg.sources) {
+          // Make sure sources are in the correct format
+          processedSources = Array.isArray(msg.sources) ? msg.sources : [msg.sources];
+          
+          console.log('Raw sources from API:', JSON.stringify(processedSources, null, 2));
+          
+          // Log each source's preview and text fields to diagnose the issue
+          processedSources.forEach((source: any, index: number) => {
+            console.log(`Source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
+            console.log(`Source ${index} - text:`, source.text?.substring(0, 50) + '...');
+            console.log(`Source ${index} - full_text:`, source.full_text?.substring(0, 50) + '...');
+          });
+          
+          // Ensure each source has the required properties
+          processedSources = processedSources.map((source: any) => {
+            // Check for different possible field names for the full text content
+            const fullText = source.full_text || source.fullText || source.full_content || source.content;
+            
+            return {
+              ...source,
+              // Map relevance to score if it exists, otherwise use existing score or default to 0
+              score: source.relevance !== undefined ? source.relevance : 
+                    source.score !== undefined ? source.score : 0,
+              // Use preview for the preview field if it exists
+              preview: source.preview || source.text?.substring(0, 150) || 'No preview available',
+              // Use full_text for the text field if it exists, otherwise use text or preview
+              text: fullText || source.text || source.preview || 'No content available'
+            };
+          });
+          
+          // Log processed sources after transformation
+          console.log('Processed sources after transformation:');
+          processedSources.forEach((source: any, index: number) => {
+            console.log(`Processed source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
+            console.log(`Processed source ${index} - text:`, source.text?.substring(0, 50) + '...');
+          });
+        }
+        
         return {
           id: msg.id.toString(),
           content: msg.content,
           role: msg.role as "user" | "assistant",
           timestamp: new Date(msg.timestamp),
-          // Only include sources for the most recent assistant message
-          sources: isAssistantResponse ? (msg.sources || []) : []
+          // Use the properly processed sources
+          sources: processedSources
         };
       });
 
       console.log(`Processed ${convertedMessages.length} messages with sources:`, 
         convertedMessages.find((m: Message) => m.role === 'assistant')?.sources || 'none');
-      setMessages(convertedMessages);
+      
+      // Update messages with a new array reference to ensure React detects the change
+      setMessages([...convertedMessages]);
+      
+      // Force a re-render after a short delay to ensure UI updates
+      setTimeout(() => {
+        setMessages(prev => [...prev]);
+      }, 100);
       
       // Update the session title if it was a placeholder
       if (response.title && response.title !== currentSession.title) {

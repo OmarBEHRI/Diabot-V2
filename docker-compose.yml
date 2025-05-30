@@ -15,5 +15,6 @@ services:
       - chroma_data:/chroma/chroma
     restart: unless-stopped
 
+
 volumes:
   chroma_data:

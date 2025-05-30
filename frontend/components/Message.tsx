@@ -21,9 +21,10 @@ export interface MessageProps {
 export default function Message({ message, className }: MessageProps) {
   const isUser = message.role === "user"
   const [showSources, setShowSources] = useState(false)
+  const [sourcesReady, setSourcesReady] = useState(false)
   const hasSources = message.sources && message.sources.length > 0
   
-  // Log message props for debugging
+  // Log message props for debugging and ensure sources are ready
   React.useEffect(() => {
     console.log('💬 Message props:', {
       id: message.id,
@@ -35,8 +36,30 @@ export default function Message({ message, className }: MessageProps) {
     
     if (hasSources) {
       console.log('📚 Sources in message:', JSON.stringify(message.sources, null, 2));
+      // Mark sources as ready to ensure they can be displayed immediately
+      setSourcesReady(true);
+    } else {
+      // Reset sources ready state if no sources
+      setSourcesReady(false);
     }
   }, [message, hasSources]);
+  
+  // Force re-render when message or sources change
+  React.useEffect(() => {
+    // Create a small delay to ensure the sources are processed
+    const timer = setTimeout(() => {
+      if (hasSources && !sourcesReady) {
+        setSourcesReady(true);
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [message, hasSources, sourcesReady]);
+  
+  // Reset showSources when message changes to ensure proper state
+  React.useEffect(() => {
+    setShowSources(false);
+  }, [message.id]);
 
   return (
     <div className={cn("group w-full", className)}>
@@ -84,7 +107,11 @@ export default function Message({ message, className }: MessageProps) {
                   </button>
                   {showSources && message.sources && (
                     <div className="mt-2">
-                      <SourceDocuments sources={message.sources} />
+                      {/* Force a key change when sources change to ensure proper re-rendering */}
+                      <SourceDocuments 
+                        key={`sources-${message.id}-${sourcesReady ? 'ready' : 'loading'}`} 
+                        sources={message.sources} 
+                      />
                     </div>
                   )}
                 </div>

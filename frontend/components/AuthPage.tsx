@@ -26,7 +26,7 @@ export default function AuthPage() {
     setError("")
     try {
       await login(loginForm.username, loginForm.password)
-      router.push("/") // Redirect to home on successful login
+      router.push("/chat") // Redirect to chat page on successful login
     } catch (err: any) { // Type error as any to access response
       setError(err.message || "Invalid credentials") // Display specific error from backend
     }
@@ -41,7 +41,7 @@ export default function AuthPage() {
         title: "Registration Successful!",
         description: "You can now sign in with your new account.",
       })
-      router.push("/") // Redirect to home on successful registration
+      router.push("/chat") // Redirect to chat page on successful registration
     } catch (err: any) { // Type error as any to access response
       setError(err.message || "Registration failed") // Display specific error from backend
     }

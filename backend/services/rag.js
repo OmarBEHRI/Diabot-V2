@@ -198,7 +198,7 @@ export async function initRag() {
  * Simple keyword-based search function as a fallback when ChromaDB is not available
  * This is less accurate than semantic search and should only be used as a fallback
  */
-function simpleKeywordSearch(query, docs, topN = 3) {
+function simpleKeywordSearch(query, docs, topN = 10) {
   // Extract keywords from the query (remove common words)
   const commonWords = ['a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'with', 'by', 'about', 'as'];
   const keywords = query.toLowerCase()
