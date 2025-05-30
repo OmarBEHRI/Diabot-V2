@@ -1,9 +1,15 @@
 import pandas as pd
 from pathlib import Path
 
+# Get the project root directory (two levels up from this script)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+
 # Configuration
-INPUT_CSV = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Benchmarking-QA-Diabetes-With-Wrong-Answers.csv")
-OUTPUT_CSV = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Diabetes_QA_Questions_Answers.csv")
+INPUT_CSV = PROJECT_ROOT / "Benchmarking" / "Datasets" / "processed" / "Benchmarking-QA-Diabetes-With-Wrong-Answers.csv"
+OUTPUT_CSV = PROJECT_ROOT / "Benchmarking" / "Datasets" / "refference-answers" / "Diabetes_QA_Questions_Answers.csv"
+
+# Ensure output directory exists
+OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
 
 def extract_questions_answers():
     """
