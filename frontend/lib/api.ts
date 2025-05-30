@@ -155,6 +155,19 @@ export const chatAPI = {
   deleteSession: async (sessionId: number) => {
     await api.delete(`/api/chat/sessions/${sessionId}`);
   },
+  
+  // Fetch the full text content of a source document
+  getSourceFullText: async (source: string, page: string | number) => {
+    try {
+      const response = await api.get('/api/sources/full_text', {
+        params: { source, page }
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching full text content:', error);
+      return null;
+    }
+  },
 };
 
 export default api;
