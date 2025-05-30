@@ -14,8 +14,11 @@ load_dotenv()
 
 # Configuration
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
-INPUT_CSV = Path(r"c:\\Users\\Usuario\\OneDrive\\Desktop\\PFA\\Diabot-V2\\Benchmarking-QA-Datasets\\Diabetes_QA_Questions_Answers.csv")
-OUTPUT_DIR = Path(r"c:\\Users\\Usuario\\OneDrive\\Desktop\\PFA\\Diabot-V2\\Benchmarking-QA-Datasets\\Benchmark_Results")
+
+# Get the project root directory (two levels up from this script)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+INPUT_CSV = PROJECT_ROOT / "Benchmarking" / "Datasets" / "refference-answers" / "Diabetes_QA_Questions_Answers.csv"
+OUTPUT_DIR = PROJECT_ROOT / "Benchmarking" / "Second-Method-Results"
 EVALUATOR_MODEL = "google/gemini-2.5-flash-preview-05-20"
 
 # Ensure output directory exists

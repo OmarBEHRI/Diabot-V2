@@ -119,8 +119,13 @@ def process_answers_for_finetuning(input_file, output_file, api_key=None, use_op
     print(f"Processing complete! {len(answers)} questions processed and saved to {output_file}")
 
 if __name__ == "__main__":
-    input_file = r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets\Benchmark_Results\correct_answers.json"
-    output_file = r"c:\Users\Usuario\OneDrive\Desktop\PFA\finetuning_data.csv"
+    import os
+    from pathlib import Path
+    
+    # Get the project root directory (two levels up from this script)
+    project_root = Path(__file__).parent.parent.parent
+    input_file = project_root / "Benchmarking" / "Second-Method-Results" / "correct_answers.json"
+    output_file = project_root / "finetuning_data.csv"
     
     # Set to True and provide API key if you want to use OpenRouter for paraphrasing
     use_openrouter = False
