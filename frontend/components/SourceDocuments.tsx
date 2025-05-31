@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
-import { FileText, X, Loader2 } from "lucide-react";
+import { FileText, X } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { cn } from "@/lib/utils";
 import { chatAPI } from "@/lib/api";
@@ -31,7 +31,6 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [processedSources, setProcessedSources] = useState<SourceDocument[]>([]);
   const [fullTextContent, setFullTextContent] = useState<string | null>(null);
-  const [isLoadingFullText, setIsLoadingFullText] = useState(false);
 
   // Process sources when they change
   useEffect(() => {
@@ -45,13 +44,14 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
     
     if (Array.isArray(sources)) {
       console.log(`Sources is an array with ${sources.length} items`);
+      console.log('Sources array contents:', JSON.stringify(sources, null, 2));
       // Use the sources as-is without modifications
       setProcessedSources(sources);
       return;
     }
     
     try {
-      console.log('Parsing sources from string...');
+      console.log('Parsing sources from string:', sources);
       const parsed = JSON.parse(sources);
       console.log('Successfully parsed sources:', parsed);
       // Set the parsed sources
@@ -67,13 +67,17 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
   useEffect(() => {
     if (processedSources && processedSources.length > 0) {
       console.log('Sources are processed and ready to display:', processedSources.length);
+      console.log('Processed sources details:', processedSources);
     }
   }, [processedSources]);
 
   // Reset full text content when dialog closes
   useEffect(() => {
     if (!isDialogOpen) {
+      console.log('Dialog closed, resetting fullTextContent');
       setFullTextContent(null);
+    } else {
+      console.log('Dialog opened, current fullTextContent:', fullTextContent);
     }
   }, [isDialogOpen]);
 
@@ -83,31 +87,29 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
     setSelectedSource(source);
     setIsDialogOpen(true);
     
-    // Since we don't have a backend endpoint for full text, we'll use what we have
-    // Set a very brief loading state for UI feedback
-    setIsLoadingFullText(true);
+    // Log the available content for debugging
+    console.log('Source content available:', {
+      preview: source.preview ? `${source.preview.substring(0, 50)}...` : 'undefined',
+      text: source.text ? `${source.text.substring(0, 50)}...` : 'undefined'
+    });
     
-    // Use a timeout to simulate loading and provide better UX
-    setTimeout(() => {
-      // Log the available content for debugging
-      console.log('Source content available:', {
-        preview: source.preview?.substring(0, 50) + '...',
-        text: source.text?.substring(0, 50) + '...',
-        full_text: source.full_text?.substring(0, 50) + '...',
-        content: source.content?.substring(0, 50) + '...'
-      });
-      
-      // For now, we'll use the text field as is, since the backend doesn't have a full text endpoint
-      // In a real implementation, this would be replaced with the actual full text from the backend
-      setFullTextContent(source.text || source.preview || 'Full text not available. The backend API endpoint for retrieving full text is not implemented.');
-      setIsLoadingFullText(false);
-    }, 500); // Short delay for better UX
+    // Directly use the text field since we now have proper full text from the backend
+    const content = source.text || source.preview || 'Full text not available';
+    console.log('Setting fullTextContent to:', content);
+    setFullTextContent(content);
   }, []);
 
+  useEffect(() => {
+    console.log('fullTextContent updated:', fullTextContent);
+  }, [fullTextContent]);
+
   if (!processedSources || processedSources.length === 0) {
+    console.log('No processed sources to display, returning null');
     return null;
   }
 
+  console.log('Rendering SourceDocuments with', processedSources.length, 'sources');
+  
   return (
     <div className={cn("mt-4", className)}>
       <h3 className="text-sm font-medium mb-2 flex items-center text-muted-foreground">
@@ -143,10 +145,6 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    Page: {source.page}
-                    {source.chapter && ` • ${source.chapter}`}
-                  </div>
                 </CardHeader>
                 <CardContent className="p-4 pt-0">
                   <p className="text-sm line-clamp-2 text-muted-foreground">
@@ -173,8 +171,6 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
                     {selectedSource.source}
                   </DialogTitle>
                   <span className="text-sm text-muted-foreground">
-                    Page: {selectedSource.page}
-                    {selectedSource.chapter && ` • ${selectedSource.chapter}`}
                     {(selectedSource.score !== undefined || selectedSource.relevance !== undefined) && (
                       <span className="ml-2 px-2 py-1 bg-secondary rounded-full text-xs">
                         Relevance: {
@@ -207,25 +203,15 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
               </DialogHeader>
               <div id="source-content-description" className="sr-only">Source document content from {selectedSource.source}</div>
               <ScrollArea className="flex-1 pr-4 -mr-4">
-                {isLoadingFullText ? (
-                  <div className="flex flex-col items-center justify-center py-8">
-                    <Loader2 className="h-8 w-8 animate-spin text-blue-500 mb-4" />
-                    <p className="text-sm text-muted-foreground">Loading full content...</p>
-                  </div>
-                ) : (
-                  <div className="prose dark:prose-invert max-w-none">
-                    <p className="whitespace-pre-wrap">
-                      {/* Display the full text content if available, otherwise fall back to other fields */}
-                      {fullTextContent || 
-                       selectedSource.full_text || 
-                       selectedSource.fullText || 
-                       selectedSource.full_content || 
-                       selectedSource.content || 
-                       selectedSource.text || 
-                       'No content available'}
-                    </p>
-                  </div>
-                )}
+                <div className="prose dark:prose-invert max-w-none">
+                  <p className="whitespace-pre-wrap">
+                    {/* Display the full text content if available, otherwise fall back to other fields */}
+                    {fullTextContent || 
+                     selectedSource.text || 
+                     selectedSource.preview || 
+                     'No content available'}
+                  </p>
+                </div>
               </ScrollArea>
             </>
           )}

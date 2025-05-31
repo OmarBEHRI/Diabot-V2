@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Diabot - Medical AI Assistant",
   description: "AI-powered medical consultation platform for diabetes management",
-  generator: 'Next.js'
+  generator: 'Next.js',
+  icons: {
+    icon: '/Diabot-Logo.png', // Use the robot logo as favicon
+  },
 }
 
 export default function RootLayout({

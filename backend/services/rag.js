@@ -237,7 +237,7 @@ function simpleKeywordSearch(query, docs, topN = 10) {
 }
 
 // Function to retrieve relevant context for a query with metadata and adjacent chunks
-export async function retrieveRelevantContext(queryText, topN = 3, includeAdjacent = true) {
+export async function retrieveRelevantContext(queryText, topN = 10, includeAdjacent = true) {
   // Initialize RAG system if not already initialized
   if (!documents.length) {
     await initRag();

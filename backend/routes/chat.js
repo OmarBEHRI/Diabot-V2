@@ -63,7 +63,7 @@ router.post('/new_session', async (req, res) => {
 
       // Retrieve relevant context using RAG with metadata and adjacent chunks
       console.log('🔍 [NEW SESSION] Retrieving relevant context using RAG for initial message...');
-      const { context: ragContext, sources } = await retrieveRelevantContext(initial_message_content, 3, true);
+      const { context: ragContext, sources } = await retrieveRelevantContext(initial_message_content, 10, true);
       console.log('✅ [NEW SESSION] Retrieved RAG context for initial message');
       
       // Log the received sources
@@ -299,7 +299,7 @@ router.post('/:sessionId/message', async (req, res) => {
 
     // Retrieve relevant context using RAG with metadata and adjacent chunks
     console.log(`🔍 [MESSAGE] Retrieving RAG context for user message in session ${session_id}`);
-    const { context: ragContext, sources } = await retrieveRelevantContext(content, 3, true);
+    const { context: ragContext, sources } = await retrieveRelevantContext(content, 10, true);
     console.log(`✅ [MESSAGE] RAG context retrieved for session ${session_id} with ${sources.length} sources`);
     
     // Format sources for display in the UI
@@ -307,7 +307,8 @@ router.post('/:sessionId/message', async (req, res) => {
       page: source.page,
       chapter: source.chapter,
       relevance: source.score,
-      preview: source.text.substring(0, 150) + (source.text.length > 150 ? '...' : '')
+      preview: source.text.substring(0, 150) + (source.text.length > 150 ? '...' : ''),
+      text: source.text  // Keep the full text field!
     }));
 
     // Construct messages array with system message, conversation history, and new message
@@ -412,7 +413,8 @@ router.post('/:sessionId/message', async (req, res) => {
           page: source.page || 'N/A',
           chapter: source.chapter || 'N/A',
           relevance: source.score || 'N/A',
-          preview: source.text ? (source.text.substring(0, 150) + (source.text.length > 150 ? '...' : '')) : ''
+          preview: source.text ? (source.text.substring(0, 150) + (source.text.length > 150 ? '...' : '')) : '',
+          text: source.text || '' // Keep the full text field!
         }));
         
         return {

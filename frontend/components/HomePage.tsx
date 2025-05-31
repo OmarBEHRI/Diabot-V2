@@ -1,30 +1,50 @@
+"use client"
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle, Shield, Database, BookOpen, Heart } from 'lucide-react';
+import type React from 'react';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center px-4 py-24 text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-6xl font-extrabold mb-6 leading-tight tracking-tight">
-            Your AI Medical Assistant for <span className="text-blue-200">Diabetes Management</span>
-          </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Get accurate, personalized healthcare information powered by advanced AI technology
-          </p>
-          <div className="flex flex-wrap gap-6 justify-center">
-            <Link href="/chat">
-              <Button className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-6 text-lg font-medium rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 hover:gap-3">
+      <section className="flex flex-col items-center justify-center px-4 py-24 text-center bg-gradient-to-br from-blue-600 to-cyan-700 text-white">
+        <div className="max-w-5xl mx-auto flex md:flex-row flex-col items-center gap-8">
+          <div className="md:w-1/3 flex justify-center">
+            <img 
+              src="/Diabot-Logo.png" 
+              alt="Diabot Logo" 
+              className="h-64 w-64 drop-shadow-lg" 
+            />
+          </div>
+          <div className="md:w-2/3 flex flex-col md:items-start items-center">
+            <h1 className="text-5xl font-extrabold mb-6 leading-tight tracking-tight text-center md:text-left">
+              Your AI Medical Assistant for <span className="text-blue-200">Diabetes Management</span>
+            </h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto md:mx-0 mb-10 leading-relaxed text-center md:text-left">
+              Get accurate, personalized healthcare information powered by advanced AI technology
+            </p>
+            <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+              <Button
+                className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-6 text-lg font-medium rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 hover:gap-3"
+                onClick={() => {
+                  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+                  if (token) {
+                    window.location.href = '/chat';
+                  } else {
+                    window.location.href = '/login';
+                  }
+                }}
+              >
                 Start Chatting <ArrowRight className="h-5 w-5" />
               </Button>
-            </Link>
-            <Link href="/login">
-              <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300">
-                Login / Register
-              </Button>
-            </Link>
+              <Link href="/login">
+                <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300">
+                  Login / Register
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -45,12 +65,12 @@ export default function HomePage() {
             <FeatureCard 
               title="RAG Technology"
               description="Get responses enhanced by Retrieval-Augmented Generation that combines AI with verified medical information sources."
-              icon={<Database className="h-8 w-8 text-indigo-600" />}
+              icon={<Database className="h-8 w-8 text-cyan-600" />}
             />
             <FeatureCard 
               title="Specialized Healthcare"
               description="Access information on general medicine, cardiology, pediatrics, and diabetes from a single intelligent interface."
-              icon={<Heart className="h-8 w-8 text-red-500" />}
+              icon={<Heart className="h-8 w-8 text-blue-500" />}
             />
           </div>
         </div>
@@ -60,8 +80,12 @@ export default function HomePage() {
       <section className="py-24 px-4 bg-white">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-500 to-indigo-600 aspect-square flex items-center justify-center">
-              <BookOpen className="h-32 w-32 text-white" />
+            <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-500 to-cyan-600 aspect-square flex items-center justify-center">
+              <img 
+                src="/Diabot-Logo.png" 
+                alt="Diabot Logo" 
+                className="h-32 w-32 drop-shadow-lg" 
+              />
             </div>
           </div>
           <div className="md:w-1/2">
@@ -83,7 +107,12 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-8 mb-8">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold">Diabot</h3>
+              <img 
+                src="/Diabot-Logo.png" 
+                alt="Diabot Logo" 
+                className="h-10 w-10 mb-2 inline-block align-middle drop-shadow-md" 
+              />
+              <span className="text-2xl font-bold align-middle ml-2">Diabot</span>
               <p className="text-gray-400 mt-1">Your Medical AI Assistant</p>
             </div>
             <div className="flex gap-8">

@@ -11,8 +11,10 @@ import { LogOut, Menu, User, X } from "lucide-react"
 import Settings from "./Settings"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 export default function ChatPage() {
+  const router = useRouter();
   const { user, logout } = useAuth()
   const { 
     currentSession, 
@@ -52,25 +54,7 @@ export default function ChatPage() {
     }
   }, [currentSession, isMobile])
 
-  // Automatically create a new session when the component mounts if there isn't one already
-  useEffect(() => {
-    const initializeSession = async () => {
-      // Check if models and topics are loaded and we have a selected model and topic
-      if (!isLoadingModels && !isLoadingTopics && selectedModel && selectedTopic && !currentSession && sessions.length === 0 && !isInitializing) {
-        setIsInitializing(true);
-        try {
-          console.log('Automatically creating a new session on chat page load');
-          await createNewSession();
-        } catch (error) {
-          console.error('Error creating initial session:', error);
-        } finally {
-          setIsInitializing(false);
-        }
-      }
-    };
-
-    initializeSession();
-  }, [isLoadingModels, isLoadingTopics, selectedModel, selectedTopic, currentSession, sessions.length, createNewSession, isInitializing])
+  // The session initialization logic has been moved to ChatContext
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-50"> {/* Added overflow-hidden to prevent whole page scrolling */}
@@ -106,8 +90,15 @@ export default function ChatPage() {
       <div className="flex-1 flex flex-col overflow-hidden md:ml-0"> {/* Added responsive margin */}
         {/* Header - Fixed at the top */}
         <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-          <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-semibold text-gray-900">Diabot</h1>
+          <div className="flex items-center space-x-2">
+            <img 
+              src="/Diabot-Logo.png" 
+              alt="Diabot Logo" 
+              className="h-8 w-8 drop-shadow-md" 
+            />
+            <h1 className="text-xl font-semibold">
+              <span className="bg-gradient-to-r from-[#4EC3BE] to-[#47C06F] bg-clip-text text-transparent">Diabot</span>
+            </h1>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -135,7 +126,10 @@ export default function ChatPage() {
                     <Settings />
                   </div>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={logout}>
+                <DropdownMenuItem onClick={() => {
+                        router.push('/home');
+                        setTimeout(() => logout(), 100);
+                }}>
                   <LogOut className="h-4 w-4 mr-2" />
                   Sign Out
                 </DropdownMenuItem>

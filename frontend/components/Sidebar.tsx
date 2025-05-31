@@ -40,16 +40,25 @@ export default function Sidebar() {
     <div className="h-full flex flex-col overflow-hidden">
       {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between flex-shrink-0">
-        <h2 className="text-lg font-semibold text-gray-900">Chat History</h2>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={() => createNewSession()} 
-          className="flex items-center space-x-1 hover:bg-blue-50 transition-colors flex-shrink-0"
-        >
-          <PlusCircle className="h-4 w-4" />
-          <span className="sr-only">New Chat</span>
-        </Button>
+        <div className="flex items-center">
+          <img 
+            src="/Diabot-Logo.png" 
+            alt="Diabot Logo" 
+            className="h-8 w-8 mr-2 drop-shadow-md" 
+          />
+          <h2 className="text-lg font-semibold text-gray-900">Chat History</h2>
+        </div>
+        <div className="flex items-center gap-2"> 
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => createNewSession()} 
+            className="flex items-center space-x-1 hover:bg-blue-50 transition-colors flex-shrink-0"
+          >
+            <PlusCircle className="h-4 w-4" />
+            <span className="sr-only">New Chat</span>
+          </Button>
+        </div>
       </div>
 
       {/* Search Bar */}

@@ -4,6 +4,7 @@ import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 import { authAPI } from "../lib/api"
 
+
 interface User {
   id: string
   username: string
@@ -81,6 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(null)
     localStorage.removeItem("token")
     localStorage.removeItem("user")
+    // Redirect should be handled in the component after logout
   }
 
   const updateUser = (userData: Partial<User>) => {

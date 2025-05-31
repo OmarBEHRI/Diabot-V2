@@ -56,7 +56,7 @@ interface ChatContextType {
   isLoading: boolean
   isLoadingModels: boolean
   isLoadingTopics: boolean
-  createNewSession: (initialMessage?: string) => Promise<void> // Make initialMessage optional
+  createNewSession: (initialMessage?: string) => Promise<ChatSession | undefined> // Return the created session
   selectSession: (sessionId: number) => Promise<void>
   sendMessage: (content: string) => Promise<void>
   setSelectedModel: (model: Model) => void
@@ -82,6 +82,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingModels, setIsLoadingModels] = useState(false)
   const [isLoadingTopics, setIsLoadingTopics] = useState(false)
+  const [isInitializing, setIsInitializing] = useState(false)
+  const [needsInitialSession, setNeedsInitialSession] = useState(true)
 
   // Function to start a new chat
   const startNewChat = () => {
@@ -135,6 +137,8 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       loadModels()
       loadTopics()
       loadSessions()
+      // Reset needsInitialSession to true when user loads
+      setNeedsInitialSession(true)
     } else if (!user && !isAuthLoading) {
       // If not authenticated and auth is done loading, clear chat data
       setSessions([])
@@ -144,6 +148,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setTopics([])
       setSelectedModel(null)
       setSelectedTopic(null)
+      setNeedsInitialSession(true)
     }
   }, [user, isAuthLoading]) // Depend on user and isAuthLoading
 
@@ -238,6 +243,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setMessages(convertedMessages)
       
       console.log('✅ State updated with new session');
+      return newSession; // Return the created session for chaining
     } catch (error) {
       console.error("❌ Error creating session:", error)
       throw error
@@ -245,6 +251,40 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(false)
     }
   }
+
+  // Automatically create a new session when the component mounts if there isn't one already
+  useEffect(() => {
+    const initializeSession = async () => {
+      if (!isLoadingModels && !isLoadingTopics && selectedModel && selectedTopic &&
+          !currentSession && !isInitializing && needsInitialSession) {
+        setIsInitializing(true);
+        setNeedsInitialSession(false);
+        try {
+          if (sessions.length > 0) {
+            // Sort sessions by created_at descending (assuming ISO string)
+            const sortedSessions = [...sessions].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+            const lastSession = sortedSessions[0];
+            if (lastSession && (!lastSession.messages || lastSession.messages.length === 0)) {
+              // If the last session is empty, just set it as current
+              setCurrentSession(lastSession);
+              setMessages([]);
+              console.log('Set last empty session as current session.');
+              return;
+            }
+          }
+          // Otherwise, create a new session
+          console.log('Automatically creating a new session on chat page load');
+          await createNewSession();
+        } catch (error) {
+          console.error('Error creating initial session:', error);
+          setNeedsInitialSession(true);
+        } finally {
+          setIsInitializing(false);
+        }
+      }
+    };
+    initializeSession();
+  }, [isLoadingModels, isLoadingTopics, selectedModel, selectedTopic, currentSession, createNewSession, isInitializing, needsInitialSession, sessions])
 
   const selectSession = async (sessionId: number) => {
     try {
@@ -287,8 +327,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       if (!currentSession) {
         console.log("No active session, creating a new one before sending message");
         try {
-          await createNewSession(content);
-          return; // createNewSession will handle sending the initial message
+          const newSession = await createNewSession(content);
+          if (newSession) {
+            // The session has been created with the initial message
+            // We've already updated the UI in createNewSession, so we can return here
+            return;
+          }
+          // If createNewSession didn't return a session (unlikely), continue with normal flow
         } catch (error) {
           console.error("Error creating session:", error);
           // Remove the temporary user message on error
@@ -299,6 +344,11 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
+      // Make sure currentSession is not null before using it
+      if (!currentSession) {
+        throw new Error("Current session is null, cannot send message");
+      }
+      
       console.log(`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
       const response = await chatAPI.sendMessage(
         currentSession.id, 
@@ -378,12 +428,12 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       }, 100);
       
       // Update the session title if it was a placeholder
-      if (response.title && response.title !== currentSession.title) {
+      if (response.title && currentSession && response.title !== currentSession.title) {
         console.log(`Updating session title to: ${response.title}`);
         setCurrentSession(prev => prev ? { ...prev, title: response.title } : null);
         setSessions(prev => 
           prev.map(s => 
-            s.id === currentSession.id 
+            currentSession && s.id === currentSession.id 
               ? { ...s, title: response.title } 
               : s
           )

@@ -53,28 +53,14 @@ export default function AuthPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <div className="medical-gradient p-3 rounded-full">
-              <Stethoscope className="h-8 w-8 text-white" />
-            </div>
+            <img 
+              src="/Diabot-Logo.png" 
+              alt="Diabot Logo" 
+              className="h-28 w-28 drop-shadow-lg" 
+            />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">MedChat AI</h1>
-          <p className="text-gray-600">Your AI-powered medical assistant</p>
-        </div>
-
-        {/* Features */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="text-center">
-            <Heart className="h-6 w-6 text-red-500 mx-auto mb-2" />
-            <p className="text-xs text-gray-600">Cardiology</p>
-          </div>
-          <div className="text-center">
-            <Shield className="h-6 w-6 text-green-500 mx-auto mb-2" />
-            <p className="text-xs text-gray-600">Secure</p>
-          </div>
-          <div className="text-center">
-            <Stethoscope className="h-6 w-6 text-blue-500 mx-auto mb-2" />
-            <p className="text-xs text-gray-600">Expert AI</p>
-          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Diabot</h1>
+          <p className="text-gray-600">Your AI-powered diabetes assistant</p>
         </div>
 
         <Card>
@@ -96,7 +82,7 @@ export default function AuthPage() {
                     <Input
                       id="username"
                       type="text"
-                      placeholder="your_username"
+                      placeholder="Enter your username"
                       value={loginForm.username}
                       onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
                       required
@@ -107,6 +93,7 @@ export default function AuthPage() {
                     <Input
                       id="password"
                       type="password"
+                      placeholder="Enter your password"
                       value={loginForm.password}
                       onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                       required
@@ -126,7 +113,7 @@ export default function AuthPage() {
                     <Input
                       id="register-username"
                       type="text"
-                      placeholder="your_username"
+                      placeholder="Create username"
                       value={registerForm.username}
                       onChange={(e) => setRegisterForm({ ...registerForm, username: e.target.value })}
                       required
@@ -137,6 +124,7 @@ export default function AuthPage() {
                     <Input
                       id="register-password"
                       type="password"
+                      placeholder="Create password"
                       value={registerForm.password}
                       onChange={(e) => setRegisterForm({ ...registerForm, password: e.target.value })}
                       required
