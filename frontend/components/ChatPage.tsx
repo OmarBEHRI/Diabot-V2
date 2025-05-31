@@ -14,11 +14,20 @@ import { useState, useEffect } from "react"
 
 export default function ChatPage() {
   const { user, logout } = useAuth()
-  const { currentSession, selectedModel, selectedTopic, createNewSession } = useChat()
+  const { 
+    currentSession, 
+    selectedModel, 
+    selectedTopic, 
+    createNewSession, 
+    isLoadingModels, 
+    isLoadingTopics,
+    sessions
+  } = useChat()
   
   // State for sidebar visibility on mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isInitializing, setIsInitializing] = useState(false)
   
   // Check if we're on mobile when component mounts and when window resizes
   useEffect(() => {
@@ -42,6 +51,26 @@ export default function ChatPage() {
       setIsSidebarOpen(false)
     }
   }, [currentSession, isMobile])
+
+  // Automatically create a new session when the component mounts if there isn't one already
+  useEffect(() => {
+    const initializeSession = async () => {
+      // Check if models and topics are loaded and we have a selected model and topic
+      if (!isLoadingModels && !isLoadingTopics && selectedModel && selectedTopic && !currentSession && sessions.length === 0 && !isInitializing) {
+        setIsInitializing(true);
+        try {
+          console.log('Automatically creating a new session on chat page load');
+          await createNewSession();
+        } catch (error) {
+          console.error('Error creating initial session:', error);
+        } finally {
+          setIsInitializing(false);
+        }
+      }
+    };
+
+    initializeSession();
+  }, [isLoadingModels, isLoadingTopics, selectedModel, selectedTopic, currentSession, sessions.length, createNewSession, isInitializing])
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-50"> {/* Added overflow-hidden to prevent whole page scrolling */}

@@ -183,7 +183,14 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     }
     
     console.log(`📋 Using model: ${selectedModel.display_name}, topic: ${selectedTopic.name}`);
-    setIsLoading(true)
+    
+    // Check if we already have a temporary user message in the UI
+    const existingTempUserMessage = messages.find(msg => msg.role === 'user' && msg.id.startsWith('temp-'));
+    
+    // Only set loading if not already set by sendMessage
+    if (!isLoading) {
+      setIsLoading(true);
+    }
     
     try {
       console.log('🌐 Calling API to create new session...');
@@ -225,7 +232,11 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       console.log('📊 Created new session object:', newSession);
       setSessions(prev => [newSession, ...prev])
       setCurrentSession(newSession)
+      
+      // If we already have a temporary user message in the UI, replace all messages with the API response
+      // Otherwise, set messages to the API response
       setMessages(convertedMessages)
+      
       console.log('✅ State updated with new session');
     } catch (error) {
       console.error("❌ Error creating session:", error)
@@ -257,23 +268,12 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   }
 
   const sendMessage = async (content: string) => {
-    // If no active session, create a new one first
-    if (!currentSession) {
-      console.log("No active session, creating a new one before sending message");
-      try {
-        await createNewSession(content);
-        return; // createNewSession will handle sending the initial message
-      } catch (error) {
-        console.error("Error creating session:", error);
-        return;
-      }
-    }
-
+    // Set loading state immediately
     setIsLoading(true);
     let userMessage: Message | null = null;
 
     try {
-      // Add user message to UI immediately
+      // Add user message to UI immediately, regardless of whether we have a session
       userMessage = {
         id: `temp-${Date.now()}`,
         content,
@@ -282,6 +282,22 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         sources: []
       };
       setMessages(prev => [...prev, userMessage].filter(Boolean) as Message[]);
+      
+      // If no active session, create a new one first
+      if (!currentSession) {
+        console.log("No active session, creating a new one before sending message");
+        try {
+          await createNewSession(content);
+          return; // createNewSession will handle sending the initial message
+        } catch (error) {
+          console.error("Error creating session:", error);
+          // Remove the temporary user message on error
+          if (userMessage) {
+            setMessages(prev => prev.filter(msg => msg.id !== userMessage!.id));
+          }
+          throw error;
+        }
+      }
 
       console.log(`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
       const response = await chatAPI.sendMessage(
@@ -407,28 +423,27 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         messages,
         models,
         topics,
-        selectedModel,
-        selectedTopic,
-        isLoading,
-        isLoadingModels,
-        isLoadingTopics,
-        createNewSession,
-        selectSession,
-        sendMessage,
-        setSelectedModel,
-        setSelectedTopic,
-        loadSessions,
-        loadModels,
-        loadTopics,
+    selectedModel,
+    selectedTopic,
+    isLoading,
+    isLoadingModels,
+    isLoadingTopics,
+    createNewSession,
+    selectSession,
+    sendMessage,
+    setSelectedModel,
+    setSelectedTopic,
+    loadSessions,
+    loadModels,
+    loadTopics,
         startNewChat, // Include startNewChat in the context value
         deleteSession, // Include deleteSession in the context value
-      }}
-    >
-      {children}
-    </ChatContext.Provider>
-  )
+  }}
+>
+  {children}
+</ChatContext.Provider>
+)
 }
-
 export function useChat() {
   const context = useContext(ChatContext)
   if (context === undefined) {
