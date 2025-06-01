@@ -49,23 +49,27 @@ def generate_markdown_table(results):
 
 def main():
     # Base directory
-    base_dir = Path(r"c:\Users\Usuario\OneDrive\Desktop\PFA\Diabot-V2\Benchmarking-QA-Datasets")
+    # Use the new results folder
+    base_dir = Path(r"c:\Users\Asus\Desktop\Diabot-PFA-Project\Benchmarking\Second-Method-Results")
     output_file = base_dir / "free_form_benchmark_results.md"
-    
+
     # Files to process
-    benchmark_files = list((base_dir / "Benchmark_Results").glob("benchmark_free_*.json"))
-    
+    benchmark_files = list(base_dir.glob("benchmark_free_*.json"))
+
     # Sort files by modification time (newest first)
     benchmark_files.sort(key=os.path.getmtime, reverse=True)
-    
     # Include specific files we want to process
     specific_files = [
-        "benchmark_free_openai_gpt-4.1-mini_20250529_033144.json",
-        "benchmark_free_google_gemini-2.5-flash-preview-05-20_20250529_035917.json",
-        "benchmark_free_meta-llama_llama-3.1-8b-instruct_20250529_042930.json",
-        "benchmark_free_google_gemma-3-4b-it_20250529_021205.json",
-        "benchmark_free_mistralai_mistral-nemo_20250529_024739.json"
-    ]
+    "benchmark_free_openai_gpt-4.1-mini_20250529_033144.json",
+    "benchmark_free_google_gemini-2.5-flash-preview-05-20_20250529_035917.json",
+    "benchmark_free_meta-llama_llama-3.1-8b-instruct_20250529_042930.json",
+    "benchmark_free_google_gemma-3-4b-it_20250529_021205.json",
+    "benchmark_free_mistralai_mistral-nemo_20250529_024739.json",
+    "benchmark_free_local-gguf_20250601_105955.json",
+    "benchmark_free_google_gemini-2.0-flash-001_20250529_111724.json",
+    "benchmark_free_meta-llama_llama-4-scout_20250529_050648.json",
+    "benchmark_free_qwen_qwen-2.5-7b-instruct_20250529_114023.json"
+]
     
     # Get full paths for specific files that exist
     files_to_process = []

@@ -1,0 +1,42 @@
+[
+  {
+    "model": "anthropic/claude-3.7-sonnet",
+    "accuracy": 100.0
+  },
+  {
+    "model": "deepseek/deepseek-chat-v3-0324",
+    "accuracy": 98.73
+  },
+  {
+    "model": "google/gemini-2.5-flash-preview-05-20",
+    "accuracy": 100.0
+  },
+  {
+    "model": "google/gemma-3-4b-it",
+    "accuracy": 96.18
+  },
+  {
+    "model": "Llama-3-8B-Instruct_20250601",
+    "accuracy": 0.0
+  },
+  {
+    "model": "local-gguf",
+    "accuracy": 73.25
+  },
+  {
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "accuracy": 96.82
+  },
+  {
+    "model": "meta-llama/llama-4-scout",
+    "accuracy": 98.73
+  },
+  {
+    "model": "mistralai/mistral-nemo",
+    "accuracy": 99.36
+  },
+  {
+    "model": "openai/gpt-4.1-mini",
+    "accuracy": 100.0
+  }
+]

@@ -79,9 +79,11 @@ def randomize_answers(input_csv_path):
             json.dump(correct_answers, f, indent=4, ensure_ascii=False)
         
         print(f"Randomized CSV file created at: {output_csv}")
+        return output_csv, output_json
         
     except Exception as e:
         print(f"Error processing the file: {e}")
+        return None, None
 
 if __name__ == "__main__":
     import os

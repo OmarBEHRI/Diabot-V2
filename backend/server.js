@@ -25,6 +25,7 @@ const chatRoutes = (await import('./routes/chat.js')).default;
 const modelRoutes = (await import('./routes/models.js')).default;
 const topicRoutes = (await import('./routes/topics.js')).default;
 const ragRoutes = (await import('./routes/rag.js')).default;
+const settingsRoutes = (await import('./routes/settings.js')).default;
 
 const app = express();
 const PORT = process.env.PORT || 8090;
@@ -48,6 +49,7 @@ app.use('/api/chat', chatRoutes);
 app.use('/api/models', modelRoutes);
 app.use('/api/topics', topicRoutes);
 app.use('/api/rag', ragRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // Basic route for testing
 app.get('/', (req, res) => {
