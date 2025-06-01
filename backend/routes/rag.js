@@ -20,6 +20,26 @@ const router = express.Router();
 // Protect all RAG routes with authentication
 router.use(authMiddleware);
 
+// Get RAG context and sources for a query (for benchmarking, no session)
+router.post('/get_sources', async (req, res) => {
+  try {
+    const { question, n_results, include_adjacent } = req.body;
+    if (!question || typeof question !== 'string' || !question.trim()) {
+      return res.status(400).json({ error: 'Missing or invalid question in request body' });
+    }
+    // Default values
+    const topN = typeof n_results === 'number' ? n_results : 3;
+    const adjacent = typeof include_adjacent === 'boolean' ? include_adjacent : false;
+    // Import retrieveRelevantContext lazily to avoid circular deps
+    const { retrieveRelevantContext } = await import('../services/rag.js');
+    const { context, sources } = await retrieveRelevantContext(question, topN, adjacent);
+    res.json({ context, sources });
+  } catch (error) {
+    console.error('❌ [GET_SOURCES] Error retrieving RAG context:', error);
+    res.status(500).json({ error: 'Server error retrieving RAG context' });
+  }
+});
+
 // Configure multer for file uploads
 const UPLOADS_DIR = path.join(__dirname, '..', '..', 'data', 'uploads');
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });

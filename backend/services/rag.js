@@ -237,7 +237,7 @@ function simpleKeywordSearch(query, docs, topN = 10) {
 }
 
 // Function to retrieve relevant context for a query with metadata and adjacent chunks
-export async function retrieveRelevantContext(queryText, topN = 10, includeAdjacent = true) {
+export async function retrieveRelevantContext(queryText, topN = 3, includeAdjacent = false) {
   // Initialize RAG system if not already initialized
   if (!documents.length) {
     await initRag();
@@ -295,7 +295,7 @@ export async function retrieveRelevantContext(queryText, topN = 10, includeAdjac
         // Query the collection using the ChromaDB JS client, matching test_chromadb.js logic
         const results = await collection.query({
           queryEmbeddings: [queryEmbedding],
-          nResults: topN * 3,
+          nResults: topN,
           include: ['metadatas', 'documents', 'distances']
         });
         
