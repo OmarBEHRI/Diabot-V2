@@ -1,0 +1,18 @@
+{
+  "status": "processing",
+  "progress": 100,
+  "currentStep": "Initializing",
+  "details": {
+    "total_pages": 10,
+    "processed": 10,
+    "pages_processed": 8,
+    "pages_skipped": 2,
+    "remaining": 0,
+    "percent_complete": 100.0,
+    "elapsed_time": "0:02:40",
+    "last_update": "2025-06-01T04:54:59.030328",
+    "current_step": "Initializing",
+    "pdf_filename": "pdf-1748749937727-539658522.pdf"
+  },
+  "timestamp": "2025-06-01T04:54:59.030361"
+}

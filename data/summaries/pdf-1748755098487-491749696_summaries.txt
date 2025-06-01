@@ -1,0 +1,149 @@
+# DIABETES_TEXTBOOK_SUMMARIES
+SOURCE: pdf-1748755098487-491749696.pdf
+GENERATED: 2025-06-01 06:18:18
+FORMAT_VERSION: 1.0
+
+[DIABETES TYPES]
+Type 1 diabetes is characterized by beta-cell destruction, usually leading to absolute insulin deficiency, and can be further classified into autoimmune diabetes mellitus and idiopathic types. Type 2 diabetes is predominantly marked by insulin resistance with relative insulin deficiency or an insulin secretory defect with or without insulin resistance. Other specific types of diabetes include genetic defects, diseases of the exocrine pancreas, endocrinopathies, and drug- or chemical-induced diabetes.
+
+----
+[OTHER SPECIFIC TYPES OF DIABETES]
+Other specific types of diabetes include genetic defects of beta-cell function, genetic defects in insulin action, diseases of the exocrine pancreas, endocrinopathies, drug- or chemical-induced diabetes, infections, and uncommon forms of immune-mediated diabetes mellitus. These types of diabetes are less common but still important to recognize and manage appropriately. Genetic syndromes sometimes associated with diabetes are also included in this category.
+
+----
+[THE METABOLIC SYNDROME]
+The metabolic syndrome is a condition related to diabetes, but its definition and future needs are still being studied and refined. The metabolic syndrome is likely to be an important consideration in the management and prevention of diabetes, and further research is needed to fully understand its role. 
+
+----
+[DIAGNOSTIC TESTS]
+The oral glucose tolerance test is a diagnostic tool used to assess glucose metabolism and diagnose diabetes, and methods for measuring substances in blood and urine are also important for diabetes diagnosis and management. These tests can help healthcare providers diagnose and monitor diabetes, and make informed treatment decisions.
+----
+[DIABETES CLASSIFICATION HISTORY]
+The classification and diagnostic criteria for diabetes mellitus were updated in the late 1970s by the World Health Organization (WHO) and the National Diabetes Data Group. These updates brought order to a previously chaotic situation with varying nomenclature and diagnostic criteria. The WHO slightly modified their criteria in 1985 to align with the National Diabetes Data Group values. This laid the groundwork for further updates and refinements in the field of diabetes diagnosis and classification.
+
+----
+[UPDATE ON DIAGNOSTIC CRITERIA]
+In 1997, an American Diabetes Association (ADA) expert group published recommendations on updating the classification and diagnostic criteria for diabetes. Similarly, the WHO convened a consultation in 1996, which reached similar conclusions to the ADA group. The reports from these groups were prepared by experts in the field, including Professor K.G.M.M. Alberti and Professor P.Z. Zimmet, and were supported by various organizations, including Bayer and Novo Nordisk.
+
+----
+[DEFINITION OF METABOLIC SYNDROME]
+The WHO consultation also aimed to include a definition of the "Metabolic Syndrome" as part of the updated classification and diagnostic criteria for diabetes. This definition is an important aspect of understanding the broader context of diabetes and its related conditions. The inclusion of the Metabolic Syndrome definition reflects the growing recognition of the complex inter relationships between diabetes and other metabolic disorders.
+----
+[DIABETES DEFINITION]
+Diabetes mellitus is a metabolic disorder characterized by chronic hyperglycaemia and disturbances in carbohydrate, fat, and protein metabolism due to defects in insulin secretion, insulin action, or both. This condition can lead to long-term damage, dysfunction, and failure of various organs. The effects of diabetes mellitus can be severe, including ketoacidosis, non-ketotic hyperosmolar state, and even death if left untreated.
+
+----
+[DIABETES SYMPTOMS]
+The symptoms of diabetes mellitus may include thirst, polyuria, blurring of vision, and weight loss, although in some cases, symptoms may be absent or mild, leading to a delayed diagnosis. If left undiagnosed, hyperglycaemia can cause pathological and functional changes, which can progress over time.
+
+----
+[DIABETES COMPLICATIONS]
+The long-term effects of diabetes mellitus include the development of specific complications such as retinopathy, nephropathy, and neuropathy, which can lead to blindness, renal failure, foot ulcers, and amputation. Additionally, people with diabetes are at increased risk of cardiovascular, peripheral vascular, and cerebrovascular disease, as well as autonomic dysfunction, including sexual dysfunction.
+----
+[DIABETES PATHOGENESIS]
+Several pathogenetic processes are involved in the development of diabetes, including those that destroy the beta cells of the pancreas, leading to insulin deficiency, and those that result in resistance to insulin action. This leads to abnormalities in carbohydrate, fat, and protein metabolism due to deficient insulin action on target tissues. The consequences of these processes are a lack of insulin or insensitivity to insulin.
+
+----
+[DIAGNOSIS OF DIABETES]
+A diagnosis of diabetes must be made with confidence, as the consequences for the individual are considerable and lifelong. The diagnosis should not be made based on a single abnormal blood glucose value, especially in asymptomatic individuals. For asymptomatic people, at least one additional plasma or blood glucose test result is essential to confirm the diagnosis, either through fasting, a random sample, or an oral glucose tolerance test (OGTT).
+
+----
+[DIAGNOSTIC CONFIRMATION]
+Severe hyperglycaemia detected under stress may be transitory and should not be regarded as diagnostic of diabetes. In cases where the diagnosis is unclear, it is advisable to maintain surveillance with periodic re-testing until the diagnostic situation becomes clear. This approach helps ensure accurate diagnosis and appropriate management of diabetes.
+----
+[DIAGNOSTIC CONSIDERATIONS]
+When deciding on a diagnostic or therapeutic course of action for diabetes, healthcare providers should consider additional factors such as ethnicity, family history, age, adiposity, and concomitant disorders. These factors can help inform the diagnosis and treatment of diabetes. Glycated haemoglobin has been explored as an alternative to blood glucose estimation or the oral glucose tolerance test (OGTT) for diagnosing diabetes.
+
+----
+[DIABETES IN CHILDREN]
+Diabetes in children typically presents with severe symptoms, including very high blood glucose levels, marked glycosuria, and ketonuria, and is often confirmed through blood glucose measurements. In these cases, treatment, including insulin injection, is usually initiated immediately as a life-saving measure. An OGTT is not necessary or appropriate for diagnosis in children with severe symptoms.
+
+----
+[DIAGNOSTIC CRITERIA]
+The clinical diagnosis of diabetes is often prompted by symptoms such as increased thirst and urine volume, recurrent infections, unexplained weight loss, and, in severe cases, drowsiness and coma. High levels of glycosuria are usually present, and a single blood glucose estimation in excess of a certain threshold can be used to diagnose diabetes. These symptoms and test results can help healthcare providers diagnose and manage diabetes effectively.
+----
+[DIAGNOSTIC CRITERIA FOR DIABETES]
+The diagnosis of diabetes can be established based on diagnostic values indicated in Figure 1, with levels of blood glucose below which a diagnosis of diabetes is unlikely in non-pregnant individuals. An Oral Glucose Tolerance Test (OGTT) is only necessary if casual blood glucose values are uncertain and fasting blood glucose levels are below diagnostic levels. The diagnostic criteria for children are the same as for adults. 
+----
+[ORAL GLUCOSE TOLERANCE TEST (OGTT) PROCEDURE]
+For clinical purposes, an OGTT involves measuring blood glucose values while fasting and at 2 hours after a 75g oral glucose load for adults, and 1.75g per kg for children. This test is used to establish diagnostic status when casual blood glucose values are uncertain.
+----
+[FASTING PLASMA/GLUCOSE CONCENTRATION CRITERIA]
+The diagnostic value for fasting plasma glucose concentration has been lowered to 7.0 mmol l-1 (126 mg dl-1) and above, and for whole blood to 6.1 mmol l-1 (110 mg dl-1) and above. This change aims to represent a value equivalent in diagnostic significance to the 2-h post-load concentration.
+----
+[COMPARISON OF DIAGNOSTIC VALUES]
+The new fasting criterion is chosen to correspond in diagnostic significance to the 2-h post-load concentration, which remains unchanged. This equivalence is used to determine the diagnostic value of fasting plasma glucose concentrations.
+----
+[DIAGNOSTIC CRITERIA FOR DIABETES]
+The diagnostic criteria for diabetes have been established through population-based studies, with a fasting plasma glucose concentration of 7.0 mmol/l (126 mg/dl) being considered an optimal cut-off point to separate the components of bimodal frequency distributions of fasting plasma glucose concentrations. This cut-off point is associated with an increased risk of microvascular and macrovascular disease. However, in certain populations, such as the elderly or less obese individuals, lower fasting glucose levels may be seen in persons who have 2-hour post-load glucose values that are diagnostic for diabetes.
+
+----
+[EPIDEMIOLOGICAL STUDIES OF DIABETES]
+Epidemiological studies of glucose intolerance and diabetes often classify individuals based on their blood glucose concentration measured after an overnight fast and/or 2 hours after a 75g oral glucose load. While 2-hour values are often used for diagnostic screening, fasting plasma glucose alone may be used for epidemiological purposes if an oral glucose tolerance test (OGTT) is not possible. However, it has been shown that individuals identified by fasting values may differ from those identified by 2-hour post-glucose challenge values, particularly in certain populations such as the elderly and those with less obesity.
+
+----
+[POPULATION VARIATIONS IN DIABETES DIAGNOSIS]
+There are variations in diabetes diagnosis across different populations, with middle-aged, more obese individuals being more likely to be identified by fasting values, while the elderly and less obese individuals, such as many Asian populations, may be identified by 2-hour post-glucose challenge values. These differences highlight the importance of considering population-specific factors when diagnosing and screening for diabetes.
+----
+[DIAGNOSTIC CRITERIA]
+The diagnosis of diabetes should not be based on a single glucose determination, but rather requires confirmatory symptoms or blood/plasma determination. Both the 2-hour and fasting values should be used to identify individuals at risk for developing complications. This approach allows for early preventive strategies to be implemented. 
+
+----
+[COMPARISON OF DIAGNOSTIC METHODS]
+The use of fasting and 2-hour glucose values may yield different estimates of population prevalence, with some studies finding a difference and others finding no difference. The American Diabetes Association (ADA) Expert Committee recommends using the fasting plasma glucose as the primary diagnostic criterion. 
+----
+[INDIVIDUAL DIAGNOSIS REQUIREMENTS]
+Individual diagnosis of diabetes requires the identification of people at risk for developing complications, in whom early preventive strategies are indicated. A confirmatory diagnosis should be made using a combination of symptoms and blood/plasma glucose determinations, rather than a single glucose test.
+----
+[DIABETES CLASSIFICATION HISTORY]
+The first widely accepted classification of diabetes mellitus was published by the World Health Organization (WHO) in 1980, with a modified version released in 1985. These classifications included clinical classes and statistical risk classes, and introduced terms such as IDDM (Type 1) and NIDDM (Type 2). The 1985 classification also introduced a class of Malnutrition-related Diabetes Mellitus (MRDM) and retained other classes such as Other Types, Impaired Glucose Tolerance (IGT), and Gestational Diabetes Mellitus (GDM). This classification was widely accepted and is used internationally.
+
+----
+[DIABETES CLASSIFICATION SYSTEM]
+The 1985 classification system represented a compromise between clinical and aetiological classification, allowing for the classification of individual subjects and patients in a clinically useful manner even when the specific cause or aetiology was unknown. The system includes both staging of diabetes mellitus based on clinical descriptive criteria and a complementary aetiological classification. This classification system has been reflected in subsequent international disease nomenclatures, including the International Nomenclature of Diseases (IND) and the International Classification of Diseases (ICD-10). The system provides a framework for understanding and managing diabetes mellitus.
+----
+[DIABETES CLASSIFICATION]
+The classification of diabetes mellitus encompasses both clinical stages and aetiological types, as suggested by Kuzuya and Matsuda. This classification reflects the progression of diabetes through several clinical stages, regardless of its aetiology. Individual subjects may move from stage to stage in either direction, and can be categorized by stage according to clinical characteristics.
+
+----
+[CLINICAL STAGING OF DIABETES]
+The clinical staging of diabetes reflects the various degrees of hyperglycaemia in individual subjects, and all subjects with diabetes mellitus can be categorized according to clinical stage. The stage of glycaemia may change over time depending on the extent of the underlying disease processes. This classification is achievable in all circumstances, allowing for accurate categorization of diabetes patients.
+
+----
+[AETIOLOGICAL CLASSIFICATION]
+The aetiological classification of diabetes reflects the underlying causes of the disease, and is based on improved understanding of the causes of diabetes mellitus. This classification takes into account the fact that the defect or disease process may be present but not have progressed far enough to cause hyperglycaemia. The aetiological classification provides a more comprehensive understanding of the disease, allowing for more targeted treatment and management.
+----
+[EARLY IDENTIFICATION OF DIABETES]
+The process leading to diabetes can be identified at any stage, even when blood sugar levels are normal. The presence of islet cell antibodies in a person with normal blood sugar levels can indicate the presence of the Type 1 autoimmune process. However, there are currently few specific indicators for the Type 2 process. 
+----
+[DIABETES DIAGNOSIS AND CONTROL]
+The same disease processes that cause diabetes can also lead to impaired fasting glycaemia and/or impaired glucose tolerance. Some individuals with diabetes can achieve adequate blood sugar control through weight reduction, exercise, and/or oral medications, and may not require insulin. 
+----
+[INSULIN REQUIREMENT AND SURVIVAL]
+Individuals with diabetes who have some residual insulin secretion can survive without insulin, but may still require it for adequate blood sugar control. Those with extensive beta-cell destruction and no residual insulin secretion require insulin for survival. 
+----
+[DISEASE PROGRESSION AND REGRESSION]
+The severity of the metabolic abnormality in diabetes can regress, progress, or remain stable, depending on factors such as weight reduction or gain.
+----
+[DIABETES TERMINOLOGY]
+The terms "insulin-dependent diabetes mellitus" and "non-insulin-dependent diabetes mellitus" and their acronyms "IDDM" and "NIDDM" are no longer recommended for use, as they can be confusing and lead to misclassification of patients. Instead, the terms Type 1 and Type 2 diabetes should be used. This change in terminology aims to classify diabetes based on its pathogenesis rather than treatment.
+
+----
+[TYPE 1 DIABETES CHARACTERISTICS]
+Type 1 diabetes is characterized by pancreatic islet beta-cell destruction and a tendency to develop ketoacidosis. This type includes cases resulting from an autoimmune process, as well as those with unknown aetiology or pathogenesis (idiopathic). However, it excludes forms of beta-cell destruction or failure with specific known causes, such as cystic fibrosis or mitochondrial defects.
+
+----
+[TYPE 2 DIABETES CHARACTERISTICS]
+Type 2 diabetes is the most common form of diabetes, resulting from defects in insulin secretion and often accompanied by insulin resistance. A distinct lean phenotype of Type 2 diabetes has been identified in adults from the Indian subcontinent, which may differ from the more typical form of Type 2 diabetes found in other populations. This highlights the importance of considering the heterogeneity of Type 2 diabetes in diagnosis and treatment.
+----
+[DIABETES CLASSIFICATION]
+The classification of diabetes has been revised, and the class "Malnutrition-related diabetes" (MRDM) has been deleted due to lack of evidence that diabetes can be caused by malnutrition or protein deficiency. The former subtype of MRDM, Protein-deficient Pancreatic Diabetes (PDPD or PDDM), is considered a malnutrition-modulated form of diabetes mellitus. More studies are needed to understand this condition.
+
+----
+[IMPAIRED GLUCOSE TOLERANCE]
+The class "Impaired Glucose Tolerance" is now classified as a stage of impaired glucose regulation, which can be observed in any hyperglycemic disorder and is not considered diabetes itself. This stage is a precursor to diabetes and indicates an increased risk of developing the condition.
+
+----
+[IMPAIRED FASTING GLYCAEMIA]
+A new clinical stage, Impaired Fasting Glycaemia, has been introduced to classify individuals with fasting glucose values above the normal range but below those diagnostic of diabetes. This stage helps identify individuals at risk of developing diabetes and allows for early intervention.
+----

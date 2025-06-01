@@ -7,7 +7,7 @@ import ChatWindow from "./ChatWindow"
 import MessageInput from "./MessageInput"
 import ModelTopicSelector from "./ModelTopicSelector"
 import { Button } from "@/components/ui/button"
-import { LogOut, Menu, User, X } from "lucide-react"
+import { LogOut, Menu, User, X, Database } from "lucide-react"
 import Settings from "./Settings"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
@@ -101,8 +101,19 @@ export default function ChatPage() {
             </h1>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <ModelTopicSelector /> {/* Always show ModelTopicSelector */}
+            
+            {/* Knowledge Base Button */}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => router.push('/knowledge')}
+              className="flex items-center space-x-1 border-blue-200 hover:bg-blue-50 text-blue-700"
+            >
+              <Database className="h-4 w-4" />
+              <span className="hidden sm:inline">Knowledge Base</span>
+            </Button>
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -121,6 +132,10 @@ export default function ChatPage() {
                   }
                 }}
               >
+                <DropdownMenuItem onClick={() => router.push('/knowledge')}>
+                  <Database className="h-4 w-4 mr-2" />
+                  Knowledge Base
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild onSelect={(e) => e.preventDefault()}>
                   <div className="w-full">
                     <Settings />

@@ -118,11 +118,12 @@ export default function HomePage() {
             <div className="flex gap-8">
               <Link href="/chat" className="text-gray-300 hover:text-white transition-colors">Chat</Link>
               <Link href="/login" className="text-gray-300 hover:text-white transition-colors">Login</Link>
+              <Link href="/knowledge" className="text-gray-300 hover:text-white transition-colors">Knowledge Base</Link>
               <Link href="#" className="text-gray-300 hover:text-white transition-colors">About</Link>
             </div>
           </div>
           <div className="text-center text-gray-500 text-sm">
-            <p>© {new Date().getFullYear()} Diabot. All rights reserved.</p>
+            <p> {new Date().getFullYear()} Diabot. All rights reserved.</p>
             <p className="mt-2">Developed with advanced AI technology for healthcare assistance.</p>
           </div>
         </div>

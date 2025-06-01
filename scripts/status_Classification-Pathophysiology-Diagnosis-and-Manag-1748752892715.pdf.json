@@ -1,0 +1,23 @@
+{
+  "status": "processing",
+  "progress": 100,
+  "currentStep": "Processing completed successfully",
+  "phase": "Finalizing and saving results",
+  "phaseProgress": 100,
+  "details": {
+    "total_pages": 10,
+    "processed": 10,
+    "pages_processed": 8,
+    "pages_skipped": 2,
+    "remaining": 0,
+    "phase": "FINALIZING",
+    "phase_name": "Finalizing and saving results",
+    "phase_progress": 100,
+    "overall_progress": 100,
+    "elapsed_time": "0:02:03",
+    "last_update": "2025-06-01T05:43:40.035029",
+    "current_step": "Processing completed successfully",
+    "pdf_filename": "Classification-Pathophysiology-Diagnosis-and-Manag-1748752892715.pdf"
+  },
+  "timestamp": "2025-06-01T05:43:40.035082"
+}
