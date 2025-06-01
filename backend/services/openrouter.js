@@ -18,7 +18,7 @@ console.log("OpenRouter API Key status:", isApiKeySet ? "Set (first 5 chars: " +
 const YOUR_SITE_URL = 'http://localhost:3000';
 const YOUR_SITE_NAME = 'Diabot Medical Assistant';
 
-async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 500) {
+async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 2000) {
   try {
     // If API key is not set, use mock response
     if (!isApiKeySet) {

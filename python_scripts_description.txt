@@ -1,0 +1,52 @@
+# Diabot Python Scripts Description
+
+## Benchmarking Data Processing Scripts
+
+### 1. generate_wrong_answers.py
+This script generates three plausible but incorrect answers for diabetes-related multiple-choice questions. It uses the OpenRouter API with the Gemini 2.5 Flash model to create wrong answers that are plausible to laypeople but clearly incorrect to medical professionals. The script processes a CSV file containing questions and correct answers, adds the generated wrong answers, and saves the result to a new CSV file. Includes rate limiting and error handling to ensure reliable processing.
+
+### 2. randomize_answers.py
+This script randomizes the position of correct answers in a multiple-choice question dataset. It takes a CSV file with questions and answers (where column A contains the correct answer), randomly repositions the correct answer among options A-D, and stores the correct answer positions in a JSON file. This is useful for creating fair assessment datasets where the position of the correct answer is not predictable.
+
+### 3. summarize_option_a.py
+This script creates concise summaries of correct answers in a diabetes Q&A dataset. It uses the OpenRouter API with Gemini 2.5 Flash to summarize lengthy correct answers into 1-2 sentences (maximum 200 characters) while preserving key medical information. The script processes a CSV file and saves the summarized answers to a new CSV file, maintaining the original question and answer structure.
+
+## Benchmarking First Method Scripts
+
+### 4. benchmark_models.py
+This script evaluates AI models on diabetes-related multiple-choice questions. It uses the OpenRouter API to test how well different models can select the correct answer from four options (A-D). The script processes a dataset of questions, sends each question to the specified model, records the model's answer, compares it with the correct answer, and calculates accuracy metrics. Results are saved as JSON files and can be used to compare performance across different models.
+
+## Benchmarking Second Method Scripts
+
+### 5. benchmark_free_answers.py
+This script evaluates AI models on free-form answers to diabetes questions. Unlike the multiple-choice approach, this script asks models to provide complete answers to questions, then uses a separate evaluator model (Gemini 2.5 Flash) to assess the quality of these answers based on medical accuracy, completeness, clarity, and helpfulness. The script also assigns a binary correctness score (1 or 0) to each answer. Results are saved in JSON format for further analysis.
+
+### 6. calculate_free_benchmark_metrics.py
+This script processes the results from benchmark_free_answers.py to generate summary statistics and performance metrics. It calculates accuracy percentages based on the binary correctness scores and creates a markdown-formatted table comparing different models' performance. The script can process multiple benchmark result files and sort them by timestamp, making it easy to track performance improvements over time.
+
+### 7. extract_questions_answers.py
+This simple utility script extracts just the questions and correct answers from a larger dataset that includes wrong answers. It reads a CSV file containing questions, correct answers, and wrong answers, then creates a new CSV file with only the question ID, question text, and correct answer. This is useful for preparing data for the free-form answer benchmarking process.
+
+## Finetuning Data Preparation Scripts
+
+### 8. extract_correct_answers.py
+This script extracts questions that received correct answers from benchmark results. It processes JSON files containing benchmark results, identifies questions where models provided correct answers (binary_correct=1), and compiles them into a single JSON file. This is useful for creating a high-quality dataset of questions and correct answers that can be used for model fine-tuning.
+
+### 9. process_for_finetuning.py
+This script prepares data for fine-tuning language models. It processes a JSON file containing correct answers from benchmarking, identifies duplicate questions, optionally paraphrases them using the OpenRouter API (to avoid exact duplicates), and formats the data as a CSV file suitable for fine-tuning. The script renumbers question IDs sequentially and ensures the dataset is properly structured for training.
+
+## RAG Data Extraction Scripts
+
+### 10. process_summaries.py
+This script processes text summaries of diabetes information and prepares them for retrieval-augmented generation (RAG). It chunks the text by separator markers, generates embeddings for each chunk using a sentence transformer model (BAAI/bge-large-en-v1.5), and stores the chunks and embeddings in a ChromaDB vector database. The script includes optimizations for batch processing and supports both CPU and GPU acceleration.
+
+### 11. process_textbook.py
+This script extracts text from a diabetes textbook PDF, processes it into meaningful chunks, and stores it in a ChromaDB vector database. It uses pdfplumber to extract text, identifies chapter and section information, generates embeddings using a sentence transformer model, and organizes the data with appropriate metadata. The script includes progress tracking, GPU acceleration when available, and supports test mode for processing a limited number of pages.
+
+### 12. process_textbook_enhanced.py
+An enhanced version of process_textbook.py with additional optimizations and features. It includes better metadata handling through JSON configuration files, improved GPU memory management, mixed precision for faster processing, and more robust error handling. The script also includes better organization of document metadata (parts, chapters, page numbers) and more efficient batch processing of embeddings.
+
+## Main Processing Script
+
+### 13. process_textbook.py (root directory)
+This script processes a diabetes textbook using the OpenRouter API with LLaMA 3.3 70B to generate summaries of each page. It extracts text from a PDF, sends it to the LLM for summarization with specific formatting instructions, and saves the results to a text file. The script includes checkpoint functionality to resume processing if interrupted, detailed progress tracking, and options for testing with a limited number of pages. The summaries are formatted with headings in square brackets and separated by delimiter lines.

@@ -6,6 +6,8 @@ import { User, Bot, ChevronDown, ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 import { SourceDocument, SourceDocuments } from "./SourceDocuments"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 export interface MessageProps {
   message: {
@@ -85,7 +87,15 @@ export default function Message({ message, className }: MessageProps) {
                   : "bg-gray-100 text-gray-900 rounded-bl-none"
               )}
             >
-              <div className="whitespace-pre-wrap">{message.content}</div>
+              {isUser ? (
+                <div className="whitespace-pre-wrap">{message.content}</div>
+              ) : (
+                <div className="markdown-content">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {message.content}
+                  </ReactMarkdown>
+                </div>
+              )}
               
               {!isUser && hasSources && (
                 <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">

@@ -78,15 +78,31 @@ router.post('/new_session', async (req, res) => {
       console.log('📋 Formatted sources text:', sourcesText);
 
       // Construct prompt with RAG context and metadata
-      const systemMessage = `You are a medical assistant specialized in ${topic.name}. 
-                           Provide accurate, helpful information based on medical knowledge.
-                           If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
-                           
-                           Here is some relevant medical information that may help with the query:
-                           ${ragContext}
-                           
-                           Sources used (cite these in your response when appropriate):
-                           ${sourcesText}`;
+      const systemMessage = `You are a medical assistant specialized in ${topic.name}.
+                            Provide accurate, helpful information based on medical knowledge.
+                            If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
+                            Here is some relevant medical information that may help with the query:
+                            ${ragContext}
+                            Sources used (cite these in your response when appropriate):
+                            ${sourcesText}
+                            Formatting Guidelines
+                            Follow these formatting conventions in your responses to ensure optimal UI presentation:
+                            Text Structure
+
+                            Use clear headings with ## Heading for main sections and ### Subheading for subsections
+                            Bold important terms using **text** for key information, conditions, or critical points
+                            Italicize emphasis using *text* for mild emphasis or when introducing concepts
+                            Use > Blockquote format for important warnings, disclaimers, or key takeaways
+
+                            Lists and Organization
+
+                            Use numbered lists (1. Item) for sequential steps, procedures, or prioritized information
+                            Use bullet points (- Item) for general lists, symptoms, or options
+                            Indent sub-items using spaces for hierarchical information:
+                            Main point
+                            Sub-point
+                            Another sub-point
+                            Always structure your response with clear headings and use appropriate formatting to make the information easy to read and visually organized.`;
 
       console.log('📝 System message length:', systemMessage.length, 'characters');
       
@@ -315,11 +331,29 @@ router.post('/:sessionId/message', async (req, res) => {
     const messages = [
       {
         role: 'system',
-        content: `You are a medical assistant specialized in ${topic.name}. 
-                 Provide accurate, helpful information based on medical knowledge.
-                 If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
-                 Here is some relevant medical information that may help with the query:
-                 ${ragContext}`
+        content: `You are a medical assistant specialized in ${topic.name}.
+Provide accurate, helpful information based on medical knowledge.
+If you're unsure, acknowledge the limitations and suggest consulting a healthcare professional.
+Here is some relevant medical information that may help with the query:
+${ragContext}
+Formatting Guidelines
+Follow these formatting conventions in your responses to ensure optimal UI presentation:
+Text Structure
+
+Use clear headings with ## Heading for main sections and ### Subheading for subsections
+Bold important terms using **text** for key information, conditions, or critical points
+Italicize emphasis using *text* for mild emphasis or when introducing concepts
+Use > Blockquote format for important warnings, disclaimers, or key takeaways
+
+Lists and Organization
+
+Use numbered lists (1. Item) for sequential steps, procedures, or prioritized information
+Use bullet points (- Item) for general lists, symptoms, or options
+Indent sub-items using spaces for hierarchical information:
+Main point
+  Sub-point
+  Another sub-point
+Always structure your response with clear headings and use appropriate formatting to make the information easy to read and visually organized.`
       }
     ];
 
