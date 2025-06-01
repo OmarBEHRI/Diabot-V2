@@ -5,9 +5,9 @@ import { useChat } from "@/context/ChatContext"
 import Sidebar from "./Sidebar"
 import ChatWindow from "./ChatWindow"
 import MessageInput from "./MessageInput"
-import ModelTopicSelector from "./ModelTopicSelector"
+import NavigationBar from "./NavigationBar"
 import { Button } from "@/components/ui/button"
-import { LogOut, Menu, User, X, Database } from "lucide-react"
+import { LogOut, Menu, User, X, Settings as SettingsIcon } from "lucide-react"
 import Settings from "./Settings"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
@@ -86,72 +86,11 @@ export default function ChatPage() {
         <Sidebar />
       </div>
 
+      {/* Navigation Bar */}
+      <NavigationBar />
+      
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden md:ml-0"> {/* Added responsive margin */}
-        {/* Header - Fixed at the top */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/Diabot-Logo.png" 
-              alt="Diabot Logo" 
-              className="h-8 w-8 drop-shadow-md" 
-            />
-            <h1 className="text-xl font-semibold">
-              <span className="bg-gradient-to-r from-[#4EC3BE] to-[#47C06F] bg-clip-text text-transparent">Diabot</span>
-            </h1>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <ModelTopicSelector /> {/* Always show ModelTopicSelector */}
-            
-            {/* Knowledge Base Button */}
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => router.push('/knowledge')}
-              className="flex items-center space-x-1 border-blue-200 hover:bg-blue-50 text-blue-700"
-            >
-              <Database className="h-4 w-4" />
-              <span className="hidden sm:inline">Knowledge Base</span>
-            </Button>
-            
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                  <User className="h-4 w-4" />
-                  <span>{user?.username}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="end"
-                onInteractOutside={(e) => {
-                  // Prevent the dropdown from closing when interacting with the Settings dialog
-                  const target = e.target as HTMLElement;
-                  if (target.closest('[role="dialog"]')) {
-                    e.preventDefault();
-                  }
-                }}
-              >
-                <DropdownMenuItem onClick={() => router.push('/knowledge')}>
-                  <Database className="h-4 w-4 mr-2" />
-                  Knowledge Base
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild onSelect={(e) => e.preventDefault()}>
-                  <div className="w-full">
-                    <Settings />
-                  </div>
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => {
-                        router.push('/home');
-                        setTimeout(() => logout(), 100);
-                }}>
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Sign Out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </header>
+      <div className="flex-1 flex flex-col overflow-hidden md:ml-0">
 
         {/* Chat Area - Only this should scroll */}
         <div className="flex-1 overflow-hidden"> {/* Container with no scroll */}

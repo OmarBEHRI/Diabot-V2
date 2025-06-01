@@ -10,11 +10,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
-import { Trash2, FileText, Upload, Database, AlertCircle, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { Trash2, FileText, Upload, Database, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import NavigationBar from "@/components/NavigationBar";
 
 interface ProcessedFile {
   filename: string;
@@ -48,6 +50,8 @@ export default function KnowledgePage() {
   });
   const [processingStatus, setProcessingStatus] = useState<{progress: number, currentStep: string} | null>(null);
   const [testMode, setTestMode] = useState(false);
+  
+
 
   // Redirect if not logged in
   useEffect(() => {
@@ -260,88 +264,82 @@ export default function KnowledgePage() {
     );
   }
 
+
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50">
-      {/* Header with glass effect */}
-      <header className="sticky top-0 backdrop-blur-md bg-white/80 border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10 shadow-sm">
-        <div className="flex items-center space-x-3">
-          <img 
-            src="/Diabot-Logo.png" 
-            alt="Diabot Logo" 
-            className="h-9 w-9 drop-shadow-md" 
-          />
-          <h1 className="text-xl font-semibold">
-            <span className="bg-gradient-to-r from-[#4EC3BE] to-[#47C06F] bg-clip-text text-transparent">Diabot</span>
-            <span className="ml-2 text-gray-700">Knowledge Base</span>
-          </h1>
-        </div>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={() => router.push('/chat')}
-          className="flex items-center space-x-2 hover:bg-emerald-50 text-emerald-700 transition-all"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Chat</span>
-        </Button>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Bar */}
+      <NavigationBar />
       
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Knowledge Management</h2>
-          <p className="text-gray-600">Upload and manage documents that enhance Diabot's ability to provide accurate diabetes information.</p>
-        </div>
-      
-        <Tabs defaultValue="upload" className="w-full">
-          <TabsList className="mb-6 p-1 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-lg">
-            <TabsTrigger value="upload" className="flex items-center data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">
-              <Upload className="w-4 h-4 mr-2" />
-              Upload PDF
-            </TabsTrigger>
-            <TabsTrigger value="manage" className="flex items-center data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">
-              <Database className="w-4 h-4 mr-2" />
-              Manage Documents
-            </TabsTrigger>
-          </TabsList>
+      {/* Main Content */}
+      <div className="w-full pt-20 p-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-4 rounded-lg border border-emerald-100 mb-6 shadow-sm">
+            <div className="flex items-start">
+              <Database className="h-5 w-5 text-emerald-600 mt-1 mr-3" />
+              <div>
+                <h3 className="text-emerald-700 font-medium mb-1">Knowledge Base Management</h3>
+                <p className="text-gray-600 text-sm">Upload and manage documents that enhance Diabot's ability to provide accurate diabetes information. These documents will be processed and used as context for AI responses.</p>
+              </div>
+            </div>
+          </div>
           
-          <TabsContent value="upload">
-            <Card className="border-gray-200 shadow-lg bg-white/90 backdrop-blur-md">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-xl text-gray-800">Upload Diabetes Document</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Upload a PDF document to add to Diabot's knowledge base. The document will be processed
-                  and used to provide context for diabetes-related questions.
-                </CardDescription>
-              </CardHeader>
-              <Separator className="mb-6" />
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                    <div className="flex-1">
-                      <label htmlFor="pdf-upload" className="block text-sm font-medium text-gray-700 mb-2">
-                        Select PDF Document
-                      </label>
-                      <Input
-                        id="pdf-upload"
-                        type="file"
-                        accept=".pdf"
-                        onChange={handleFileChange}
-                        disabled={uploadStatus.status === 'uploading' || uploadStatus.status === 'processing'}
-                        className="flex-1 border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
-                      />
+          <Tabs defaultValue="upload" className="w-full">
+            <TabsList className="mb-6 p-1 bg-white/70 backdrop-blur-sm border border-gray-200 rounded-lg shadow-sm sticky top-20 z-10">
+              <TabsTrigger value="upload" className="flex items-center data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">
+                <Upload className="w-4 h-4 mr-2" />
+                Upload PDF
+              </TabsTrigger>
+              <TabsTrigger value="manage" className="flex items-center data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700">
+                <Database className="w-4 h-4 mr-2" />
+                Manage Documents
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="upload">
+              <Card className="border-gray-200 shadow-md bg-white/90 backdrop-blur-md hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl text-gray-800 flex items-center">
+                    <span>Upload Diabetes Document</span>
+                    <span className="ml-2 bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full">PDF Only</span>
+                  </CardTitle>
+                  <CardDescription className="text-gray-600">
+                    Upload a PDF document to add to Diabot's knowledge base. The document will be processed
+                    and used to provide context for diabetes-related questions.
+                  </CardDescription>
+                </CardHeader>
+                <Separator className="mb-6" />
+                <CardContent>
+                  <div className="space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                      <div className="flex-1">
+                        <label htmlFor="pdf-upload" className="block text-sm font-medium text-gray-700 mb-2">
+                          Select PDF Document
+                        </label>
+                        <Input
+                          id="pdf-upload"
+                          type="file"
+                          accept=".pdf"
+                          onChange={handleFileChange}
+                          disabled={uploadStatus.status === 'uploading' || uploadStatus.status === 'processing'}
+                          className="flex-1 border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
+                        />
+                      </div>
+                      <div className="flex items-center space-x-2 mt-2 sm:mt-0">
+                        <Switch
+                          id="test-mode"
+                          checked={testMode}
+                          onCheckedChange={setTestMode}
+                          className="data-[state=checked]:bg-emerald-600"
+                        />
+                        <Label htmlFor="test-mode" className="text-sm text-gray-600 flex items-center">
+                          <span>Test mode</span>
+                          <span className="ml-1 text-xs text-gray-500">(faster processing)</span>
+                        </Label>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-2 mt-2 sm:mt-0">
-                      <Switch
-                        id="test-mode"
-                        checked={testMode}
-                        onCheckedChange={setTestMode}
-                      />
-                      <Label htmlFor="test-mode" className="text-sm font-medium text-gray-600">Test Mode</Label>
-                    </div>
-                  </div>
-                  
                   {selectedFile && (
-                    <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg transition-all duration-300 animate-fadeIn">
+                    <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg transition-all duration-300 animate-fadeIn shadow-sm hover:shadow-md">
                       <p className="text-sm font-medium text-emerald-800">Selected file:</p>
                       <div className="flex items-center mt-1">
                         <FileText className="w-5 h-5 mr-2 text-emerald-600" />
@@ -426,24 +424,30 @@ export default function KnowledgePage() {
                     if (fileInput) fileInput.value = '';
                   }}
                   disabled={uploadStatus.status === 'uploading' || uploadStatus.status === 'processing'}
-                  className="text-gray-600"
+                  className="text-gray-600 hover:bg-gray-100 transition-colors"
                 >
                   Reset
                 </Button>
                 <Button
                   onClick={handleUpload}
                   disabled={!selectedFile || uploadStatus.status === 'uploading' || uploadStatus.status === 'processing'}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white transition-colors shadow-sm hover:shadow"
                 >
                   {uploadStatus.status === 'uploading' || uploadStatus.status === 'processing' ? 
-                    'Processing...' : 'Upload Document'}
+                    <span className="flex items-center">
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Processing...
+                    </span> : 'Upload Document'}
                 </Button>
               </CardFooter>
             </Card>
           </TabsContent>
           
           <TabsContent value="manage">
-            <Card className="border-gray-200 shadow-lg bg-white/90 backdrop-blur-md">
+            <Card className="border-gray-200 shadow-md bg-white/90 backdrop-blur-md hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-xl text-gray-800">Manage Knowledge Documents</CardTitle>
                 <CardDescription className="text-gray-600">
@@ -453,28 +457,40 @@ export default function KnowledgePage() {
               <Separator />
               <CardContent className="pt-6">
                 {processedFiles.length === 0 ? (
-                  <div className="text-center py-8">
-                    <Database className="h-12 w-12 text-gray-300 mx-auto mb-3" />
-                    <h3 className="text-gray-500 font-medium mb-1">No documents found</h3>
-                    <p className="text-gray-400 text-sm">
-                      Upload a PDF document to add to Diabot's knowledge base.
+                  <div className="text-center py-12 px-4 bg-gray-50/50 rounded-lg border border-dashed border-gray-300 animate-fadeIn">
+                    <Database className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                    <h3 className="text-gray-500 font-medium mb-2">No documents found</h3>
+                    <p className="text-gray-400 text-sm max-w-md mx-auto">
+                      Upload a PDF document to add to Diabot's knowledge base and enhance its ability to provide accurate diabetes information.
                     </p>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const uploadTab = document.querySelector('[data-state="inactive"][data-value="upload"]') as HTMLElement;
+                        if (uploadTab) uploadTab.click();
+                      }}
+                      className="mt-4 text-emerald-600 border-emerald-200 hover:bg-emerald-50 transition-colors"
+                    >
+                      <Upload className="h-4 w-4 mr-2" />
+                      Go to Upload
+                    </Button>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {processedFiles.map((file) => (
                       <div 
                         key={file.filename} 
-                        className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex justify-between items-center"
+                        className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-300 flex justify-between items-center hover:shadow-md group animate-fadeIn"
                       >
                         <div className="flex items-start space-x-3">
-                          <FileText className="h-5 w-5 text-emerald-600 mt-1" />
+                          <FileText className="h-5 w-5 text-emerald-600 mt-1 group-hover:scale-110 transition-transform" />
                           <div>
                             <h4 className="font-medium text-gray-800">{file.originalName}</h4>
                             <div className="flex mt-1 text-xs text-gray-500 space-x-4">
                               <span>{formatFileSize(file.size)}</span>
                               <span>Uploaded {formatDistanceToNow(new Date(file.created))} ago</span>
-                              <span className="text-emerald-600">Active</span>
+                              <span className="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-medium">Active</span>
                             </div>
                           </div>
                         </div>
@@ -482,9 +498,9 @@ export default function KnowledgePage() {
                           variant="ghost" 
                           size="sm"
                           onClick={() => handleDelete(file.filename)}
-                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                          className="text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors rounded-full opacity-70 group-hover:opacity-100"
                         >
-                          <Trash2 className="h-4 w-4" />
+                          <Trash2 className="h-4 w-4 group-hover:scale-110 transition-transform" />
                         </Button>
                       </div>
                     ))}
@@ -494,7 +510,8 @@ export default function KnowledgePage() {
             </Card>
           </TabsContent>
         </Tabs>
+        </div>
       </div>
     </div>
-    )  
+  );
 }

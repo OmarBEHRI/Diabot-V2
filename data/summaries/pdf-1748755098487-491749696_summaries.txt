@@ -147,3 +147,127 @@ The class "Impaired Glucose Tolerance" is now classified as a stage of impaired 
 [IMPAIRED FASTING GLYCAEMIA]
 A new clinical stage, Impaired Fasting Glycaemia, has been introduced to classify individuals with fasting glucose values above the normal range but below those diagnostic of diabetes. This stage helps identify individuals at risk of developing diabetes and allows for early intervention.
 ----
+[GESTATIONAL DIABETES CLASSIFICATION]
+Gestational Diabetes is a classification that now includes the groups formerly known as Gestational Impaired Glucose Tolerance (GIGT) and Gestational Diabetes Mellitus (GDM). This change in classification aims to simplify the diagnosis and treatment of gestational diabetes. The new classification encompasses all cases of glucose intolerance that are first detected during pregnancy.
+
+---- 
+[IMPLICATIONS OF CLASSIFICATION CHANGE]
+The revised classification of Gestational Diabetes has implications for the diagnosis, treatment, and management of the condition. It is essential to understand the new classification to provide appropriate care and education to patients with gestational diabetes. This change may also impact the way healthcare providers approach glucose screening and diagnosis during pregnancy.
+----
+[DIABETES MELLITUS CLASSIFICATION]
+Diabetes mellitus is subdivided into three categories: insulin requiring for survival, insulin requiring for control, and not insulin requiring. The first category corresponds to the former clinical class of "Insulin Dependent Diabetes Mellitus" and includes individuals who are C-peptide deficient. The latter two categories constitute the former class of Non-Insulin Dependent Diabetes Mellitus (NIDDM). These categories help determine the appropriate treatment approach for individuals with diabetes.
+
+----
+[IMPAIRED GLUCOSE REGULATION]
+Impaired glucose regulation refers to a metabolic state between normal glucose homeostasis and diabetes, characterized by Impaired Glucose Tolerance (IGT) and Impaired Fasting Glycaemia (IFG). IGT and IFG represent different abnormalities of glucose regulation, one in the fasting state and one post-prandial, and are not interchangeable. Recognizing impaired glucose regulation is important for early intervention and prevention of diabetes.
+----
+[IMPAIRED GLUCOSE TOLERANCE]
+Impaired Glucose Tolerance (IGT) is a stage in the natural history of disordered carbohydrate metabolism, characterized by an increased risk of progressing to diabetes and macrovascular disease. IGT is often associated with the Metabolic Syndrome, also known as Insulin Resistance Syndrome. Individuals with IGT may have normal or near-normal glycated haemoglobin levels, but are at a higher risk of developing cardiovascular disease. An Oral Glucose Tolerance Test (OGTT) is recommended to exclude the diagnosis of diabetes in individuals with IGT.
+
+----
+[IMPAIRED FASTING GLUCOSE]
+Impaired Fasting Glucose (IFG) refers to fasting glucose concentrations that are higher than the normal reference range, but lower than those required to diagnose diabetes mellitus. The values for IFG are a fasting plasma glucose concentration of  mmol/l–1 (110 mg/dl–1) or greater, but less than  mmol/l–1 (126 mg/dl–1). IFG is a risk category for future diabetes and/or cardiovascular disease, and individuals with IFG may have a similar CVD risk factor profile to those with IGT.
+
+----
+[RISK CATEGORIES FOR DIABETES]
+IGT and IFG are not clinical entities in their own right, but rather risk categories for future diabetes and/or cardiovascular disease. They can occur as an intermediate stage in any of the disease processes, and individuals who meet criteria for IGT or IFG may be euglycaemic in their daily lives. It is recommended that all those with IFG have an OGTT to exclude the diagnosis of diabetes, if resources allow. Early detection and management of IGT and IFG can help prevent or delay the onset of diabetes and cardiovascular disease.
+----
+[DEFINING NORMOGLYCAEMIA]
+A fasting venous plasma glucose concentration of less than 6.1 mmol l–1 (110 mg dl–1) is considered "normal" and is observed in people with proven normal glucose tolerance. However, some individuals with normal glucose tolerance may still have impaired glucose tolerance (IGT) if an oral glucose tolerance test (OGTT) is performed. Values above this threshold are associated with a greater risk of developing micro- and macrovascular complications.
+
+----
+[EARLY RECOGNITION AND PREVENTION]
+The pathological processes that lead to diabetes mellitus can begin and be recognizable in individuals with normal glucose tolerance. Recognizing these processes at an early stage may be useful in preventing progression to more advanced stages of diabetes. Effective treatments or the natural history of some forms of diabetes may also result in reversion of hyperglycaemia to a state of normoglycaemia.
+
+----
+[CLASSIFICATION OF NORMOGLYCAEMIA]
+A proposed classification includes a stage of normoglycaemia where individuals with evidence of pathological processes that may lead to diabetes mellitus, or those who have experienced a reversal of hyperglycaemia, are classified. This classification aims to identify individuals at risk of developing diabetes and those who have successfully reversed their hyperglycaemia.
+----
+[DIABETES TYPE 1 DEFINITION]
+Type 1 diabetes is characterized by the destruction of beta-cells, which can lead to diabetes mellitus and requires insulin for survival to prevent ketoacidosis, coma, and death. This type of diabetes is often associated with the presence of anti-GAD, islet cell, or insulin antibodies, indicating an autoimmune process. However, in some cases, particularly in non-Caucasians, no evidence of an autoimmune disorder may be found, and these cases are classified as "Type 1 idiopathic". The aetiological classification of Type 1 diabetes can be identified and sub-categorized with appropriate antibody determinations.
+
+----
+[DIABETES TYPE 1 DIAGNOSIS]
+The diagnosis of Type 1 diabetes involves detecting the process of beta-cell destruction, which can be done through antibody determinations, such as anti-GAD, islet cell, or insulin antibodies. These measurements can help identify the autoimmune processes leading to beta-cell destruction and may be available in certain centers. If these measurements are performed, the classification of individual patients should reflect the results, allowing for a more accurate diagnosis and treatment plan.
+----
+[TYPE 2 DIABETES CHARACTERISTICS]
+Type 2 diabetes is the most common form of diabetes, characterized by disorders of insulin action and insulin secretion. Both of these disorders are usually present when Type 2 diabetes is clinically manifest. The specific reasons for the development of these abnormalities are not yet known.
+
+----
+[OTHER SPECIFIC TYPES OF DIABETES]
+Other specific types of diabetes are less common causes of diabetes mellitus, but can be identified by a specific underlying defect or disease process. These types include fibrocalculous pancreatopathy, a form of diabetes formerly classified as malnutrition-related diabetes mellitus. They are distinct from Type 2 diabetes due to their identifiable underlying causes.
+----
+[GESTATIONAL DIABETES DEFINITION]
+Gestational diabetes is a condition characterized by carbohydrate intolerance and hyperglycemia that is first recognized during pregnancy, regardless of whether insulin is used for treatment or if the condition persists after pregnancy. This definition applies even if the glucose intolerance may have existed before pregnancy but was previously unrecognized. Women with pre-existing diabetes mellitus are not considered to have gestational diabetes, but rather "diabetes mellitus and pregnancy". 
+
+----
+[GLUCOSE LEVELS DURING PREGNANCY]
+In the early stages of pregnancy, fasting and postprandial glucose concentrations are normally lower than in non-pregnant women. Elevated glucose levels during this time may indicate pre-existing diabetes, but specific criteria for designating abnormally high glucose concentrations have not been established. Careful management is necessary if higher-than-usual plasma glucose levels are detected, and an Oral Glucose Tolerance Test (OGTT) may be recommended. 
+
+----
+[EARLY PREGNANCY GLUCOSE MANAGEMENT]
+The occurrence of higher-than-usual plasma glucose levels in early pregnancy requires careful management and may indicate the need for an OGTT. Normal glucose tolerance in the early part of pregnancy is important, and any deviations from normal glucose levels should be carefully monitored and addressed to ensure the best possible outcomes for both the mother and the fetus.
+----
+[GESTATIONAL DIABETES RISK FACTORS]
+Individuals at high risk for gestational diabetes include older women, those with a previous history of glucose intolerance, those with a history of large for gestational age babies, and women from certain high-risk ethnic groups. Pregnant women with elevated fasting or casual blood glucose levels are also at high risk. Screening for gestational diabetes may be appropriate during the first trimester for high-risk populations. 
+
+----
+[DIAGNOSIS OF GESTATIONAL DIABETES]
+To diagnose gestational diabetes, a standard Oral Glucose Tolerance Test (OGTT) is performed after overnight fasting, involving 75g of anhydrous glucose in water. Plasma glucose is measured fasting and after 2 hours, and pregnant women who meet WHO criteria for diabetes mellitus or Impaired Glucose Tolerance (IGT) are classified as having Gestational Diabetes Mellitus (GDM). 
+
+----
+[POST-PREGNANCY CLASSIFICATION AND RISK]
+After pregnancy, women with gestational diabetes should be re-classified as having diabetes mellitus, IGT, or normal glucose tolerance based on a 75g OGTT six weeks or more after delivery. Regardless of the post-pregnancy result, these women are at increased risk of subsequently developing diabetes. The significance of Impaired Fasting Glucose (IFG) in pregnancy remains to be established, but women with IFG should undergo a 75g OGTT.
+----
+[DIABETES TYPES]
+Type 1 diabetes is an autoimmune condition characterized by the destruction of beta cells in the pancreas, leading to absolute insulin deficiency. This form of diabetes was previously referred to as insulin-dependent diabetes, Type 1 diabetes, or juvenile-onset diabetes. The rate of beta cell destruction can vary, with some individuals experiencing rapid destruction and others experiencing slow destruction. 
+
+----
+[TYPE 1 DIABETES SUBTYPES]
+Autoimmune Diabetes Mellitus, also known as Type 1 diabetes, can be further categorized into subtypes, including rapidly progressive and slowly progressive forms. The rapidly progressive form is commonly observed in children, while the slowly progressive form, also known as latent autoimmune diabetes in adults (LADA), generally occurs in adults. 
+
+----
+[TYPE 1 DIABETES SYMPTOMS]
+The symptoms of Type 1 diabetes can vary, with some patients presenting with ketoacidosis as the first manifestation of the disease, while others may experience modest fasting hyperglycaemia that can rapidly change to severe hyperglycaemia and/or ketoacidosis in the presence of infection or other stress. Additionally, some adults with Type 1 diabetes may retain residual beta-cell function for many years, preventing ketoacidosis. 
+
+----
+[INSULIN DEPENDENCY IN TYPE 1 DIABETES]
+Individuals with Type 1 diabetes often become dependent on insulin for survival and are at risk for ketoacidosis, particularly if they do not receive adequate insulin treatment. As the disease progresses, patients with Type 1 diabetes may require insulin treatment to manage their condition and prevent complications.
+----
+[TYPE 1 DIABETES CHARACTERISTICS]
+Type 1 diabetes is characterized by little or no insulin secretion, low or undetectable levels of plasma C-peptide, and the presence of immune destruction markers such as islet cell autoantibodies. These markers are present in 85-90% of individuals with Type 1 diabetes when fasting diabetic hyperglycaemia is initially detected. The peak incidence of Type 1 diabetes occurs in childhood and adolescence, but onset can occur at any age. There is a genetic predisposition to autoimmune destruction of beta cells, which is also influenced by environmental factors.
+
+----
+[TYPE 1 DIABETES DIAGNOSIS AND COMORBIDITIES]
+Patients with Type 1 diabetes are usually not obese at presentation, but obesity is not incompatible with the diagnosis. They may also have other autoimmune disorders, such as Graves' disease, Hashimoto's thyroiditis, and Addison's disease. The presence of these comorbidities can impact the diagnosis and management of Type 1 diabetes. 
+
+----
+[IDIOPATHIC TYPE 1 DIABETES]
+There are forms of Type 1 diabetes with no known etiology, characterized by permanent insulinopenia and a predisposition to ketoacidosis, but without evidence of autoimmunity. This form of diabetes is more common among individuals of African and Asian origin, and can manifest differently, such as with periodic requirements for insulin replacement therapy and ketoacidosis.
+----
+[TYPE 2 DIABETES CHARACTERISTICS]
+Type 2 diabetes is characterized by insulin resistance and relative insulin deficiency, rather than an absolute deficiency. Individuals with this type of diabetes often do not require insulin treatment to survive, at least initially. This form of diabetes can go undiagnosed for many years due to mild hyperglycemia that may not provoke noticeable symptoms.
+
+----
+[TYPE 2 DIABETES RISKS AND COMPLICATIONS]
+People with Type 2 diabetes are at increased risk of developing macrovascular and microvascular complications, despite the fact that the hyperglycemia may not be severe enough to cause noticeable symptoms. The risk of these complications highlights the importance of proper diagnosis and management of the condition.
+
+----
+[TYPE 2 DIABETES ETIOLOGY AND ASSOCIATED FACTORS]
+The specific causes of Type 2 diabetes are not yet fully understood, but it is known that autoimmune destruction of the pancreas does not occur. Obesity is a major factor, as it can cause or aggravate insulin resistance, and many patients with Type 2 diabetes are obese or have a high percentage of body fat distributed in the abdominal region.
+
+----
+[TYPE 2 DIABETES CLASSIFICATION AND DIAGNOSIS]
+Type 2 diabetes may be reclassified in the future as specific pathogenetic processes and genetic defects are identified, allowing for more definitive diagnosis and differentiation from other types of diabetes. Currently, diagnosis is based on the presence of insulin resistance and relative insulin deficiency, rather than other specific causes of diabetes.
+----
+[TYPE 2 DIABETES CHARACTERISTICS]
+Type 2 diabetes is characterized by defective and insufficient insulin secretion, despite often having normal or elevated insulin levels, and is associated with insulin resistance. The condition can be managed through weight reduction, increased physical activity, and pharmacological treatment of hyperglycaemia, which can increase insulin sensitivity. However, insulin sensitivity may not be fully restored to normal. High blood glucose levels in Type 2 diabetes patients would typically result in higher insulin values if beta-cell function were normal.
+
+----
+[TYPE 2 DIABETES RISK FACTORS]
+The risk of developing Type 2 diabetes increases with age, obesity, and lack of physical activity, and is more common in women with prior gestational diabetes mellitus (GDM) and in individuals with hypertension or dyslipidaemia. The frequency of Type 2 diabetes also varies among different racial and ethnic subgroups. Additionally, there is a strong familial, likely genetic, predisposition to developing Type 2 diabetes, although the genetics are complex and not clearly defined.
+
+----
+[TYPE 2 DIABETES DIAGNOSIS AND MISDIAGNOSIS]
+Some patients with a clinical picture consistent with Type 2 diabetes may actually have autoantibodies similar to those found in Type 1 diabetes, and may be misdiagnosed if antibody determinations are not made. Patients who are non-obese, have relatives with Type 1 diabetes, and are of Northern European origin may be suspected of having late-onset Type 1 diabetes, rather than Type 2 diabetes.
+----
