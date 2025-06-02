@@ -49,7 +49,8 @@ export default function KnowledgePage() {
     steps: []
   });
   const [processingStatus, setProcessingStatus] = useState<{progress: number, currentStep: string} | null>(null);
-  const [testMode, setTestMode] = useState(false);
+  const [showDeleteAllConfirm, setShowDeleteAllConfirm] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
   
 
 
@@ -151,15 +152,12 @@ export default function KnowledgePage() {
   };
 
   const handleUpload = async () => {
-    if (!selectedFile) {
-      alert('Please select a file to upload');
-      return;
-    }
-
+    if (!selectedFile) return;
+    
     setUploadStatus({
       status: 'uploading',
-      message: 'Uploading PDF file...',
-      progress: 10,
+      message: 'Uploading PDF...',
+      progress: 0,
       steps: []
     });
 
@@ -171,7 +169,7 @@ export default function KnowledgePage() {
       setUploadStatus(prev => ({ ...prev, progress: 30 }));
       
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/rag/upload-pdf${testMode ? '?test=true' : ''}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/rag/upload-pdf`,
         formData,
         {
           headers: {
@@ -214,9 +212,7 @@ export default function KnowledgePage() {
       
       // Reset form
       const fileInput = document.getElementById('pdf-upload') as HTMLInputElement;
-      if (fileInput) {
-        fileInput.value = '';
-      }
+      if (fileInput) fileInput.value = '';
     } catch (error: any) {
       console.error('Error uploading file:', error);
       setUploadStatus({
@@ -325,18 +321,7 @@ export default function KnowledgePage() {
                           className="flex-1 border-gray-300 focus:ring-emerald-500 focus:border-emerald-500"
                         />
                       </div>
-                      <div className="flex items-center space-x-2 mt-2 sm:mt-0">
-                        <Switch
-                          id="test-mode"
-                          checked={testMode}
-                          onCheckedChange={setTestMode}
-                          className="data-[state=checked]:bg-emerald-600"
-                        />
-                        <Label htmlFor="test-mode" className="text-sm text-gray-600 flex items-center">
-                          <span>Test mode</span>
-                          <span className="ml-1 text-xs text-gray-500">(faster processing)</span>
-                        </Label>
-                      </div>
+
                     </div>
                   {selectedFile && (
                     <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg transition-all duration-300 animate-fadeIn shadow-sm hover:shadow-md">
@@ -449,10 +434,24 @@ export default function KnowledgePage() {
           <TabsContent value="manage">
             <Card className="border-gray-200 shadow-md bg-white/90 backdrop-blur-md hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-xl text-gray-800">Manage Knowledge Documents</CardTitle>
-                <CardDescription className="text-gray-600">
-                  View and manage the documents that have been processed and added to Diabot's knowledge base.
-                </CardDescription>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <CardTitle className="text-xl text-gray-800">Manage Knowledge Documents</CardTitle>
+                    <CardDescription className="text-gray-600">
+                      View and manage the documents that have been processed and added to Diabot's knowledge base.
+                    </CardDescription>
+                  </div>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={() => setShowDeleteAllConfirm(true)}
+                    className="flex items-center gap-1"
+                    disabled={processedFiles.length === 0}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    <span>Delete All</span>
+                  </Button>
+                </div>
               </CardHeader>
               <Separator />
               <CardContent className="pt-6">
@@ -512,6 +511,69 @@ export default function KnowledgePage() {
         </Tabs>
         </div>
       </div>
+      
+      {/* Delete All Knowledge Confirmation Dialog */}
+      {showDeleteAllConfirm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
+            <h3 className="text-lg font-medium text-red-600 mb-2">Delete All Knowledge</h3>
+            <p className="text-gray-700 mb-4">
+              This will permanently delete all documents from the knowledge base. This action cannot be undone.
+            </p>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Type "delete" to confirm:
+              </label>
+              <input
+                type="text"
+                value={deleteConfirmText}
+                onChange={(e) => setDeleteConfirmText(e.target.value)}
+                className="w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"
+                placeholder="delete"
+              />
+            </div>
+            <div className="flex justify-end space-x-3">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setShowDeleteAllConfirm(false);
+                  setDeleteConfirmText('');
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="destructive"
+                disabled={deleteConfirmText !== 'delete'}
+                onClick={async () => {
+                  try {
+                    const response = await axios.delete(
+                      `${process.env.NEXT_PUBLIC_API_URL}/api/rag/all-documents`,
+                      {
+                        headers: {
+                          Authorization: `Bearer ${localStorage.getItem('token')}`
+                        }
+                      }
+                    );
+                    
+                    if (response.data.success) {
+                      setProcessedFiles([]);
+                      setShowDeleteAllConfirm(false);
+                      setDeleteConfirmText('');
+                      alert('All knowledge documents have been deleted successfully.');
+                    }
+                  } catch (error) {
+                    console.error('Error deleting all documents:', error);
+                    alert('Failed to delete all documents. Please try again.');
+                  }
+                }}
+              >
+                Delete All
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

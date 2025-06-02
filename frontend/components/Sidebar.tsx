@@ -3,32 +3,55 @@
 import { useChat } from "@/context/ChatContext"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, Clock, PlusCircle, Trash2, Search } from "lucide-react" // Import Trash2 and Search
+import { MessageCircle, Clock, PlusCircle, Trash2, Search, AlertCircle, MoreVertical } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
-import { useToast } from "@/components/ui/use-toast" // Import useToast
-import { useState } from "react" // Import useState for search
+import { useToast } from "@/components/ui/use-toast"
+import { useState } from "react"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Sidebar() {
-  const { sessions, currentSession, selectSession, startNewChat, deleteSession, createNewSession } = useChat() // Added createNewSession
-  const { toast } = useToast() // Initialize useToast
+  const { 
+    sessions, 
+    currentSession, 
+    selectSession, 
+    startNewChat, 
+    deleteSession, 
+    createNewSession, 
+    deleteAllChatHistory, 
+    isDeletingAllHistory 
+  } = useChat()
+  const { toast } = useToast()
   const [searchTerm, setSearchTerm] = useState("") // State for search term
 
-  const handleDelete = async (e: React.MouseEvent, sessionId: number) => {
-    e.stopPropagation() // Prevent selecting the session when clicking delete
-    if (window.confirm("Are you sure you want to delete this chat session?")) {
-      try {
-        await deleteSession(sessionId)
-        toast({
-          title: "Chat Deleted",
-          description: "The chat session has been successfully removed.",
-        })
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Failed to delete chat session.",
-          variant: "destructive",
-        })
-      }
+  const handleDelete = async (sessionId: number) => {
+    try {
+      await deleteSession(sessionId)
+      toast({
+        title: "Success",
+        description: "Chat deleted successfully",
+      })
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to delete chat",
+        variant: "destructive",
+      })
     }
   }
 
@@ -54,10 +77,60 @@ export default function Sidebar() {
             size="sm" 
             onClick={() => createNewSession()} 
             className="flex items-center space-x-1 hover:bg-blue-50 transition-colors flex-shrink-0"
+            title="New Chat"
           >
             <PlusCircle className="h-4 w-4" />
             <span className="sr-only">New Chat</span>
           </Button>
+          
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                className="flex items-center space-x-1 hover:bg-red-50 text-red-500 transition-colors flex-shrink-0"
+                disabled={isDeletingAllHistory || sessions.length === 0}
+                title="Delete All Chat History"
+              >
+                <Trash2 className="h-4 w-4" />
+                <span className="sr-only">Delete All</span>
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle className="flex items-center gap-2">
+                  <AlertCircle className="h-5 w-5 text-red-500" />
+                  Delete All Chat History
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete all your chat sessions and messages.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={async () => {
+                    try {
+                      await deleteAllChatHistory();
+                      toast({
+                        title: "Chat History Deleted",
+                        description: "All chat sessions have been successfully removed.",
+                      });
+                    } catch (error) {
+                      toast({
+                        title: "Error",
+                        description: "Failed to delete chat history. Please try again.",
+                        variant: "destructive",
+                      });
+                    }
+                  }}
+                  className="bg-red-500 hover:bg-red-600"
+                >
+                  {isDeletingAllHistory ? "Deleting..." : "Delete All"}
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
 
@@ -103,14 +176,14 @@ export default function Sidebar() {
                   return (
                     <div
                       key={session.id}
-                      className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center justify-between w-full ${
+                      className={`p-3 rounded-lg transition-colors flex items-center justify-between w-full ${
                         currentSession?.id === session.id
                           ? "bg-blue-50 border border-blue-200"
                           : "hover:bg-gray-50 border border-transparent"
                       }`}
                     >
                       <div 
-                        className="flex-1 min-w-0 pr-2 overflow-hidden"
+                        className="flex-1 min-w-0 pr-2 overflow-hidden cursor-pointer"
                         onClick={() => selectSession(session.id)}
                       >
                         <h4 className="text-sm font-medium text-gray-900 truncate" title={session.title || 'Untitled Chat'}>
@@ -123,15 +196,28 @@ export default function Sidebar() {
                           </span>
                         </div>
                       </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={(e) => handleDelete(e, session.id)}
-                        className="h-6 w-6 p-0 flex-shrink-0 text-gray-400 hover:text-red-500 transition-colors"
-                        aria-label="Delete chat"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </Button>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-6 w-6 p-0 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+                            aria-label="Menu"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <MoreVertical className="h-3.5 w-3.5" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-36">
+                          <DropdownMenuItem 
+                            className="text-red-500 focus:text-red-500 focus:bg-red-50"
+                            onClick={() => handleDelete(session.id)}
+                          >
+                            <Trash2 className="h-3.5 w-3.5 mr-2" />
+                            Delete Chat
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
                   );
                 })}

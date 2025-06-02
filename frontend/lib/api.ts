@@ -156,6 +156,16 @@ export const chatAPI = {
     await api.delete(`/api/chat/sessions/${sessionId}`);
   },
   
+  deleteAllChatHistory: async () => {
+    try {
+      const response = await api.delete('/api/settings/chat-history');
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting all chat history:', error);
+      throw error;
+    }
+  },
+  
   // Fetch the full text content of a source document
   getSourceFullText: async (source: string, page: string | number) => {
     try {

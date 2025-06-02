@@ -60,7 +60,7 @@ export default function MessageInput() {
 
   return (
     <div className="p-6 w-full">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
           <div className="flex items-center space-x-2">
             {/* Model selector */}
@@ -134,16 +134,27 @@ export default function MessageInput() {
               </Popover>
             </div>
             
-            {/* Message input */}
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Ask a medical question..."
-              className="h-10 py-2 px-4 focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm flex-grow rounded-full border border-gray-200 mx-2"
-              disabled={isLoading}
-            />
+            {/* Message input - auto-expanding textarea */}
+            <div className="relative flex-grow mx-2">
+              <textarea
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  // Auto-resize the textarea
+                  e.target.style.height = 'auto';
+                  e.target.style.height = `${Math.min(e.target.scrollHeight, 150)}px`;
+                }}
+                onKeyDown={handleKeyDown}
+                placeholder="Ask a medical question..."
+                className="w-full py-2 px-4 focus:ring-2 focus:ring-emerald-500 focus:border-transparent shadow-sm rounded-lg border border-gray-200 resize-none overflow-y-auto"
+                style={{
+                  minHeight: '40px',
+                  maxHeight: '150px',
+                }}
+                disabled={isLoading}
+                rows={1}
+              />
+            </div>
             
             {/* Send button */}
             <Button

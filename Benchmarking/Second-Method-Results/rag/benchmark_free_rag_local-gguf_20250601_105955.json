@@ -1102,5 +1102,6 @@
             "binary_correct": 1
         }
     },
-    "processing_time_seconds": 3456.7210812568665
+    "processing_time_seconds": 3456.7210812568665,
+    "accuracy": 66.88
 }

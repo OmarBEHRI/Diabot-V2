@@ -18,7 +18,20 @@ console.log("OpenRouter API Key status:", isApiKeySet ? "Set (first 5 chars: " +
 const YOUR_SITE_URL = 'http://localhost:3000';
 const YOUR_SITE_NAME = 'Diabot Medical Assistant';
 
+// List of reliable fallback models in order of preference
+const FALLBACK_MODELS = [
+  'openai/gpt-3.5-turbo',
+  'meta-llama/llama-3.1-8b-instruct',
+  'google/gemini-1.5-pro'
+];
+
 async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 2000) {
+  // Check if model is one of the problematic ones and replace with a fallback
+  if (model.includes('claude-instant') || model.includes('mistral-7b-instruct')) {
+    const fallbackModel = FALLBACK_MODELS[0];
+    console.log(`⚠️ Replacing problematic model ${model} with fallback model ${fallbackModel}`);
+    model = fallbackModel;
+  }
   try {
     // If API key is not set, use mock response
     if (!isApiKeySet) {
@@ -46,7 +59,42 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 20
     if (!response.ok) {
       const errorText = await response.text();
       console.error(`❌ API Error for ${model}: ${response.status} ${errorText}`);
-      console.log(`🔄 Falling back to mock response`);
+      
+      // Try fallback models before giving up
+      for (const fallbackModel of FALLBACK_MODELS) {
+        // Skip if this is the model that just failed
+        if (fallbackModel === model) continue;
+        
+        console.log(`🔄 Trying fallback model: ${fallbackModel}...`);
+        try {
+          const fallbackResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+              'HTTP-Referer': YOUR_SITE_URL,
+              'X-Title': YOUR_SITE_NAME,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              model: fallbackModel,
+              messages: messages,
+              temperature: temperature,
+              max_tokens: maxTokens,
+            }),
+          });
+          
+          if (fallbackResponse.ok) {
+            const fallbackData = await fallbackResponse.json();
+            console.log(`✅ Received response from fallback model ${fallbackModel}`);
+            return fallbackData.choices[0].message.content.trim();
+          }
+        } catch (fallbackError) {
+          console.error(`❌ Error with fallback model ${fallbackModel}:`, fallbackError);
+        }
+      }
+      
+      // If all fallbacks fail, use mock response
+      console.log(`🔄 All fallback models failed, using mock response`);
       return generateMockResponse(messages);
     }
 

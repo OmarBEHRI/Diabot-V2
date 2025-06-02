@@ -1,0 +1,38 @@
+[
+    {
+        "model": "google/gemini-2.0-flash-001",
+        "accuracy": 70.7
+    },
+    {
+        "model": "google/gemini-2.5-flash-preview-05-20",
+        "accuracy": 74.19
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 72.85
+    },
+    {
+        "model": "Llama-3.1-8b-instruct-fine-tuned",
+        "accuracy": 57.96
+    },
+    {
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "accuracy": 32.9
+    },
+    {
+        "model": "meta-llama/llama-4-scout",
+        "accuracy": 56.05
+    },
+    {
+        "model": "mistralai/mistral-nemo",
+        "accuracy": 74.52
+    },
+    {
+        "model": "openai/gpt-4.1-mini",
+        "accuracy": 75.796
+    },
+    {
+        "model": "qwen/qwen-2.5-7b-instruct",
+        "accuracy": 56.687
+    }
+]

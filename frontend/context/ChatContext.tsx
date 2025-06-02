@@ -4,6 +4,7 @@ import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 import { chatAPI, modelsAPI, topicsAPI } from "../lib/api"
 import { useAuth } from "./AuthContext" // Import useAuth
+import { getModelAccuracy, shouldExcludeModel } from "../lib/modelAccuracyUtils"
 
 interface SourceDocument {
   text: string
@@ -56,6 +57,7 @@ interface ChatContextType {
   isLoading: boolean
   isLoadingModels: boolean
   isLoadingTopics: boolean
+  isDeletingAllHistory: boolean
   createNewSession: (initialMessage?: string) => Promise<ChatSession | undefined> // Return the created session
   selectSession: (sessionId: number) => Promise<void>
   sendMessage: (content: string) => Promise<void>
@@ -66,6 +68,7 @@ interface ChatContextType {
   loadTopics: () => Promise<void>
   startNewChat: () => void // Add startNewChat to context type
   deleteSession: (sessionId: number) => Promise<void> // Add deleteSession to context type
+  deleteAllChatHistory: () => Promise<void> // Add deleteAllChatHistory to context type
 }
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined)
@@ -82,6 +85,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingModels, setIsLoadingModels] = useState(false)
   const [isLoadingTopics, setIsLoadingTopics] = useState(false)
+  const [isDeletingAllHistory, setIsDeletingAllHistory] = useState(false)
   const [isInitializing, setIsInitializing] = useState(false)
   const [needsInitialSession, setNeedsInitialSession] = useState(true)
 
@@ -97,7 +101,22 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     setIsLoadingModels(true)
     try {
       const modelsData = await modelsAPI.getModels()
-      setModels(modelsData)
+      
+      // Filter out excluded models and update accuracies from benchmark results
+      const filteredModels = modelsData
+        .filter((model: Model) => !shouldExcludeModel(model.openrouter_id, model.id))
+        .map((model: Model) => ({
+          ...model,
+          // Update accuracy_rag with benchmark results
+          accuracy_rag: getModelAccuracy(model.openrouter_id)
+        }))
+      
+      setModels(filteredModels)
+      
+      // If no model is selected yet, select the first one
+      if (!selectedModel && filteredModels.length > 0) {
+        setSelectedModel(filteredModels[0])
+      }
     } catch (error) {
       console.error("Error loading models:", error)
       // Do not re-throw, allow other loads to proceed
@@ -465,6 +484,25 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const deleteAllChatHistory = async () => {
+    setIsDeletingAllHistory(true);
+    try {
+      await chatAPI.deleteAllChatHistory();
+      // Clear all sessions and current session
+      setSessions([]);
+      setCurrentSession(null);
+      setMessages([]);
+      // Reset needsInitialSession to create a new empty session
+      setNeedsInitialSession(true);
+      return;
+    } catch (error) {
+      console.error("Error deleting all chat history:", error);
+      throw error;
+    } finally {
+      setIsDeletingAllHistory(false);
+    }
+  };
+
   return (
     <ChatContext.Provider
       value={{
@@ -473,23 +511,25 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         messages,
         models,
         topics,
-    selectedModel,
-    selectedTopic,
-    isLoading,
-    isLoadingModels,
-    isLoadingTopics,
-    createNewSession,
-    selectSession,
-    sendMessage,
-    setSelectedModel,
-    setSelectedTopic,
-    loadSessions,
-    loadModels,
-    loadTopics,
-        startNewChat, // Include startNewChat in the context value
-        deleteSession, // Include deleteSession in the context value
-  }}
->
+        selectedModel,
+        selectedTopic,
+        isLoading,
+        isLoadingModels,
+        isLoadingTopics,
+        isDeletingAllHistory,
+        createNewSession,
+        selectSession,
+        sendMessage,
+        setSelectedModel,
+        setSelectedTopic,
+        loadSessions,
+        loadModels,
+        loadTopics,
+        startNewChat,
+        deleteSession,
+        deleteAllChatHistory
+      }}
+    >
   {children}
 </ChatContext.Provider>
 )

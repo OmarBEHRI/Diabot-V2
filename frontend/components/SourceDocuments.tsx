@@ -162,7 +162,7 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
 
       {/* Source Detail Modal */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-3xl max-h-[80vh] flex flex-col" aria-describedby="source-content-description">
+        <DialogContent className="max-w-5xl max-h-[90vh] flex flex-col w-[95vw] h-[85vh]" aria-describedby="source-content-description">
           {selectedSource && (
             <>
               <DialogHeader>
