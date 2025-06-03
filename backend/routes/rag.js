@@ -1,3 +1,14 @@
+/**
+ * RAG (Retrieval-Augmented Generation) API Routes
+ * 
+ * Handles all knowledge base management endpoints including:
+ * - PDF document upload and processing
+ * - Document listing and deletion
+ * - Processing status tracking
+ * - RAG context retrieval for chat messages
+ * - Source document management and full-text retrieval
+ */
+
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
@@ -10,6 +21,20 @@ import { initRag } from '../services/rag.js';
 // In-memory store for processing status
 // In a production environment, this should be in a database or Redis
 const processingStatus = new Map();
+
+// Keep track of completed processing tasks to ensure frontend gets notified
+const completedProcessing = new Map();
+
+// Function to clean up old completed tasks (after 10 minutes)
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, value] of completedProcessing.entries()) {
+    if (now - value.completedAt > 10 * 60 * 1000) { // 10 minutes
+      completedProcessing.delete(key);
+      // console.log removed (`🧹 [CLEANUP] Removed completed status for ${key}`);
+    }
+  }
+}, 5 * 60 * 1000); // Run every 5 minutes
 
 // ES module equivalents for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -35,7 +60,7 @@ router.post('/get_sources', async (req, res) => {
     const { context, sources } = await retrieveRelevantContext(question, topN, adjacent);
     res.json({ context, sources });
   } catch (error) {
-    console.error('❌ [GET_SOURCES] Error retrieving RAG context:', error);
+    // console.error removed ('❌ [GET_SOURCES] Error retrieving RAG context:', error);
     res.status(500).json({ error: 'Server error retrieving RAG context' });
   }
 });
@@ -50,10 +75,21 @@ const storage = multer.diskStorage({
     cb(null, UPLOADS_DIR);
   },
   filename: function (req, file, cb) {
-    // Create a unique filename with timestamp
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname);
-    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+    // Sanitize the original filename to remove characters that might be problematic
+    // and truncate if it's too long.
+    const sanitizedOriginalName = file.originalname
+      .replace(/[^a-zA-Z0-9_\-\.]/g, '_') // Replace invalid chars with underscore
+      .substring(0, 100); // Limit length to prevent overly long filenames
+
+    const timestamp = Date.now();
+    const originalExt = path.extname(file.originalname);
+    // Remove original extension from sanitizedOriginalName if it's there, to avoid duplication
+    const sanitizedBaseName = sanitizedOriginalName.endsWith(originalExt) 
+      ? sanitizedOriginalName.substring(0, sanitizedOriginalName.length - originalExt.length)
+      : sanitizedOriginalName;
+
+    // Append timestamp to the sanitized original base name for uniqueness and readability
+    cb(null, `${sanitizedBaseName}-${timestamp}${originalExt}`);
   }
 });
 
@@ -77,24 +113,24 @@ const upload = multer({
 
 // Route to upload and process a PDF file
 router.post('/upload-pdf', upload.single('pdf'), async (req, res) => {
-  console.log('🔵 [PDF UPLOAD] Received request');
+  // console.log removed ('🔵 [PDF UPLOAD] Received request');
   
   if (!req.file) {
-    console.log('❌ [PDF UPLOAD] No file uploaded');
+    // console.log removed ('❌ [PDF UPLOAD] No file uploaded');
     return res.status(400).json({ error: 'No PDF file uploaded' });
   }
   
-  console.log(`✅ [PDF UPLOAD] File uploaded: ${req.file.originalname} (${req.file.size} bytes)`);
+  // console.log removed (`✅ [PDF UPLOAD] File uploaded: ${req.file.originalname} (${req.file.size} bytes)`);
   
   try {
     // Get test mode from query parameter (default: false)
     const testMode = req.query.test === 'true';
     if (testMode) {
-      console.log('⚠️ [PDF UPLOAD] Running in TEST MODE - will only process a few pages');
+      // console.log removed ('⚠️ [PDF UPLOAD] Running in TEST MODE - will only process a few pages');
     }
     
-    // Set initial processing status
-    const statusKey = req.file.originalname;
+    // Set initial processing status using the actual filename saved by multer
+    const statusKey = req.file.filename; // Use the generated filename as the key
     processingStatus.set(statusKey, {
       status: 'processing',
       progress: 0,
@@ -102,19 +138,22 @@ router.post('/upload-pdf', upload.single('pdf'), async (req, res) => {
       startTime: Date.now(),
       testMode: testMode,
       filePath: req.file.path,
-      fileSize: req.file.size
+      fileSize: req.file.size,
+      originalName: req.file.originalname // Store original name for reference if needed
     });
     
     // Respond immediately with processing started status
+    // IMPORTANT: Return the generated filename (statusKey) so frontend can poll with it
     res.json({
       success: true,
       message: 'PDF upload successful, processing started',
-      filename: req.file.originalname,
+      filename: statusKey, // This is the key to use for polling
+      originalName: req.file.originalname,
       filesize: req.file.size
     });
     
     // Process the PDF file asynchronously
-    console.log(`🔄 [PDF UPLOAD] Starting processing pipeline for ${req.file.path}`);
+    // console.log removed (`🔄 [PDF UPLOAD] Starting processing pipeline for ${req.file.path}`);
     
     // Update status to show progress
     processingStatus.get(statusKey).progress = 10;
@@ -123,31 +162,64 @@ router.post('/upload-pdf', upload.single('pdf'), async (req, res) => {
     // Process the PDF file
     processPdfPipeline(req.file.path, testMode)
       .then(async (result) => {
-        // Update status to show progress
-        processingStatus.get(statusKey).progress = 70;
-        processingStatus.get(statusKey).currentStep = 'Reinitializing RAG system...';
-        
-        // Reinitialize RAG system to include new data
-        console.log('🔄 [PDF UPLOAD] Reinitializing RAG system to include new data');
-        await initRag();
-        
-        // Mark processing as complete
-        processingStatus.get(statusKey).status = 'completed';
-        processingStatus.get(statusKey).progress = 100;
-        processingStatus.get(statusKey).currentStep = 'Processing complete';
-        processingStatus.get(statusKey).completedAt = Date.now();
-        processingStatus.get(statusKey).steps = result.steps;
-        
-        console.log('✅ [PDF UPLOAD] Processing completed successfully');
+        try {
+          // Update status to show progress
+          const currentStatus = processingStatus.get(statusKey);
+          if (!currentStatus) {
+            // console.warn removed (`⚠️ [PDF UPLOAD] Status not found for ${statusKey} when trying to update progress`);
+            return;
+          }
+          
+          currentStatus.progress = 70;
+          currentStatus.currentStep = 'Reinitializing RAG system...';
+          processingStatus.set(statusKey, currentStatus);
+          
+          // Reinitialize RAG system to include new data
+          // console.log removed ('🔄 [PDF UPLOAD] Reinitializing RAG system to include new data');
+          await initRag();
+          
+          // Mark processing as complete
+          const updatedStatus = processingStatus.get(statusKey);
+          if (!updatedStatus) {
+            // console.warn removed (`⚠️ [PDF UPLOAD] Status not found for ${statusKey} when trying to mark as complete`);
+            return;
+          }
+          
+          updatedStatus.status = 'completed';
+          updatedStatus.progress = 100;
+          updatedStatus.currentStep = 'Processing complete';
+          updatedStatus.completedAt = Date.now();
+          updatedStatus.steps = result.steps;
+          processingStatus.set(statusKey, updatedStatus);
+          
+          // Also store in completedProcessing for reliable status checks
+          completedProcessing.set(statusKey, {
+            status: 'completed',
+            progress: 100,
+            completedAt: Date.now()
+          });
+          
+          // console.log removed ('✅ [PDF UPLOAD] Processing completed successfully');
+          // console.log removed ('📊 [PDF UPLOAD] Final status:', JSON.stringify(processingStatus.get(statusKey)));
+        } catch (error) {
+          // console.error removed ('❌ [PDF UPLOAD] Error updating processing status:', error);
+        }
       })
       .catch((error) => {
-        console.error('❌ [PDF UPLOAD] Error processing PDF:', error);
-        processingStatus.get(statusKey).status = 'failed';
-        processingStatus.get(statusKey).error = error.message;
+        // console.error removed ('❌ [PDF UPLOAD] Error processing PDF:', error);
+        const currentStatus = processingStatus.get(statusKey);
+        if (currentStatus) {
+          currentStatus.status = 'failed';
+          currentStatus.progress = 0;
+          currentStatus.error = error.message;
+          currentStatus.currentStep = 'Processing failed';
+          processingStatus.set(statusKey, currentStatus);
+          // console.log removed ('📊 [PDF UPLOAD] Error status set:', JSON.stringify(processingStatus.get(statusKey)));
+        }
       });
       
   } catch (error) {
-    console.error('❌ [PDF UPLOAD] Error handling PDF upload:', error);
+    // console.error removed ('❌ [PDF UPLOAD] Error handling PDF upload:', error);
     res.status(500).json({
       success: false,
       message: `Error handling PDF upload: ${error.message}`,
@@ -159,7 +231,7 @@ router.post('/upload-pdf', upload.single('pdf'), async (req, res) => {
 
 // Route to get a list of all processed PDFs
 router.get('/processed-pdfs', (req, res) => {
-  console.log('🔵 [PROCESSED PDFS] Received request');
+  // console.log removed ('🔵 [PROCESSED PDFS] Received request');
   
   try {
     const SUMMARIES_DIR = path.join(__dirname, '..', '..', 'data', 'summaries');
@@ -168,15 +240,15 @@ router.get('/processed-pdfs', (req, res) => {
     // Read the summaries directory
     const files = fs.readdirSync(SUMMARIES_DIR);
     
-    // Filter for summary files and get their stats
+    // Filter for text files and get their stats
     const summaryFiles = files
-      .filter(file => file.endsWith('_summaries.txt'))
+      .filter(file => file.endsWith('.txt'))
       .map(file => {
         const filePath = path.join(SUMMARIES_DIR, file);
         const stats = fs.statSync(filePath);
         return {
           filename: file,
-          originalName: file.replace('_summaries.txt', '.pdf'),
+          originalName: file.replace('.txt', '.pdf'),
           size: stats.size,
           created: stats.birthtime,
           lastModified: stats.mtime
@@ -184,13 +256,13 @@ router.get('/processed-pdfs', (req, res) => {
       })
       .sort((a, b) => b.lastModified - a.lastModified); // Sort by most recent first
     
-    console.log(`✅ [PROCESSED PDFS] Found ${summaryFiles.length} processed PDFs`);
+    // console.log removed (`✅ [PROCESSED PDFS] Found ${summaryFiles.length} processed PDFs`);
     res.json({
       success: true,
       files: summaryFiles
     });
   } catch (error) {
-    console.error('❌ [PROCESSED PDFS] Error getting processed PDFs:', error);
+    // console.error removed ('❌ [PROCESSED PDFS] Error getting processed PDFs:', error);
     res.status(500).json({
       success: false,
       message: `Error getting processed PDFs: ${error.message}`
@@ -200,7 +272,7 @@ router.get('/processed-pdfs', (req, res) => {
 
 // Route to delete a processed PDF and its summary
 router.delete('/processed-pdf/:filename', (req, res) => {
-  console.log(`🔵 [DELETE PDF] Received request for ${req.params.filename}`);
+  // console.log removed (`🔵 [DELETE PDF] Received request for ${req.params.filename}`);
   
   try {
     const SUMMARIES_DIR = path.join(__dirname, '..', '..', 'data', 'summaries');
@@ -211,7 +283,7 @@ router.delete('/processed-pdf/:filename', (req, res) => {
     
     // Check if the summary file exists
     if (!fs.existsSync(summaryPath)) {
-      console.log(`❌ [DELETE PDF] Summary file not found: ${summaryPath}`);
+      // console.log removed (`❌ [DELETE PDF] Summary file not found: ${summaryPath}`);
       return res.status(404).json({
         success: false,
         message: 'Summary file not found'
@@ -220,10 +292,10 @@ router.delete('/processed-pdf/:filename', (req, res) => {
     
     // Delete the summary file
     fs.unlinkSync(summaryPath);
-    console.log(`✅ [DELETE PDF] Deleted summary file: ${summaryPath}`);
+    // console.log removed (`✅ [DELETE PDF] Deleted summary file: ${summaryPath}`);
     
     // Try to find and delete the original PDF file (if it exists)
-    const pdfBasename = summaryFilename.replace('_summaries.txt', '');
+    const pdfBasename = summaryFilename.replace('.txt', '');
     const pdfFiles = fs.readdirSync(UPLOADS_DIR)
       .filter(file => file.includes(pdfBasename) && file.endsWith('.pdf'));
     
@@ -231,12 +303,12 @@ router.delete('/processed-pdf/:filename', (req, res) => {
       pdfFiles.forEach(pdfFile => {
         const pdfPath = path.join(UPLOADS_DIR, pdfFile);
         fs.unlinkSync(pdfPath);
-        console.log(`✅ [DELETE PDF] Deleted original PDF file: ${pdfPath}`);
+        // console.log removed (`✅ [DELETE PDF] Deleted original PDF file: ${pdfPath}`);
       });
     }
     
     // Reinitialize RAG system to reflect the changes
-    console.log('🔄 [DELETE PDF] Reinitializing RAG system');
+    // console.log removed ('🔄 [DELETE PDF] Reinitializing RAG system');
     initRag();
     
     res.json({
@@ -244,7 +316,7 @@ router.delete('/processed-pdf/:filename', (req, res) => {
       message: 'PDF and summary deleted successfully'
     });
   } catch (error) {
-    console.error('❌ [DELETE PDF] Error deleting PDF:', error);
+    // console.error removed ('❌ [DELETE PDF] Error deleting PDF:', error);
     res.status(500).json({
       success: false,
       message: `Error deleting PDF: ${error.message}`
@@ -254,20 +326,37 @@ router.delete('/processed-pdf/:filename', (req, res) => {
 
 // Route to get the processing status of a PDF file
 router.get('/processing-status/:filename', (req, res) => {
-  console.log(`🔵 [PROCESSING STATUS] Received request for ${req.params.filename}`);
+  // console.log removed (`🔵 [PROCESSING STATUS] Received request for ${req.params.filename}`);
+  // console.log removed (`🔍 [PROCESSING STATUS] Current status map has ${processingStatus.size} entries`);
+  
+  // Debug: List all keys in the processingStatus map
+  // console.log removed ('🔑 [PROCESSING STATUS] All status keys:', Array.from(processingStatus.keys()));
   
   try {
     const filename = req.params.filename;
     
-    // Get the status from our tracking system
-    const status = processingStatus.get(filename);
+    // First check if we have a completed status (more reliable)
+    const completedStatus = completedProcessing.get(filename);
+    
+    // Then check the regular processing status
+    const processingStatusEntry = processingStatus.get(filename);
+    
+    // Prioritize completed status if available
+    const status = completedStatus || processingStatusEntry;
     
     if (!status) {
-      console.log(`❌ [PROCESSING STATUS] No status found for ${filename}`);
+      // console.log removed (`❌ [PROCESSING STATUS] No status found for ${filename}`);
       return res.status(404).json({
         success: false,
         message: `No processing status found for ${filename}`
       });
+    }
+    
+    // Log which map we found the status in
+    if (completedStatus) {
+      // console.log removed (`✅ [PROCESSING STATUS] Found COMPLETED status for ${filename}:`, JSON.stringify(status));
+    } else {
+      // console.log removed (`✅ [PROCESSING STATUS] Found PROCESSING status for ${filename}:`, JSON.stringify(status));
     }
     
     // If the processing is in test mode, simulate a delay for better UX
@@ -311,10 +400,54 @@ router.get('/processing-status/:filename', (req, res) => {
       error: status.error || null
     });
   } catch (error) {
-    console.error('❌ [PROCESSING STATUS] Error getting processing status:', error);
+    // console.error removed ('❌ [PROCESSING STATUS] Error getting processing status:', error);
     res.status(500).json({
       success: false,
       message: `Error getting processing status: ${error.message}`
+    });
+  }
+});
+
+// Route to check if a file has been processed by checking if the corresponding text file exists
+router.get('/check-file-processed/:filename', (req, res) => {
+  // console.log removed (`🔵 [CHECK PROCESSED] Received request for ${req.params.filename}`);
+  
+  try {
+    const pdfFilename = req.params.filename;
+    const baseFilename = pdfFilename.replace('.pdf', '');
+    const SUMMARIES_DIR = path.join(__dirname, '..', '..', 'data', 'summaries');
+    
+    // Check if the corresponding text file exists
+    const textFilePath = path.join(SUMMARIES_DIR, `${baseFilename}.txt`);
+    const exists = fs.existsSync(textFilePath);
+    
+    // console.log removed (`🔍 [CHECK PROCESSED] Checking if ${textFilePath} exists: ${exists}`);
+    
+    if (exists) {
+      // Get file stats
+      const stats = fs.statSync(textFilePath);
+      
+      res.json({
+        success: true,
+        processed: true,
+        filename: pdfFilename,
+        textFile: `${baseFilename}.txt`,
+        size: stats.size,
+        created: stats.birthtime,
+        lastModified: stats.mtime
+      });
+    } else {
+      res.json({
+        success: true,
+        processed: false,
+        filename: pdfFilename
+      });
+    }
+  } catch (error) {
+    // console.error removed ('❌ [CHECK PROCESSED] Error checking processed file:', error);
+    res.status(500).json({
+      success: false,
+      message: `Error checking processed file: ${error.message}`
     });
   }
 });

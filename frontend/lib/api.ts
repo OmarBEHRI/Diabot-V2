@@ -1,3 +1,14 @@
+/**
+ * API Client Module
+ * 
+ * Centralizes all API communication with the backend server, providing:
+ * - Authentication services (login, register, token management)
+ * - Chat services (sessions, messages, sources)
+ * - Model and topic management
+ * - Knowledge base operations
+ * - Error handling and authentication state management
+ */
+
 import axios from 'axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8090';
@@ -70,7 +81,7 @@ export const topicsAPI = {
 // Chat API calls
 export const chatAPI = {
   createSession: async (modelId: number, topicId: number, initialMessage: string) => {
-    console.log('💬 Frontend: Creating new chat session with params:', { modelId, topicId, initialMessageLength: initialMessage?.length || 0 });
+    // console.log removed ('💬 Frontend: Creating new chat session with params:', { modelId, topicId, initialMessageLength: initialMessage?.length || 0 });
     try {
       const response = await api.post('/api/chat/new_session', {
         model_id: modelId,
@@ -91,7 +102,7 @@ export const chatAPI = {
       
       return data;
     } catch (error) {
-      console.error('❌ Frontend: Error creating chat session:', error);
+      // console.error removed ('❌ Frontend: Error creating chat session:', error);
       throw error;
     }
   },
@@ -161,7 +172,7 @@ export const chatAPI = {
       const response = await api.delete('/api/settings/chat-history');
       return response.data;
     } catch (error) {
-      console.error('Error deleting all chat history:', error);
+      // console.error removed ('Error deleting all chat history:', error);
       throw error;
     }
   },
@@ -174,7 +185,7 @@ export const chatAPI = {
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching full text content:', error);
+      // console.error removed ('Error fetching full text content:', error);
       return null;
     }
   },

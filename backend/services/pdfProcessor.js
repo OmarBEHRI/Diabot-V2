@@ -1,3 +1,14 @@
+/**
+ * PDF Processor Service
+ * 
+ * Provides functionality for processing PDF documents for the RAG system:
+ * - Executing Python scripts for PDF text extraction and summarization
+ * - Managing the processing pipeline from upload to ChromaDB ingestion
+ * - Tracking processing status and handling errors
+ * - Supporting test mode for faster processing during development
+ * - Ensuring proper directory structure for data storage
+ */
+
 import { PythonShell } from 'python-shell';
 import path from 'path';
 import fs from 'fs';
@@ -23,11 +34,11 @@ fs.mkdirSync(SUMMARIES_DIR, { recursive: true });
  * @returns {Promise<{success: boolean, message: string, outputPath: string}>}
  */
 export async function processPdfToSummaries(pdfPath, testMode = false) {
-  console.log(`🔄 Processing PDF to summaries: ${pdfPath}`);
+  // console.log removed (`🔄 Processing PDF to summaries: ${pdfPath}`);
   
-  // Generate output filename based on the PDF name
+  // Generate output filename based on the PDF name (using original filename without extension)
   const pdfBasename = path.basename(pdfPath, '.pdf');
-  const outputPath = path.join(SUMMARIES_DIR, `${pdfBasename}_summaries.txt`);
+  const outputPath = path.join(SUMMARIES_DIR, `${pdfBasename}.txt`);
   
   return new Promise((resolve, reject) => {
     // Options for Python script
@@ -43,13 +54,13 @@ export async function processPdfToSummaries(pdfPath, testMode = false) {
       ]
     };
     
-    console.log(`🐍 Executing Python script with options:`, JSON.stringify(options, null, 2));
+    // console.log removed (`🐍 Executing Python script with options:`, JSON.stringify(options, null, 2));
     
     // Run the Python script
     PythonShell.run('process_textbook.py', options)
       .then(messages => {
-        console.log('✅ PDF processing completed successfully');
-        console.log('📝 Python script output:', messages);
+        // console.log removed ('✅ PDF processing completed successfully');
+        // console.log removed ('📝 Python script output:', messages);
         resolve({
           success: true,
           message: 'PDF processed successfully',
@@ -57,7 +68,6 @@ export async function processPdfToSummaries(pdfPath, testMode = false) {
         });
       })
       .catch(err => {
-        console.error('❌ Error processing PDF:', err);
         reject({
           success: false,
           message: `Error processing PDF: ${err.message}`,
@@ -74,8 +84,6 @@ export async function processPdfToSummaries(pdfPath, testMode = false) {
  * @returns {Promise<{success: boolean, message: string}>}
  */
 export async function processSummariesToChromaDB(summariesPath, testMode = false) {
-  console.log(`🔄 Processing summaries to ChromaDB: ${summariesPath}`);
-  
   return new Promise((resolve, reject) => {
     // Options for Python script
     const options = {
@@ -89,20 +97,15 @@ export async function processSummariesToChromaDB(summariesPath, testMode = false
       ]
     };
     
-    console.log(`🐍 Executing Python script with options:`, JSON.stringify(options, null, 2));
-    
     // Run the Python script
     PythonShell.run('process_summaries.py', options)
       .then(messages => {
-        console.log('✅ Summaries processing completed successfully');
-        console.log('📝 Python script output:', messages);
         resolve({
           success: true,
           message: 'Summaries processed and added to ChromaDB successfully'
         });
       })
       .catch(err => {
-        console.error('❌ Error processing summaries:', err);
         reject({
           success: false,
           message: `Error processing summaries: ${err.message}`,
@@ -119,13 +122,10 @@ export async function processSummariesToChromaDB(summariesPath, testMode = false
  * @returns {Promise<{success: boolean, message: string, steps: Array}>}
  */
 export async function processPdfPipeline(pdfPath, testMode = false) {
-  console.log(`🚀 Starting PDF processing pipeline for: ${pdfPath}`);
-  
   const steps = [];
   
   try {
     // Step 1: Process PDF to summaries
-    console.log('📄 Step 1: Processing PDF to summaries...');
     const summariesResult = await processPdfToSummaries(pdfPath, testMode);
     steps.push({
       step: 'pdf_to_summaries',
@@ -134,7 +134,6 @@ export async function processPdfPipeline(pdfPath, testMode = false) {
     });
     
     // Step 2: Process summaries to ChromaDB
-    console.log('🔍 Step 2: Processing summaries to ChromaDB...');
     const chromaResult = await processSummariesToChromaDB(summariesResult.outputPath, testMode);
     steps.push({
       step: 'summaries_to_chroma',
@@ -148,7 +147,6 @@ export async function processPdfPipeline(pdfPath, testMode = false) {
       steps: steps
     };
   } catch (error) {
-    console.error('❌ Error in PDF processing pipeline:', error);
     steps.push({
       step: error.step || 'unknown',
       success: false,

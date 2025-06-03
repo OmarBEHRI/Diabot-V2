@@ -63,24 +63,19 @@ export default function ProfilePage() {
         setRagSourceCount(settings.rag_source_count || 10);
         setDefaultModelId(settings.default_model ? settings.default_model.id.toString() : undefined);
       } else {
-        console.error("Error loading user settings: Invalid data structure received", settings);
         toast.error("Failed to load settings: Invalid data received from server.");
         if (user) {
-          setUsername(user.username || ""); // Fallback to existing user data
+          setUsername(user.username || ""); 
         }
       }
     } catch (error: any) {
-      console.error("Error loading user settings: Full error object:", JSON.stringify(error, null, 2));
       let errorMessage = "Failed to load user settings.";
       if (error.response) {
         errorMessage = `Failed to load settings: ${error.response.data?.error || error.response.statusText || 'Server error'}`;
-        console.error(`Server responded with ${error.response.status}:`, error.response.data);
       } else if (error.request) {
         errorMessage = "Failed to load settings: No response from server.";
-        console.error("No response received:", error.request);
       } else {
         errorMessage = `Failed to load settings: ${error.message}`;
-        console.error("Error setting up request:", error.message);
       }
       toast.error(errorMessage);
       if (user) {
@@ -97,7 +92,7 @@ export default function ProfilePage() {
       toast.error("New passwords don't match.");
       return;
     }
-    setErrorMessage(""); // Clear error message
+    setErrorMessage(""); 
 
     setIsSaving(true);
 
@@ -121,11 +116,10 @@ export default function ProfilePage() {
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
-      if (user && user.username !== username) { // If username changed, update context (optional, depends on useAuth implementation)
+      if (user && user.username !== username) { 
         // Potentially call a method from useAuth to update user context if username is part of it
       }
     } catch (error: any) {
-      console.error("Error updating profile:", error);
       toast.error(error.response?.data?.error || "Failed to update profile");
     } finally {
       setIsSaving(false);
@@ -142,7 +136,6 @@ export default function ProfilePage() {
       );
       toast.success("Default model updated");
     } catch (error) {
-      console.error("Error setting default model:", error);
       toast.error("Failed to update default model");
     }
   };
@@ -160,7 +153,6 @@ export default function ProfilePage() {
       );
       toast.success("RAG sources count updated");
     } catch (error) {
-      console.error("Error setting RAG sources count:", error);
       toast.error("Failed to update RAG sources count");
     }
   };
@@ -174,7 +166,6 @@ export default function ProfilePage() {
         });
         toast.success(`Deleted ${response.data.count} chat sessions`);
       } catch (error) {
-        console.error("Error deleting chat history:", error);
         toast.error("Failed to delete chat history");
       } finally {
         setIsDeletingHistory(false);
@@ -191,7 +182,6 @@ export default function ProfilePage() {
         });
         toast.success("ChromaDB context cleared successfully");
       } catch (error) {
-        console.error("Error clearing ChromaDB:", error);
         toast.error("Failed to clear ChromaDB context");
       } finally {
         setIsDeletingContext(false);

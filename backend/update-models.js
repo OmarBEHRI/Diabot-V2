@@ -3,21 +3,18 @@ import { getDb } from './db.js';
 // Get database connection
 const db = getDb();
 
-console.log('🔄 Updating models in the database...');
+// console.log removed ('🔄 Updating models in the database...');
 
 // 1. Remove outdated models (Claude Instant and Mistral 7B)
 try {
-  const deleteResult = db.prepare('DELETE FROM models WHERE openrouter_id LIKE ? OR openrouter_id LIKE ?')
+  db.prepare('DELETE FROM models WHERE openrouter_id LIKE ? OR openrouter_id LIKE ?')
     .run('%claude-instant%', '%mistral-7b-instruct%');
-  
-  console.log(`✅ Removed ${deleteResult.changes} outdated models`);
 } catch (error) {
-  console.error('❌ Error removing outdated models:', error);
+  console.error('Error removing outdated models:', error);
 }
 
-// 2. Add updated models
+// Add updated models
 try {
-  // Add newer models to replace the removed ones
   const newModels = [
     {
       openrouter_id: 'anthropic/claude-3-haiku',
@@ -46,21 +43,16 @@ try {
       model.description
     );
   }
-  
-  console.log(`✅ Added ${newModels.length} new models`);
 } catch (error) {
-  console.error('❌ Error adding new models:', error);
+  console.error('Error adding new models:', error);
 }
 
-// 3. List all current models for verification
+// List all current models for verification
 try {
   const currentModels = db.prepare('SELECT * FROM models').all();
-  console.log('📋 Current models in database:');
   currentModels.forEach(model => {
     console.log(`- ${model.id}: ${model.display_name} (${model.openrouter_id})`);
   });
 } catch (error) {
-  console.error('❌ Error listing current models:', error);
+  console.error('Error listing current models:', error);
 }
-
-console.log('✅ Model update completed');

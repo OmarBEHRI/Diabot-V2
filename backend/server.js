@@ -1,3 +1,14 @@
+/**
+ * Diabot Backend Server
+ * 
+ * Main Express server that initializes and coordinates all backend services:
+ * - Database connection and initialization
+ * - RAG system and ChromaDB integration
+ * - API routes for authentication, chat, models, topics, and knowledge management
+ * - CORS configuration and middleware setup
+ * - Static file serving and error handling
+ */
+
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -56,13 +67,10 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Diabot API' });
 });
 
-// Error handling middleware
 app.use((err, req, res, next) => {
-  console.error('Error:', err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`)
 });

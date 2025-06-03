@@ -1,5 +1,15 @@
 "use client"
 
+/**
+ * Navigation Bar Component
+ * 
+ * Provides the main navigation interface for authenticated users:
+ * - Displays navigation links to main application sections (Home, Chat, Knowledge Base)
+ * - Shows user dropdown menu with profile and logout options
+ * - Highlights the currently active route
+ * - Responsive design that adapts to different screen sizes
+ */
+
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
 import { Button } from "@/components/ui/button"

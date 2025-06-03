@@ -1,9 +1,20 @@
 "use client"
 
+/**
+ * ChatContext
+ * 
+ * Provides global state management for chat functionality throughout the application.
+ * Handles chat sessions, messages, models, topics, and all related operations including:
+ * - Session creation and management
+ * - Message sending and receiving
+ * - Model and topic selection
+ * - RAG context integration
+ */
+
 import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 import { chatAPI, modelsAPI, topicsAPI } from "../lib/api"
-import { useAuth } from "./AuthContext" // Import useAuth
+import { useAuth } from "./AuthContext"
 import { getModelAccuracy, shouldExcludeModel } from "../lib/modelAccuracyUtils"
 
 interface SourceDocument {
@@ -89,77 +100,63 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [isInitializing, setIsInitializing] = useState(false)
   const [needsInitialSession, setNeedsInitialSession] = useState(true)
 
-  // Function to start a new chat
   const startNewChat = () => {
     setCurrentSession(null)
     setMessages([])
-    // Keep selectedModel and selectedTopic as they are, user wants defaults
   }
 
-  // Load models from API
   const loadModels = async () => {
     setIsLoadingModels(true)
     try {
       const modelsData = await modelsAPI.getModels()
       
-      // Filter out excluded models and update accuracies from benchmark results
       const filteredModels = modelsData
         .filter((model: Model) => !shouldExcludeModel(model.openrouter_id, model.id))
         .map((model: Model) => ({
           ...model,
-          // Update accuracy_rag with benchmark results
           accuracy_rag: getModelAccuracy(model.openrouter_id)
         }))
       
       setModels(filteredModels)
       
-      // If no model is selected yet, select the first one
       if (!selectedModel && filteredModels.length > 0) {
         setSelectedModel(filteredModels[0])
       }
     } catch (error) {
-      console.error("Error loading models:", error)
-      // Do not re-throw, allow other loads to proceed
+      // Error handling silently fails to allow other loads to proceed
     } finally {
       setIsLoadingModels(false)
     }
   }
 
-  // Load topics from API
   const loadTopics = async () => {
     setIsLoadingTopics(true)
     try {
       const topicsData = await topicsAPI.getTopics()
       setTopics(topicsData)
     } catch (error) {
-      console.error("Error loading topics:", error)
-      // Do not re-throw, allow other loads to proceed
+      // Error handling silently fails to allow other loads to proceed
     } finally {
       setIsLoadingTopics(false)
     }
   }
 
-  // Load chat sessions from API
   const loadSessions = async () => {
     try {
       const sessionsData = await chatAPI.getSessions()
       setSessions(sessionsData)
     } catch (error) {
-      console.error("Error loading sessions:", error)
-      // Do not re-throw, allow other loads to proceed
+      // Error handling silently fails to allow other loads to proceed
     }
   }
 
-  // Load initial data only if user is authenticated and auth is not loading
   useEffect(() => {
     if (user && !isAuthLoading) {
       loadModels()
       loadTopics()
       loadSessions()
-      // Reset needsInitialSession to true when user loads
       setNeedsInitialSession(true)
     } else if (!user && !isAuthLoading) {
-      // If not authenticated and auth is done loading, clear chat data
       setSessions([])
       setCurrentSession(null)
       setMessages([])
@@ -169,12 +166,10 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setSelectedTopic(null)
       setNeedsInitialSession(true)
     }
-  }, [user, isAuthLoading]) // Depend on user and isAuthLoading
+  }, [user, isAuthLoading])
 
-  // Set default model (Llama 3.1 8B) and topic if not already set after loading
   useEffect(() => {
     if (models.length > 0 && !selectedModel) {
-      // Find Llama 3.1 8B model or use the first model that's not Mistral 7B or Claude Instant
       const llama31Model = models.find(m => 
         m.display_name.includes("Llama 3.1 8B") || 
         m.openrouter_id === "meta-llama/llama-3.1-8b-instruct"
@@ -183,7 +178,6 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       if (llama31Model) {
         setSelectedModel(llama31Model);
       } else {
-        // Find a model that's not Mistral 7B or Claude Instant
         const defaultModel = models.find(m => 
           !m.display_name.toLowerCase().includes("mistral 7b") && 
           !m.display_name.toLowerCase().includes("claude instant")
@@ -196,38 +190,26 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     if (topics.length > 0 && !selectedTopic) {
       setSelectedTopic(topics[0]);
     }
-  }, [models, topics, selectedModel, selectedTopic]); // Depend on models, topics, and selected states
+  }, [models, topics, selectedModel, selectedTopic]);
 
-  const createNewSession = async (initialMessage?: string) => { // Make initialMessage optional
-    console.log('🔄 Starting createNewSession with initialMessage:', initialMessage ? `"${initialMessage.substring(0, 30)}${initialMessage.length > 30 ? '...' : ''}"` : 'undefined');
-    
+  const createNewSession = async (initialMessage?: string) => {
     if (!selectedModel || !selectedTopic) {
-      console.error("❌ Cannot create session: Model or Topic not selected.");
       return;
     }
     
-    console.log(`📋 Using model: ${selectedModel.display_name}, topic: ${selectedTopic.name}`);
-    
-    // Check if we already have a temporary user message in the UI
     const existingTempUserMessage = messages.find(msg => msg.role === 'user' && msg.id.startsWith('temp-'));
     
-    // Only set loading if not already set by sendMessage
     if (!isLoading) {
       setIsLoading(true);
     }
     
     try {
-      console.log('🌐 Calling API to create new session...');
       const response = await chatAPI.createSession(
         selectedModel.id,
         selectedTopic.id,
-        initialMessage || "" // Pass empty string if initialMessage is undefined
+        initialMessage || ""
       )
       
-      console.log('✅ Session created successfully with response:', response);
-      console.log(`📝 Generated title: "${response.title}"`);
-      
-      // Convert backend messages to frontend format
       const convertedMessages = response.messages.map((msg: any) => ({
         id: msg.id.toString(),
         content: msg.content,
@@ -241,30 +223,23 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           score: typeof s.score === 'string' ? parseFloat(s.score) : s.score
         })) : undefined
       }))
-      
-      console.log(`📨 Converted ${convertedMessages.length} messages from the response`);
 
       const newSession: ChatSession = {
-        id: response.session_id, // Use session_id from response
-        title: response.title, // Use title from response
+        id: response.session_id,
+        title: response.title,
         messages: convertedMessages,
-        model_id: selectedModel.id, // Use selectedModel.id
-        topic_id: selectedTopic.id, // Use selectedTopic.id
-        created_at: new Date().toISOString() // Use current time for created_at
+        model_id: selectedModel.id,
+        topic_id: selectedTopic.id,
+        created_at: new Date().toISOString()
       }
 
-      console.log('📊 Created new session object:', newSession);
       setSessions(prev => [newSession, ...prev])
       setCurrentSession(newSession)
-      
-      // If we already have a temporary user message in the UI, replace all messages with the API response
-      // Otherwise, set messages to the API response
       setMessages(convertedMessages)
       
-      console.log('✅ State updated with new session');
-      return newSession; // Return the created session for chaining
+      return newSession;
     } catch (error) {
-      console.error("❌ Error creating session:", error)
+      // console.error removed ("❌ Error creating session:", error)
       throw error
     } finally {
       setIsLoading(false)
@@ -287,15 +262,15 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
               // If the last session is empty, just set it as current
               setCurrentSession(lastSession);
               setMessages([]);
-              console.log('Set last empty session as current session.');
+              // console.log removed ('Set last empty session as current session.');
               return;
             }
           }
           // Otherwise, create a new session
-          console.log('Automatically creating a new session on chat page load');
+          // console.log removed ('Automatically creating a new session on chat page load');
           await createNewSession();
         } catch (error) {
-          console.error('Error creating initial session:', error);
+          // console.error removed ('Error creating initial session:', error);
           setNeedsInitialSession(true);
         } finally {
           setIsInitializing(false);
@@ -322,7 +297,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setMessages(convertedMessages)
       }
     } catch (error) {
-      console.error("Error selecting session:", error)
+      // console.error removed ("Error selecting session:", error)
     }
   }
 
@@ -344,7 +319,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       
       // If no active session, create a new one first
       if (!currentSession) {
-        console.log("No active session, creating a new one before sending message");
+        // console.log removed ("No active session, creating a new one before sending message");
         try {
           const newSession = await createNewSession(content);
           if (newSession) {
@@ -354,7 +329,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           }
           // If createNewSession didn't return a session (unlikely), continue with normal flow
         } catch (error) {
-          console.error("Error creating session:", error);
+          // console.error removed ("Error creating session:", error);
           // Remove the temporary user message on error
           if (userMessage) {
             setMessages(prev => prev.filter(msg => msg.id !== userMessage!.id));
@@ -368,7 +343,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         throw new Error("Current session is null, cannot send message");
       }
       
-      console.log(`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
+      // console.log removed (`Sending message to session ${currentSession.id} with model_id: ${currentSession.model_id}, topic_id: ${currentSession.topic_id}`);
       const response = await chatAPI.sendMessage(
         currentSession.id, 
         content,
@@ -376,7 +351,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         currentSession.topic_id
       );
       
-      console.log('API Response:', response); // Debug log
+      // console.log removed ('API Response:', response); // Debug log
       
       // Convert backend messages to frontend format
       const convertedMessages = response.messages.map((msg: any) => {
@@ -391,13 +366,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           // Make sure sources are in the correct format
           processedSources = Array.isArray(msg.sources) ? msg.sources : [msg.sources];
           
-          console.log('Raw sources from API:', JSON.stringify(processedSources, null, 2));
+          // console.log removed ('Raw sources from API:', JSON.stringify(processedSources, null, 2));
           
           // Log each source's preview and text fields to diagnose the issue
           processedSources.forEach((source: any, index: number) => {
-            console.log(`Source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
-            console.log(`Source ${index} - text:`, source.text?.substring(0, 50) + '...');
-            console.log(`Source ${index} - full_text:`, source.full_text?.substring(0, 50) + '...');
+            // console.log removed (`Source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
+            // console.log removed (`Source ${index} - text:`, source.text?.substring(0, 50) + '...');
+            // console.log removed (`Source ${index} - full_text:`, source.full_text?.substring(0, 50) + '...');
           });
           
           // Ensure each source has the required properties
@@ -418,10 +393,10 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           });
           
           // Log processed sources after transformation
-          console.log('Processed sources after transformation:');
+          // console.log removed ('Processed sources after transformation:');
           processedSources.forEach((source: any, index: number) => {
-            console.log(`Processed source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
-            console.log(`Processed source ${index} - text:`, source.text?.substring(0, 50) + '...');
+            // console.log removed (`Processed source ${index} - preview:`, source.preview?.substring(0, 50) + '...');
+            // console.log removed (`Processed source ${index} - text:`, source.text?.substring(0, 50) + '...');
           });
         }
         
@@ -435,8 +410,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         };
       });
 
-      console.log(`Processed ${convertedMessages.length} messages with sources:`, 
-        convertedMessages.find((m: Message) => m.role === 'assistant')?.sources || 'none');
+      // Processed message sources information removed
       
       // Update messages with a new array reference to ensure React detects the change
       setMessages([...convertedMessages]);
@@ -448,7 +422,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       
       // Update the session title if it was a placeholder
       if (response.title && currentSession && response.title !== currentSession.title) {
-        console.log(`Updating session title to: ${response.title}`);
+        // console.log removed (`Updating session title to: ${response.title}`);
         setCurrentSession(prev => prev ? { ...prev, title: response.title } : null);
         setSessions(prev => 
           prev.map(s => 
@@ -459,7 +433,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         );
       }
     } catch (error) {
-      console.error("Error sending message:", error);
+      // console.error removed ("Error sending message:", error);
       // Remove the temporary user message on error
       if (userMessage) {
         setMessages(prev => prev.filter(msg => msg.id !== userMessage!.id));
@@ -479,7 +453,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setMessages([]);
       }
     } catch (error) {
-      console.error("Error deleting session:", error);
+      // console.error removed ("Error deleting session:", error);
       throw error;
     }
   };
@@ -496,7 +470,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setNeedsInitialSession(true);
       return;
     } catch (error) {
-      console.error("Error deleting all chat history:", error);
+      // console.error removed ("Error deleting all chat history:", error);
       throw error;
     } finally {
       setIsDeletingAllHistory(false);

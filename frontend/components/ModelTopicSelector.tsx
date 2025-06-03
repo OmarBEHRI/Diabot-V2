@@ -1,5 +1,15 @@
 "use client"
 
+/**
+ * Model and Topic Selector Component
+ * 
+ * Provides UI for selecting AI models and conversation topics:
+ * - Dropdown selection for AI models with accuracy metrics
+ * - Topic selection with search functionality
+ * - Support for creating new topics
+ * - Integration with the latest models including Gemini, GPT, Llama, and more
+ */
+
 import { useState, useRef, useEffect } from "react"
 import { useChat } from "@/context/ChatContext"
 import { Button } from "@/components/ui/button"
@@ -12,7 +22,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Brain, Target, Plus, Check, ChevronsUpDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-// Define the additional models we want to add
+/**
+ * Additional models configuration
+ * These models are added to supplement the models from the backend database
+ */
 const additionalModels = [
   {
     id: 1001,

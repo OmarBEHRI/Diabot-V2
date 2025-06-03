@@ -1,3 +1,14 @@
+"""PDF Processing Script for Diabot RAG System
+
+This script processes diabetes textbooks and medical PDFs for the Diabot knowledge base:
+- Extracts text from PDF documents using PyMuPDF
+- Generates concise summaries using LLaMA 3.3 70B via OpenRouter API
+- Processes documents page by page with checkpointing for resumable operations
+- Supports test mode for faster processing of sample pages
+- Outputs structured summaries for ingestion into the ChromaDB vector database
+- Used by the backend pdfProcessor.js service through PythonShell integration
+"""
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv

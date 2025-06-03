@@ -1,3 +1,13 @@
+/**
+ * Authentication Routes
+ * 
+ * Handles user authentication for the Diabot application:
+ * - User registration with password hashing
+ * - User login with credential verification
+ * - JWT token generation for authenticated sessions
+ * - Error handling for invalid credentials and server errors
+ */
+
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -47,7 +57,6 @@ router.post('/register', async (req, res) => {
       }
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -56,7 +65,6 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  // Simple validation
   if (!username || !password) {
     return res.status(400).json({ error: 'Please enter all fields' });
   }
@@ -64,19 +72,16 @@ router.post('/login', async (req, res) => {
   const db = getDb();
 
   try {
-    // Check if user exists
     const user = db.prepare('SELECT * FROM users WHERE username = ?').get(username);
     if (!user) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
 
-    // Validate password
     const isMatch = await bcrypt.compare(password, user.password_hash);
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
 
-    // Create JWT token
     const token = jwt.sign(
       { user: { id: user.id } },
       JWT_SECRET,
@@ -91,7 +96,6 @@ router.post('/login', async (req, res) => {
       }
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 });

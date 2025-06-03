@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Chat Window Component
+ * 
+ * Displays the chat conversation between the user and the AI assistant.
+ * Features include:
+ * - Message grouping by date
+ * - Automatic scrolling to the latest message
+ * - Loading states and empty state handling
+ * - Integration with the Diabot logo for branding
+ */
+
 import { useChat } from "@/context/ChatContext"
 import { useEffect, useRef, useMemo } from "react"
 import Message, { type MessageProps } from "./Message"

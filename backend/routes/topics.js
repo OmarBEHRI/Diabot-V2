@@ -1,3 +1,12 @@
+/**
+ * Topics API Routes
+ * 
+ * Handles API endpoints for accessing diabetes-related topic information:
+ * - Provides a list of all available conversation topics
+ * - Supports retrieving specific topic details by ID
+ * - Each topic includes RAG filter keywords for targeted knowledge retrieval
+ */
+
 import express from 'express';
 import { getDb } from '../db.js';
 
@@ -10,7 +19,6 @@ router.get('/', (req, res) => {
     const topics = db.prepare('SELECT * FROM topics').all();
     res.json(topics);
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -25,7 +33,6 @@ router.get('/:id', (req, res) => {
     }
     res.json(topic);
   } catch (err) {
-    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 });

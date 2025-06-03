@@ -1,3 +1,13 @@
+/**
+ * Services Initialization Module
+ * 
+ * Handles the initialization of all backend services on application startup:
+ * - Creates necessary data directories for uploads and summaries
+ * - Initializes the RAG system with ChromaDB integration
+ * - Provides graceful error handling for service initialization failures
+ * - Ensures the application can start even if some services fail to initialize
+ */
+
 import { initRag } from './services/rag.js';
 import path from 'path';
 import fs from 'fs';

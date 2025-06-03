@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Sidebar Component
+ * 
+ * Provides navigation and management for chat sessions, including:
+ * - List of existing chat sessions with timestamps
+ * - New chat creation button
+ * - Session search functionality
+ * - Session deletion (individual and bulk)
+ * - Integration with the Diabot logo for branding
+ */
+
 import { useChat } from "@/context/ChatContext"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"

@@ -1,3 +1,14 @@
+/**
+ * User Settings API Routes
+ * 
+ * Handles user preferences and application settings:
+ * - Manages user profile information and credentials
+ * - Controls default AI model selection for chat sessions
+ * - Configures RAG system parameters (source count, etc.)
+ * - Implements secure password updating with verification
+ * - All routes are protected by authentication middleware
+ */
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -41,7 +52,6 @@ router.get('/', async (req, res) => {
       rag_source_count: user.rag_source_count || 10
     });
   } catch (err) {
-    console.error('Error fetching user settings:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -117,7 +127,6 @@ router.put('/', async (req, res) => {
       message: 'User settings updated successfully'
     });
   } catch (err) {
-    console.error('Error updating user settings:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -149,7 +158,6 @@ router.put('/default-model', (req, res) => {
       message: 'Default model updated successfully'
     });
   } catch (err) {
-    console.error('Error setting default model:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -177,7 +185,6 @@ router.put('/rag-sources', (req, res) => {
       message: 'RAG source count updated successfully'
     });
   } catch (err) {
-    console.error('Error setting RAG source count:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -221,7 +228,6 @@ router.delete('/chat-history', (req, res) => {
       throw err;
     }
   } catch (err) {
-    console.error('Error deleting chat history:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -229,8 +235,6 @@ router.delete('/chat-history', (req, res) => {
 // Clear ChromaDB context (empty the collection)
 router.delete('/chromadb', async (req, res) => {
   try {
-    console.log('Attempting to clear ChromaDB collection...');
-    
     // Connect to ChromaDB
     const client = new ChromaClient({ path: 'http://localhost:8000' });
     
@@ -238,22 +242,18 @@ router.delete('/chromadb', async (req, res) => {
     try {
       // Try to delete the collection
       await client.deleteCollection({ name: 'diabetes_knowledge' });
-      console.log('Collection deleted successfully');
       
       // Recreate the collection
       await client.createCollection({ name: 'diabetes_knowledge' });
-      console.log('Collection recreated successfully');
       
       res.json({
         success: true,
         message: 'ChromaDB context cleared successfully'
       });
     } catch (err) {
-      console.error('Error clearing ChromaDB collection:', err);
       res.status(500).json({ error: 'Failed to clear ChromaDB: ' + err.message });
     }
   } catch (err) {
-    console.error('Error connecting to ChromaDB:', err);
     res.status(500).json({ error: 'Failed to connect to ChromaDB: ' + err.message });
   }
 });

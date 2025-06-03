@@ -1,9 +1,15 @@
 "use client"
 
+/**
+ * Chat Route Page
+ * 
+ * Main chat interface route that handles authentication checking and redirects.
+ * Displays the chat interface for authenticated users or redirects to login page.
+ */
+
 import { useAuth } from "@/context/AuthContext"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
-import AuthPage from "@/components/AuthPage"
 import ChatPage from "@/components/ChatPage"
 
 export default function ChatRoute() {

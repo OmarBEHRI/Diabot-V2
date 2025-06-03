@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Home Page Component
+ * 
+ * Serves as the main landing page with the following sections:
+ * - Hero section with Diabot logo and call-to-action buttons
+ * - Features overview highlighting key capabilities
+ * - About section explaining the application's purpose
+ * - Footer with navigation links and resources
+ * - Responsive design for all device sizes
+ */
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle, Shield, Database, BookOpen, Heart } from 'lucide-react';

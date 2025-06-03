@@ -1,9 +1,20 @@
 "use client"
 
+/**
+ * Authentication Page Component
+ * 
+ * Provides user interface for authentication with the following features:
+ * - Tabbed interface for login and registration
+ * - Form validation and error handling
+ * - Success notifications via toast messages
+ * - Automatic redirection after successful authentication
+ * - Integration with the Diabot logo for branding
+ */
+
 import type React from "react"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation" // Import useRouter
+import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,7 +22,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
 import { Heart, Shield, Stethoscope } from "lucide-react"
-import { useToast } from "@/components/ui/use-toast" // Import useToast
+import { useToast } from "@/components/ui/use-toast"
 
 export default function AuthPage() {
   const { login, register, isLoading } = useAuth()

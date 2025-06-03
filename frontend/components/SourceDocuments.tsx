@@ -1,9 +1,16 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { Button } from "./ui/button";
+/**
+ * SourceDocuments Component
+ * 
+ * Displays and manages source documents retrieved from RAG context in chat responses.
+ * Provides a list view of sources with relevance scores and a modal dialog for viewing
+ * the full content of each source document.
+ */
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
-import { FileText, X } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { FileText } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { cn } from "@/lib/utils";
 import { chatAPI } from "@/lib/api";
 
@@ -32,83 +39,43 @@ export function SourceDocuments({ sources, className = "" }: SourceDocumentsProp
   const [processedSources, setProcessedSources] = useState<SourceDocument[]>([]);
   const [fullTextContent, setFullTextContent] = useState<string | null>(null);
 
-  // Process sources when they change
-  useEffect(() => {
-    console.log('SourceDocuments received sources:', sources);
-    
+  useEffect(() => {    
     if (!sources) {
-      console.log('No sources provided');
       setProcessedSources([]);
       return;
     }
     
     if (Array.isArray(sources)) {
-      console.log(`Sources is an array with ${sources.length} items`);
-      console.log('Sources array contents:', JSON.stringify(sources, null, 2));
-      // Use the sources as-is without modifications
       setProcessedSources(sources);
       return;
     }
     
     try {
-      console.log('Parsing sources from string:', sources);
       const parsed = JSON.parse(sources);
-      console.log('Successfully parsed sources:', parsed);
-      // Set the parsed sources
       setProcessedSources(Array.isArray(parsed) ? parsed : [parsed]);
     } catch (e) {
-      console.error('Error parsing sources:', e);
-      console.error('Source string that failed to parse:', sources);
       setProcessedSources([]);
     }
   }, [sources]);
 
-  // Log when sources are ready
-  useEffect(() => {
-    if (processedSources && processedSources.length > 0) {
-      console.log('Sources are processed and ready to display:', processedSources.length);
-      console.log('Processed sources details:', processedSources);
-    }
-  }, [processedSources]);
-
   // Reset full text content when dialog closes
   useEffect(() => {
     if (!isDialogOpen) {
-      console.log('Dialog closed, resetting fullTextContent');
       setFullTextContent(null);
-    } else {
-      console.log('Dialog opened, current fullTextContent:', fullTextContent);
     }
   }, [isDialogOpen]);
 
-  // Memoized handler for source click
   const handleSourceClick = useCallback((source: SourceDocument) => {
-    console.log('Source clicked:', source);
     setSelectedSource(source);
     setIsDialogOpen(true);
     
-    // Log the available content for debugging
-    console.log('Source content available:', {
-      preview: source.preview ? `${source.preview.substring(0, 50)}...` : 'undefined',
-      text: source.text ? `${source.text.substring(0, 50)}...` : 'undefined'
-    });
-    
-    // Directly use the text field since we now have proper full text from the backend
     const content = source.text || source.preview || 'Full text not available';
-    console.log('Setting fullTextContent to:', content);
     setFullTextContent(content);
   }, []);
 
-  useEffect(() => {
-    console.log('fullTextContent updated:', fullTextContent);
-  }, [fullTextContent]);
-
   if (!processedSources || processedSources.length === 0) {
-    console.log('No processed sources to display, returning null');
     return null;
   }
-
-  console.log('Rendering SourceDocuments with', processedSources.length, 'sources');
   
   return (
     <div className={cn("mt-4", className)}>

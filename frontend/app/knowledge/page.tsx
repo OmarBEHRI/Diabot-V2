@@ -1,5 +1,16 @@
 'use client';
 
+/**
+ * Knowledge Management Page
+ * 
+ * Provides a user interface for managing the knowledge base used by the RAG system.
+ * Features include:
+ * - Uploading and processing PDF documents
+ * - Viewing and managing existing documents in the knowledge base
+ * - Monitoring document processing status
+ * - Deleting documents from the knowledge base
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
@@ -49,6 +60,7 @@ export default function KnowledgePage() {
     steps: []
   });
   const [processingStatus, setProcessingStatus] = useState<{progress: number, currentStep: string} | null>(null);
+  const [currentProcessingFilename, setCurrentProcessingFilename] = useState<string | null>(null); // To store the filename used for polling
   const [showDeleteAllConfirm, setShowDeleteAllConfirm] = useState(false);
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
   
@@ -80,7 +92,7 @@ export default function KnowledgePage() {
         setProcessedFiles(response.data.files);
       }
     } catch (error) {
-      console.error('Error fetching processed files:', error);
+      // console.error removed ('Error fetching processed files:', error);
     }
   };
 
@@ -96,8 +108,9 @@ export default function KnowledgePage() {
   };
 
   // Function to poll for processing status
-  const pollProcessingStatus = async (filename: string) => {
+  const pollProcessingStatus = async (filename: string, pollCount = 0) => {
     try {
+      // First try the regular processing status endpoint
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/api/rag/processing-status/${filename}`,
         {
@@ -106,6 +119,8 @@ export default function KnowledgePage() {
           }
         }
       );
+      
+      // console.log removed (`Poll #${pollCount}: Processing status response:`, response.data);
       
       if (response.data.success) {
         const { status, progress, currentStep } = response.data;
@@ -119,35 +134,108 @@ export default function KnowledgePage() {
         // Calculate overall progress (30% for upload + 70% for processing)
         const overallProgress = 30 + (progress * 0.7);
         
-        setUploadStatus(prev => ({
-          ...prev,
-          progress: Math.min(99, overallProgress), // Cap at 99% until complete
-          message: currentStep || 'Processing document...'
-        }));
-        
-        // Continue polling if still processing
-        if (status === 'processing') {
-          setTimeout(() => pollProcessingStatus(filename), 2000);
-        } else if (status === 'completed') {
+        if (status === 'completed') {
+          // console.log removed ('Processing completed according to status endpoint');
           // Processing completed
-          setUploadStatus(prev => ({
-            ...prev,
+          setUploadStatus({
             status: 'success',
             message: 'PDF processed successfully and added to knowledge base',
-            progress: 100
-          }));
+            progress: 100,
+            steps: []
+          });
           
           // Reset processing status
           setProcessingStatus(null);
           
           // Refresh the file list
           fetchProcessedFiles();
+          
+          // Stop polling
+          return;
+        } else if (status === 'failed') {
+          // console.log removed ('Processing failed according to status endpoint');
+          // Processing failed
+          setUploadStatus({
+            status: 'error',
+            message: response.data.error || 'Processing failed',
+            progress: 0,
+            steps: []
+          });
+          
+          // Reset processing status
+          setProcessingStatus(null);
+          
+          // Stop polling
+          return;
+        } else {
+          // Still processing according to status endpoint
+          setUploadStatus(prev => ({
+            ...prev,
+            progress: Math.min(99, overallProgress), // Cap at 99% until complete
+            message: currentStep || 'Processing document...'
+          }));
+          
+          // Check if we should use the fallback method
+          if (pollCount > 5) { // After 5 polls (10 seconds), start using the fallback as well
+            checkFileProcessedFallback(filename, pollCount);
+          } else {
+            // Continue polling
+            setTimeout(() => pollProcessingStatus(filename, pollCount + 1), 2000);
+          }
         }
+      } else {
+        // If response is not successful, try the fallback
+        checkFileProcessedFallback(filename, pollCount);
       }
     } catch (error) {
-      console.error('Error polling processing status:', error);
-      // Continue polling even if there's an error
-      setTimeout(() => pollProcessingStatus(filename), 3000);
+      // console.error removed ('Error polling processing status:', error);
+      // Try the fallback method
+      checkFileProcessedFallback(filename, pollCount);
+    }
+  };
+  
+  // Fallback method to check if file has been processed by checking if the text file exists
+  const checkFileProcessedFallback = async (filename: string, pollCount: number) => {
+    try {
+      // console.log removed (`Using fallback check for ${filename} (poll #${pollCount})`);
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/rag/check-file-processed/${filename}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      );
+      
+      // console.log removed ('Fallback check response:', response.data);
+      
+      if (response.data.success && response.data.processed) {
+        // File has been processed according to the filesystem check
+        // console.log removed ('Processing completed according to filesystem check');
+        
+        setUploadStatus({
+          status: 'success',
+          message: 'PDF processed successfully and added to knowledge base',
+          progress: 100,
+          steps: []
+        });
+        
+        // Reset processing status
+        setProcessingStatus(null);
+        
+        // Refresh the file list
+        fetchProcessedFiles();
+        
+        // Stop polling
+        return;
+      } else {
+        // File not processed yet, continue polling
+        setTimeout(() => pollProcessingStatus(filename, pollCount + 1), 2000);
+      }
+    } catch (error) {
+      // console.error removed ('Error checking file processed status:', error);
+      // Continue polling with the main method
+      setTimeout(() => pollProcessingStatus(filename, pollCount + 1), 3000);
     }
   };
 
@@ -194,17 +282,14 @@ export default function KnowledgePage() {
         progress: 50
       }));
       
-      // Start polling for processing status if we have a filename
+      // Start polling for processing status using the filename returned by the backend
       if (response.data.filename) {
-        pollProcessingStatus(response.data.uploadedFilename || response.data.filename);
+        setCurrentProcessingFilename(response.data.filename);
+        pollProcessingStatus(response.data.filename);
       } else {
-        // If no filename, just show success
-        setUploadStatus({
-          status: 'success',
-          message: response.data.message,
-          progress: 100,
-          steps: response.data.steps || []
-        });
+        // Fallback if backend doesn't return filename (should not happen with backend changes)
+        console.error('Backend did not return a filename for polling.');
+        pollProcessingStatus(selectedFile.name); 
       }
 
       // Reset file selection
@@ -214,7 +299,7 @@ export default function KnowledgePage() {
       const fileInput = document.getElementById('pdf-upload') as HTMLInputElement;
       if (fileInput) fileInput.value = '';
     } catch (error: any) {
-      console.error('Error uploading file:', error);
+      // console.error removed ('Error uploading file:', error);
       setUploadStatus({
         status: 'error',
         message: error.response?.data?.message || 'Error uploading file',
@@ -237,7 +322,7 @@ export default function KnowledgePage() {
         // Refresh the list
         fetchProcessedFiles();
       } catch (error) {
-        console.error('Error deleting file:', error);
+        // console.error removed ('Error deleting file:', error);
         alert('Error deleting file');
       }
     }
@@ -563,7 +648,7 @@ export default function KnowledgePage() {
                       alert('All knowledge documents have been deleted successfully.');
                     }
                   } catch (error) {
-                    console.error('Error deleting all documents:', error);
+                    // console.error removed ('Error deleting all documents:', error);
                     alert('Failed to delete all documents. Please try again.');
                   }
                 }}

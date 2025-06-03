@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Sidebar UI Component
+ * 
+ * A reusable, collapsible sidebar component with responsive behavior:
+ * - Supports expanded and collapsed states with persistent state via cookies
+ * - Provides mobile-friendly drawer interface on smaller screens
+ * - Includes keyboard shortcuts for toggling sidebar visibility
+ * - Features customizable navigation items, groups, and sections
+ * - Supports active state indicators for navigation items
+ */
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"

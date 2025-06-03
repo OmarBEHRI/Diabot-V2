@@ -1,3 +1,14 @@
+/**
+ * Local Embeddings Service
+ * 
+ * Provides text embedding generation using locally-hosted models:
+ * - Uses Xenova/transformers.js to run ONNX models in Node.js
+ * - Implements the BGE-large-en-v1.5 embedding model (1024 dimensions)
+ * - Manages model downloading, caching, and initialization
+ * - Serves as a fallback when OpenRouter API is unavailable
+ * - Supports the RAG system with semantic text embeddings
+ */
+
 import { pipeline } from '@xenova/transformers';
 import fs from 'fs';
 import path from 'path';
@@ -11,7 +22,7 @@ const __dirname = path.dirname(__filename);
 const modelsDir = path.join(__dirname, '..', '..', 'models');
 if (!fs.existsSync(modelsDir)) {
     fs.mkdirSync(modelsDir, { recursive: true });
-    console.log(`📁 Created models directory at: ${modelsDir}`);
+    // console.log removed (`📁 Created models directory at: ${modelsDir}`);
 }
 
 class LocalEmbedder {
@@ -31,7 +42,7 @@ class LocalEmbedder {
             return this.initPromise;
         }
 
-        console.log(`🔄 Initializing local embedding model: ${this.modelName}`);
+        // console.log removed (`🔄 Initializing local embedding model: ${this.modelName}`);
         this.initializing = true;
         
         // Create a promise that will resolve when initialization is complete
@@ -41,9 +52,9 @@ class LocalEmbedder {
                 const modelExists = fs.existsSync(path.join(this.modelPath, 'config.json'));
                 
                 if (modelExists) {
-                    console.log('📦 Using locally cached model');
+                    // console.log removed ('📦 Using locally cached model');
                 } else {
-                    console.log('📥 Model not found, downloading... (this may take a while, ~1.3GB)');
+                    // console.log removed ('📥 Model not found, downloading... (this may take a while, ~1.3GB)');
                     fs.mkdirSync(this.modelPath, { recursive: true });
                 }
                 
@@ -56,11 +67,9 @@ class LocalEmbedder {
                 
                 this.initialized = true;
                 this.initializing = false;
-                console.log('✅ Local embedding model loaded successfully');
                 return true;
                 
             } catch (error) {
-                console.error('❌ Error loading embedding model:', error);
                 this.initializing = false;
                 throw error;
             }
@@ -85,7 +94,6 @@ class LocalEmbedder {
             }
             
             // Generate the embedding
-            console.log(`🔍 Generating embedding for text: ${text.substring(0, 50)}...`);
             const output = await this.model(text, { 
                 pooling: 'mean', 
                 normalize: true 
@@ -99,13 +107,10 @@ class LocalEmbedder {
                 throw new Error('Generated embedding is empty');
             }
             
-            console.log(`✅ Generated embedding with ${embedding.length} dimensions`);
             return embedding;
             
         } catch (error) {
-            console.error('❌ Error generating embedding:', error);
             // Return a zero vector as fallback to prevent complete failure
-            console.log('⚠️ Using zero vector as fallback embedding');
             return new Array(1024).fill(0);
         }
     }
@@ -118,35 +123,20 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const text = process.argv[2];
     
     if (!text) {
-        console.error('❌ Please provide a text string as an argument');
-        console.log('Usage: node localEmbeddings.js "Your text here"');
         process.exit(1);
     }
 
     (async () => {
         try {
-            console.log(`\n🔍 Testing LocalEmbedder with text: "${text}"`);
-            
             // Initialize the embedder
-            console.log('🔄 Initializing embedder...');
             await LocalEmbedder.initialize();
             
             // Get embeddings
-            console.log('⚙️  Generating embeddings...');
             const startTime = Date.now();
             const embedding = await LocalEmbedder.getEmbedding(text);
             const duration = Date.now() - startTime;
             
-            // Display results
-            console.log('\n✅ Embedding generated successfully!');
-            console.log(`📊 Embedding dimensions: ${embedding.length}`);
-            console.log(`⏱️  Time taken: ${duration}ms`);
-            console.log('\n📝 First 10 dimensions:');
-            console.log(embedding.slice(0, 10).map(x => x.toFixed(6)).join(', '));
-            console.log('\n... and so on for all dimensions');
-            
         } catch (error) {
-            console.error('❌ Test failed:', error);
             process.exit(1);
         }
     })();

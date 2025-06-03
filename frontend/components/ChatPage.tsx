@@ -1,5 +1,17 @@
 "use client"
 
+/**
+ * Chat Page Component
+ * 
+ * Main chat interface that combines all chat-related components:
+ * - Sidebar for session navigation
+ * - Chat window for message display
+ * - Message input for user interactions
+ * - Navigation bar and settings
+ * 
+ * Handles responsive layout switching between desktop and mobile views.
+ */
+
 import { useAuth } from "@/context/AuthContext"
 import { useChat } from "@/context/ChatContext"
 import Sidebar from "./Sidebar"
@@ -26,28 +38,20 @@ export default function ChatPage() {
     sessions
   } = useChat()
   
-  // State for sidebar visibility on mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [isInitializing, setIsInitializing] = useState(false)
   
-  // Check if we're on mobile when component mounts and when window resizes
   useEffect(() => {
     const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768) // 768px is typical md breakpoint
+      setIsMobile(window.innerWidth < 768)
     }
     
-    // Initial check
     checkIsMobile()
-    
-    // Add resize listener
     window.addEventListener('resize', checkIsMobile)
-    
-    // Cleanup
     return () => window.removeEventListener('resize', checkIsMobile)
   }, [])
   
-  // Close sidebar when a session is selected on mobile
   useEffect(() => {
     if (isMobile && currentSession) {
       setIsSidebarOpen(false)

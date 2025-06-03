@@ -1,6 +1,16 @@
 "use client"
 
-// Inspired by react-hot-toast library
+/**
+ * Toast Notification Hook
+ * 
+ * Provides a toast notification system for the Diabot application:
+ * - Displays temporary notifications for user feedback
+ * - Supports different toast types (success, error, info)
+ * - Manages toast queue with automatic dismissal
+ * - Used throughout the application for consistent user notifications
+ * - Inspired by react-hot-toast library
+ */
+
 import * as React from "react"
 
 import type {

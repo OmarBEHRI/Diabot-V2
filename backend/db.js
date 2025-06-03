@@ -1,3 +1,13 @@
+/**
+ * Database Service
+ * 
+ * Provides SQLite database initialization and access for the Diabot application:
+ * - Creates and manages the database schema for users, models, topics, and chat sessions
+ * - Initializes default models and topics for diabetes-related conversations
+ * - Handles database connections and query execution
+ * - Supports the 8 additional AI models (IDs 1001-1008) for enhanced capabilities
+ */
+
 import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
@@ -72,14 +82,14 @@ function initDb() {
 
   // Handle the updated_at column addition with a more robust check
   try {
-    // Check if the column exists
+    // Check if the column exists - use column_count instead of 'exists' which is a reserved keyword
     const columnCheck = db.prepare(`
-      SELECT COUNT(*) as exists 
+      SELECT COUNT(*) as column_count 
       FROM pragma_table_info('chat_sessions') 
       WHERE name = 'updated_at'
     `).get();
     
-    if (!columnCheck.exists) {
+    if (!columnCheck.column_count) {
       // Add the column if it doesn't exist
       db.prepare('ALTER TABLE chat_sessions ADD COLUMN updated_at DATETIME DEFAULT CURRENT_TIMESTAMP').run();
       console.log('✅ Added updated_at column to chat_sessions');

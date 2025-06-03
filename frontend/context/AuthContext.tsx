@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Authentication Context
+ * 
+ * Provides global authentication state and functions throughout the application:
+ * - User authentication (login, register, logout)
+ * - Token management and persistence
+ * - User profile data storage
+ * - Loading state management
+ * - Protected route handling
+ */
+
 import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 import { authAPI } from "../lib/api"

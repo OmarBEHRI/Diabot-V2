@@ -1,3 +1,12 @@
+/**
+ * AI Models API Routes
+ * 
+ * Handles API endpoints for accessing AI model information:
+ * - Provides a list of all available AI models with their metadata
+ * - Supports retrieving specific model details by ID
+ * - Includes the 8 additional models (IDs 1001-1008) for enhanced capabilities
+ */
+
 import express from 'express';
 import { getDb } from '../db.js';
 

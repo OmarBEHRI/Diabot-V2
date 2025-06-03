@@ -1,3 +1,14 @@
+/**
+ * RAG (Retrieval-Augmented Generation) Service
+ * 
+ * Core service for the RAG system that provides:
+ * - ChromaDB integration for vector database storage and retrieval
+ * - Document loading and embedding generation
+ * - Context retrieval for diabetes-related queries
+ * - Fallback search mechanisms when ChromaDB is unavailable
+ * - Source document tracking and metadata management
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -26,7 +37,7 @@ async function initializeChromaDB() {
 
   chromaInitPromise = (async () => {
     try {
-      console.log('🔌 Connecting to ChromaDB server...');
+      // console.log removed ('🔌 Connecting to ChromaDB server...');
       const chromaClient = new ChromaClient({
         path: 'http://localhost:8000',
         fetchOptions: {
@@ -43,10 +54,10 @@ async function initializeChromaDB() {
       
       // Test connection
       await chromaClient.heartbeat();
-      console.log('✅ ChromaDB client connected successfully');
+      // console.log removed ('✅ ChromaDB client connected successfully');
       return { client: chromaClient, isInitialized: true };
     } catch (error) {
-      console.warn('⚠️ Failed to initialize ChromaDB client, will use fallback mode:', error.message);
+      // console.warn removed ('⚠️ Failed to initialize ChromaDB client, will use fallback mode:', error.message);
       return { client: null, isInitialized: false };
     }
   })();
@@ -96,14 +107,14 @@ export async function initRag() {
   try {
     // Load documents regardless of ChromaDB availability
     documents = await loadDocuments();
-    console.log(`Loaded ${documents.length} documents from files`);
+    // console.log removed (`Loaded ${documents.length} documents from files`);
     
     // Try to connect to ChromaDB and initialize collection
     const { client: chromaClient, isInitialized } = await initializeChromaDB();
     
     if (chromaClient && isInitialized) {
       try {
-        console.log('Attempting to connect to ChromaDB...');
+        // console.log removed ('Attempting to connect to ChromaDB...');
         // Set a timeout for the ChromaDB connection attempt
         const connectPromise = (async () => {
           try {
@@ -111,9 +122,9 @@ export async function initRag() {
             let col;
             try {
               col = await chromaClient.getCollection({ name: "summaries_collection" });
-              console.log('Using existing ChromaDB collection: summaries_collection');
+              // console.log removed ('Using existing ChromaDB collection: summaries_collection');
             } catch (e) {
-              console.log('Creating new ChromaDB collection: summaries_collection');
+              // console.log removed ('Creating new ChromaDB collection: summaries_collection');
               col = await chromaClient.createCollection({ 
                 name: "summaries_collection",
                 metadata: { "hnsw:space": "cosine" }
@@ -121,7 +132,7 @@ export async function initRag() {
             }
             return col;
           } catch (err) {
-            console.error('Error getting collection:', err);
+            // console.error removed ('Error getting collection:', err);
             throw err;
           }
         })();
@@ -137,10 +148,10 @@ export async function initRag() {
         
         // Check if collection is empty
         const count = await collection.count();
-        console.log(`Connected to ChromaDB, collection has ${count} documents`);
+        // console.log removed (`Connected to ChromaDB, collection has ${count} documents`);
         
         if (count === 0 && documents.length > 0) {
-          console.log("Collection is empty, loading documents into ChromaDB...");
+          // console.log removed ("Collection is empty, loading documents into ChromaDB...");
           
           // Process documents in batches to avoid API rate limits
           const batchSize = 10;
@@ -156,10 +167,10 @@ export async function initRag() {
             for (const text of texts) {
               try {
                 const embedding = await LocalEmbedder.getEmbedding(text);
-                console.log(`🔄 Using local embedding for text: ${text.substring(0, 30)}...`);
+                // console.log removed (`🔄 Using local embedding for text: ${text.substring(0, 30)}...`);
                 embeddings.push(embedding);
               } catch (error) {
-                console.error(`Error getting embedding for text: ${text.substring(0, 50)}...`);
+                // console.error removed (`Error getting embedding for text: ${text.substring(0, 50)}...`);
                 // Use a placeholder embedding if there's an error
                 embeddings.push(new Array(1536).fill(0));
               }
@@ -175,21 +186,21 @@ export async function initRag() {
               documents: texts
             });
             
-            console.log(`Added batch ${i/batchSize + 1}/${Math.ceil(documents.length/batchSize)}`);
+            // console.log removed (`Added batch ${i/batchSize + 1}/${Math.ceil(documents.length/batchSize)}`);
           }
         }
         
         isChromaAvailable = true;
-        console.log('ChromaDB setup completed successfully');
+        // console.log removed ('ChromaDB setup completed successfully');
       } catch (error) {
-        console.warn('Failed to connect to ChromaDB, using fallback mode:', error.message);
+        // console.warn removed ('Failed to connect to ChromaDB, using fallback mode:', error.message);
         isChromaAvailable = false;
       }
     }
     
     return true;
   } catch (error) {
-    console.error("Error initializing RAG system:", error);
+    // console.error removed ("Error initializing RAG system:", error);
     return false;
   }
 }
@@ -244,7 +255,7 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
   }
   
   try {
-    console.log(`Retrieving context for query: ${queryText.substring(0, 50)}...`);
+    // console.log removed (`Retrieving context for query: ${queryText.substring(0, 50)}...`);
     
     // Get ChromaDB client status
     const { client: chromaClient, isInitialized } = await initializeChromaDB();
@@ -252,23 +263,23 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
     
     // If ChromaDB is available, use it for semantic search
     if (isChromaReady) {
-      console.log('Using ChromaDB for semantic search with collection: diabetes_textbook');
+      // console.log removed ('Using ChromaDB for semantic search with collection: diabetes_textbook');
       try {
         // Initialize the embedder if not already done
         if (!isEmbedderInitialized) {
-          console.log('🔄 Initializing embedding model...');
+          // console.log removed ('🔄 Initializing embedding model...');
           try {
             await LocalEmbedder.initialize();
             isEmbedderInitialized = true;
-            console.log('✅ Embedding model initialized successfully');
+            // console.log removed ('✅ Embedding model initialized successfully');
           } catch (error) {
-            console.error('❌ Failed to initialize embedding model:', error);
+            // console.error removed ('❌ Failed to initialize embedding model:', error);
             throw new Error('Failed to initialize embedding model');
           }
         }
 
         // Get embedding for the query using the local model
-        console.log('🔄 Generating local embedding for query...');
+        // console.log removed ('🔄 Generating local embedding for query...');
         let queryEmbedding;
         try {
           // Ensure the text is properly formatted for the model
@@ -282,13 +293,13 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
           queryEmbedding = await LocalEmbedder.getEmbedding(instruction + formattedQuery);
           
           if (!queryEmbedding || !Array.isArray(queryEmbedding) || queryEmbedding.length !== 1024) {
-            console.warn('⚠️ Invalid embedding format, using fallback');
+            // console.warn removed ('⚠️ Invalid embedding format, using fallback');
             throw new Error('Invalid embedding format');
           }
           
-          console.log(`✅ Generated embedding with ${queryEmbedding.length} dimensions`);
+          // console.log removed (`✅ Generated embedding with ${queryEmbedding.length} dimensions`);
         } catch (error) {
-          console.error('❌ Error generating embedding:', error);
+          // console.error removed ('❌ Error generating embedding:', error);
           throw new Error(`Failed to generate query embedding: ${error.message}`);
         }
         
@@ -300,7 +311,7 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
         });
         
         if (!results || !results.ids || !results.ids[0]) {
-          console.warn('No results from ChromaDB query, using fallback');
+          // console.warn removed ('No results from ChromaDB query, using fallback');
           throw new Error('No results from ChromaDB');
         }
         
@@ -352,11 +363,11 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
                     ids: [chunkId],
                     include: ['documents', 'metadatas']
                   };
-                  console.log('Fetching chunk:', chunkId);
+                  // console.log removed ('Fetching chunk:', chunkId);
                   const result = await collection.get(getRequest);
                   
                   if (!result || !result.documents || result.documents.length === 0) {
-                    console.log(`Chunk ${chunkId} not found in collection`);
+                    // console.log removed (`Chunk ${chunkId} not found in collection`);
                     return; // Skip if no document found
                   }
                   
@@ -372,7 +383,7 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
                     processedChunks.add(chunkId);
                   }
                 } catch (error) {
-                  console.warn(`Could not retrieve adjacent chunk ${chunkId}:`, error.message);
+                  // console.warn removed (`Could not retrieve adjacent chunk ${chunkId}:`, error.message);
                 }
               };
               
@@ -392,14 +403,14 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
           });
           
           // Format the context and sources
-          console.log('📝 Formatting context and sources...');
+          // console.log removed ('📝 Formatting context and sources...');
           const context = contextChunks.map(chunk => {
             // Add metadata header for each chunk
             const sourceInfo = chunk.metadata?.source || 'Unknown';
             const pageInfo = chunk.metadata?.page || 'N/A';
             const chapterInfo = chunk.metadata?.chapter_title || 'N/A';
             
-            console.log(`🔍 Processing chunk - Source: ${sourceInfo}, Page: ${pageInfo}, Chapter: ${chapterInfo}, Distance: ${chunk.distance}`);
+            // console.log removed (`🔍 Processing chunk - Source: ${sourceInfo}, Page: ${pageInfo}, Chapter: ${chapterInfo}, Distance: ${chunk.distance}`);
             
             const metaInfo = [
               `[Source: ${sourceInfo}`,
@@ -417,40 +428,40 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
                 chapter: chapterInfo,
                 score: typeof chunk.distance === 'string' ? parseFloat(chunk.distance) : chunk.distance
               };
-              console.log('📚 Adding source to citations:', JSON.stringify(sourceObj, null, 2));
+              // console.log removed ('📚 Adding source to citations:', JSON.stringify(sourceObj, null, 2));
               sources.push(sourceObj);
             }
             
             return `${metaInfo}\n${chunk.text}`;
           }).join("\n\n");
           
-          console.log(`Retrieved ${results.documents[0].length} relevant documents from ChromaDB`);
+          // console.log removed (`Retrieved ${results.documents[0].length} relevant documents from ChromaDB`);
           return {
             context,
             sources
           };
         }
       } catch (error) {
-        console.warn('ChromaDB query failed, falling back to keyword search:', error.message);
+        // console.warn removed ('ChromaDB query failed, falling back to keyword search:', error.message);
         // Fall through to keyword search if ChromaDB query fails
       }
     }
     
     // Fallback: Use simple keyword matching if ChromaDB is not available
-    console.log('Using fallback keyword search');
+    // console.log removed ('Using fallback keyword search');
     try {
       // First try to load all documents if not already loaded
       if (documents.length === 0) {
-        console.log('Loading documents for fallback search...');
+        // console.log removed ('Loading documents for fallback search...');
         documents = await loadDocuments();
       }
       
       if (documents.length === 0) {
-        console.warn('No documents available for fallback search');
+        // console.warn removed ('No documents available for fallback search');
         return { context: "", sources: [] };
       }
       
-      console.log(`Searching through ${documents.length} documents for fallback search`);
+      // console.log removed (`Searching through ${documents.length} documents for fallback search`);
       const relevantDocs = simpleKeywordSearch(queryText, documents, topN);
       
       if (relevantDocs.length > 0) {
@@ -473,18 +484,18 @@ export async function retrieveRelevantContext(queryText, topN = 3, includeAdjace
           score: 'N/A'
         }));
 
-        console.log(`Retrieved ${relevantDocs.length} relevant documents using keyword search`);
+        // console.log removed (`Retrieved ${relevantDocs.length} relevant documents using keyword search`);
         return { context, sources };
       }
 
-      console.log('No relevant context found');
+      // console.log removed ('No relevant context found');
       return { context: "", sources: [] };
     } catch (error) {
-      console.error('Error in fallback keyword search:', error);
+      // console.error removed ('Error in fallback keyword search:', error);
       return { context: "", sources: [] };
     }
   } catch (error) {
-    console.error('Error in retrieveRelevantContext:', error);
+    // console.error removed ('Error in retrieveRelevantContext:', error);
     return { context: "", sources: [] };
   }
 }

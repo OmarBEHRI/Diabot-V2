@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Message Component
+ * 
+ * Renders individual chat messages with support for:
+ * - Different styling for user and assistant messages
+ * - Markdown formatting with GFM support
+ * - Source document display for RAG-enhanced responses
+ * - Timestamp display and avatar icons
+ * - Collapsible source document sections
+ */
+
 import React, { useState, useEffect } from "react"
 import { format } from "date-fns"
 import { User, Bot, ChevronDown, ChevronUp } from "lucide-react"
@@ -26,31 +37,17 @@ export default function Message({ message, className }: MessageProps) {
   const [sourcesReady, setSourcesReady] = useState(false)
   const hasSources = message.sources && message.sources.length > 0
   
-  // Log message props for debugging and ensure sources are ready
-  React.useEffect(() => {
-    console.log('💬 Message props:', {
-      id: message.id,
-      role: message.role,
-      hasSources,
-      sources: message.sources,
-      contentPreview: message.content.substring(0, 50) + '...'
-    });
-    
+  useEffect(() => {
     if (hasSources) {
-      console.log('📚 Sources in message:', JSON.stringify(message.sources, null, 2));
-      // Mark sources as ready to ensure they can be displayed immediately
       setSourcesReady(true);
     } else {
-      // Reset sources ready state if no sources
       setSourcesReady(false);
     }
   }, [message, hasSources]);
   
-  // Force re-render when message or sources change
-  React.useEffect(() => {
-    // Create a small delay to ensure the sources are processed
+  useEffect(() => {
     const timer = setTimeout(() => {
-      if (hasSources && !sourcesReady) {
+      if (hasSources) {
         setSourcesReady(true);
       }
     }, 100);
@@ -58,8 +55,7 @@ export default function Message({ message, className }: MessageProps) {
     return () => clearTimeout(timer);
   }, [message, hasSources, sourcesReady]);
   
-  // Reset showSources when message changes to ensure proper state
-  React.useEffect(() => {
+  useEffect(() => {
     setShowSources(false);
   }, [message.id]);
 

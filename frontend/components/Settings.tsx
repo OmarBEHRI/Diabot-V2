@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Settings Component
+ * 
+ * Provides user settings management interface:
+ * - User profile and password management
+ * - Theme preferences (light/dark mode)
+ * - Default AI model selection
+ * - RAG system configuration options
+ * - Accessible via the user dropdown menu in the navigation bar
+ */
+
 import { useState, useEffect } from 'react';
 import { useAuth } from "@/context/AuthContext"
 import { useChat } from "@/context/ChatContext"

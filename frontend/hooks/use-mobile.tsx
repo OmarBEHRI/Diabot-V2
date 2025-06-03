@@ -1,3 +1,13 @@
+/**
+ * Mobile Detection Hook
+ * 
+ * A custom React hook for responsive UI adaptation:
+ * - Detects if the current viewport is mobile-sized (below 768px)
+ * - Uses window.matchMedia for reliable screen size detection
+ * - Updates state automatically when screen size changes
+ * - Used throughout the application for responsive component rendering
+ */
+
 import * as React from "react"
 
 const MOBILE_BREAKPOINT = 768

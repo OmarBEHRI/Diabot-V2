@@ -12,31 +12,25 @@ const dbPath = path.join(__dirname, 'data', 'diabot.db');
 // Connect to the database
 const db = new Database(dbPath, { readonly: true });
 
-console.log('🔍 Inspecting database schema...\n');
+// console.log removed ('🔍 Inspecting database schema...\n');
 
 // Function to get table info
 function inspectTable(tableName) {
-  console.log(`📋 Table: ${tableName}`);
-  
   try {
     // Get table columns
     const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
-    console.log('\nColumns:');
     console.table(columns);
     
     // Get indexes
     const indexes = db.prepare(`PRAGMA index_list(${tableName})`).all();
     if (indexes.length > 0) {
-      console.log('\nIndexes:');
       for (const idx of indexes) {
         const indexInfo = db.prepare(`PRAGMA index_info(${idx.name})`).all();
-        console.log(`- ${idx.name} (${indexInfo.map(i => i.name).join(', ')})`);
       }
     }
     
     // Get row count
     const rowCount = db.prepare(`SELECT COUNT(*) as count FROM ${tableName}`).get().count;
-    console.log(`\nTotal rows: ${rowCount}`);
     
     // Show a few sample rows if they exist
     if (rowCount > 0) {
@@ -46,7 +40,6 @@ function inspectTable(tableName) {
         LIMIT 3
       `).all();
       
-      console.log('\nSample rows (most recent first):');
       console.table(sampleRows.map(row => {
         const r = { ...row };
         // Truncate long text fields for better readability
@@ -61,10 +54,10 @@ function inspectTable(tableName) {
     }
     
   } catch (error) {
-    console.error(`❌ Error inspecting table ${tableName}:`, error.message);
+    // console.error removed (`❌ Error inspecting table ${tableName}:`, error.message);
   }
   
-  console.log('\n' + '='.repeat(80) + '\n');
+  // console.log removed ('\n' + '='.repeat(80) + '\n');
 }
 
 // Inspect relevant tables
@@ -74,4 +67,4 @@ inspectTable('chat_sessions');
 // Close the database connection
 db.close();
 
-console.log('✅ Database inspection complete.');
+// console.log removed ('✅ Database inspection complete.');

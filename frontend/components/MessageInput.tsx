@@ -1,5 +1,16 @@
 "use client"
 
+/**
+ * Message Input Component
+ * 
+ * Provides the user interface for composing and sending messages in the chat.
+ * Features include:
+ * - Text input with support for multi-line messages
+ * - Model selection dropdown with search functionality
+ * - Handling of both new sessions and existing sessions
+ * - Loading states and error handling
+ */
+
 import type React from "react"
 
 import { useState, useEffect } from "react"

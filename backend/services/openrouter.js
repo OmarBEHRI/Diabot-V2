@@ -1,3 +1,14 @@
+/**
+ * OpenRouter API Service
+ * 
+ * Provides integration with OpenRouter for AI model access:
+ * - Handles API calls to various AI models (GPT, Gemini, Llama, etc.)
+ * - Manages text embedding generation for semantic search
+ * - Supports text summarization for chat sessions
+ * - Includes fallback mechanisms and mock responses when API is unavailable
+ * - Handles model-specific configurations and error handling
+ */
+
 import fetch from 'node-fetch';
 import { LocalEmbedder } from './localEmbeddings.js';
 
@@ -6,13 +17,8 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const EMBEDDING_MODEL = 'BAAI/bge-large-en-v1.5'; // Using the same model as in process_textbook.py
 const EMBEDDING_DIMENSION = 1024; // Dimension for BAAI/bge-large-en-v1.5
 
-if (!OPENROUTER_API_KEY) {
-  console.warn('OpenRouter API key not found. Some features may be limited.');
-}
-
-// Check if API key is set and log status
+// Check if API key is set
 const isApiKeySet = OPENROUTER_API_KEY && OPENROUTER_API_KEY.length > 10;
-console.log("OpenRouter API Key status:", isApiKeySet ? "Set (first 5 chars: " + OPENROUTER_API_KEY.substring(0, 5) + ")" : "Not set - using mock responses");
 
 // Constants for API requests
 const YOUR_SITE_URL = 'http://localhost:3000';
@@ -29,17 +35,17 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 20
   // Check if model is one of the problematic ones and replace with a fallback
   if (model.includes('claude-instant') || model.includes('mistral-7b-instruct')) {
     const fallbackModel = FALLBACK_MODELS[0];
-    console.log(`⚠️ Replacing problematic model ${model} with fallback model ${fallbackModel}`);
+    // console.log removed (`⚠️ Replacing problematic model ${model} with fallback model ${fallbackModel}`);
     model = fallbackModel;
   }
   try {
     // If API key is not set, use mock response
     if (!isApiKeySet) {
-      console.log(`🔄 Using mock response for model: ${model}`);
+      // console.log removed (`🔄 Using mock response for model: ${model}`);
       return generateMockResponse(messages);
     }
 
-    console.log(`🔄 Calling OpenRouter API with model: ${model}...`);
+    // console.log removed (`🔄 Calling OpenRouter API with model: ${model}...`);
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -58,14 +64,14 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 20
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`❌ API Error for ${model}: ${response.status} ${errorText}`);
+      // console.error removed (`❌ API Error for ${model}: ${response.status} ${errorText}`);
       
       // Try fallback models before giving up
       for (const fallbackModel of FALLBACK_MODELS) {
         // Skip if this is the model that just failed
         if (fallbackModel === model) continue;
         
-        console.log(`🔄 Trying fallback model: ${fallbackModel}...`);
+        // console.log removed (`🔄 Trying fallback model: ${fallbackModel}...`);
         try {
           const fallbackResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
             method: 'POST',
@@ -85,25 +91,25 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 20
           
           if (fallbackResponse.ok) {
             const fallbackData = await fallbackResponse.json();
-            console.log(`✅ Received response from fallback model ${fallbackModel}`);
+            // console.log removed (`✅ Received response from fallback model ${fallbackModel}`);
             return fallbackData.choices[0].message.content.trim();
           }
         } catch (fallbackError) {
-          console.error(`❌ Error with fallback model ${fallbackModel}:`, fallbackError);
+          // console.error removed (`❌ Error with fallback model ${fallbackModel}:`, fallbackError);
         }
       }
       
       // If all fallbacks fail, use mock response
-      console.log(`🔄 All fallback models failed, using mock response`);
+      // console.log removed (`🔄 All fallback models failed, using mock response`);
       return generateMockResponse(messages);
     }
 
     const data = await response.json();
-    console.log(`✅ Received response from OpenRouter API`);
+    // console.log removed (`✅ Received response from OpenRouter API`);
     return data.choices[0].message.content.trim();
   } catch (error) {
-    console.error(`❌ Error calling OpenRouter:`, error);
-    console.log(`🔄 Falling back to mock response due to error`);
+    // console.error removed (`❌ Error calling OpenRouter:`, error);
+    // console.log removed (`🔄 Falling back to mock response due to error`);
     return generateMockResponse(messages);
   }
 }
@@ -112,12 +118,12 @@ async function callOpenRouter(model, messages, temperature = 0.7, maxTokens = 20
 async function getEmbedding(text, model = EMBEDDING_MODEL) {
   // If API key is not set, use mock embedding
   if (!isApiKeySet) {
-    console.log(`🔄 Using mock embedding for text: ${text.substring(0, 30)}...`);
+    // console.log removed (`🔄 Using mock embedding for text: ${text.substring(0, 30)}...`);
     return generateMockEmbedding(text);
   }
 
   try {
-    console.log(`🔄 Getting embedding for text: ${text.substring(0, 30)}...`);
+    // console.log removed (`🔄 Getting embedding for text: ${text.substring(0, 30)}...`);
     const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
       method: 'POST',
       headers: {
@@ -134,26 +140,26 @@ async function getEmbedding(text, model = EMBEDDING_MODEL) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`❌ API Error for embeddings: ${response.status} ${errorText}`);
-      console.log(`🔄 Falling back to mock embedding`);
+      // console.error removed (`❌ API Error for embeddings: ${response.status} ${errorText}`);
+      // console.log removed (`🔄 Falling back to mock embedding`);
       return generateMockEmbedding(text);
     }
 
     const data = await response.json();
-    console.log(`✅ Received embedding from OpenRouter API`);
+    // console.log removed (`✅ Received embedding from OpenRouter API`);
     return data.data[0].embedding;
   } catch (error) {
-    console.error(`❌ Error getting embedding:`, error);
-    console.log(`🔄 Falling back to mock embedding due to error`);
+    // console.error removed (`❌ Error getting embedding:`, error);
+    // console.log removed (`🔄 Falling back to mock embedding due to error`);
     return generateMockEmbedding(text);
   }
 }
 
 async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324') { // Default to gemma for summarization
-  console.log('🔍 Starting summary generation for text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
+  // console.log removed ('🔍 Starting summary generation for text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
 
   if (!text || text.trim() === '') {
-    console.log('⚠️ Empty text provided for summarization, returning default title');
+    // console.log removed ('⚠️ Empty text provided for summarization, returning default title');
     return 'New Chat';
   }
 
@@ -163,23 +169,23 @@ async function summarizeText(text, model = 'deepseek/deepseek-chat-v3-0324') { /
   ];
 
   try {
-    console.log(`🤖 Calling OpenRouter API with model: ${model} for summarization`);
+    // console.log removed (`🤖 Calling OpenRouter API with model: ${model} for summarization`);
     const summary = await callOpenRouter(model, messages, 0.5, 50); // Lower temperature, max_tokens for concise summary
-    console.log('✅ Successfully generated summary:', summary);
+    // console.log removed ('✅ Successfully generated summary:', summary);
 
     // If summary is empty or too short, fallback to truncated text
     if (!summary || summary.trim().length < 3) {
-      console.log('⚠️ Generated summary too short, falling back to truncated text');
+      // console.log removed ('⚠️ Generated summary too short, falling back to truncated text');
       return text.substring(0, 30) + '...';
     }
 
     return summary;
   } catch (error) {
-    console.error("❌ Error summarizing text:", error);
+    // console.error removed ("❌ Error summarizing text:", error);
     // More robust fallback - extract first few words if possible
     const words = text.split(' ').slice(0, 5).join(' ');
     const fallbackTitle = words + (words.length < text.length ? '...' : '');
-    console.log('⚠️ Using fallback title:', fallbackTitle);
+    // console.log removed ('⚠️ Using fallback title:', fallbackTitle);
     return fallbackTitle;
   }
 }

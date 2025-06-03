@@ -1,5 +1,14 @@
 "use client"
 
+/**
+ * Root Page Component
+ * 
+ * Serves as the application entry point that:
+ * - Automatically redirects users to the homepage
+ * - Displays a loading spinner during authentication check
+ * - Handles routing based on authentication state
+ */
+
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
