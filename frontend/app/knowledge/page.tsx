@@ -27,6 +27,16 @@ import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import NavigationBar from "@/components/NavigationBar";
 
 interface ProcessedFile {
@@ -334,6 +344,29 @@ export default function KnowledgePage() {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
+  const handleConfirmDeleteAll = async () => {
+    if (deleteConfirmText !== 'DELETE ALL') {
+      alert('Please type DELETE ALL to confirm.');
+      return;
+    }
+    try {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/rag/delete-all-pdfs`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      fetchProcessedFiles(); // Refresh the list, should be empty
+      setShowDeleteAllConfirm(false);
+      setDeleteConfirmText('');
+      alert('All documents deleted successfully.');
+    } catch (error) {
+      console.error('Error deleting all documents:', error);
+      alert('Failed to delete all documents. Please try again.');
+      setShowDeleteAllConfirm(false);
+      setDeleteConfirmText('');
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-teal-50">
@@ -376,6 +409,42 @@ export default function KnowledgePage() {
                 Manage Documents
               </TabsTrigger>
             </TabsList>
+
+            {/* Delete All Confirmation Dialog */}
+            {showDeleteAllConfirm && (
+              <AlertDialog open={showDeleteAllConfirm} onOpenChange={(isOpen) => {
+                setShowDeleteAllConfirm(isOpen);
+                if (!isOpen) setDeleteConfirmText(''); // Clear text if dialog is closed
+              }}>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete all processed documents and their summaries from the server and the vector store.
+                      <br /><br />
+                      Please type <strong>DELETE ALL</strong> to confirm.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <Input 
+                    type="text"
+                    value={deleteConfirmText}
+                    onChange={(e) => setDeleteConfirmText(e.target.value)}
+                    placeholder="DELETE ALL"
+                    className="my-2 border-gray-300 focus:ring-red-500 focus:border-red-500"
+                  />
+                  <AlertDialogFooter>
+                    <AlertDialogCancel onClick={() => setDeleteConfirmText('')}>Cancel</AlertDialogCancel>
+                    <AlertDialogAction 
+                      onClick={handleConfirmDeleteAll}
+                      disabled={deleteConfirmText !== 'DELETE ALL'}
+                      className={deleteConfirmText === 'DELETE ALL' ? "bg-red-600 hover:bg-red-700 text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"}
+                    >
+                      Confirm Delete All
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            )}
             
             <TabsContent value="upload">
               <Card className="border-gray-200 shadow-md bg-white/90 backdrop-blur-md hover:shadow-lg transition-shadow duration-300">

@@ -12,9 +12,8 @@ echo Starting Frontend Development Server...
 start "Frontend" cmd /k "cd frontend && npm run dev"
 
 echo.
-echo Both servers are starting in development mode (hot reload enabled)...
-echo Backend: http://localhost:3000
-echo Frontend: http://localhost:8090
+echo Backend: http://localhost:8090
+echo Frontend: http://localhost:3000
 echo.
 echo Press any key to exit...
 pause > nul

@@ -3,8 +3,6 @@ import { getDb } from './db.js';
 // Get database connection
 const db = getDb();
 
-// console.log removed ('🔄 Updating models in the database...');
-
 // 1. Remove outdated models (Claude Instant and Mistral 7B)
 try {
   db.prepare('DELETE FROM models WHERE openrouter_id LIKE ? OR openrouter_id LIKE ?')

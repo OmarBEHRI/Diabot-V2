@@ -34,7 +34,6 @@ fs.mkdirSync(SUMMARIES_DIR, { recursive: true });
  * @returns {Promise<{success: boolean, message: string, outputPath: string}>}
  */
 export async function processPdfToSummaries(pdfPath, testMode = false) {
-  // console.log removed (`🔄 Processing PDF to summaries: ${pdfPath}`);
   
   // Generate output filename based on the PDF name (using original filename without extension)
   const pdfBasename = path.basename(pdfPath, '.pdf');
@@ -46,7 +45,7 @@ export async function processPdfToSummaries(pdfPath, testMode = false) {
       mode: 'text',
       pythonPath: 'python', // Assumes Python is in PATH
       pythonOptions: ['-u'], // Unbuffered output
-      scriptPath: SCRIPTS_DIR,
+      scriptPath: path.join(SCRIPTS_DIR, 'knowledge-extraction-from-user-docs'),
       args: [
         pdfPath,
         '--output', outputPath,
@@ -54,13 +53,9 @@ export async function processPdfToSummaries(pdfPath, testMode = false) {
       ]
     };
     
-    // console.log removed (`🐍 Executing Python script with options:`, JSON.stringify(options, null, 2));
-    
     // Run the Python script
-    PythonShell.run('process_textbook.py', options)
+    PythonShell.run('knowledge-extraction-script.py', options)
       .then(messages => {
-        // console.log removed ('✅ PDF processing completed successfully');
-        // console.log removed ('📝 Python script output:', messages);
         resolve({
           success: true,
           message: 'PDF processed successfully',

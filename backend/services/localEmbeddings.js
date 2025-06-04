@@ -22,7 +22,6 @@ const __dirname = path.dirname(__filename);
 const modelsDir = path.join(__dirname, '..', '..', 'models');
 if (!fs.existsSync(modelsDir)) {
     fs.mkdirSync(modelsDir, { recursive: true });
-    // console.log removed (`📁 Created models directory at: ${modelsDir}`);
 }
 
 class LocalEmbedder {
@@ -42,7 +41,6 @@ class LocalEmbedder {
             return this.initPromise;
         }
 
-        // console.log removed (`🔄 Initializing local embedding model: ${this.modelName}`);
         this.initializing = true;
         
         // Create a promise that will resolve when initialization is complete
@@ -52,9 +50,7 @@ class LocalEmbedder {
                 const modelExists = fs.existsSync(path.join(this.modelPath, 'config.json'));
                 
                 if (modelExists) {
-                    // console.log removed ('📦 Using locally cached model');
                 } else {
-                    // console.log removed ('📥 Model not found, downloading... (this may take a while, ~1.3GB)');
                     fs.mkdirSync(this.modelPath, { recursive: true });
                 }
                 
