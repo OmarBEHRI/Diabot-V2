@@ -2,5 +2,3 @@ this is just a test for git
 
 
 Another text here
-
-hello
